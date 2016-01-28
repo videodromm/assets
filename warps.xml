@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<warpconfig version="1.0" profile="default">
+	<profile name="default">
+		<map id="1" display="1">
+			<warp method="perspectivebilinear" width="2" height="2" brightness="1" resolution="16" linear="0" adaptive="1">
+				<controlpoint x="0" y="0"/>
+				<controlpoint x="0" y="1"/>
+				<controlpoint x="1" y="0"/>
+				<controlpoint x="1" y="1"/>
+				<corner x="0.302604169" y="0.260170281"/>
+				<corner x="0.5390625" y="0.375591308"/>
+				<corner x="0.597395837" y="0.635761619"/>
+				<corner x="0.354166657" y="0.660359502"/>
+			</warp>
+		</map>
+		<map id="2" display="1">
+			<warp method="perspectivebilinear" width="3" height="2" brightness="1" resolution="16" linear="0" adaptive="1">
+				<controlpoint x="0" y="0"/>
+				<controlpoint x="0" y="1"/>
+				<controlpoint x="0.545835674" y="-0.7215662"/>
+				<controlpoint x="0.390060931" y="1.53010142"/>
+				<controlpoint x="1" y="0"/>
+				<controlpoint x="1" y="1"/>
+				<corner x="0.0515624993" y="0.336802274"/>
+				<corner x="0.277083337" y="0.35193944"/>
+				<corner x="0.336979181" y="0.563859999"/>
+				<corner x="0.0520833321" y="0.56196785"/>
+			</warp>
+		</map>
+		<map id="3" display="1">
+			<warp method="perspectivebilinear" width="2" height="2" brightness="1" resolution="16" linear="0" adaptive="1">
+				<controlpoint x="0" y="0"/>
+				<controlpoint x="0" y="1"/>
+				<controlpoint x="1" y="0"/>
+				<controlpoint x="1" y="1"/>
+				<corner x="0.505729139" y="0.143803224"/>
+				<corner x="0.935416639" y="0.130558178"/>
+				<corner x="0.967187524" y="0.551560998"/>
+				<corner x="0.595312476" y="0.484389782"/>
+			</warp>
+		</map>
+	</profile>
+</warpconfig>
+
