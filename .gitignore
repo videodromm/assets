@@ -1,0 +1,7 @@
+# Logs
+logs
+*.log
+
+# mac and windows
+.DS_Store
+Thumbs.db
