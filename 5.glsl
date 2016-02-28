@@ -56,31 +56,10 @@ vec3 march(vec3 f, vec3 ro, vec3 rd, float st)
 	return f;
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
-{
-	vec2 si = iResolution.xy;
-	vec2 uv = (fragCoord*2.-si.xy) / min(si.x, si.y);
-
-	float t = iGlobalTime * 12.;
-	vec3 ro = vec3(0,-.5,t);
-	ro.xy -= path(ro);
-	
-	vec3 co = ro + vec3(0,0,1);
-	vec3 cu = vec3(0,1,0);
-	
-	float fov = 5.;
-	vec3 z = normalize(co - ro);
-	vec3 x = normalize(cross(cu, z));
-	vec3 y = normalize(cross(z, x));
-	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
-
-	fragColor.rgb = march(fragColor.rgb, ro, rd, 0.135);
-}
-
 void main(void)
 {
-   vec2 si = iResolution.xy;
-	vec2 uv = (gl_FragCoord*2.-si.xy) / min(si.x, si.y);
+    vec2 si = iResolution.xy;
+	vec2 uv = (gl_FragCoord.xy*2.-si.xy) / min(si.x, si.y);
 
 	float t = iGlobalTime * 12.;
 	vec3 ro = vec3(0,-.5,t);
@@ -95,5 +74,5 @@ void main(void)
 	vec3 y = normalize(cross(z, x));
 	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
 
-	gl_FragColor.rgb = march(fragColor.rgb, ro, rd, 0.135);
+	gl_FragColor.rgb = march(gl_FragColor.rgb, ro, rd, 0.135);
 }
