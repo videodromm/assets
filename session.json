@@ -1,0 +1,14 @@
+{
+   "assets" : {
+      "moviefile" : "none.mov",
+      "movieplaybackdelay" : 14,
+      "wavefile" : "none.wav",
+      "waveplaybackdelay" : 17
+   },
+   "settings" : {
+      "bpm" : 166,
+      "endframe" : 1555222,
+      "fadeindelay" : 25,
+      "fadeoutdelay" : 15
+   }
+}
