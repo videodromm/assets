@@ -1,15 +1,13 @@
 {
    "assets" : {
-      "imagesequencepath" : "seq-fullvolume",
-      "moviefile" : "none.mov",
+      "moviefile" : "drumsticks1280x720hap.mov",
       "movieplaybackdelay" : 10,
-      "wavefile" : "none.wav",
       "waveplaybackdelay" : 10
    },
    "settings" : {
       "beatsperbar" : 8,
-      "bpm" : 171.41999816894531,
-      "endframe" : 20000,
+      "bpm" : 101,
+      "endframe" : 200000,
       "fadeindelay" : 10,
       "fadeoutdelay" : 1
    }
