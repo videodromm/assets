@@ -1,3 +1,4 @@
+#version 150
 uniform vec3        iResolution;         	// viewport resolution (in pixels)
 uniform sampler2D   iChannel0;				// input channel 0 (TODO: support samplerCube)
 uniform vec3      	iChannelResolution[4]; 	// channel resolution (in pixels)
