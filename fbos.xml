@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fbos version="1.0">
 	<fbo id="1" fbotype="texture">
-		<details filepath="0.jpg" width="640" height="480"/>
+		<details filepath="0.jpg" width="640" height="480" shadername="10.glsl"/>
+	</fbo>
+	<fbo id="2" fbotype="g">
+		<details filepath="0.jpg" width="640" height="480" shadername="fbotexture"/>
 	</fbo>
 </fbos>
 
