@@ -1,6 +1,6 @@
 {
    "params" : {
-      "autobeatanimation" : "1",
+      "autobeatanimation" : "0",
       "background_color" : {
          "b" : "0",
          "g" : "0",
