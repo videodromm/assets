@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mixes version="1.0">
 	<mix id="1" mixtype="mix">
-		<details fbopath="fbos.xml" width="640" height="480"/>
+		<fbo id="1" width="640" height="480">
+			<texture id="1" texturetype="image">
+				<details path="0.jpg" width="640" height="480" shadername="10.glsl"/>
+			</texture>
+			<texture id="2" texturetype="imagesequence">
+				<details path="mandalas" width="640" height="480" shadername="10.glsl"/>
+			</texture>
+			<texture id="3" texturetype="movie">
+				<details path="pupilles640x480.hap.mov" width="640" height="480" shadername="10.glsl"/>
+			</texture>
+			<texture id="4" texturetype="shared">
+				<details path="0.jpg" width="640" height="480" shadername="10.glsl"/>
+			</texture>
+			<texture id="5" texturetype="image">
+				<details path="0.jpg" width="640" height="480" shadername="DataTransfer.glsl" topdown="1"/>
+			</texture>
+		</fbo>
+		<fbo id="2" width="640" height="480">
+			<texture id="2" texturetype="imagesequence">
+				<details path="mandalas" width="640" height="480" shadername="0.glsl"/>
+			</texture>
+			<texture id="1" texturetype="image">
+				<details path="help.jpg" width="640" height="480" shadername="13.glsl"/>
+			</texture>
+		</fbo>
+
 	</mix>
 </mixes>
+
 
