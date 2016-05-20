@@ -23,11 +23,10 @@
 				<details path="mandalas" width="640" height="480" shadername="0.glsl"/>
 			</texture>
 			<texture id="1" texturetype="image">
-				<details path="help.jpg" width="640" height="480" shadername="13.glsl"/>
+				<details path="help.jpg" width="640" height="480" shadername="AcidAtTheDisco.glsl"/>
 			</texture>
 		</fbo>
 
 	</mix>
 </mixes>
-
 
