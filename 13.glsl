@@ -123,10 +123,10 @@ vec3 PopularSquaresColours(vec2 p)
 {
 	p+=vec2(PopularTime*0.2);
 	
-	//vec3 orange=vec3(1.0,0.4,0.1)*2.0;
-	//vec3 purple=vec3(1.0,0.2,0.5)*0.8;
-	vec3 orange=vec3(iColor.r,iColor.g,iColor.b)*2.0;
-	vec3 purple=vec3(iBackgroundColor.r,iBackgroundColor.g,iBackgroundColor.b)*0.8;
+	vec3 orange=vec3(1.0,0.4,0.1)*2.0;
+	vec3 purple=vec3(1.0,0.2,0.5)*0.8;
+	//vec3 orange=vec3(iColor.r,iColor.g,iColor.b)*2.0;
+	//vec3 purple=vec3(iBackgroundColor.r,iBackgroundColor.g,iBackgroundColor.b)*0.8;
 	
 	float l=pow(0.5+0.5*cos(p.x*7.0+cos(p.y)*8.0)*sin(p.y*2.0),4.0)*2.0;
 	vec3 c=pow(l*(mix(orange,purple,0.5+0.5*cos(p.x*40.0+sin(p.y*10.0)*3.0))+
@@ -214,9 +214,9 @@ vec3 PopularRoom(vec3 ro,vec3 rd,out vec3 rp,out vec3 n)
 
 vec3 PopularScene(vec2 p)
 {
-	//mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * 0.5);
+	mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * 0.5);
 	//mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * iRotationSpeed/15.0);
-	mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * iRotationSpeed/15.0);
+	//mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * iRotationSpeed/15.0);
 	// white float lt=mod(PopularTime*PopularWc_Scale,PopularWLen)/PopularWLen;
 	float lt=mod(2.0*PopularWc_Scale,PopularWLen)/PopularWLen;
 	
@@ -247,8 +247,7 @@ vec3 PopularScene(vec2 p)
 void main(void)
 {
    vec2 uv = iZoom * (gl_FragCoord.xy / iResolution.xy);
-   uv.x -= iRenderXY.x;
-   uv.y -= iRenderXY.y;
+
 	PopularTime=iGlobalTime+1.0;
 	PopularBob=cos(PopularTime*12.0)*0.05;
 	PopularScroll=-15.0+mod(PopularTime*PopularWc_Scale,PopularWLen)*2.0;
