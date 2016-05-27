@@ -15,7 +15,7 @@
 				<details path="0.jpg" width="640" height="480" shadername="13.glsl"/>
 			</texture>
 			<texture id="5" texturetype="image">
-				<details path="help.jpg" width="640" height="480" shadername="DataTransfer.glsl" topdown="1"/>
+				<details path="help.jpg" width="640" height="480" shadername="0.glsl" topdown="1"/>
 			</texture>
 		</fbo>
 		<fbo id="2" width="640" height="480">
@@ -23,7 +23,7 @@
 				<details path="help.jpg" width="640" height="480" shadername="13.glsl"/>
 			</texture>
 			<texture id="2" texturetype="image">
-				<details path="help.jpg" width="640" height="480" shadername="AcidAtTheDisco.glsl"/>
+				<details path="0.jpg" width="640" height="480" shadername="AcidAtTheDisco.glsl"/>
 			</texture>
 		</fbo>
 
