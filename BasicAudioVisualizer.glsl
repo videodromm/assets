@@ -8,6 +8,12 @@
 // https://soundcloud.com/wearecastor/rad
 //
 */
+uniform vec3  iResolution;  // viewport resolution (in pixels)
+uniform vec3  iColor;
+uniform float iGlobalTime;
+uniform sampler2D	iChannel0;
+uniform sampler2D	iChannel1;
+uniform vec3 spectrum;
 
 float audio_freq( in sampler2D channel, in float f) { return texture2D( channel, vec2(f, 0.25) ).x; }
 float audio_ampl( in sampler2D channel, in float t) { return texture2D( channel, vec2(t, 0.75) ).x; }
