@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<textures version="1.0">
+	<texture id="1" texturetype="image">
+		<details path="0.jpg" width="2000" height="1334" topdown="1"/>
+	</texture>
+	<texture id="2" texturetype="image">
+		<details path="1.jpg" width="2000" height="1334" topdown="1"/>
+	</texture>
+</textures>
+
