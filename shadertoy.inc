@@ -11,7 +11,7 @@ uniform sampler2D 	iChannel2; 				// input channel 2
 uniform sampler2D 	iChannel3; 				// input channel 3 
 uniform sampler2D 	iChannel4; 				//  
 uniform vec4      	iDate; 					// (year, month, day, time in seconds)
-// reymenta specific
+// videodromm specific
 uniform sampler2D   iAudio0;				// input channel 0 (audio)
 uniform vec3        iBackgroundColor;    	// background color
 uniform vec3        iColor;              	// color
@@ -59,3 +59,4 @@ uniform float        iFreq0;              // sound
 uniform float        iFreq1;              // sound
 uniform float        iFreq2;              // sound
 uniform float        iFreq3;              // sound
+uniform vec3 		spectrum;              // sound
