@@ -23,9 +23,9 @@ void main(void)
 	//uv.y = 1.0 - uv.y;
 
     uv.x += spectrum.y * 0.0000004 * tan(iGlobalTime + uv.y );
-	vec4 t0 = texture2D(iChannel0, uv);
-	vec4 t1 = texture2D(iChannel1, uv);
-	vec4 t2 = texture2D(iChannel2, uv);
+	vec4 t0 = texture(iChannel0, uv);
+	vec4 t1 = texture(iChannel1, uv);
+	vec4 t2 = texture(iChannel2, uv);
 	float col = sin(uv.x*iGlobalTime);
     //float col = abs(sin(time + uv.x * 20.0));
 
