@@ -15,8 +15,8 @@ uniform sampler2D	iChannel0;
 uniform sampler2D	iChannel1;
 uniform vec3 spectrum;
 
-float audio_freq( in sampler2D channel, in float f) { return texture2D( channel, vec2(f, 0.25) ).x; }
-float audio_ampl( in sampler2D channel, in float t) { return texture2D( channel, vec2(t, 0.75) ).x; }
+float audio_freq( in sampler2D channel, in float f) { return texture( channel, vec2(f, 0.25) ).x; }
+float audio_ampl( in sampler2D channel, in float t) { return texture( channel, vec2(t, 0.75) ).x; }
 
 vec3 B2_spline(vec3 x) { // returns 3 B-spline functions of degree 2
     vec3 t = 3.0 * x;

@@ -241,7 +241,7 @@ vec4 trixels( vec2 inUV, sampler2D tex )
         {
             vec2 screenPos = vec2(startX+x*halfBase,startY+y*halfHeight);
             vec2 uv1 = screenPos / iResolution.xy;
-			blend += texture2D(tex, uv1);         
+			blend += texture(tex, uv1);         
         }
     }
     rtn = (blend / 9.0);
@@ -254,7 +254,7 @@ vec4 grid( vec2 inUV, sampler2D tex )
     vec2 uv = (floor(gl_FragCoord.xy/iGridSize)*iGridSize)/ iResolution.xy;
     vec3 texColor;
 
-    texColor = texture2D(tex, uv).xyz;
+    texColor = texture(tex, uv).xyz;
     
     float diff = pow(distance(texColor,vec3(0.0,1.0,0.0)),8.0); 
     diff = smoothstep(0.0,1.5,diff);
@@ -283,14 +283,14 @@ vec4 grid( vec2 inUV, sampler2D tex )
 // left main lines begin
 vec3 shaderLeft(vec2 uv)
 {
-	vec4 left = texture2D(iChannel0, uv);
+	vec4 left = texture(iChannel0, uv);
 	// chromatic aberration
 	if (iChromatic > 0.0) 
 	{
 		vec2 offset = vec2(iChromatic/50.,.0);
-		left.r = texture2D(iChannel0, uv+offset.xy).r;
-		left.g = texture2D(iChannel0, uv          ).g;
-		left.b = texture2D(iChannel0, uv+offset.yx).b;
+		left.r = texture(iChannel0, uv+offset.xy).r;
+		left.g = texture(iChannel0, uv          ).g;
+		left.b = texture(iChannel0, uv+offset.yx).b;
 	}
   // Trixels
   if (iTrixels > 0.0) 
@@ -309,14 +309,14 @@ vec3 shaderLeft(vec2 uv)
 // right main lines begin
 vec3 shaderRight(vec2 uv)
 {
-	vec4 right = texture2D(iChannel1, uv);
+	vec4 right = texture(iChannel1, uv);
 	// chromatic aberation
 	if (iChromatic > 0.0) 
 	{
 		vec2 offset = vec2(iChromatic/50.,.0);
-		right.r = texture2D(iChannel1, uv+offset.xy).r;
-		right.g = texture2D(iChannel1, uv          ).g;
-		right.b = texture2D(iChannel1, uv+offset.yx).b;
+		right.r = texture(iChannel1, uv+offset.xy).r;
+		right.g = texture(iChannel1, uv          ).g;
+		right.b = texture(iChannel1, uv+offset.yx).b;
 	}
 	// Trixels
 	if (iTrixels > 0.0) 
@@ -675,7 +675,7 @@ void main(void)
 		}
 
 		vec2 uv2 = vec2(x2 / iResolution.x, y2/ iResolution.y);
-		uv 	= texture2D( iChannel1, uv2 ).rg;
+		uv 	= texture( iChannel1, uv2 ).rg;
 	}
 	// glitch
 	if (iGlitch == 1) 

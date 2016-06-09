@@ -18,7 +18,7 @@ void main(void)
    uv.y -= iRenderXY.y;
 	vec3 final_color, bg_color, wave_color;
 	//establish a reasonable beat estimation
-	float beat = texture2D(iChannel0, vec2(BEAT_POINT, 0.0)).x;
+	float beat = texture(iChannel0, vec2(BEAT_POINT, 0.0)).x;
 	beat = beat * beat;
 	//sun.x is desaturation. (-1.0 - 1.0) is good
 	//sun.y is hue-related (keep around 0.2 - 1.0)
@@ -42,11 +42,11 @@ void main(void)
 	sun = normalize(sun);
 	
 	//waveform at x-coord
-	float hwf = texture2D(iChannel0, vec2(uv.x,1.0)).x;
-	float vwf = texture2D(iChannel0, vec2(uv.y,1.0)).x;
+	float hwf = texture(iChannel0, vec2(uv.x,1.0)).x;
+	float vwf = texture(iChannel0, vec2(uv.y,1.0)).x;
 	
 	#ifdef ALT_MODE
-	float noise = texture2D(iChannel0, vec2(vwf,1.0)).x;
+	float noise = texture(iChannel0, vec2(vwf,1.0)).x;
 	float distort = (vwf - 0.5) * beat * beat * beat;
 	
 	//distort and wrap, triangle mod
@@ -68,7 +68,7 @@ void main(void)
 	float coord = mix(coorda, coordb, 0.5 + 0.5 *sin(iGlobalTime*0.3));
 
 	//distort the spectrum image using the above coords
-	float j = (texture2D(iChannel0, vec2(abs(coord),0.0)).x - 0.5) * 2.0;
+	float j = (texture(iChannel0, vec2(abs(coord),0.0)).x - 0.5) * 2.0;
 
 	//greyscale -> color with a lot of dot products
 	float fac1 = dot(vec3(uv.x,uv.y,j),sun);
@@ -77,10 +77,10 @@ void main(void)
 	bg_color = vec3(fac1,fac2,fac3);
 
 	//extract some info about wave shape
-	float w1 = texture2D(iChannel0, vec2(0.1,0.0)).x;
-	float w2 = texture2D(iChannel0, vec2(0.2,0.0)).x;
-	float w3 = texture2D(iChannel0, vec2(0.4,0.0)).x;
-	float w4 = texture2D(iChannel0, vec2(0.8,0.0)).x;
+	float w1 = texture(iChannel0, vec2(0.1,0.0)).x;
+	float w2 = texture(iChannel0, vec2(0.2,0.0)).x;
+	float w3 = texture(iChannel0, vec2(0.4,0.0)).x;
+	float w4 = texture(iChannel0, vec2(0.8,0.0)).x;
 	
 	//save screenspace for later
 	vec2 ouv = uv;

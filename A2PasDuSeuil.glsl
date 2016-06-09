@@ -16,6 +16,6 @@ void main(void)
 	}
 	float col = sin(uv.x*iGlobalTime);
 
-   	vec4 tex = texture2D(iChannel0, uv);
+   	vec4 tex = texture(iChannel0, uv);
    	gl_FragColor = vec4(vec3( col ),1.0);
 }

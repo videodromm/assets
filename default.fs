@@ -12,7 +12,7 @@ out vec4 oColor;
 void main(void)
 {
     vec2 uv = gl_FragCoord.xy / iResolution.xy;
-   // vec4 left = texture2D(iChannel0, uv);
+   // vec4 left = texture(iChannel0, uv);
     
     //oColor = vec4( left.r, left.g, 0.5 + 0.5 * sin(iGlobalTime), 1.0 );
     oColor = vec4( 1.0, 0.5 * sin(iGlobalTime), 0.0, 1.0 );
