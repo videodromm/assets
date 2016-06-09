@@ -13,7 +13,7 @@ uniform sampler2D	iChannel0;
 uniform sampler2D	iChannel1;
 uniform sampler2D	iChannel2;
 uniform vec3 spectrum;
-//out vec4 oColor; 
+out vec4 oColor; 
 
 void main(void)	
 {
@@ -29,5 +29,5 @@ void main(void)
 	float col = sin(uv.x*iGlobalTime);
     //float col = abs(sin(time + uv.x * 20.0));
 
-   	gl_FragColor = vec4(vec3( col ),1.0);
+   	oColor = vec4(vec3( col ),1.0);
 }
