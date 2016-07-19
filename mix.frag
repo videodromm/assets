@@ -52,7 +52,11 @@ uniform float       iParam2;				// slitscan (or other) Param2
 uniform bool        iXorY;					// slitscan (or other) effect on x or y
 uniform float       iBadTv;					// badtv if > 0.01
 
-const 	float 		  PI = 3.14159265;
+// Let's define PI, but first, if it were defined, we will undefined it, to use a new value
+#ifdef PI
+#undef PI
+#endif
+#define PI  3.14159265;
 // uniforms end
 
 // global functions begin
