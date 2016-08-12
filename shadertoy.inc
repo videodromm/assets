@@ -6,10 +6,10 @@ uniform float     	iChannelTime[4]; 		// channel playback time (in seconds)
 uniform vec3      	iChannelResolution[4]; 	// channel resolution (in pixels)
 uniform vec4      	iMouse; 				// mouse pixel coords. xy: current (if MLB down), zw: click
 uniform sampler2D 	iChannel0; 				// input channel 0 (TODO: support samplerCube)
-uniform sampler2D 	iChannel1; 				// input channel 1 
-uniform sampler2D 	iChannel2; 				// input channel 2 
-uniform sampler2D 	iChannel3; 				// input channel 3 
-uniform sampler2D 	iChannel4; 				//  
+uniform sampler2D 	iChannel1; 				// input channel 1
+uniform sampler2D 	iChannel2; 				// input channel 2
+uniform sampler2D 	iChannel3; 				// input channel 3
+uniform sampler2D 	iChannel4; 				//
 uniform vec4      	iDate; 					// (year, month, day, time in seconds)
 // videodromm specific
 uniform sampler2D   iAudio0;				// input channel 0 (audio)
@@ -19,7 +19,7 @@ uniform int         iSteps;              	// steps for iterations
 uniform int         iFade;               	// 1 for fade out
 uniform int         iToggle;             	// 1 for toggle
 uniform float       iRatio;
-uniform vec2        iRenderXY;           	// move x y 
+uniform vec2        iRenderXY;           	// move x y
 uniform float       iZoom;               	// zoom
 uniform int        	iBlendmode;          	// blendmode for channels
 uniform float		iRotationSpeed;	  		// Rotation Speed
@@ -47,12 +47,12 @@ uniform float       iGridSize;				// gridSize if > 0.
 uniform bool        iFlipH;					// flip horizontally
 uniform bool        iFlipV;					// flip vertically
 uniform int         iBeat;					// measure from ableton
-uniform float       iSeed;					// random 
-uniform float       iRedMultiplier;			// red multiplier 
-uniform float       iGreenMultiplier;		// green multiplier 
-uniform float       iBlueMultiplier;		// blue multiplier 
+uniform float       iSeed;					// random
+uniform float       iRedMultiplier;			// red multiplier
+uniform float       iGreenMultiplier;		// green multiplier
+uniform float       iBlueMultiplier;		// blue multiplier
 uniform float       iParam1;				// slitscan (or other) Param1
-uniform float       iParam2;				// slitscan (or other) Param2 
+uniform float       iParam2;				// slitscan (or other) Param2
 uniform bool        iXorY;					// slitscan (or other) effect on x or y
 uniform float       iBadTv;					// badtv if > 0.
 uniform float        iFreq0;              // sound
@@ -60,3 +60,5 @@ uniform float        iFreq1;              // sound
 uniform float        iFreq2;              // sound
 uniform float        iFreq3;              // sound
 uniform vec3 		spectrum;              // sound
+
+out vec4 fragColor;
