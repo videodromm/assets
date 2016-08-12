@@ -9,5 +9,5 @@ void main() {
   	vec2 uv = vertTexCoord0;
 	vec4 tex = texture(iChannel0, uv);
 	 
-	fragColor 		= tex;
+	fragColor = vec4(tex.r, 0.3, tex.b, 1.0) ;
 }
