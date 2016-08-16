@@ -149,7 +149,7 @@ vec4 rayMarch(in vec3 from, in vec3 dir, in vec2 pix) {
 	vec3 light = getLight(color, normal, dir);
 	return vec4(toneMap((color*Ambient+light)*ao),1.0);
 }
-out vec4 fragColor;
+
 void main(  )
 {
 	float angle = time/5.0;

@@ -1,5 +1,5 @@
 // uniforms begin
-//#version 130
+#version 150
 uniform vec3        iResolution;         	// viewport resolution (in pixels)
 uniform float       iChannelTime[4];     	// channel playback time (in seconds)
 uniform vec3        iChannelResolution[4];	// channel resolution (in pixels)
@@ -52,6 +52,7 @@ uniform float       iParam2;				// slitscan (or other) Param2
 uniform bool        iXorY;					// slitscan (or other) effect on x or y
 uniform float       iBadTv;					// badtv if > 0.01
 
+out vec4 fragColor;
 // Let's define PI, but first, if it were defined, we will undefined it, to use a new value
 #ifdef PI
 #undef PI
@@ -773,6 +774,6 @@ void main(void)
 	col.g *= iGreenMultiplier;
 	col.b *= iBlueMultiplier;
 
-	gl_FragColor = iAlpha * vec4( col, 1.0 );
+	fragColor = iAlpha * vec4( col, 1.0 );
 }
 // main end
