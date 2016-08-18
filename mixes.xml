@@ -3,9 +3,8 @@
 	<mix id="1" mixtype="mix">
 		<fbo id="1" width="1024" height="768" shadername="A2PasDuSeuil.glsl"/>	
 		<fbo id="2" width="1024" height="768" shadername="AcidAtTheDisco.glsl"/>	
-		<fbo id="3" width="1024" height="768" shadername="Onyx.glsl"/>	
-		<fbo id="4" width="1024" height="768" shadername="DataTransfer.glsl"/>	
-		<fbo id="5" width="1024" height="768" shadername="BasicAudioVisualizer.glsl"/>	
+		<fbo id="3" width="1024" height="768" shadername="DataTransfer.glsl"/>	
+		<fbo id="4" width="1024" height="768" shadername="BasicAudioVisualizer.glsl"/>	
 	</mix>
 </mixes>
 
