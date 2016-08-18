@@ -39,7 +39,6 @@ uniform vec4    iDate;          // (year, month, day, time in seconds)
 uniform int         iGlitch;              // 1 for glitch
 uniform float       iChromatic;       // chromatic if > 0.
 uniform float       iTrixels;             // trixels if > 0.
-uniform float       iGridSize;        // gridSize if > 0.
 uniform bool        iFlipH;         // flip horizontally
 uniform bool        iFlipV;         // flip vertically
 uniform int         iBeat;          // measure from ableton

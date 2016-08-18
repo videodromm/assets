@@ -39,7 +39,6 @@ uniform vec4		iDate;					// (year, month, day, time in seconds)
 uniform int         iGlitch;           		// 1 for glitch
 uniform float       iChromatic;				// chromatic if > 0.
 uniform float       iTrixels;           	// trixels if > 0.
-uniform float       iGridSize;				// gridSize if > 0.
 uniform bool        iFlipH;					// flip horizontally
 uniform bool        iFlipV;					// flip vertically
 uniform int         iBeat;					// measure from ableton
@@ -253,36 +252,7 @@ vec4 trixels( vec2 inUV, sampler2D tex )
    	return rtn;
 }
 // trixels end
-// Squirclimation https://www.shadertoy.com/view/Ml23DW begin
-vec4 grid( vec2 inUV, sampler2D tex )
-{    
-    vec2 uv = (floor(gl_FragCoord.xy/iGridSize)*iGridSize)/ iResolution.xy;
-    vec3 texColor;
 
-    texColor = texture(tex, uv).xyz;
-    
-    float diff = pow(distance(texColor,vec3(0.0,1.0,0.0)),8.0); 
-    diff = smoothstep(0.0,1.5,diff);
-    texColor = mix(iBackgroundColor,texColor,diff);
-    
-    float texLum = dot(vec3(0.2126,0.7152,0.0722),texColor);
-    
-    vec3 color = iBackgroundColor;
-    
-    vec2 ppos = (inUV - uv)/(vec2(iGridSize)/iResolution.xy);
-  
-    float power = texLum*texLum*16.0;
-    float radius = 0.5;
-    float dist = pow(abs(ppos.x-0.5),power) + pow(abs(ppos.y - 0.5),power);
-    
-    if( dist < pow(radius,power))
-    {
-      color = texColor;
-    }
-    
-    return vec4( color.r, color.g, color.b, 1.0 ); 
-}
-// Squirclimation end
 // global functions end
 
 // left main lines begin
@@ -302,11 +272,7 @@ vec3 shaderLeft(vec2 uv)
   {
         left = trixels( uv, iChannel0 );
   }
-  // Grid
-  if (iGridSize > 0.0) 
-  {
-        left = grid( uv, iChannel0 );
-  }
+
 	return vec3( left.r, left.g, left.b );
 }
 // left main lines end
@@ -328,11 +294,6 @@ vec3 shaderRight(vec2 uv)
 	{
       	right = trixels( uv, iChannel1 );
 	}
-  	// Grid
-  	if (iGridSize > 0.0) 
-  	{
-        right = grid( uv, iChannel1 );
-  	}
 
 	return vec3( right.r, right.g, right.b );
 }
