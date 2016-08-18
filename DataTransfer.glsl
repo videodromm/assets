@@ -93,5 +93,5 @@ void main(void)
 	// iq's vignetting
 	col *= 0.1 + 0.8 * pow(16.0 * uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y), 0.1);
 	
-  gl_FragColor = vec4(col,1.0);
+  fragColor = vec4(col,1.0);
 }
