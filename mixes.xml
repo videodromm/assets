@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mixes version="1.0">
 	<mix id="1" mixtype="mix">
-		<fbo id="1" width="1024" height="768" shadername="A2PasDuSeuil.glsl"/>	
-		<fbo id="2" width="1024" height="768" shadername="AcidAtTheDisco.glsl"/>	
-		<fbo id="3" width="1024" height="768" shadername="DataTransfer.glsl"/>	
-		<fbo id="4" width="1024" height="768" shadername="BasicAudioVisualizer.glsl"/>	
+		<fbo id="1" width="640" height="480" shadername="A2PasDuSeuil.glsl"/>	
+		<fbo id="2" width="640" height="480" shadername="AcidAtTheDisco.glsl"/>	
+		<fbo id="3" width="640" height="480" shadername="DataTransfer.glsl"/>	
+		<fbo id="4" width="640" height="480" shadername="BasicAudioVisualizer.glsl"/>	
 	</mix>
 </mixes>
 

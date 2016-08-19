@@ -55,7 +55,7 @@ vec3 march(vec3 f, vec3 ro, vec3 rd, float st)
 	f.rgb = mix( f.rgb, vec3(stars), 1. - exp( -0.004*d*d) );
 	return f;
 }
-
+/*
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	vec2 si = iResolution.xy;
@@ -75,12 +75,12 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
 
 	fragColor.rgb = march(fragColor.rgb, ro, rd, 0.135);
-}
-
+}*/
 void main(void)
 {
    vec2 si = iResolution.xy;
-	vec2 uv = (gl_FragCoord*2.-si.xy) / min(si.x, si.y);
+
+	vec2 uv = (gl_FragCoord.xy*2.-si.xy) / min(si.x, si.y);
 
 	float t = iGlobalTime * 12.;
 	vec3 ro = vec3(0,-.5,t);
@@ -95,5 +95,5 @@ void main(void)
 	vec3 y = normalize(cross(z, x));
 	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
 
-	gl_FragColor.rgb = march(fragColor.rgb, ro, rd, 0.135);
+	fragColor.rgb = march(uv.xxy, ro, rd, 0.135);
 }
