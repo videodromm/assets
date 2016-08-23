@@ -3,7 +3,7 @@
 uniform vec3        iResolution;          // viewport resolution (in pixels)
 uniform float       iChannelTime[4];      // channel playback time (in seconds)
 uniform vec3        iChannelResolution[4];  // channel resolution (in pixels)
-uniform sampler2D   iChannel0;        // input channel 0 (TODO: support samplerCube)
+uniform sampler2D   iChannel0;        // input channel 0 
 uniform sampler2D   iChannel1;        // input channel 1 
 uniform sampler2D   iAudio0;        // input channel 0 (audio)
 uniform vec4        iMouse;               // mouse pixel coords. xy: current (if MLB down), zw: click
