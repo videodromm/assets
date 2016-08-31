@@ -1,5 +1,5 @@
 #version 150
-// uniforms begin
+// mixfbo.frag uniforms begin
 uniform vec3        iResolution;          // viewport resolution (in pixels)
 uniform float       iChannelTime[4];      // channel playback time (in seconds)
 uniform vec3        iChannelResolution[4];  // channel resolution (in pixels)
@@ -35,7 +35,6 @@ uniform int         iDebug;               // 1 to show debug
 uniform int         iShowFps;             // 1 to show fps
 uniform float       iFps;               // frames per second
 uniform float       iTempoTime;
-uniform vec4    iDate;          // (year, month, day, time in seconds)
 uniform int         iGlitch;              // 1 for glitch
 uniform float       iChromatic;       // chromatic if > 0.
 uniform float       iTrixels;             // trixels if > 0.

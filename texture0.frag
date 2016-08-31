@@ -1,5 +1,5 @@
 #version 150
-// for input texture 0
+// texture0.frag for input texture 0
 
 // uniforms begin
 uniform vec3        iResolution;      	// viewport resolution (in pixels)

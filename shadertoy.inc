@@ -17,6 +17,8 @@ uniform vec2        iRenderXY;           	// move x y
 uniform float       iZoom;               	// zoom
 uniform float       iCrossfade;          	// CrossFade 2 shaders
 uniform float       iAlpha;          	  	// alpha
+uniform bool        iFlipH;					// flip horizontally
+uniform bool        iFlipV;					// flip vertically
 uniform float        iFreq0;              // sound
 uniform float        iFreq1;              // sound
 uniform float        iFreq2;              // sound
