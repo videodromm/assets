@@ -8,12 +8,6 @@
 // https://soundcloud.com/wearecastor/rad
 //
 */
-uniform vec3  iResolution;  // viewport resolution (in pixels)
-uniform vec3  iColor;
-uniform float iGlobalTime;
-uniform sampler2D	iChannel0;
-uniform sampler2D	iChannel1;
-uniform vec3 spectrum;
 
 float audio_freq( in sampler2D channel, in float f) { return texture( channel, vec2(f, 0.25) ).x; }
 float audio_ampl( in sampler2D channel, in float t) { return texture( channel, vec2(t, 0.75) ).x; }
@@ -41,7 +35,7 @@ void main(void) {
     
     // Color variation functions
     float t = iGlobalTime / 100.0;
-    float polychrome = (0.0 + sin(t*10.0))/2.0; // 0 -> uniform color, 1 -> full spectrum
+    float polychrome = (0.0 + sin(t*10.0))/2.0; // 0 -> color, 1 -> full spectrum
     vec3 spline_args = fract(vec3(polychrome*uv.x-t) + vec3(0.0, -1.0/3.0, -2.0/3.0));
     vec3 spline = B2_spline(spline_args);
     
@@ -70,5 +64,5 @@ void main(void) {
     color += flash_color * smoothstep(0.5, 1.0, sample3) * clamped_dist;
     color += wave_color  * disp_dist;
     color = pow(color, vec3(0.4545));
-	gl_FragColor = vec4(color, 1.0);
+	fragColor = vec4(color, 1.0);
 }
