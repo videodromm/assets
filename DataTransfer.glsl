@@ -82,9 +82,10 @@ void main(void)
 	vec3 ref = reflect(normalize(hit - ray), n);
 	float diff = dot(n, sun);
 	float spec = pow(max(dot(ref, sun), 0.0), 32.0);
-	vec3 col = mix(vec3(0.0, 0.7, 0.9), vec3(0.0, 0.1, 0.2), diff);
 	
-	//vec3 col = mix(iColor, iBackgroundColor, diff);
+	
+	//vec3 col = mix(vec3(0.0, 0.7, 0.9), vec3(0.0, 0.1, 0.2), diff);
+		vec3 col = mix(iColor, iBackgroundColor, diff);
 
 	// enviroment map
 	//col += textureCube(iChannel0, ref).xyz * 0.2;
