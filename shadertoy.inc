@@ -26,3 +26,5 @@ uniform float        iFreq3;              // sound
 uniform vec3 		spectrum;              // sound
 
 out vec4 fragColor;
+vec2 fragCoord = gl_FragCoord.xy;
+float time = iGlobalTime;
