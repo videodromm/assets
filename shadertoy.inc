@@ -24,6 +24,7 @@ uniform float        iFreq1;              // sound
 uniform float        iFreq2;              // sound
 uniform float        iFreq3;              // sound
 uniform vec3 		spectrum;              // sound
+uniform int         iInvert;           		// 1 for color inversion
 
 out vec4 fragColor;
 vec2 fragCoord = gl_FragCoord.xy;
