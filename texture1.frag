@@ -3,6 +3,7 @@
 
 // uniforms begin
 uniform vec3        iResolution;      	// viewport resolution (in pixels)
+uniform sampler2D   iChannel0;        	// input channel 0 
 uniform sampler2D   iChannel1;        	// input channel 1 
 uniform bool        iFlipH;         	// flip horizontally
 uniform bool        iFlipV;         	// flip vertically

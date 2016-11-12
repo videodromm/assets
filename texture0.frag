@@ -4,6 +4,7 @@
 // uniforms begin
 uniform vec3        iResolution;      	// viewport resolution (in pixels)
 uniform sampler2D   iChannel0;        	// input channel 0 
+uniform sampler2D   iChannel1;        	// input channel 1 
 uniform bool        iFlipH;         	// flip horizontally
 uniform bool        iFlipV;         	// flip vertically
 uniform float       iZoom;              // zoom
@@ -24,6 +25,6 @@ void main(void)
 	{
 		uv.y = 1.0 - uv.y;
 	}
-   	vec4 tex = texture(iChannel0, uv);
+   	vec4 tex = texture(iChannel1, uv);
    	fragColor = vec4(tex.r, tex.g, tex.b,1.0);
 }
