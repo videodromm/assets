@@ -1,17 +1,11 @@
 // mix.frag uniforms begin
 #version 150
 uniform vec3        iResolution;         	// viewport resolution (in pixels)
-uniform float       iChannelTime[4];     	// channel playback time (in seconds)
-uniform vec3        iChannelResolution[4];	// channel resolution (in pixels)
-uniform sampler2D   iChannel0;				// input channel 0 (TODO: support samplerCube)
+uniform sampler2D   iChannel0;				// input channel 0
 uniform sampler2D   iChannel1;				// input channel 1 
-//uniform sampler2D   iAudio0;				// input channel 0 (audio)
 uniform vec4        iMouse;              	// mouse pixel coords. xy: current (if MLB down), zw: click
 uniform float       iGlobalTime;         	// shader playback time (in seconds)
 uniform vec3        iBackgroundColor;    	// background color
-uniform vec3        iColor;              	// color
-uniform int         iSteps;              	// steps for iterations
-uniform int         iFade;               	// 1 for fade out
 uniform int         iToggle;             	// 1 for toggle
 uniform float       iRatio;
 uniform vec2        iRenderXY;           	// move x y 
@@ -25,23 +19,14 @@ uniform float       iAlpha;          	  	// alpha
 uniform int         iLight;   			  	// 1 for light
 uniform int         iLightAuto;          	// 1 for automatic light
 uniform float       iExposure;           	// exposure
-uniform float       iDeltaTime;          	// delta time between 2 tempo ticks
-uniform int         iTransition;   			// transition type
-uniform float       iAnim;          		// animation
-uniform int         iRepeat;           		// 1 for repetition
 uniform int         iVignette;           	// 1 for vignetting
 uniform int         iInvert;           		// 1 for color inversion
-uniform int         iDebug;           		// 1 to show debug
-uniform int         iShowFps;           	// 1 to show fps
-uniform float       iFps;          			// frames per second
 uniform float       iTempoTime;
 uniform int         iGlitch;           		// 1 for glitch
 uniform float       iChromatic;				// chromatic if > 0.
 uniform float       iTrixels;           	// trixels if > 0.
 uniform bool        iFlipH;					// flip horizontally
 uniform bool        iFlipV;					// flip vertically
-uniform int         iBeat;					// measure from ableton
-uniform float       iSeed;					// random 
 uniform float       iRedMultiplier;			// red multiplier 
 uniform float       iGreenMultiplier;		// green multiplier 
 uniform float       iBlueMultiplier;		// blue multiplier 
@@ -733,6 +718,7 @@ void main(void)
 	col.r *= iRedMultiplier;
 	col.g *= iGreenMultiplier;
 	col.b *= iBlueMultiplier;
+  col = mix( col, vec3(1.0, 1.0, 0.0), PrintValue( (gl_FragCoord.xy - vec2(0.0, 0.5)) / vec2(8.0, 15.0), iBlendmode, 2.0, 0.0));
 
 	fragColor = iAlpha * vec4( col, 1.0 );
 }
