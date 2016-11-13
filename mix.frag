@@ -718,7 +718,7 @@ void main(void)
 	col.r *= iRedMultiplier;
 	col.g *= iGreenMultiplier;
 	col.b *= iBlueMultiplier;
-  col = mix( col, vec3(1.0, 1.0, 0.0), PrintValue( (gl_FragCoord.xy - vec2(0.0, 0.5)) / vec2(8.0, 15.0), iBlendmode, 2.0, 0.0));
+  
 
 	fragColor = iAlpha * vec4( col, 1.0 );
 }
