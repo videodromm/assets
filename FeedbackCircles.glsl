@@ -3,8 +3,8 @@
 //
 // Fun with some feedbacks :)
 
-vec3 subImg(in vec2 fragCoord, float xs,float ys, float zs){
-    vec2 xy=fragCoord.xy/iResolution.xy;
+vec3 subImg(in vec2 fCoord, float xs,float ys, float zs){
+    vec2 xy=fCoord.xy/iResolution.xy;
     xy-=0.5;
     xy+=vec2(sin(iGlobalTime*xs)*0.1,cos(iGlobalTime*ys)*0.1);//move
     xy*=(1.1+sin(iGlobalTime*zs)*0.1);//scale
