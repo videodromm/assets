@@ -298,7 +298,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vColour = mix( vColour, vec3(1.0, 0.0, 1.0), PrintValue(fragCoord, vec2(184.0, 5.0), vFontSize, mod(iDate.w / (60.0 * 60.0) + 1.0, 12.0), 2.0, 0.0));
     vColour = mix( vColour, vec3(1.0, 0.0, 1.0), PrintValue(fragCoord, vec2(184.0 + 24.0, 5.0), vFontSize, mod(iDate.w / 60.0, 60.0), 2.0, 0.0));
     vColour = mix( vColour, vec3(1.0, 0.0, 1.0), PrintValue(fragCoord, vec2(184.0 + 48.0, 5.0), vFontSize, mod(iDate.w, 60.0), 2.0, 0.0));
-    
+    // Fps
+    vColour = mix( vColour, vec3(0.7, 0.0, 0.5), PrintValue(fragCoord, vec2(0.0, 3.0), vFontSize, iFps, 2.0, 0.0));
+   
     if(iMouse.x > 0.0)
     {
         // Print Mouse X

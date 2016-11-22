@@ -9,7 +9,7 @@
       "beatsperbar" : 1,
       "bpm" : 166,
       "endframe" : 1555222,
-      "fadeindelay" : 25,
+      "fadeindelay" : 30,
       "fadeoutdelay" : 15
    }
 }

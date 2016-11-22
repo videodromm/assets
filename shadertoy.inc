@@ -19,12 +19,13 @@ uniform float       iCrossfade;          	// CrossFade 2 shaders
 uniform float       iAlpha;          	  	// alpha
 uniform bool        iFlipH;					// flip horizontally
 uniform bool        iFlipV;					// flip vertically
-uniform float        iFreq0;              // sound
-uniform float        iFreq1;              // sound
-uniform float        iFreq2;              // sound
-uniform float        iFreq3;              // sound
+uniform float       iFreq0;              // sound
+uniform float       iFreq1;              // sound
+uniform float       iFreq2;              // sound
+uniform float       iFreq3;              // sound
 uniform vec3 		spectrum;              // sound
 uniform int         iInvert;           		// 1 for color inversion
+uniform float		iFps;
 
 out vec4 fragColor;
 vec2  fragCoord = gl_FragCoord.xy; // keep the 2 spaces between vec2 and fragCoord
