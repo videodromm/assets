@@ -1,20 +1,11 @@
-#version 150
-uniform vec3        iResolution;         	// viewport resolution (in pixels)
-uniform sampler2D   iChannel0;				// input channel 0 (TODO: support samplerCube)
-uniform vec3      	iChannelResolution[4]; 	// channel resolution (in pixels)
-uniform float       iZoom;               	// zoom
+/* 0.frag */
+out vec4 fragColor;
+uniform sampler2D iChannel0;
+uniform vec3 iResolution;
 
-out vec4 oColor;
-
-void main( void )
+void main(void)	
 {
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
-	// zoom centered
-	float xZ = (uv.x - 0.5)*iZoom*2.0;
-	float yZ = (uv.y - 0.5)*iZoom*2.0;
-	vec2 cZ = vec2(xZ, yZ);
-
-	vec4 tex = texture(iChannel0, vec2(cZ.x-iChannelResolution[0].x,cZ.y-iChannelResolution[0].y));
-	 
-	oColor 		= tex;
+   	vec4 tex = texture2D(iChannel0, uv);
+   	fragColor = vec4(tex.r, tex.g, tex.b, 1.0);
 }
