@@ -1,7 +1,5 @@
 // https://www.shadertoy.com/view/4sf3RN
 
-// in shadertoy.inc out vec4 fragColor;
-
 // Number Printing - @P_Malin
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 

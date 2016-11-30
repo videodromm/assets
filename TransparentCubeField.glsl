@@ -1,6 +1,5 @@
 // https://www.shadertoy.com/view/ll2SRy
 
-// in shadertoy.inc out vec4 fragColor;
 /*
 	
 	Obviously, this isn't what I'd consider genuine transparency, because there's no

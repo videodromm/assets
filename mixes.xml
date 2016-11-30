@@ -3,7 +3,16 @@
 	<fbo id="1" width="640" height="480" inputtextureindex="1" shadername="Test.glsl"/>	
 	<fbo id="2" width="640" height="480" inputtextureindex="1" shadername="TransparentCubeField.glsl"/>	
 	<fbo id="3" width="640" height="480" inputtextureindex="0" shadername="BasicAudioVisualizer.glsl"/>	
-	<fbo id="4" width="640" height="480" inputtextureindex="1" shadername="A2PasDuSeuil.glsl"/>	
+	<fbo id="4" width="640" height="480" inputtextureindex="1" shadername="hexler330.glsl"/>	
+	<fbo id="5" width="640" height="480" inputtextureindex="1" shadername="AcidAtTheDisco.glsl"/>	
+	<fbo id="6" width="640" height="480" inputtextureindex="1" shadername="DataTransfer.glsl"/>	
+	<fbo id="7" width="640" height="480" inputtextureindex="1" shadername="FeedbackCircles.glsl"/>	
+	<fbo id="8" width="640" height="480" inputtextureindex="1" shadername="Onyx.glsl"/>	
+	<fbo id="9" width="640" height="480" inputtextureindex="1" shadername="simple330a.frag"/>	
+	<fbo id="10" width="640" height="480" inputtextureindex="1" shadername="SimplePattern.glsl"/>	
+	<fbo id="11" width="640" height="480" inputtextureindex="1" shadername="subliminic4.glsl"/>	
+	<fbo id="12" width="640" height="480" inputtextureindex="1" shadername="AudioReaktive.glsl"/>	
+	<fbo id="13" width="640" height="480" inputtextureindex="1" shadername="AnyArrayIndex.glsl"/>	
 </fbos>
 
 
