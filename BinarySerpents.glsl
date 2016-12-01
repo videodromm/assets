@@ -45,7 +45,7 @@ void main(void)
 
     ray.z -= 5.+iGlobalTime*.5;
     float r = BinarySerpentsTexture3D(ray, 33.);
-  gl_FragColor = vec4(result*(step(r,iChannel0.x/150.0)+r*iChannel0.y/150.0+.1),1.0);
+  gl_FragColor = vec4(result*(step(r,sin(iGlobalTime*0.3))+r*sin(iGlobalTime*0.1)+.1),1.0);
 }
 
 
