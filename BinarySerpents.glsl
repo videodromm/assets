@@ -14,11 +14,8 @@ float BinarySerpentsmap( vec3 p ){
 }
 void main(void)
 {
-   vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy * 2.0 - 0.5;
-   uv.x -= iRenderXY.x;
-   uv.y -= iRenderXY.y;
-
-  	vec3 camPos = vec3(cos(iGlobalTime*0.3), sin(iGlobalTime*0.3), 1.5);
+   vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy * 2.0 - 0.5;
+  	 vec3 camPos = vec3(cos(iGlobalTime*0.3), sin(iGlobalTime*0.3), 1.5);
     vec3 camTarget = vec3(0.0, 0.0, 0.0);
 
     vec3 camDir = normalize(camTarget-camPos);
@@ -40,12 +37,15 @@ void main(void)
         if(total_d>MAX_DISTANCE) { c = 0.; total_d=MAX_DISTANCE; break; }
     }
 	
-    float fog = 5.0;
-    vec3 result = vec3( vec3(iColor.r , iColor.g, iColor.b) * (fog - total_d) / fog );
+    float fog = 3.1;
+    vec3 result = vec3( vec3(iColor.r, iColor.g, iColor.b) * (fog - total_d) / fog );
 
     ray.z -= 5.+iGlobalTime*.5;
     float r = BinarySerpentsTexture3D(ray, 33.);
-  gl_FragColor = vec4(result*(step(r,sin(iGlobalTime*0.3))+r*sin(iGlobalTime*0.1)+.1),1.0);
+    float freq0 = texture2D( iChannel0, vec2(0.25,5.0/100.0) ).x;
+    float freq1 = texture2D( iChannel0, vec2(0.5,5.0/100.0) ).x;
+  gl_FragColor = vec4(result*(step(r,freq0/1.0)+r*freq1/1.0+.1),1.0);
+  //gl_FragColor = vec4(vec3(result+r),1.0);
 }
 
 
