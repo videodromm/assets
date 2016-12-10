@@ -13,38 +13,14 @@
       "fadeoutdelay" : 15
    },
    "warp0" : {
-      "afboindex" : 1,
-      "ashaderindex" : 1,
-      "bfboindex" : 0,
-      "bshaderindex" : 2,
-      "name" : "",
-      "xfade" : 0.69200003147125244
-   },
-   "warp1" : {
-      "afboindex" : 3,
-      "ashaderindex" : 1,
-      "bfboindex" : 2,
-      "bshaderindex" : 2,
-      "name" : "",
-      "xfade" : 0.48100003600120544
-   },
-   "warp2" : {
-      "afboindex" : 5,
-      "ashaderindex" : 1,
-      "bfboindex" : 4,
-      "bshaderindex" : 2,
-      "name" : "0A2Pas/Basic",
-      "xfade" : 0.48100003600120544
-   },
-   "warp3" : {
-      "afboindex" : 5,
-      "ashaderindex" : 1,
-      "bfboindex" : 0,
-      "bshaderindex" : 2,
-      "name" : "",
-      "xfade" : 0.32700002193450928
+      "afboindex" : 2,
+      "ashaderindex" : 2,
+      "bfboindex" : 3,
+      "bshaderindex" : 3,
+      "name" : "0Test./Audio",
+      "xfade" : 1
    },
    "warps" : {
-      "size" : 4
+      "size" : 1
    }
 }

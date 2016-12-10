@@ -1,11 +1,5 @@
 // https://www.shadertoy.com/view/4dX3Rn
 
-// fade to black
-const float TIME_INTR = 0.1;	// Intermission between in/out
-const float TIME_PADN = 0.1;	// Padding time at the end of out.
-const float TIME_TRAN = 0.94;	// Transition time
-const float TIME_TOTAL = (2.0 * TIME_TRAN) + TIME_INTR + TIME_PADN;
-#define TRAN0 vec4(0.0, 0.0, 0.0, 0.0)
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 vec3 col=vec3(0.);

@@ -6,7 +6,7 @@
 // give planet surface at radial angle
 vec4 planetSample(ivec3 p)
 {
-	vec3 pp = vec3(p)/iChannelResolution[0].xyx;
+	vec3 pp = vec3(p)/iResolution.xyx;
 	float s = atan(pp.z,pp.x)/3.14159;
 	float t = pp.y-0.5;
 	return texture2D(iChannel0, vec2(s,t));

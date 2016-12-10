@@ -7,10 +7,15 @@
 				<controlpoint x="0" y="1"/>
 				<controlpoint x="1" y="0"/>
 				<controlpoint x="1" y="1"/>
-				<corner x="0" y="1"/>
-				<corner x="1" y="1"/>
-				<corner x="1" y="0"/>
-				<corner x="0" y="0"/>
+				<blend exponent="2">
+					<edges left="0" top="0" right="0" bottom="0"/>
+					<gamma red="1" green="1" blue="1"/>
+					<luminance red="0.5" green="0.5" blue="0.5"/>
+				</blend>
+				<corner x="-0.000694444461" y="0.0205245148"/>
+				<corner x="0.98888886" y="0.0045610033"/>
+				<corner x="0.993055582" y="1.02280498"/>
+				<corner x="-0.00416666688" y="1.02622581"/>
 			</warp>
 		</map>
 	</profile>

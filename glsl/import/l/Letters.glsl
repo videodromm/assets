@@ -157,7 +157,7 @@ float d = 0.;
 vec3 col = vec3(0.1, .07+0.07*(.5+sin(gl_FragCoord.y*3.14159*1.1+iGlobalTime*2.0)) + sin(gl_FragCoord.y*.01+iGlobalTime+2.5)*0.05, 0.1);
 Letters_caret = Letters_caret_origin;
 
-d += J(r()); Letters_add();  d += O(r()); Letters_add();  d += A(r());
+d += R(r()); Letters_add();  d += E(r()); Letters_add();  d += Y(r()); Letters_add(); d += M(r()); Letters_add(); d += E(r()); Letters_add(); d += N(r()); Letters_add(); d += T(r()); Letters_add(); d += A(r());
 d = clamp(d* (.75+sin(gl_FragCoord.x*PI*.5-iGlobalTime*4.3)*.5), 0.0, 1.0);
       
     col += vec3(d*.5, d, d*.85);
