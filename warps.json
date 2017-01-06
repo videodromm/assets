@@ -1,0 +1,264 @@
+{
+   "warps" : [
+      {
+         "adaptive" : true,
+         "id" : 1,
+         "linear" : false,
+         "resolution" : 16,
+         "warp" : {
+            "active" : true,
+            "afboindex" : 3,
+            "ashaderfilename" : "DanceWalker1.glsl",
+            "ashaderindex" : 2,
+            "bfboindex" : 2,
+            "brightness" : 1,
+            "bshaderfilename" : "Test.glsl",
+            "bshaderindex" : 3,
+            "controlpoints" : [
+               {
+                  "controlpoint" : 0,
+                  "x" : 0,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 1,
+                  "x" : 0,
+                  "y" : 1
+               },
+               {
+                  "controlpoint" : 2,
+                  "x" : 1,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 3,
+                  "x" : 1,
+                  "y" : 1
+               }
+            ],
+            "corners" : [
+               {
+                  "corner" : 0,
+                  "x" : 0.62195122241973877,
+                  "y" : 0.067073173820972443
+               },
+               {
+                  "corner" : 1,
+                  "x" : 0.74268293380737305,
+                  "y" : 0.069512195885181427
+               },
+               {
+                  "corner" : 2,
+                  "x" : 0.78414636850357056,
+                  "y" : 0.18658536672592163
+               },
+               {
+                  "corner" : 3,
+                  "x" : 0.62560975551605225,
+                  "y" : 0.14512194693088531
+               }
+            ],
+            "crossfade" : 1,
+            "height" : 2,
+            "method" : "perspectivebilinear",
+            "mixfboindex" : 0,
+            "width" : 2
+         }
+      },
+      {
+         "adaptive" : true,
+         "id" : 2,
+         "linear" : false,
+         "resolution" : 16,
+         "warp" : {
+            "active" : false,
+            "afboindex" : 3,
+            "ashaderfilename" : "DeskFirstShader.glsl",
+            "ashaderindex" : 4,
+            "bfboindex" : 2,
+            "brightness" : 1,
+            "bshaderfilename" : "DistanceFieldCubes.glsl",
+            "bshaderindex" : 5,
+            "controlpoints" : [
+               {
+                  "controlpoint" : 0,
+                  "x" : 0,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 1,
+                  "x" : 0,
+                  "y" : 1
+               },
+               {
+                  "controlpoint" : 2,
+                  "x" : 1,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 3,
+                  "x" : 1,
+                  "y" : 1
+               }
+            ],
+            "corners" : [
+               {
+                  "corner" : 0,
+                  "x" : 0.076829269528388977,
+                  "y" : 0.47926828265190125
+               },
+               {
+                  "corner" : 1,
+                  "x" : 0.44166666269302368,
+                  "y" : 0.78796297311782837
+               },
+               {
+                  "corner" : 2,
+                  "x" : 0.12031249701976776,
+                  "y" : 0.54166668653488159
+               },
+               {
+                  "corner" : 3,
+                  "x" : 0.10487804561853409,
+                  "y" : 0.59878051280975342
+               }
+            ],
+            "crossfade" : 0.57480317354202271,
+            "height" : 2,
+            "method" : "perspectivebilinear",
+            "mixfboindex" : 0,
+            "width" : 2
+         }
+      },
+      {
+         "adaptive" : true,
+         "id" : 3,
+         "linear" : false,
+         "resolution" : 16,
+         "warp" : {
+            "active" : false,
+            "afboindex" : 3,
+            "ashaderfilename" : "BinaryFinery.glsl",
+            "ashaderindex" : 6,
+            "bfboindex" : 2,
+            "brightness" : 1,
+            "bshaderfilename" : "BinarySerpents.glsl",
+            "bshaderindex" : 7,
+            "controlpoints" : [
+               {
+                  "controlpoint" : 0,
+                  "x" : 0,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 1,
+                  "x" : 0,
+                  "y" : 1
+               },
+               {
+                  "controlpoint" : 2,
+                  "x" : 1,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 3,
+                  "x" : 1,
+                  "y" : 1
+               }
+            ],
+            "corners" : [
+               {
+                  "corner" : 0,
+                  "x" : 0.29390242695808411,
+                  "y" : 0.097560971975326538
+               },
+               {
+                  "corner" : 1,
+                  "x" : 0.97804880142211914,
+                  "y" : 0.23048780858516693
+               },
+               {
+                  "corner" : 2,
+                  "x" : 0.73333334922790527,
+                  "y" : 0.68155783414840698
+               },
+               {
+                  "corner" : 3,
+                  "x" : 0.32258063554763794,
+                  "y" : 0.68680644035339355
+               }
+            ],
+            "crossfade" : 0.57480317354202271,
+            "height" : 2,
+            "method" : "perspectivebilinear",
+            "mixfboindex" : 0,
+            "width" : 2
+         }
+      },
+      {
+         "adaptive" : true,
+         "id" : 4,
+         "linear" : false,
+         "resolution" : 16,
+         "warp" : {
+            "active" : false,
+            "afboindex" : 3,
+            "ashaderfilename" : "AudioSurfII.glsl",
+            "ashaderindex" : 8,
+            "bfboindex" : 2,
+            "brightness" : 1,
+            "bshaderfilename" : "AudioUnknown.glsl",
+            "bshaderindex" : 9,
+            "controlpoints" : [
+               {
+                  "controlpoint" : 0,
+                  "x" : 0,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 1,
+                  "x" : 0,
+                  "y" : 1
+               },
+               {
+                  "controlpoint" : 2,
+                  "x" : 1,
+                  "y" : 0
+               },
+               {
+                  "controlpoint" : 3,
+                  "x" : 1,
+                  "y" : 1
+               }
+            ],
+            "corners" : [
+               {
+                  "corner" : 0,
+                  "x" : 0.43125000596046448,
+                  "y" : 0.80444443225860596
+               },
+               {
+                  "corner" : 1,
+                  "x" : 0.81951218843460083,
+                  "y" : 0.80243903398513794
+               },
+               {
+                  "corner" : 2,
+                  "x" : 0.8402438759803772,
+                  "y" : 0.9414634108543396
+               },
+               {
+                  "corner" : 3,
+                  "x" : 0.40609756112098694,
+                  "y" : 0.93170732259750366
+               }
+            ],
+            "crossfade" : 0.57480317354202271,
+            "height" : 2,
+            "method" : "perspectivebilinear",
+            "mixfboindex" : 0,
+            "width" : 2
+         }
+      }
+   ]
+}

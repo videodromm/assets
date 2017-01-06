@@ -46,6 +46,7 @@ uniform float       iParam1;        // slitscan (or other) Param1
 uniform float       iParam2;        // slitscan (or other) Param2 
 uniform bool        iXorY;          // slitscan (or other) effect on x or y
 uniform float       iBadTv;         // badtv if > 0.01
+uniform float       iContour;         // contour size if > 0.01
 
 const   float       PI = 3.14159265;
 // uniforms end
@@ -581,6 +582,17 @@ void main( void )
   col.r *= iRedMultiplier;
   col.g *= iGreenMultiplier;
   col.b *= iBlueMultiplier;
-
+         
+  // contour 
+  if (iContour> 0.01) {
+    if ( uv.y > 1.0 - iContour )
+      col = iBackgroundColor;
+    if ( uv.y < iContour )
+      col = iBackgroundColor;
+    if ( uv.x > 1.0 - iContour )
+      col = iBackgroundColor;
+    if ( uv.x < iContour )
+      col = iBackgroundColor;  
+  }
   oColor = iAlpha * vec4( col, 1.0 );
 }

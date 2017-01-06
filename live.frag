@@ -19,15 +19,11 @@ void main(void)
 {
 	vec2 uv =  gl_FragCoord.xy / iResolution.xy;
 	
-	//uv.x = 1.0 - uv.x;
-	//uv.y = 1.0 - uv.y;
 
-    uv.x += spectrum.y * 0.0000004 * tan(iGlobalTime + uv.y );
-	vec4 t0 = texture(iChannel0, uv);
-	vec4 t1 = texture(iChannel1, uv);
-	vec4 t2 = texture(iChannel2, uv);
+    uv.x += 0.0000004 * tan(iGlobalTime + uv.y );
+	
 	float col = sin(uv.x*iGlobalTime);
-    //float col = abs(sin(time + uv.x * 20.0));
+    //float col = abs(sin(iGlobalTime + uv.x * 20.0));
 
    	oColor = vec4(vec3( col ),1.0);
 }
