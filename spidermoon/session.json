@@ -1,6 +1,8 @@
 {
    "assets" : {
+      "moviefile" : "none.mov",
       "movieplaybackdelay" : 10,
+      "wavefile" : "batchass-spidermoon.wav",
       "waveplaybackdelay" : 10
    },
    "settings" : {
@@ -14,7 +16,7 @@
       "afboindex" : 0,
       "ashaderindex" : 0,
       "bfboindex" : 0,
-      "bshaderindex" : 1,
+      "bshaderindex" : 2,
       "name" : "",
       "xfade" : 1
    },

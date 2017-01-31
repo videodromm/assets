@@ -3,10 +3,10 @@
       {
          "triangle" : {
             "afboindex" : 1,
-            "ashaderfilename" : "PlasmaGlobe.glsl",
+            "ashaderfilename" : "tex1",
             "ashaderindex" : 1,
-            "bfboindex" : 1,
-            "bshaderindex" : 1
+            "bfboindex" : 2,
+            "bshaderindex" : 2
          }
       }
    ]
