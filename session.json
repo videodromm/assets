@@ -13,14 +13,150 @@
       "fadeoutdelay" : 15
    },
    "warp0" : {
-      "afboindex" : 2,
+      "afboindex" : 0,
       "ashaderindex" : 2,
-      "bfboindex" : 3,
+      "bfboindex" : 0,
       "bshaderindex" : 3,
-      "name" : "0Test./Audio",
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp1" : {
+      "afboindex" : 5,
+      "ashaderindex" : 4,
+      "bfboindex" : 0,
+      "bshaderindex" : 5,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp10" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp11" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp12" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp13" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp14" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp15" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp16" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp17" : {
+      "afboindex" : 0,
+      "ashaderindex" : 9,
+      "bfboindex" : 0,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp2" : {
+      "afboindex" : 5,
+      "ashaderindex" : 6,
+      "bfboindex" : 6,
+      "bshaderindex" : 7,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp3" : {
+      "afboindex" : 5,
+      "ashaderindex" : 8,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp4" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp5" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp6" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp7" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp8" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warp9" : {
+      "afboindex" : 5,
+      "ashaderindex" : 9,
+      "bfboindex" : 6,
+      "bshaderindex" : 9,
+      "name" : "",
       "xfade" : 1
    },
    "warps" : {
-      "size" : 1
+      "size" : 18
    }
 }

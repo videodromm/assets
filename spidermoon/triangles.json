@@ -1,0 +1,13 @@
+{
+   "triangles" : [
+      {
+         "triangle" : {
+            "afboindex" : 1,
+            "ashaderfilename" : "PlasmaGlobe.glsl",
+            "ashaderindex" : 1,
+            "bfboindex" : 1,
+            "bshaderindex" : 1
+         }
+      }
+   ]
+}

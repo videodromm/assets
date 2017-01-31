@@ -1,0 +1,24 @@
+{
+   "assets" : {
+      "movieplaybackdelay" : 10,
+      "waveplaybackdelay" : 10
+   },
+   "settings" : {
+      "beatsperbar" : 1,
+      "bpm" : 166,
+      "endframe" : 20000000,
+      "fadeindelay" : 10,
+      "fadeoutdelay" : 10
+   },
+   "warp0" : {
+      "afboindex" : 0,
+      "ashaderindex" : 0,
+      "bfboindex" : 0,
+      "bshaderindex" : 1,
+      "name" : "",
+      "xfade" : 1
+   },
+   "warps" : {
+      "size" : 1
+   }
+}
