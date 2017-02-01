@@ -13,6 +13,7 @@ in vec3     gPatchDistance;
 in float    gPrimitive;
 uniform float 		iFR;
 uniform float 		iFG;
+uniform float 		iAlpha;
 
 const vec3 lightPosition    = vec3( 0.5, 0.2, 1.0 );
 const vec3 diffuseColor     = vec3( 0.5, 0.2, 1.0 );
@@ -36,5 +37,5 @@ void main()
     float d1    = min(min(gTriDistance.x, gTriDistance.y), gTriDistance.z);
     float d2    = min(min(gPatchDistance.x, gPatchDistance.y), gPatchDistance.z);
     color       = amplify(d1, 40*iFG, -0.5) * amplify(d2, 60*iFR, -0.5) * color;
-    oColor      = vec4( color, 1.0 );
+    oColor      = vec4( color*iAlpha, 1.0 );
 }
