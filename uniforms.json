@@ -313,9 +313,9 @@
       {
          "uniform" : {
             "index" : 31,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
+            "max" : 256,
+            "min" : 0.0099999997764825821,
+            "name" : "iFreq0",
             "type" : 0,
             "value" : 0
          }
@@ -323,9 +323,9 @@
       {
          "uniform" : {
             "index" : 32,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
+            "max" : 256,
+            "min" : 0.0099999997764825821,
+            "name" : "iFreq1",
             "type" : 0,
             "value" : 0
          }
@@ -333,9 +333,9 @@
       {
          "uniform" : {
             "index" : 33,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
+            "max" : 256,
+            "min" : 0.0099999997764825821,
+            "name" : "iFreq2",
             "type" : 0,
             "value" : 0
          }
@@ -343,9 +343,9 @@
       {
          "uniform" : {
             "index" : 34,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
+            "max" : 256,
+            "min" : 0.0099999997764825821,
+            "name" : "iFreq3",
             "type" : 0,
             "value" : 0
          }
@@ -511,21 +511,17 @@
       {
          "uniform" : {
             "index" : 52,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
+            "name" : "iBeat",
+            "type" : 5,
+            "value" : 1
          }
       },
       {
          "uniform" : {
             "index" : 53,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
+            "name" : "iBeatsPerBar",
+            "type" : 5,
+            "value" : 1
          }
       },
       {
@@ -805,446 +801,6 @@
             "name" : "iXorY",
             "type" : 6,
             "value" : false
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 84,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 85,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 86,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 87,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 88,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 89,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 90,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 91,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 92,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 93,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 94,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 95,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 96,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 97,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 98,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 99,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 100,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 101,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 102,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 103,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 104,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 105,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 106,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 107,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 108,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 109,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 110,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 111,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 112,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 113,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 114,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 115,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 116,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 117,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 118,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 119,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 120,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 121,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 122,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 123,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 124,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 125,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 126,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
-         }
-      },
-      {
-         "uniform" : {
-            "index" : 127,
-            "max" : 0,
-            "min" : 0,
-            "name" : "",
-            "type" : 0,
-            "value" : 0
          }
       }
    ]
