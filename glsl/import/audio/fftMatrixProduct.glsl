@@ -3,7 +3,7 @@ void main(void)
 {
 	vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
     float a = 1.0;
-	if (iInvert==1)
+	/*if (iInvert==1)
 	{
 	    float theta = 1.0*(1.0/(3.14159/2.0))*atan(uv.x,uv.y);
 	    float r = length(uv);
@@ -11,9 +11,9 @@ void main(void)
 	    uv = vec2(theta,r);	
 	}	
 	else
-	{
+	{*/
 		uv=abs(2.0*(uv-0.5));
-	}
+	//}
 		
 	vec4 t1 = texture2D(iChannel0, vec2(uv[0],0.1) );
     vec4 t2 = texture2D(iChannel0, vec2(uv[1],0.1) );

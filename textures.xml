@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <textures version="1.0">
-	<texture id="1" texturetype="image">
-		<details path="0.jpg" width="640" height="480" topdown="1"/>
+<texture id="1" texturetype="audio">
+		<details path="" width="640" height="480" uselinein="1" topdown="1"/>
 	</texture>
 	<texture id="2" texturetype="image">
 		<details path="0.jpg" width="640" height="480" topdown="1"/>
@@ -14,9 +14,6 @@
 	</texture>
 	<texture id="5" texturetype="shared">
 		<details path="0.jpg" width="640" height="480" topdown="1"/>
-	</texture>
-	<texture id="6" texturetype="audio">
-		<details path="" width="640" height="480" uselinein="1" topdown="1"/>
 	</texture>
 </textures>
 

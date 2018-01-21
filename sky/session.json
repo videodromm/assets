@@ -6,7 +6,7 @@
       "waveplaybackdelay" : 10
    },
    "settings" : {
-      "beatsperbar" : 1,
+      "beatsperbar" : 4,
       "bpm" : 180,
       "endframe" : 10960,
       "fadeindelay" : 15,

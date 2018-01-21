@@ -478,7 +478,7 @@ void main( void )
   vec2 cZ = vec2(xZ, yZ);
 
  // slitscan
-  if (iRatio < 20.0)
+  if (iRatio < 1.0)
   {
     float x = gl_FragCoord.x;
     float y = gl_FragCoord.y;
@@ -487,12 +487,12 @@ void main( void )
     if (iXorY)
     {
       float z1 = floor((x/iParam1) + 0.5);     //((x/20.0) + 0.5)
-      x2 = x + (sin(z1 + (iGlobalTime * 2.0)) * iRatio);
+      x2 = x + (sin(z1 + (iGlobalTime * 2.0)) * iRatio * 20.0);
     }
     else
     {
       float z2 = floor((y/iParam2) + 0.5);     //((x/20.0) + 0.5)
-      y2 = y + (sin(z2 + (iGlobalTime * 2.0)) * iRatio);
+      y2 = y + (sin(z2 + (iGlobalTime * 2.0)) * iRatio * 20.0);
     }
 
     vec2 uv2 = vec2(x2 / iResolution.x, y2/ iResolution.y);
@@ -502,7 +502,7 @@ void main( void )
   if (iGlitch == 1) 
   {
     // glitch the point around
-    float s = iTempoTime * iRatio;//50.0;
+    float s = iTempoTime * iRatio * 20.0;
     float te = iTempoTime * 9.0 / 16.0;//0.25 + (iTempoTime + 0.25) / 2.0 * 128.0 / 60.0;
     vec2 shk = (vec2(glitchNse(s), glitchNse(s + 11.0)) * 2.0 - 1.0) * exp(-5.0 * fract(te * 4.0)) * 0.1;
     uv += shk;    

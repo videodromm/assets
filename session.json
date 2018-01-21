@@ -13,14 +13,22 @@
       "fadeoutdelay" : 15
    },
    "warp0" : {
-      "afboindex" : 2,
+      "afboindex" : 1,
       "ashaderindex" : 0,
-      "bfboindex" : 2,
+      "bfboindex" : 9,
       "bshaderindex" : 0,
-      "name" : "",
-      "xfade" : 1
+      "name" : "0hexle/C:\\cp",
+      "xfade" : 0.192
+   },
+   "warp1" : {
+      "afboindex" : 8,
+      "ashaderindex" : 0,
+      "bfboindex" : 9,
+      "bshaderindex" : 0,
+      "name" : "1Audio/C:\\cp",
+      "xfade" : 0.192
    },
    "warps" : {
-      "size" : 1
+      "size" : 2
    }
 }

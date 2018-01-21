@@ -2,11 +2,11 @@
    "params" : {
       "autobeatanimation" : "0",
       "background_color" : {
-         "b" : "0.159999996",
-         "g" : "0.300000012",
-         "r" : "0.964999974"
+         "b" : "0.16",
+         "g" : "0.3",
+         "r" : "0.965"
       },
-      "exposure" : "1.70000005",
+      "exposure" : "1.7",
       "text" : "yod"
    }
 }

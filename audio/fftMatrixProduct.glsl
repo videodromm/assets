@@ -2,9 +2,7 @@
 void main(void)
 {
 	vec2 uv = iZoom * (gl_FragCoord.xy / iResolution.xy);
-	//vec2 uv = iZoom * gl_TexCoord[0].st;
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;
+
     float a = 1.0;
 	if (iInvert==1)
 	{
