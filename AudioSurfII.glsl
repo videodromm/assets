@@ -1,9 +1,10 @@
 void main(void)
 {
-   vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;
+   //vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;
+	  vec2 uv = gl_FragCoord.xy / iResolution.xy;
 	float u = gl_FragCoord.x / iResolution.x;
-	float fft = texture2D(iChannel0, vec2(u,.25)).x;  
-	float wav = texture2D(iChannel0, vec2(u,.75)).x;
+	float fft = texture(iChannel0, vec2(u,.25)).x;  
+	float wav = texture(iChannel0, vec2(u,.75)).x;
 	
 	uv = uv * 2. - 1.;
 	vec2 wv = uv + vec2(0., wav - .5);
@@ -14,5 +15,5 @@ void main(void)
 
 	vec3 c = g * clamp(vec3(fft, fract(fft) / fract(wav), g * wav), 0., 1.);
 	
-  gl_FragColor = vec4(c,1.0);
+  fragColor = vec4(c,1.0);
 }

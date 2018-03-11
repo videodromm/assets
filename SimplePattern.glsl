@@ -18,7 +18,7 @@ void main(void)
     	fragColor = scl * vec4(tx, 1.0);
     } else
     {
-    	fragColor = scl * vec4(0);
+    	fragColor = scl * vec4(0.0);
     }
 	
 	
