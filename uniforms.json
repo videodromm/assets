@@ -27,7 +27,7 @@
             "min" : 0,
             "name" : "iFG",
             "type" : 0,
-            "value" : 0.30000001192092896
+            "value" : 0.29999999999999999
          }
       },
       {
@@ -114,7 +114,7 @@
          "uniform" : {
             "index" : 11,
             "max" : 20,
-            "min" : 9.999999960041972e-12,
+            "min" : 9.9999999999999994e-12,
             "name" : "iRatio",
             "type" : 0,
             "value" : 20
@@ -134,7 +134,7 @@
          "uniform" : {
             "index" : 13,
             "max" : 12,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iAudioMult",
             "type" : 0,
             "value" : 1
@@ -154,7 +154,7 @@
          "uniform" : {
             "index" : 15,
             "max" : 1,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iPixelate",
             "type" : 0,
             "value" : 1
@@ -174,7 +174,7 @@
          "uniform" : {
             "index" : 17,
             "max" : 1,
-            "min" : 9.9999997171806854e-10,
+            "min" : 1.0000000000000001e-09,
             "name" : "iChromatic",
             "type" : 0,
             "value" : 0
@@ -197,7 +197,7 @@
             "min" : 0,
             "name" : "iBR",
             "type" : 0,
-            "value" : 0.10000000149011612
+            "value" : 0.10000000000000001
          }
       },
       {
@@ -217,14 +217,14 @@
             "min" : 0,
             "name" : "iBB",
             "type" : 0,
-            "value" : 0.10000000149011612
+            "value" : 0.10000000000000001
          }
       },
       {
          "uniform" : {
             "index" : 22,
             "max" : 12,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iSpeed",
             "type" : 0,
             "value" : 12
@@ -237,7 +237,7 @@
             "min" : 0,
             "name" : "iBA",
             "type" : 0,
-            "value" : 0.20000000298023224
+            "value" : 0.20000000000000001
          }
       },
       {
@@ -247,7 +247,7 @@
             "min" : 0,
             "name" : "iTempoTime",
             "type" : 0,
-            "value" : 0.10000000149011612
+            "value" : 0.10000000000000001
          }
       },
       {
@@ -274,7 +274,7 @@
          "uniform" : {
             "index" : 27,
             "max" : 100,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iParam1",
             "type" : 0,
             "value" : 1
@@ -284,7 +284,7 @@
          "uniform" : {
             "index" : 28,
             "max" : 100,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iParam2",
             "type" : 0,
             "value" : 1
@@ -294,7 +294,7 @@
          "uniform" : {
             "index" : 29,
             "max" : 1024,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iResolutionX",
             "type" : 0,
             "value" : 640
@@ -304,7 +304,7 @@
          "uniform" : {
             "index" : 30,
             "max" : 800,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iResolutionY",
             "type" : 0,
             "value" : 480
@@ -314,7 +314,7 @@
          "uniform" : {
             "index" : 31,
             "max" : 256,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iFreq0",
             "type" : 0,
             "value" : 0
@@ -324,7 +324,7 @@
          "uniform" : {
             "index" : 32,
             "max" : 256,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iFreq1",
             "type" : 0,
             "value" : 0
@@ -334,7 +334,7 @@
          "uniform" : {
             "index" : 33,
             "max" : 256,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iFreq2",
             "type" : 0,
             "value" : 0
@@ -344,7 +344,7 @@
          "uniform" : {
             "index" : 34,
             "max" : 256,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iFreq3",
             "type" : 0,
             "value" : 0
@@ -513,7 +513,7 @@
             "index" : 52,
             "name" : "iBeat",
             "type" : 5,
-            "value" : 1
+            "value" : 2
          }
       },
       {
@@ -801,6 +801,446 @@
             "name" : "iXorY",
             "type" : 6,
             "value" : false
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 84,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 85,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 86,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 87,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 88,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 89,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 90,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 91,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 92,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 93,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 94,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 95,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 96,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 97,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 98,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 99,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 100,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 101,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 102,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 103,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 104,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 105,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 106,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 107,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 108,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 109,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 110,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 111,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 112,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 113,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 114,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 115,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 116,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 117,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 118,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 119,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 120,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 121,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 122,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 123,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 124,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 125,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 126,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
+         }
+      },
+      {
+         "uniform" : {
+            "index" : 127,
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
          }
       }
    ]

@@ -27,7 +27,7 @@
             "min" : 0,
             "name" : "iFG",
             "type" : 0,
-            "value" : 0.30000001192092896
+            "value" : 0.29999999999999999
          }
       },
       {
@@ -114,7 +114,7 @@
          "uniform" : {
             "index" : 11,
             "max" : 20,
-            "min" : 9.999999960041972e-12,
+            "min" : 9.9999999999999994e-12,
             "name" : "iRatio",
             "type" : 0,
             "value" : 20
@@ -134,7 +134,7 @@
          "uniform" : {
             "index" : 13,
             "max" : 12,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iAudioMult",
             "type" : 0,
             "value" : 1
@@ -154,7 +154,7 @@
          "uniform" : {
             "index" : 15,
             "max" : 1,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iPixelate",
             "type" : 0,
             "value" : 1
@@ -174,7 +174,7 @@
          "uniform" : {
             "index" : 17,
             "max" : 1,
-            "min" : 9.9999997171806854e-10,
+            "min" : 1.0000000000000001e-09,
             "name" : "iChromatic",
             "type" : 0,
             "value" : 0
@@ -197,7 +197,7 @@
             "min" : 0,
             "name" : "iBR",
             "type" : 0,
-            "value" : 0.10000000149011612
+            "value" : 0.10000000000000001
          }
       },
       {
@@ -217,14 +217,14 @@
             "min" : 0,
             "name" : "iBB",
             "type" : 0,
-            "value" : 0.10000000149011612
+            "value" : 0.10000000000000001
          }
       },
       {
          "uniform" : {
             "index" : 22,
             "max" : 12,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iSpeed",
             "type" : 0,
             "value" : 12
@@ -237,7 +237,7 @@
             "min" : 0,
             "name" : "iBA",
             "type" : 0,
-            "value" : 0.20000000298023224
+            "value" : 0.20000000000000001
          }
       },
       {
@@ -247,7 +247,7 @@
             "min" : 0,
             "name" : "iTempoTime",
             "type" : 0,
-            "value" : 0.10000000149011612
+            "value" : 0.10000000000000001
          }
       },
       {
@@ -274,7 +274,7 @@
          "uniform" : {
             "index" : 27,
             "max" : 100,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iParam1",
             "type" : 0,
             "value" : 1
@@ -284,7 +284,7 @@
          "uniform" : {
             "index" : 28,
             "max" : 100,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iParam2",
             "type" : 0,
             "value" : 1
@@ -294,7 +294,7 @@
          "uniform" : {
             "index" : 29,
             "max" : 1024,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iResolutionX",
             "type" : 0,
             "value" : 640
@@ -304,7 +304,7 @@
          "uniform" : {
             "index" : 30,
             "max" : 800,
-            "min" : 0.0099999997764825821,
+            "min" : 0.01,
             "name" : "iResolutionY",
             "type" : 0,
             "value" : 480

@@ -6,8 +6,6 @@
 void main(void)
 {
 	vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;
     float a = 1.0;
 
     // reflect
