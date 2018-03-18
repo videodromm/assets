@@ -113,11 +113,11 @@
       {
          "uniform" : {
             "index" : 11,
-            "max" : 20,
-            "min" : 9.9999999999999994e-12,
+            "max" : 1,
+            "min" : 0.01,
             "name" : "iRatio",
             "type" : 0,
-            "value" : 20
+            "value" : 1
          }
       },
       {
@@ -293,7 +293,7 @@
       {
          "uniform" : {
             "index" : 29,
-            "max" : 1024,
+            "max" : 1280,
             "min" : 0.01,
             "name" : "iResolutionX",
             "type" : 0,
@@ -353,29 +353,29 @@
       {
          "uniform" : {
             "index" : 35,
-            "max" : 0,
+            "max" : 640,
             "min" : 0,
-            "name" : "",
+            "name" : "iMouseX",
             "type" : 0,
-            "value" : 0
+            "value" : 320
          }
       },
       {
          "uniform" : {
             "index" : 36,
-            "max" : 0,
+            "max" : 480,
             "min" : 0,
-            "name" : "",
+            "name" : "iMouseY",
             "type" : 0,
-            "value" : 0
+            "value" : 240
          }
       },
       {
          "uniform" : {
             "index" : 37,
-            "max" : 0,
+            "max" : 1,
             "min" : 0,
-            "name" : "",
+            "name" : "iMouseZ",
             "type" : 0,
             "value" : 0
          }
@@ -678,8 +678,11 @@
       {
          "uniform" : {
             "index" : 70,
-            "name" : "iMouse",
-            "type" : 4
+            "max" : 0,
+            "min" : 0,
+            "name" : "",
+            "type" : 0,
+            "value" : 0
          }
       },
       {
