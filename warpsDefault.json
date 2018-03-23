@@ -1,0 +1,46 @@
+{
+   "warps" : [
+      {
+         "adaptive" : true,
+         "id" : 1,
+         "linear" : false,
+         "resolution" : 16,
+         "warp" : {
+            "afboindex" : 1,
+            "ashaderfilename" : "SimplePattern.glsl",
+            "ashaderindex" : 0,
+            "bfboindex" : 4,
+            "brightness" : 1,
+            "bshaderfilename" : "AudioSurfII.glsl",
+            "bshaderindex" : 0,
+            "controlpoints" : [
+               {
+                  "controlpoint" : 0,
+                  "x" : 0.0,
+                  "y" : 0.0
+               },
+               {
+                  "controlpoint" : 1,
+                  "x" : 0.0,
+                  "y" : 1.0
+               },
+               {
+                  "controlpoint" : 2,
+                  "x" : 1.0,
+                  "y" : 0.0
+               },
+               {
+                  "controlpoint" : 3,
+                  "x" : 1.0,
+                  "y" : 1.0
+               }
+            ],
+            "crossfade" : 1,
+            "height" : 2,
+            "method" : "bilinear",
+            "mixfboindex" : 0,
+            "width" : 2
+         }
+      }
+   ]
+}
