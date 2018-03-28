@@ -6,12 +6,12 @@
          "linear" : false,
          "resolution" : 16,
          "warp" : {
-            "afboindex" : 3,
-            "ashaderfilename" : "Test.glsl",
+            "afboindex" : 5,
+            "ashaderfilename" : "SpiralCoreWunderkreis.glsl",
             "ashaderindex" : 0,
-            "bfboindex" : 7,
+            "bfboindex" : 9,
             "brightness" : 1,
-            "bshaderfilename" : "AudioSurfII.glsl",
+            "bshaderfilename" : "ComplexColorPlots.glsl",
             "bshaderindex" : 0,
             "controlpoints" : [
                {
@@ -35,6 +35,7 @@
                   "y" : 1.0
                }
             ],
+            "crossfade" : 1,
             "height" : 2,
             "method" : "bilinear",
             "mixfboindex" : 0,

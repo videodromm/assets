@@ -4,13 +4,13 @@
 		<details path="" width="640" height="480" uselinein="1" topdown="1"/>
 	</texture>
 	<texture id="2" texturetype="image">
-		<details path="0.jpg" width="640" height="480" topdown="1"/>
+		<details path="0.jpg" width="640" height="480" topdown="0"/>
 	</texture>
 	<texture id="3" texturetype="imagesequence">
 		<details path="mamac" width="640" height="480" topdown="0"/>
 	</texture>
 	<texture id="4" texturetype="movie">
-		<details path="asia1.hap.mov" width="640" height="480" topdown="1"/>
+		<details path="asiapetit.hap.mov" width="640" height="480" topdown="0"/>
 	</texture>
 	<texture id="5" texturetype="shared">
 		<details path="0.jpg" width="640" height="480" topdown="1"/>
