@@ -36,7 +36,7 @@ vec3 march(vec3 f, vec3 ro, vec3 rd, float st)
 	vec3 s = vec3(1), h = vec3(0.055,0.028,0.022), w = vec3(0);
 	float d=1.,dl=0., td=0.;
 	vec3 p = ro;
-	for(float i=0.;i<iSteps.;i++)
+	for(float i=0.;i<60.;i++)
 	{      
 		if(s.x<0.0025*d||d>30.||td>.95) break;
         s = df(p) * .1 * i/vec3(6.42,16,12.96);
@@ -71,6 +71,6 @@ void main(void)
 	vec3 x = normalize(cross(cu, z));
 	vec3 y = normalize(cross(z, x));
 	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
-	fragColor.a = 1.0;
+fragColor.a = 1.0;
 	fragColor.rgb = march(uv.xxy, ro, rd, 0.135);
 }
