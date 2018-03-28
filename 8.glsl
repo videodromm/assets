@@ -9,7 +9,6 @@
 
 #define BEAT_POINT 0.3
 
-out vec4 fragColor;
 // https://www.shadertoy.com/view/XssGRj
 void main(void)
 {
@@ -130,7 +129,7 @@ void main(void)
 	
 	
 	//fade bg in from 0 to 5 sec
-	final_color = bg_color*smoothstep(0.0,5.0,iChannelTime[0]);
+	final_color = bg_color*smoothstep(0.0,5.0,iGlobalTime);
 	final_color += 0.12*wave_color*wave_amp;
 	
 	//postproc code from iq :)
