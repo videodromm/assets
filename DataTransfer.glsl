@@ -48,7 +48,9 @@ vec3 DataTransfernorm(vec3 p)
 }
 void main(void)
 {
-   vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;
+   vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
+   uv.x -= iRenderXY.x;
+   uv.y -= iRenderXY.y;
 
 	vec2 p = -1.0 + 2.0 * uv;
 	vec3 dir = normalize(vec3(p * vec2(1.77, 1.0), 1.0));
@@ -82,10 +84,9 @@ void main(void)
 	vec3 ref = reflect(normalize(hit - ray), n);
 	float diff = dot(n, sun);
 	float spec = pow(max(dot(ref, sun), 0.0), 32.0);
-	
-	
 	//vec3 col = mix(vec3(0.0, 0.7, 0.9), vec3(0.0, 0.1, 0.2), diff);
-		vec3 col = mix(iColor, iBackgroundColor, diff);
+	
+	vec3 col = mix(iColor, iBackgroundColor, diff);
 
 	// enviroment map
 	//col += textureCube(iChannel0, ref).xyz * 0.2;
@@ -94,5 +95,5 @@ void main(void)
 	// iq's vignetting
 	col *= 0.1 + 0.8 * pow(16.0 * uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y), 0.1);
 	
-  fragColor = vec4(col,1.0);
+  gl_FragColor = vec4(col,1.0);
 }

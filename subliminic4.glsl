@@ -36,7 +36,7 @@ vec3 march(vec3 f, vec3 ro, vec3 rd, float st)
 	vec3 s = vec3(1), h = vec3(0.055,0.028,0.022), w = vec3(0);
 	float d=1.,dl=0., td=0.;
 	vec3 p = ro;
-	for(float i=0.;i<60.;i++)
+	for(float i=0.;i<iSteps.;i++)
 	{      
 		if(s.x<0.0025*d||d>30.||td>.95) break;
         s = df(p) * .1 * i/vec3(6.42,16,12.96);
@@ -50,37 +50,14 @@ vec3 march(vec3 f, vec3 ro, vec3 rd, float st)
    	}
 	dl += 0.4;
 	f /= dl/1.1264;
-	
-	float stars = pow(fract( cos(rd.y * 8. + rd.x *800.) * 5000.), 50.);
-	f.rgb = mix( f.rgb, vec3(stars), 1. - exp( -0.004*d*d) );
 	return f;
 }
-/*
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
-{
-	vec2 si = iResolution.xy;
-	vec2 uv = (fragCoord*2.-si.xy) / min(si.x, si.y);
 
-	float t = iGlobalTime * 12.;
-	vec3 ro = vec3(0,-.5,t);
-	ro.xy -= path(ro);
-	
-	vec3 co = ro + vec3(0,0,1);
-	vec3 cu = vec3(0,1,0);
-	
-	float fov = 5.;
-	vec3 z = normalize(co - ro);
-	vec3 x = normalize(cross(cu, z));
-	vec3 y = normalize(cross(z, x));
-	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
-
-	fragColor.rgb = march(fragColor.rgb, ro, rd, 0.135);
-}*/
 void main(void)
 {
    vec2 si = iResolution.xy;
 
-	vec2 uv = (gl_FragCoord.xy*2.-si.xy) / min(si.x, si.y);
+	vec2 uv = (fragCoord.xy*2.-si.xy) / min(si.x, si.y);
 
 	float t = iGlobalTime * 12.;
 	vec3 ro = vec3(0,-.5,t);
@@ -94,6 +71,6 @@ void main(void)
 	vec3 x = normalize(cross(cu, z));
 	vec3 y = normalize(cross(z, x));
 	vec3 rd = normalize(z + fov * uv.x * x + fov * uv.y * y);
-
+	fragColor.a = 1.0;
 	fragColor.rgb = march(uv.xxy, ro, rd, 0.135);
 }
