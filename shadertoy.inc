@@ -13,6 +13,7 @@ uniform vec3        iBackgroundColor;    	// background color
 uniform vec3        iColor;              	// color
 uniform int         iSteps;              	// steps for iterations
 uniform float       iRatio;
+uniform float       iSobel;
 uniform vec2        iRenderXY;           	// move x y
 uniform float       iZoom;               	// zoom
 uniform float       iCrossfade;          	// CrossFade 2 shaders

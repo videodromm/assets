@@ -24,14 +24,9 @@ vec2 getPoint(float n) {
 }
 
 void main() {
-	/*vec2 position = iZoom * gl_FragCoord.xy;
-	position.x -= iRenderXY.x;
-	position.y -= iRenderXY.y;*/
-	vec2 uv = iZoom * gl_FragCoord.xy;
-	//vec2 uv = 2.0 * iZoom * (gl_FragCoord.xy - 0.5);
+	//vec2 uv = gl_FragCoord.xy;
+	vec2 uv = fragCoord.xy - 0.5;
 	uv.x *= float(iResolution.x )/ float(iResolution.y);
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;
 	float b = 0.0;
 	
 	for (float i = 0.0; i < POINTS; i += 1.0) {
