@@ -6,7 +6,7 @@ void main(void)
    	uv.x -= iRenderXY.x;
    	uv.y -= iRenderXY.y;
 
-	float rad = radians(360.0 * fract(iGlobalTime*));
+	float rad = radians(360.0 * fract(iGlobalTime));
 	mat2 rotate = mat2(cos(rad),sin(rad),-sin(rad),cos(rad));
 	uv = rotate * (uv - 0.5) + 0.5;
 

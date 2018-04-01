@@ -6,7 +6,6 @@
 // For a smaller less restrictive version, see this shader: https://www.shadertoy.com/view/4sBSWW
 
 //#define BITMAP_VERSION
-
 const float kCharBlank = 12.0;
 const float kCharMinus = 11.0;
 const float kCharDecimalPoint = 10.0;
