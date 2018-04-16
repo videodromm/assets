@@ -6,12 +6,12 @@
          "linear" : false,
          "resolution" : 16,
          "warp" : {
-            "afboindex" : 5,
-            "ashaderfilename" : "SpiralCoreWunderkreis.glsl",
+            "afboindex" : 1,
+            "ashaderfilename" : "0.glsl",
             "ashaderindex" : 0,
-            "bfboindex" : 9,
+            "bfboindex" : 6,
             "brightness" : 1,
-            "bshaderfilename" : "ComplexColorPlots.glsl",
+            "bshaderfilename" : "1.glsl",
             "bshaderindex" : 0,
             "controlpoints" : [
                {

@@ -13,12 +13,12 @@
       "fadeoutdelay" : 15
    },
    "warp0" : {
-      "afboindex" : 6,
+      "afboindex" : 1,
       "ashaderindex" : 0,
-      "bfboindex" : 9,
+      "bfboindex" : 6,
       "bshaderindex" : 0,
-      "name" : "05.gls/C:\\cp",
-      "xfade" : 0.53800000000000003
+      "name" : "",
+      "xfade" : 1
    },
    "warps" : {
       "size" : 1

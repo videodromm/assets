@@ -7,11 +7,11 @@
          "resolution" : 16,
          "warp" : {
             "afboindex" : 1,
-            "ashaderfilename" : "SimplePattern.glsl",
+            "ashaderfilename" : "0.glsl",
             "ashaderindex" : 0,
             "bfboindex" : 4,
             "brightness" : 1,
-            "bshaderfilename" : "AudioSurfII.glsl",
+            "bshaderfilename" : "1.glsl",
             "bshaderindex" : 0,
             "controlpoints" : [
                {

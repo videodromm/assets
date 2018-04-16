@@ -6,11 +6,14 @@
 	<texture id="2" texturetype="imagesequence">
 		<details path="mandalas" width="640" height="480" flipv="1" fliph="1"/>
 	</texture>
-	<texture id="3" texturetype="shared">
-		<details path="0.jpg" width="640" height="480" flipv="1" fliph="1"/>
+	<texture id="3" texturetype="audio">
+		<details path="" width="640" height="480" flipv="1" fliph="1" uselinein="0"/>
 	</texture>
-	<texture id="4" texturetype="audio">
-		<details path="" width="640" height="480" flipv="1" fliph="1" uselinein="1"/>
+	<texture id="4" texturetype="shared">
+		<details path="1.png" width="640" height="480" flipv="1" fliph="1"/>
+	</texture>
+	<texture id="5" texturetype="image">
+		<details path="1.png" width="640" height="480" flipv="1" fliph="1"/>
 	</texture>
 </textures>
 
