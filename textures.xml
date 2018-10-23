@@ -12,5 +12,8 @@
 	<texture id="4" texturetype="movie">
 		<details path="pupilles640x480.hap.mov" width="640" height="480" topdown="0"/>
 	</texture>
+	<texture id="5" texturetype="camera">
+		<details path="0.jpg" width="640" height="480" topdown="1"/>
+	</texture>
 </textures>
 
