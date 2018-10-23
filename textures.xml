@@ -13,7 +13,7 @@
 		<details path="pupilles640x480.hap.mov" width="640" height="480" topdown="0"/>
 	</texture>
 	<texture id="5" texturetype="camera">
-		<details path="0.jpg" width="640" height="480" topdown="1"/>
+		<details path="0.jpg" width="1280" height="720" topdown="1"/>
 	</texture>
 </textures>
 
