@@ -78,7 +78,7 @@ float df(vec2 p, vec2 pol)
     float v = abs(fract(pol.y / rp) * 2.0 - 1.0) * rp;
     float id = floor(pol.y / rp);
     v -= 0.2;
-    float pa = 0.3 + id + iGlobalTime * sin(id * 97354.6874);
+    float pa = 0.3 + id + iTime * sin(id * 97354.6874);
     rp = 0.4;
     pa = abs(fract(pol.x / rp) * 2.0 - 1.0) * rp;
     float w = dot(p, vec2(sin(pa), cos(pa)));
@@ -163,12 +163,12 @@ float fr3(vec2 p, float h)
     vec2 q = abs(vec2(tri(p.x * 6.0, 0.09), p.y));
     float v = max(q.x, q.y - h) - 0.002;
     
-    float ror = stpnse(iGlobalTime) + stpnse(iGlobalTime * 2.0) * 0.3;
+    float ror = stpnse(iTime) + stpnse(iTime * 2.0) * 0.3;
     
     q = abs(vec2(tri(p.x + ror, 0.5), p.y));
     v = min(v, max(q.x, q.y) - 0.1);
     
-    q = abs(vec2(tri(p.x + iGlobalTime * 0.1, 0.3), p.y + 0.1));
+    q = abs(vec2(tri(p.x + iTime * 0.1, 0.3), p.y + 0.1));
     v = min(v, max(q.x, q.y) - 0.1);
     
     return v;
@@ -226,7 +226,7 @@ float pix(vec2 p)
     for(int i = 0; i < 10; i ++)
     {
         float tc = 0.05;
-        ite += pix2(p, iGlobalTime + (hash2(p + float(i)) - 0.5).x * tc);
+        ite += pix2(p, iTime + (hash2(p + float(i)) - 0.5).x * tc);
     }
     float v = ite / 10.0;
     
@@ -237,7 +237,7 @@ float pix(vec2 p)
     vec2 pol = vec2(atan(p.y, p.x) / pi2, lc);
     w = min(w, fr3(pol - vec2(0.0, 0.7), 0.02));
     w = min(w, abs(lc - 0.1));
-    w = min(w, fr5((p - vec2(1.0, 0.7)) * 6.0, iGlobalTime) / 6.0);
+    w = min(w, fr5((p - vec2(1.0, 0.7)) * 6.0, iTime) / 6.0);
     
     w = min(w, abs(length(p - vec2(-1.4, 0.7)) - 0.04));
     w = min(w, abs(length(p - vec2(-1.2, 0.7)) - 0.04));
@@ -249,7 +249,7 @@ float pix(vec2 p)
     //w = min(w, max(max(length(q) - 0.9, -length(q - vec2(0.25, 0.0)) + 1.0) + 0.03, p.y));
     w = min(w, max(abs(q.y), q.x + 0.8));
     
-    if(fract(iGlobalTime / 6.0) > 0.7 && sin(iGlobalTime * 50.0) > 0.0)
+    if(fract(iTime / 6.0) > 0.7 && sin(iTime * 50.0) > 0.0)
     {
         q = p - vec2(1.3, -0.6);
         q.x = abs(q.x);
@@ -279,9 +279,9 @@ void main(void)
     uv *= (ll * ll * 0.01 + ll * ll * ll * 0.001 + ll * 0.04) * -0.3 + 1.01;
 #endif
     
-    uv += (vec2(hash(iGlobalTime), hash(iGlobalTime - 1.111)) - 0.5) * 0.04;
+    uv += (vec2(hash(iTime), hash(iTime - 1.111)) - 0.5) * 0.04;
     
-    vec2 ps = (7.0 + 5.0 * sin(iGlobalTime)) / iResolution.xy;
+    vec2 ps = (7.0 + 5.0 * sin(iTime)) / iResolution.xy;
     
     vec3 col = vec3(pix(uv - vec2(ps.x, 0.0)), pix(uv + vec2(0.0, ps.y * 0.3)), pix(uv + vec2(ps.x, 0.0)));
     

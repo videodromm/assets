@@ -25,14 +25,14 @@ void main(void)
 	
 	//forget static shading. let's get dynamic!
 	sun.x = -0.8 + beat*1.5;
-	sun.y = 0.7 + 0.3 * cos(uv.x*6.0+20.0*(uv.y-0.5)*(beat-0.2) + iGlobalTime);
-	sun.z = 0.9 + 0.1 * cos(iGlobalTime);
+	sun.y = 0.7 + 0.3 * cos(uv.x*6.0+20.0*(uv.y-0.5)*(beat-0.2) + iTime);
+	sun.z = 0.9 + 0.1 * cos(iTime);
 
 	//crazy intense dubstep-ize the colors
 	#ifdef ALT_MODE
-		sun.x = -cos(iGlobalTime);
-		sun.y = 0.7 + 0.3 * cos(uv.x*6.0+20.0*(uv.y-0.5)*(beat-0.2) + iGlobalTime);
-		sun.z = 0.85 + 0.35 * cos(iGlobalTime);
+		sun.x = -cos(iTime);
+		sun.y = 0.7 + 0.3 * cos(uv.x*6.0+20.0*(uv.y-0.5)*(beat-0.2) + iTime);
+		sun.z = 0.85 + 0.35 * cos(iTime);
 	#endif
 
 	sun.xy = 0.5 + 0.5 * sun.xy;
@@ -54,15 +54,15 @@ void main(void)
 	//four distortion patterns
 	float coord1 = sin(uv.x + hwf) - cos(uv.y);
 	float coord2 = sin(1.0 - uv.x + hwf) - sin(uv.y * 3.0);
-	//float coord3 = cos(uv.x+sin(0.2*iGlobalTime)) - sin(2.5*uv.y - wf);
+	//float coord3 = cos(uv.x+sin(0.2*iTime)) - sin(2.5*uv.y - wf);
 	float coord4 = mix(coord1, coord2,hwf);
 	float coord5 = mix(coord1, coord2, beat);
 	
-	float coorda = mix(coord1, coord2, 0.5 + 0.5 *sin(iGlobalTime*0.7));
-	float coordb = mix(coord5, coord4, 0.5 + 0.5 *sin(iGlobalTime*0.5));
+	float coorda = mix(coord1, coord2, 0.5 + 0.5 *sin(iTime*0.7));
+	float coordb = mix(coord5, coord4, 0.5 + 0.5 *sin(iTime*0.5));
 	
 	//mix distortions based on time
-	float coord = mix(coorda, coordb, 0.5 + 0.5 *sin(iGlobalTime*0.3));
+	float coord = mix(coorda, coordb, 0.5 + 0.5 *sin(iTime*0.3));
 
 	//distort the spectrum image using the above coords
 	float j = (texture2D(iChannel0, vec2(abs(coord),0.0)).x - 0.5) * 2.0;
@@ -104,10 +104,10 @@ void main(void)
 	for(float i = 0.0; i < 10.0; i++) {
 		//build a simple trig series based on wave shape
 		//note that waves are in rectangular coords
-		h = sin(uv.x*8.0+iGlobalTime)*0.2*w1+ 
-			sin(uv.x*16.0-2.0*iGlobalTime)*0.2*w2 + 
-			sin(uv.x*32.0+3.0*iGlobalTime)*0.2*w3 + 
-			sin(uv.x*64.0-4.0*iGlobalTime)*0.2*w4;
+		h = sin(uv.x*8.0+iTime)*0.2*w1+ 
+			sin(uv.x*16.0-2.0*iTime)*0.2*w2 + 
+			sin(uv.x*32.0+3.0*iTime)*0.2*w3 + 
+			sin(uv.x*64.0-4.0*iTime)*0.2*w4;
 		rad += h * 0.4;
 		//find the wave section's width in polar coords
 		wave_width = abs(1.0 / (100.0 * rad));

@@ -13,8 +13,8 @@ void main(void) {
 	float angle = atan(p.y, p.x);
 	float shear = sqrt(distSqr);
 	float blur = 0.5;
-	//float stripes = smoothstep(-blur, blur, cos(8.0 * angle + 12.0 * iGlobalTime - 12.0 * shear));
-	float stripes = smoothstep(-blur, blur, cos(8.0 * angle + iGlobalTime * iRatio /12.0 - 12.0 * shear));
-	//float stripes = smoothstep(-blur, blur, cos(8.0 * angle + iGlobalTime * iRotationSpeed /12.0 - 12.0 * shear));
+	//float stripes = smoothstep(-blur, blur, cos(8.0 * angle + 12.0 * iTime - 12.0 * shear));
+	float stripes = smoothstep(-blur, blur, cos(8.0 * angle + iTime * iRatio /12.0 - 12.0 * shear));
+	//float stripes = smoothstep(-blur, blur, cos(8.0 * angle + iTime * iRotationSpeed /12.0 - 12.0 * shear));
 	gl_FragColor = vec4(vignette * mix(iBackgroundColor, iColor, stripes), 1.0);
 }

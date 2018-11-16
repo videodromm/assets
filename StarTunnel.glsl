@@ -125,7 +125,7 @@ void main( void )
 
 	vec3 vRayDir = normalize(vec3(vScreenPos, 1.0));
 
-	vec3 vEuler = vec3(0.5 + sin(iGlobalTime * 0.2) * 0.125, 0.5 + sin(iGlobalTime * 0.1) * 0.125, iGlobalTime * 0.1 + sin(iGlobalTime * 0.3) * 0.5);
+	vec3 vEuler = vec3(0.5 + sin(iTime * 0.2) * 0.125, 0.5 + sin(iTime * 0.1) * 0.125, iTime * 0.1 + sin(iTime * 0.3) * 0.5);
 			
 	if(iMouse.z > 0.0)
 	{
@@ -143,8 +143,8 @@ void main( void )
 	float a = 0.2;
 	float b = 10.0;
 	float c = 1.0;
-	float fZPos = 5.0 + iGlobalTime * c + sin(iGlobalTime * a) * b;
-	float fSpeed = c + a * b * cos(a * iGlobalTime);
+	float fZPos = 5.0 + iTime * c + sin(iTime * a) * b;
+	float fSpeed = c + a * b * cos(a * iTime);
 	
 	fParticleLength = 0.25 * fSpeed / 60.0;
 	

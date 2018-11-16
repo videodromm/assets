@@ -16,14 +16,14 @@ vec3 rot(vec3 p, float f) {
 
 
 vec3 trans(vec3 p, out float rotout) {
-   p.zx += iGlobalTime*8.0;
+   p.zx += iTime*8.0;
 
    vec3 b = vec3(4.);
    vec3 rep = floor(p/b);
 
    p = mod(p,b)-0.5*b;
    
-   rotout = iGlobalTime*1.88 + (rep.x+rep.z+rep.y)*0.3;
+   rotout = iTime*1.88 + (rep.x+rep.z+rep.y)*0.3;
    p = rot(p, rotout);
    return p;   
 }
@@ -47,7 +47,7 @@ void main(void)
    vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
-   float time = iGlobalTime*0.5;
+   float time = iTime*0.5;
    vec3 ro = 1.5*normalize(vec3(cos(time),cos(time)*1.2,sin(time)));
     vec3 eyed = normalize(vec3(0.0) - ro);
     vec3 ud = normalize(cross(vec3(0.0,1.0,0.0), eyed));

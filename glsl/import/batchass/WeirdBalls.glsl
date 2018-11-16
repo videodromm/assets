@@ -109,7 +109,7 @@ vec3 rotate_x(vec3 v, float angle)
 
 float dist(vec3 p)//distance function
 {
-	float t = iGlobalTime+4.0;
+	float t = iTime+4.0;
 	float d = 1000.0;//p.y+2.0;
 	p.y+=sin(t*.5)*.2;
 	d=min(length(p)-1.0,d);
@@ -344,7 +344,7 @@ void main(void)
 	uv.y -= iRenderXY.y;
 	vec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);
 	
-	float t = iGlobalTime*.5*object_speed_modifier + 30.0;
+	float t = iTime*.5*object_speed_modifier + 30.0;
 	mouse += vec3(sin(t)*.1,sin(t)*.1,.0);
 	
 	//setup the camera

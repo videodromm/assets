@@ -1,7 +1,7 @@
 // https://www.shadertoy.com/view/XlSGzD
 //#define DEBUG 1
 
-float time = iGlobalTime*.3;
+float time = iTime*.3;
 
 // 2D rotation matrix.
 mat2 rotate(float angle)

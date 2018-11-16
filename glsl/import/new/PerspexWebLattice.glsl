@@ -82,7 +82,7 @@ vec2 hash22(vec2 p) {
     
     // Animated.
     p = fract(vec2(262144, 32768)*n); 
-    return sin( p*6.2831853 + iGlobalTime )*0.5 + 0.5; 
+    return sin( p*6.2831853 + iTime )*0.5 + 0.5; 
     
 }
 
@@ -232,7 +232,7 @@ vec3 eMap(vec3 rd, vec3 sn){
     vec3 sRd = rd; // Save rd, just for some mixing at the end.
     
     // Add a time component, scale, then pass into the noise function.
-    rd.xy -= iGlobalTime*.25;
+    rd.xy -= iTime*.25;
     rd *= 3.;
     
     //vec3 tx = tex3D(iChannel0, rd/3., sn);
@@ -257,7 +257,7 @@ void main(void) {
          o = vec3(0), l = o + vec3(0, 0, -1);
    
     // Rotate the canvas. Note that sine and cosine are kind of rolled into one.
-    vec2 a = sin(vec2(1.570796, 0) + iGlobalTime/8.); // Fabrice's observation.
+    vec2 a = sin(vec2(1.570796, 0) + iTime/8.); // Fabrice's observation.
     r.xy = mat2(a, -a.y, a.x) * r.xy;
 
     
@@ -314,7 +314,7 @@ void main(void) {
         else c.xyz *= .1;
         
         // Hue rotation, for anyone who's interested.
-        //c.xyz = rotHue(c.xyz, mod(iGlobalTime/16., 6.283));
+        //c.xyz = rotHue(c.xyz, mod(iTime/16., 6.283));
        
         
         float df = max(dot(l, n), 0.); // Diffuse.

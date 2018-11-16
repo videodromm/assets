@@ -4,7 +4,7 @@
 #define MAXSTEP 200.
 #define FAR 200.
 #define EPS 0.01
-#define time iGlobalTime
+#define time iTime
 
 vec4 SPHERE = vec4(0.,0.,0.,4.);
 

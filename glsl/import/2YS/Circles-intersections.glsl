@@ -50,7 +50,7 @@ vec3 Scene(vec2 pix)
     vec3 circle1 = vec3(0.0, -0.3, 0.5);
     vec3 circle2 = vec3(0.2, 0.2, 0.7);   
     circle1.xy = Mouse();	
-    circle1.z = 0.3 + abs(0.2*sin(0.5*iGlobalTime));
+    circle1.z = 0.3 + abs(0.2*sin(0.5*iTime));
     
     col += vec3(0.1, 0.2, 0.7) * Circle(pix, circle1);
     col += vec3(0.7, 0.0, 0.3) * Circle(pix, circle2);

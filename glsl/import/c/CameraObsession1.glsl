@@ -36,7 +36,7 @@ void main(void)
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
 
-	float focaldistance=0.5+sin(iGlobalTime*0.05)*0.013;
+	float focaldistance=0.5+sin(iTime*0.05)*0.013;
 	float focallength=0.100;
 	float filmsize=0.036;
 	float minconf=filmsize/1000.0;
@@ -48,11 +48,11 @@ void main(void)
 	for(int i=0;i<NumberOfParticles;i++)
 	{
 		float t=float(i)/float(NumberOfParticles);
-		float a=t*2.0*Pi+iGlobalTime*0.1;
+		float a=t*2.0*Pi+iTime*0.1;
 
 		vec3 pos=vec3(sin(a)+2.0*sin(2.0*a),cos(a)-2.0*cos(2.0*a),-sin(3.0*a))*0.01;
 
-		float a1=0.1*iGlobalTime;
+		float a1=0.1*iTime;
 		pos.xz*=mat2(cos(a1),-sin(a1),sin(a1),cos(a1));
 		//float a2=0.1;
 		//pos.yz*=mat2(cos(a2),-sin(a2),sin(a2),cos(a2));

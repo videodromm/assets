@@ -65,7 +65,7 @@ void main(void)
     float ijm = i+j-2.*((i+j)/2.);
 
     float angle = atan(pos.x, pos.y);
-	float t = iGlobalTime;
+	float t = iTime;
 	int ORATPresetNo = int(mod(iSteps,4.0));	
 	// change the phase and speed of different tiles individually as function of their coordinates	
 	if(ORATPresetNo==0) { // 

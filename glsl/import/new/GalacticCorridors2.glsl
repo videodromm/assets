@@ -7,7 +7,7 @@
 
 //-----------------UTILITY MACROS-----------------
 
-#define time (sin(((sin(float(__LINE__)*100.0)*GR/PI+GR/PI/E)*iGlobalTime+100.0)/100.0)*100.0)
+#define time (sin(((sin(float(__LINE__)*100.0)*GR/PI+GR/PI/E)*iTime+100.0)/100.0)*100.0)
 #define saw(x) (acos(cos(x))/PI)
 #define sphereN(uv) (clamp(1.0-length(uv*2.0-1.0), 0.0, 1.0))
 #define clip(x) (smoothstep(0.5-GR/PI/E, .5+GR/PI/E, x))
@@ -38,7 +38,7 @@ vec2 spiral(vec2 uv)
     float turns = 5.0;
     float r = pow(log(length(uv)+1.), 1.175);
     float theta = atan(uv.y, uv.x)*turns-r*PI;
-    return vec2(saw(r*PI+iGlobalTime), saw(theta+iGlobalTime*1.1));
+    return vec2(saw(r*PI+iTime), saw(theta+iTime*1.1));
 }
 
 vec2 cmul(vec2 v1, vec2 v2) {

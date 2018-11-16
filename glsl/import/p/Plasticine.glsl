@@ -7,7 +7,7 @@
 #define oid1 1.0
 #define oid2 2.0
 #define shadowsteps 30.0
-#define speed iGlobalTime*0.2332
+#define speed iTime*0.2332
 
 vec2 rot(vec2 k, float t) {
 	return vec2(cos(t)*k.x-sin(t)*k.y,sin(t)*k.x+cos(t)*k.y);

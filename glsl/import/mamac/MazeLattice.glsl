@@ -390,14 +390,14 @@ void main(void)
     rd = normalize(vec3(rd.xy, sqrt(max(rd.z*rd.z - dot(rd.xy, rd.xy)*.2, 0.))));
     
     // Rotating the ray with Fabrice's cost cuttting matrix. I'm still pretty happy with this also. :)
-    vec2 m = sin(vec2(1.57079632, 0) + iGlobalTime/4.);
+    vec2 m = sin(vec2(1.57079632, 0) + iTime/4.);
     rd.xy = rd.xy*mat2(m.xy, -m.y, m.x);
     rd.xz = rd.xz*mat2(m.xy, -m.y, m.x);
     
     // Ray origin: Sending it along the Z-axis.
-    vec3 ro = vec3(0, 0, iGlobalTime);
+    vec3 ro = vec3(0, 0, iTime);
     // Alternate: Set off in the YZ direction. Note the ".5." It's an old lattice trick.
-    //vec3 ro = vec3(0, iGlobalTime/2. + .5, iGlobalTime/2.);
+    //vec3 ro = vec3(0, iTime/2. + .5, iTime/2.);
     
     vec3 lp = ro + vec3(.2, 1., .3); // Light, near the ray origin.
     

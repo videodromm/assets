@@ -81,15 +81,15 @@ void main(void)
 	
 	ray = normalize(ray);//20.0;
 	
-	mat3 matrix = mat3(cos(0.1*iGlobalTime),sin(0.1*iGlobalTime),0.0,
-					-sin(0.1*iGlobalTime),cos(0.1*iGlobalTime),
+	mat3 matrix = mat3(cos(0.1*iTime),sin(0.1*iTime),0.0,
+					-sin(0.1*iTime),cos(0.1*iTime),
 					0.0,0.0, 0.0, 1.0);
 	ray=matrix*ray;
 	
 	vec3 ixyz;
 	
-	vec3 origin = vec3(0.6*sin(0.5*iGlobalTime), 0.6*cos(0.5*iGlobalTime),iGlobalTime);
-	vec3 light = origin + vec3(sin(iGlobalTime)+0.3*sin(3.0*iGlobalTime), cos(iGlobalTime), 3.0+cos(iGlobalTime));
+	vec3 origin = vec3(0.6*sin(0.5*iTime), 0.6*cos(0.5*iTime),iTime);
+	vec3 light = origin + vec3(sin(iTime)+0.3*sin(3.0*iTime), cos(iTime), 3.0+cos(iTime));
 	
 	vec3 sphere_colour = vec3(1.0,1.0,1.0);
 	vec4 pixel = vec4(0.0,0.0,0.0,1.0);

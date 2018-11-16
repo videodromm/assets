@@ -10,11 +10,11 @@ void main( void ) {
      float newY = atan(cX, cY);
      
      float color = 0.0;
-     color += cos( newX * cos(iGlobalTime / 15.0 ) * 80.0 ) + cos( newX * cos(iGlobalTime / 15.0 ) * 10.0 );
-     color += cos( newY * cos(iGlobalTime / 10.0 ) * 40.0 ) + cos( newY * sin(iGlobalTime / 25.0 ) * 40.0 );
-     color += cos( newX * cos(iGlobalTime / 5.0 ) * 10.0 ) + cos( newY * sin(iGlobalTime / 35.0 ) * 80.0 );
-     color *= cos(iGlobalTime / 10.0 ) * 0.5;
+     color += cos( newX * cos(iTime / 15.0 ) * 80.0 ) + cos( newX * cos(iTime / 15.0 ) * 10.0 );
+     color += cos( newY * cos(iTime / 10.0 ) * 40.0 ) + cos( newY * sin(iTime / 25.0 ) * 40.0 );
+     color += cos( newX * cos(iTime / 5.0 ) * 10.0 ) + cos( newY * sin(iTime / 35.0 ) * 80.0 );
+     color *= cos(iTime / 10.0 ) * 0.5;
 
-     gl_FragColor = vec4( vec3( color, color * 0.5, sin( color + iGlobalTime / 3.0 ) * 0.75 ), 1.0 );
+     gl_FragColor = vec4( vec3( color, color * 0.5, sin( color + iTime / 3.0 ) * 0.75 ), 1.0 );
 
 }

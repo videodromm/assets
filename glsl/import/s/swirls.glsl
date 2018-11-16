@@ -36,10 +36,10 @@ void main(void)
 	float y = gl_FragCoord.y - (iResolution.y / 2.0);
 	
 	float r = length(vec2(x,y));
-	float angle = atan(x,y) - sin(iGlobalTime)*r / 200.0 + 1.0*iGlobalTime;
+	float angle = atan(x,y) - sin(iTime)*r / 200.0 + 1.0*iTime;
 	float intensity = 0.5 + 0.25*sin(15.0*angle);
 	//float intensity = mod(angle, (PI / 8.0));
-	//float intensity = 0.5 + 0.25*sin(angle*16.0-5.0*iGlobalTime);
+	//float intensity = 0.5 + 0.25*sin(angle*16.0-5.0*iTime);
 	
 	gl_FragColor = hsv_to_rgb(angle/PI, intensity, 1.0, 0.5);
 }

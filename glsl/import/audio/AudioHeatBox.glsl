@@ -69,7 +69,7 @@
 // - - - - - - - - - - - - -
 // Time properties
 
-float g_time = iGlobalTime;// iChannelTime[1];
+float g_time = iTime;// iChannelTime[1];
 float g_beatRate = 160.;
 
 // - - - - - - - - - - - - -

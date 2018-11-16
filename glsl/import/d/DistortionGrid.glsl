@@ -108,7 +108,7 @@ void main(void)
     if(iMouse.z > 0.0) {
         mp = iMouse.xy / iResolution.xy;
     } else {
-        mp = vec2(cos(iGlobalTime), sin(iGlobalTime));
+        mp = vec2(cos(iTime), sin(iTime));
         mp *= 0.25;
         mp += 0.5;
     }
@@ -118,7 +118,7 @@ void main(void)
     uv.x *= a;
     mp.x *= a;
     
-    //float ang = -iGlobalTime * 0.1;
+    //float ang = -iTime * 0.1;
     //uv = rot(uv, ang);
     //mp = rot(mp, ang);
 

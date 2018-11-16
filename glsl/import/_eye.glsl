@@ -38,9 +38,9 @@ void main(void)
 	
 	vec3 col = vec3( f);
 
-	//float ss = 0.5 + 0.5*sin(iGlobalTime);
+	//float ss = 0.5 + 0.5*sin(iTime);
 	//float anim = 1.0 + 0.1*ss;
-	float ss = 0.5 + 0.5*sin(2.0*iGlobalTime);
+	float ss = 0.5 + 0.5*sin(2.0*iTime);
 	float anim = 1.0 + 0.1*ss*clamp(1.0-r,0.0,1.0);
 	r *= anim;
 	if (r<0.8)

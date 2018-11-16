@@ -84,7 +84,7 @@ float ambiantOcclusion( in vec3 p, in vec3 n, in float d )
 
 //Geometry
 float ill = 0.;
-float impulsTime = iGlobalTime+sin(iGlobalTime+PI);
+float impulsTime = iTime+sin(iTime+PI);
 float map( in vec3 p )
 {
 	float d = p.y;
@@ -160,7 +160,7 @@ void main( void )
 	uv.y -= iRenderXY.y;
 	
 	//camera ray
-	float ctime = (iGlobalTime+140.)*.025;
+	float ctime = (iTime+140.)*.025;
 	vec3 org = vec3( cos(ctime)*10., 2.+cos(ctime), sin(ctime)*10. );
 	vec3 dir = normalize( vec3(uv.x, uv.y, 1.5) );
 	dir = lookat( -org + vec3(0., 2., 0.), vec3(0., 1., 0.) ) * dir;
@@ -174,5 +174,5 @@ void main( void )
     col = pow( col*2., vec3(1.75) );
 	//col *= sqrt( 32.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y) ); //from iq
 	
-	gl_FragColor = vec4( col*min(iGlobalTime/5., 1.), 1. );
+	gl_FragColor = vec4( col*min(iTime/5., 1.), 1. );
 }

@@ -5,7 +5,7 @@
             "index" : 0,
             "max" : 1,
             "min" : 0,
-            "name" : "iGlobalTime",
+            "name" : "iTime",
             "type" : 0,
             "value" : 0
          }

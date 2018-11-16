@@ -27,7 +27,7 @@ float triangle(float x, float a) {
 
 float field(in vec3 p) {
 	
-	float strength = 7.0 + 0.03 * log(1.e-6 + fract(sin(iGlobalTime) * 4373.11));
+	float strength = 7.0 + 0.03 * log(1.e-6 + fract(sin(iTime) * 4373.11));
 	float accum = 0.;
 	float prev = 0.;
 	float tw = 0.;
@@ -35,7 +35,7 @@ float field(in vec3 p) {
 
 	for (int i = 0; i < 6; ++i) {
 		float mag = dot(p, p);
-		p = abs(p) / mag + vec3(-.5, -.8 + 0.1 * sin(iGlobalTime * 0.2 + 2.0), -1.1 + 0.3 * cos(iGlobalTime * 0.15));
+		p = abs(p) / mag + vec3(-.5, -.8 + 0.1 * sin(iTime * 0.2 + 2.0), -1.1 + 0.3 * cos(iTime * 0.15));
 		float w = exp(-float(i) / 7.);
 		accum += w * exp(-strength * pow(abs(mag - prev), 2.3));
 		tw += w;
@@ -54,7 +54,7 @@ void main( void )
 	
 
 	
-	float time2 = iGlobalTime;
+	float time2 = iTime;
                
         float speed = speed2;
         speed = 0.005 * cos(time2*0.02 + 3.1415926/4.0);
@@ -64,7 +64,7 @@ void main( void )
 	//mouse rotation
 	float a_xz = 0.9;
 	float a_yz = -.6;
-	float a_xy = 0.9 + iGlobalTime*0.04;
+	float a_xy = 0.9 + iTime*0.04;
 	
 	
 	mat2 rot_xz = mat2(cos(a_xz),sin(a_xz),-sin(a_xz),cos(a_xz));
@@ -88,10 +88,10 @@ void main( void )
 	vec3 forward = vec3(0.,0.,1.);
                
 
-	from.x += transverseSpeed*(1.0)*cos(0.01*iGlobalTime) + 0.001*iGlobalTime;
-		from.y += transverseSpeed*(1.0)*sin(0.01*iGlobalTime) +0.001*iGlobalTime;
+	from.x += transverseSpeed*(1.0)*cos(0.01*iTime) + 0.001*iTime;
+		from.y += transverseSpeed*(1.0)*sin(0.01*iTime) +0.001*iTime;
 	
-	from.z += 0.003*iGlobalTime;
+	from.z += 0.003*iTime;
 	
 	
 	dir.xy*=rot_xy;

@@ -132,12 +132,12 @@ vec3 thirdPart( float t, vec3 pos, float i, float j, inout vec3 col)
     col = mix(col1, col2, (1.-step( dist, i2*i2+j2*j2) ));
     
 	s += sin(t+j)*sin(t+j)						   * timeBorner(t, .0, 5.);
-    s += (5.*i + 8.*j + iGlobalTime) 			   * timeBorner(t, 5., 10.);
+    s += (5.*i + 8.*j + iTime) 			   * timeBorner(t, 5., 10.);
     s += sin(t+j)*sin(t+j) * sin(t+i)*sin(t+i)	   * timeBorner(t, 10., 15.);
     s += sin(t + i - j )						   * timeBorner(t, 15., 20.);
-    s += sin( .01*(i*i) - 5.*iGlobalTime)		   * timeBorner(t, 20., 25.);
-    s += sin( .01*(j*j) - 5.*iGlobalTime)		   * timeBorner(t, 25., 30.);
-    s += sin( .01*(i*i+j*j) - 2.*iGlobalTime)	   * timeBorner(t, 30., 35.);
+    s += sin( .01*(i*i) - 5.*iTime)		   * timeBorner(t, 20., 25.);
+    s += sin( .01*(j*j) - 5.*iTime)		   * timeBorner(t, 25., 30.);
+    s += sin( .01*(i*i+j*j) - 2.*iTime)	   * timeBorner(t, 30., 35.);
  	pos = rotationPos( pos, s );
 
     return pos;
@@ -159,7 +159,7 @@ vec3 fourthPart( float t, vec3 pos, float i, float j, inout vec3 col)
     float s = .0;
     float dist = 60. + 40.*cos(5.*t);
     float val1 = .5 + .5*sin( 5.*i + 8.*j + 20.* t);
-    float val2 = .5 + .5*sin( .01*(i*i+j*j) - 2.*iGlobalTime);
+    float val2 = .5 + .5*sin( .01*(i*i+j*j) - 2.*iTime);
     float val = mix( val1, val2, mod( t, 20.) / 20. );
     if ( t > 20.)
     	val = mix( val1, val2, mod( t, 20.) );
@@ -167,12 +167,12 @@ vec3 fourthPart( float t, vec3 pos, float i, float j, inout vec3 col)
     
     
 	s += sin(t+j)*sin(t+j)						   * timeBorner(t, .0, 5.);
-    s += (5.*i + 8.*j + iGlobalTime) 			   * timeBorner(t, 5., 10.);
+    s += (5.*i + 8.*j + iTime) 			   * timeBorner(t, 5., 10.);
     s += sin(t+j)*sin(t+j) * sin(t+i)*sin(t+i)	   * timeBorner(t, 10., 15.);
     s += sin(t + i - j )						   * timeBorner(t, 15., 20.);
-    s += sin( .01*(i*i) - 5.*iGlobalTime)		   * timeBorner(t, 20., 25.);
-    s += sin( .01*(j*j) - 5.*iGlobalTime)		   * timeBorner(t, 25., 30.);
-    s += sin( .01*(i*i+j*j) - 2.*iGlobalTime)	   * timeBorner(t, 30., 35.);
+    s += sin( .01*(i*i) - 5.*iTime)		   * timeBorner(t, 20., 25.);
+    s += sin( .01*(j*j) - 5.*iTime)		   * timeBorner(t, 25., 30.);
+    s += sin( .01*(i*i+j*j) - 2.*iTime)	   * timeBorner(t, 30., 35.);
  	pos = rotationPos( pos, s );
 
     return pos;
@@ -188,11 +188,11 @@ vec3 choreo( vec3 pos, float i, float j, inout vec3 col)
     vec3 p;
     
     // for tests :
-    //t = mod(iGlobalTime, 40.);
+    //t = mod(iTime, 40.);
 	//p = fourthPart(t, pos, i, j, col);
     
   
-	t = mod(iGlobalTime, 250.);
+	t = mod(iTime, 250.);
     if ( t < 25.)
         p = intro( t, pos, i, j, col);
 	else if ( t < 75.)
@@ -249,7 +249,7 @@ void main( void )
 	uv -= .5;
 	uv.x *= iResolution.x / iResolution.y;
 	//uv.x += cos( 10.*uv.y)*1.;
-    float time = iGlobalTime;
+    float time = iTime;
 
 #if FISH_EYE1
 	float fish_eye =  -length(uv)*1.+ .2*sin(time);
@@ -293,7 +293,7 @@ void main( void )
 	}
 	else
 	{
-		vec3 lightPos = vec3(1.* sin(3.*iGlobalTime) + 100., 8.5, 1.*cos(3.*iGlobalTime)  - 200. );
+		vec3 lightPos = vec3(1.* sin(3.*iTime) + 100., 8.5, 1.*cos(3.*iTime)  - 200. );
 		vec3 light2Pos = normalize( lightPos - pos);
 		vec3 eps = vec3( .1, .0, .0 );
 		vec3 n = vec3( result.w - map( pos - eps.xyy ).w,

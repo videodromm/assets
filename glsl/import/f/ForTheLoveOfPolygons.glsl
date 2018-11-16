@@ -160,10 +160,10 @@ vec3 polygonalGround( vec3 pos, float zshift, float sp )
 	float h3 = 0.0;
 	float h4 = 0.0;
 #else
-	float h1 = sin( gtm * iGlobalTime + tm * texture2D( iChannel0, um * uv1 ).r );
-	float h2 = sin( gtm * iGlobalTime + tm * texture2D( iChannel0, um * vec2( uv2.x, uv1.y ) ).r );
-	float h3 = sin( gtm * iGlobalTime + tm * texture2D( iChannel0, um * uv2 ).r );
-	float h4 = sin( gtm * iGlobalTime + tm * texture2D( iChannel0, um * vec2( uv1.x, uv2.y ) ).r );
+	float h1 = sin( gtm * iTime + tm * texture2D( iChannel0, um * uv1 ).r );
+	float h2 = sin( gtm * iTime + tm * texture2D( iChannel0, um * vec2( uv2.x, uv1.y ) ).r );
+	float h3 = sin( gtm * iTime + tm * texture2D( iChannel0, um * uv2 ).r );
+	float h4 = sin( gtm * iTime + tm * texture2D( iChannel0, um * vec2( uv1.x, uv2.y ) ).r );
 #endif
 	
 	float hm = 0.7 * max( 0.3, min( 1.0, -( uv1.y - 26.0 ) * 0.05 ) );
@@ -247,12 +247,12 @@ vec3 colorize( vec2 uv )
 
 	float sp = texture2D( iChannel0, vec2( 0.0, 0.0 ) ).r; // sound
 
-	float zshift = iGlobalTime * 0.0;
+	float zshift = iTime * 0.0;
 	
 	float t = rayMarchGround( ro, rd, sp, zshift );
 	
 	// directional light
-	vec3 lightDir = vec3( sin( iGlobalTime ), 0.6, 0.0 ); 
+	vec3 lightDir = vec3( sin( iTime ), 0.6, 0.0 ); 
 	lightDir = normalize( lightDir );
 
 	vec3 color;
@@ -297,7 +297,7 @@ vec3 colorize( vec2 uv )
 vec3 noiseGrain( vec2 uv )
 {
 	return vec3(
-		texture2D( iChannel0, uv * 20.0 + vec2( iGlobalTime * 100.678, iGlobalTime * 100.317 ) ).r
+		texture2D( iChannel0, uv * 20.0 + vec2( iTime * 100.678, iTime * 100.317 ) ).r
 	) * 0.2;
 }
 

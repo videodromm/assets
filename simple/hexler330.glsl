@@ -1,5 +1,5 @@
 uniform vec3      	iResolution; 			// viewport resolution (in pixels)
-uniform float     	iGlobalTime; 			// shader playback time (in seconds)
+uniform float     	iTime; 			// shader playback time (in seconds)
 uniform vec4      	iMouse; 				// mouse pixel coords. xy: current (if MLB down), zw: click
 uniform sampler2D 	iChannel0; 				// input channel 0
 
@@ -12,8 +12,8 @@ void main() {
 	float angle = atan(uv.y,uv.x);
 	
     float col = .0;
-    col += 1.5*sin(iGlobalTime + 13.0 * angle + uv.y * 20);
-    col += cos(.9 * uv.x * angle * 60.0 + radius * 5.0 -iGlobalTime * 2.);
+    col += 1.5*sin(iTime + 13.0 * angle + uv.y * 20);
+    col += cos(.9 * uv.x * angle * 60.0 + radius * 5.0 -iTime * 2.);
 	//col = 1.0 -col;
    	fragColor = (1.2 - radius) * vec4(vec3( col ),1.0);
 }

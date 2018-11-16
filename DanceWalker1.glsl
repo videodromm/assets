@@ -97,7 +97,7 @@ uv.x=mod(uv.x,3.0)-1.5;
 	vec2 headPos=bodyPos+vec2(cos3Big(time)*0.2,0.4+cos3Big(time*1.12)*0.2);
 			val+=circle(uv-headPos,.1);
 
-	//val+=circleHalve(uv+footDist+cosey(iGlobalTime*4)*0.4,cos(PI+iGlobalTime*4)*0.05+0.1);
+	//val+=circleHalve(uv+footDist+cosey(iTime*4)*0.4,cos(PI+iTime*4)*0.05+0.1);
 
 
 			vec2 footDist=vec2(0.35,0);
@@ -150,25 +150,25 @@ float val=0.0;
 
 //head
 
-//val+=circle(+vec2(0,sin(iGlobalTime*8)*.25-.25),.25);
+//val+=circle(+vec2(0,sin(iTime*8)*.25-.25),.25);
 vec2 uvorig=uv;
-uv.x+=iGlobalTime;
+uv.x+=iTime;
 //body
-val=walkingDudeScaled(uv,iGlobalTime,1.0);
-uv.x=uvorig.x+iGlobalTime*.5;
-val=max(val,walkingDudeScaled(uv+vec2(-1.0,0.0),345.0+iGlobalTime*1.0,2.0)*0.5);
-//val+=walkingDudeScaled(uv+vec2(1,0),2314+iGlobalTime*1,2)*0.75;
-uv.x=uvorig.x+iGlobalTime*.25;
+val=walkingDudeScaled(uv,iTime,1.0);
+uv.x=uvorig.x+iTime*.5;
+val=max(val,walkingDudeScaled(uv+vec2(-1.0,0.0),345.0+iTime*1.0,2.0)*0.5);
+//val+=walkingDudeScaled(uv+vec2(1,0),2314+iTime*1,2)*0.75;
+uv.x=uvorig.x+iTime*.25;
 
-val=max(val,walkingDudeScaled(uv+vec2(1.5,0.0),34256.0+iGlobalTime*1.0,4.0)*0.25);
-//val+=walkingDudeScaled(uv+vec2(-1.5,0),7655+iGlobalTime*1,4)*0.5;
-//val+=walkingDudeScaled(uv+vec2(sawtooth(-iGlobalTime*.1)*6,0),iGlobalTime*1.73,sawtooth(-iGlobalTime*.1)*8);
-//val+=walkingDudeScaled(vec2(-2,0)+uv+vec2(sawtooth(-iGlobalTime*.14)*3,0),234+iGlobalTime*2.1,sawtooth(-iGlobalTime*.14)*8);
-//val+=walkingDudeScaled(vec2(-1,0)+uv+vec2(sawtooth(-iGlobalTime*.14)*3,0),44+iGlobalTime*1.3,sawtooth(-iGlobalTime*.14)*8);
+val=max(val,walkingDudeScaled(uv+vec2(1.5,0.0),34256.0+iTime*1.0,4.0)*0.25);
+//val+=walkingDudeScaled(uv+vec2(-1.5,0),7655+iTime*1,4)*0.5;
+//val+=walkingDudeScaled(uv+vec2(sawtooth(-iTime*.1)*6,0),iTime*1.73,sawtooth(-iTime*.1)*8);
+//val+=walkingDudeScaled(vec2(-2,0)+uv+vec2(sawtooth(-iTime*.14)*3,0),234+iTime*2.1,sawtooth(-iTime*.14)*8);
+//val+=walkingDudeScaled(vec2(-1,0)+uv+vec2(sawtooth(-iTime*.14)*3,0),44+iTime*1.3,sawtooth(-iTime*.14)*8);
 
-//val+=walkingDudeScaled(uv+vec2(1,0),iGlobalTime*3,3);
-//val+=walkingDudeScaled(uv+vec2(1,0),iGlobalTime*2,4)*0.5;
-//val+=walkingDudeScaled(uv+vec2(-1,0),iGlobalTime*2.3,0.5)*0.5;
+//val+=walkingDudeScaled(uv+vec2(1,0),iTime*3,3);
+//val+=walkingDudeScaled(uv+vec2(1,0),iTime*2,4)*0.5;
+//val+=walkingDudeScaled(uv+vec2(-1,0),iTime*2.3,0.5)*0.5;
 
 
 	vec3 color=vec3(1.0,1.0,1.0);

@@ -90,7 +90,7 @@ void main(void) {
   uv.y -= iRenderXY.y;
 
     vec2 zoom = vec2(5, 5);
-    vec3 origin = vec3( cos(iGlobalTime * 0.1) + iGlobalTime * 0.05, sin(iGlobalTime * 0.05) + iGlobalTime * 0.05, 0 );
+    vec3 origin = vec3( cos(iTime * 0.1) + iTime * 0.05, sin(iTime * 0.05) + iTime * 0.05, 0 );
 	
     vec3 dir = vec3( uv * zoom, 1.0 );
 

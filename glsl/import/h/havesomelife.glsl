@@ -23,7 +23,7 @@ void main(void)
 	uv *= vec2( 1.0, .6 );
 	vec3 dir = normalize( vec3( uv.x, uv.y, -1.0 ) );
 	
-	float progress = .03 * iGlobalTime;
+	float progress = .03 * iTime;
 	
 	dir.yz = rotate( dir.yz, .3 * sin( .5 * progress ) );
 	dir.zx = rotate( dir.zx, .7 * progress );

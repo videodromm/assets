@@ -6,7 +6,7 @@ vec2 frame(vec2 u){
 //golden angle ratio, to avoid interferrences of periods over time.
 #define phi (sqrt(5.)*.5-.5)
 
-#define time iGlobalTime
+#define time iTime
 #define time1 (sin(time       )*.5+.5)
 #define time2 (sin(time*phi*2.)*.5+.5)
 

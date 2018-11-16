@@ -34,7 +34,7 @@ vec2 hashPt(vec2 p, float timeOffset) {
 // restricted in movement to box half the cell width/height,
 // so Delaunay triangles behaves regularly.
 vec2 cellPt(vec2 p) {
-    return p + .5 + (hashPt(p, iGlobalTime) - .5)*.5;
+    return p + .5 + (hashPt(p, iTime) - .5)*.5;
 }
 
 // Fast distance to edge-Voronoi.

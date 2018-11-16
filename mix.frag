@@ -4,7 +4,7 @@ uniform vec3        iResolution;         	// viewport resolution (in pixels)
 uniform sampler2D   iChannel0;				// input channel 0
 uniform sampler2D   iChannel1;				// input channel 1 
 uniform vec4        iMouse;              	// mouse pixel coords. xy: current (if MLB down), zw: click
-uniform float       iGlobalTime;         	// shader playback time (in seconds)
+uniform float       iTime;         	// shader playback time (in seconds)
 uniform vec3        iBackgroundColor;    	// background color
 uniform int         iToggle;             	// 1 for toggle
 uniform float       iRatio;
@@ -143,8 +143,8 @@ vec3 spotLight( vec3 curSample )
 {
 
 	vec2 lightPos = vec2(
-		(1.2 + sin(iGlobalTime)) * 0.4 * iResolution.x,
-		(1.2 + cos(iGlobalTime)) * 0.4 * iResolution.y
+		(1.2 + sin(iTime)) * 0.4 * iResolution.x,
+		(1.2 + cos(iTime)) * 0.4 * iResolution.y
 	);
 	
 	// control with the mouse.
@@ -597,7 +597,7 @@ void main(void)
 		uv.y = 1.0 - uv.y;
 	}
 	// rotate
-	//float rad = radians(360.0 * fract(iGlobalTime*iRotationSpeed));
+	//float rad = radians(360.0 * fract(iTime*iRotationSpeed));
 	//mat2 rotate = mat2(cos(rad),sin(rad),-sin(rad),cos(rad));
 	//uv = rotate * (uv - 0.5) + 0.5;
 
@@ -616,12 +616,12 @@ void main(void)
 		if (iXorY)
 		{
 			float z1 = floor((x/iParam1) + 0.5);	   //((x/20.0) + 0.5)
-			x2 = x + (sin(z1 + (iGlobalTime * 2.0)) * iRatio);
+			x2 = x + (sin(z1 + (iTime * 2.0)) * iRatio);
 		}
 		else
 		{
 			float z2 = floor((y/iParam2) + 0.5);	   //((x/20.0) + 0.5)
-			y2 = y + (sin(z2 + (iGlobalTime * 2.0)) * iRatio);
+			y2 = y + (sin(z2 + (iTime * 2.0)) * iRatio);
 		}
 
 		vec2 uv2 = vec2(x2 / iResolution.x, y2/ iResolution.y);
@@ -681,17 +681,17 @@ void main(void)
 		float c = 1.;
 		if (iXorY)
 		{
-			c += iBadTv * sin(iGlobalTime * 2. + uv.y * 100. * iParam1);
-			c += iBadTv * sin(iGlobalTime * 1. + uv.y * 80.);
-			c += iBadTv * sin(iGlobalTime * 5. + uv.y * 900. * iParam2);
-			c += 1. * cos(iGlobalTime + uv.x);
+			c += iBadTv * sin(iTime * 2. + uv.y * 100. * iParam1);
+			c += iBadTv * sin(iTime * 1. + uv.y * 80.);
+			c += iBadTv * sin(iTime * 5. + uv.y * 900. * iParam2);
+			c += 1. * cos(iTime + uv.x);
 		}
 		else
 		{
-			c += iBadTv * sin(iGlobalTime * 2. + uv.x * 100. * iParam1);
-			c += iBadTv * sin(iGlobalTime * 1. + uv.x * 80.);
-			c += iBadTv * sin(iGlobalTime * 5. + uv.x * 900. * iParam2);
-			c += 1. * cos(iGlobalTime + uv.y);
+			c += iBadTv * sin(iTime * 2. + uv.x * 100. * iParam1);
+			c += iBadTv * sin(iTime * 1. + uv.x * 80.);
+			c += iBadTv * sin(iTime * 5. + uv.x * 900. * iParam2);
+			c += 1. * cos(iTime + uv.y);
 		}	
 	
 		//vignetting
@@ -699,7 +699,7 @@ void main(void)
 		c *= sin(uv.y*3.);
 		c *= .9;
 	
-		uv += iGlobalTime;
+		uv += iTime;
 	
 		float r = BadTVResoRand(uv.x, uv.y);
 		float g = BadTVResoRand(uv.x * 9., uv.y * 9.);

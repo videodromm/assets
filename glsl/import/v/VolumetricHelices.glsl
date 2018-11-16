@@ -28,7 +28,7 @@
 
 #define MAX_ITER 35
 #define FAR 20.
-#define time iGlobalTime
+#define time iTime
 
 //const friendly mix()
 #define MIX(X, Y, A) ((X) + (A)*((Y) - (X)))

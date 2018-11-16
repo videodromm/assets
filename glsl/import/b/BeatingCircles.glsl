@@ -5,7 +5,7 @@ float beat = 0.;
 
 void main(void)
 {
-	float ct = 10.0 * iGlobalTime * texture2D( iChannel0, vec2(0.25,5.0/100.0) ).x;
+	float ct = 10.0 * iTime * texture2D( iChannel0, vec2(0.25,5.0/100.0) ).x;
 	if ((ct > 8.0 && ct < 33.5)
 	|| (ct > 38.0 && ct < 88.5)
 	|| (ct > 93.0 && ct < 194.5))
@@ -21,7 +21,7 @@ void main(void)
 	float d = length(pos);
 	
 	// Create the wiggle
-	d += beat*2.0*(sin(pos.y*0.25/scale+iGlobalTime*cos(ct))*sin(pos.x*0.25/scale+iGlobalTime*.5*cos(ct)))*scale*5.0;
+	d += beat*2.0*(sin(pos.y*0.25/scale+iTime*cos(ct))*sin(pos.x*0.25/scale+iTime*.5*cos(ct)))*scale*5.0;
 	
 	// Compute the distance to the closest ring
 	float v = mod(d + radius/(ring*2.0), radius/ring);

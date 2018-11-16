@@ -12,7 +12,7 @@ void main(void)
     vec2 S;
     S.x = (xy.x + xy.y)*(xy.x - xy.y)*0.5;      // "velocity potential"
     S.y = xy.x*xy.y;                            // stream function
-    S.x -= iGlobalTime*3.0;                     // animate stream
+    S.x -= iTime*3.0;                     // animate stream
     
     vec2 sxy = sin(3.14159*S);
     float a = sxy.x * sxy.y;                    // combine sine waves using product

@@ -8,14 +8,14 @@ float BinarySerpentsTexture3D(vec3 n, float res){
 }
 
 float BinarySerpentsmap( vec3 p ){
-    p.x+=sin(p.z*4.0+iGlobalTime*4.0)*0.1*cos(iGlobalTime*0.1);
+    p.x+=sin(p.z*4.0+iTime*4.0)*0.1*cos(iTime*0.1);
     p = mod(p,vec3(1.0, 1.0, 1.0))-0.5;
     return length(p.xy)-.1;
 }
 void main(void)
 {
    vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy * 2.0 - 0.5;
-  	 vec3 camPos = vec3(cos(iGlobalTime*0.3), sin(iGlobalTime*0.3), 1.5);
+  	 vec3 camPos = vec3(cos(iTime*0.3), sin(iTime*0.3), 1.5);
     vec3 camTarget = vec3(0.0, 0.0, 0.0);
 
     vec3 camDir = normalize(camTarget-camPos);
@@ -40,7 +40,7 @@ void main(void)
     float fog = 3.1;
     vec3 result = vec3( vec3(iColor.r, iColor.g, iColor.b) * (fog - total_d) / fog );
 
-    ray.z -= 5.+iGlobalTime*.5;
+    ray.z -= 5.+iTime*.5;
     float r = BinarySerpentsTexture3D(ray, 33.);
     float freq0 = texture2D( iChannel0, vec2(0.25,5.0/100.0) ).x;
     float freq1 = texture2D( iChannel0, vec2(0.5,5.0/100.0) ).x;

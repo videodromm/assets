@@ -116,7 +116,7 @@ float Letters_count = 0.0;
 float Letters_t(vec2 from, vec2 to, vec2 p) 
 {
 Letters_count++;
-if (Letters_count > iGlobalTime*20.0) return 0.0;
+if (Letters_count > iTime*20.0) return 0.0;
 return Letters_textColor(Letters_grid(from), Letters_grid(to), p);
 }
 
@@ -154,11 +154,11 @@ Letters_caret.y -= .18;
 void main(void)
 {
 float d = 0.;
-vec3 col = vec3(0.1, .07+0.07*(.5+sin(gl_FragCoord.y*3.14159*1.1+iGlobalTime*2.0)) + sin(gl_FragCoord.y*.01+iGlobalTime+2.5)*0.05, 0.1);
+vec3 col = vec3(0.1, .07+0.07*(.5+sin(gl_FragCoord.y*3.14159*1.1+iTime*2.0)) + sin(gl_FragCoord.y*.01+iTime+2.5)*0.05, 0.1);
 Letters_caret = Letters_caret_origin;
 
 d += R(r()); Letters_add();  d += E(r()); Letters_add();  d += Y(r()); Letters_add(); d += M(r()); Letters_add(); d += E(r()); Letters_add(); d += N(r()); Letters_add(); d += T(r()); Letters_add(); d += A(r());
-d = clamp(d* (.75+sin(gl_FragCoord.x*PI*.5-iGlobalTime*4.3)*.5), 0.0, 1.0);
+d = clamp(d* (.75+sin(gl_FragCoord.x*PI*.5-iTime*4.3)*.5), 0.0, 1.0);
       
     col += vec3(d*.5, d, d*.85);
 vec2 xy = gl_FragCoord.xy / iResolution.xy;

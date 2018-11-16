@@ -77,7 +77,7 @@ float VideoHeightFieldHeightField(vec3 p)
 	//return sin(p.x*4.0)*sin(p.z*4.0);
 	//return VideoHeightFieldLuminance(iChannel5, p.xz*0.5+0.5)*2.0-1.0;
 	//return VideoHeightFieldLuminance(iChannel0, VideoHeightFieldWorldToTex(p))*0.5;
-	//return VideoHeightFieldLuminance(iChannel0, VideoHeightFieldWorldToTex(p))*iGlobalTime;
+	//return VideoHeightFieldLuminance(iChannel0, VideoHeightFieldWorldToTex(p))*iTime;
 	//return VideoHeightFieldLuminance(iChannel0, VideoHeightFieldWorldToTex(p))*iFreq0;
 	return VideoHeightFieldLuminance(iChannel0, VideoHeightFieldWorldToTex(p))*iFreq0/250.0;
 }
@@ -134,7 +134,7 @@ void main(void)
     rd = VideoHeightFieldRotateX(rd, ax);
     ro = VideoHeightFieldRotateX(ro, ax);
 		
-	float ay = sin(iGlobalTime*0.04);
+	float ay = sin(iTime*0.04);
     rd = VideoHeightFieldRotateY(rd, ay);
     ro = VideoHeightFieldRotateY(ro, ay);
 	

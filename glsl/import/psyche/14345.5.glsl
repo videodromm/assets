@@ -54,7 +54,7 @@ vec3 smoot(vec3 v)
 
 void main( void )
 {
-	float t = ((iGlobalTime+pipi)/pipi)+pipi;
+	float t = ((iTime+pipi)/pipi)+pipi;
 
 	vec2 uv = 2.0 * iZoom * (gl_FragCoord.xy / iResolution.xy- 0.5);
 	uv.x *= float(iResolution.x )/ float(iResolution.y);

@@ -73,7 +73,7 @@ void main(void)
 {
 	vec2 uv = ((gl_FragCoord.xy / iResolution.xy) * 2.0 - 1.0) * vec2(iResolution.x/iResolution.y, 1.0);
 	
-	float time = iGlobalTime;
+	float time = iTime;
 	float bps = time * .95 + time*time*.008;
 
 	float gain = smoothstep(0.0, .1, bps);

@@ -73,7 +73,7 @@ vec4 tunneliter(vec2 texCoord,vec4 incol,float cx,float cy,float limita,float li
     disty=distance(texc,vec2(0.0,0.0));
     tex.x=(abs(atan(texc.x,texc.y)))/6.2830;
     tex.y=0.5/disty;  
-    tex.y+=(iGlobalTime*0.9)+tadd;
+    tex.y+=(iTime*0.9)+tadd;
 
     float fbmval=abs(fbm(tex)); 
 
@@ -88,12 +88,12 @@ void main(void)
    vec2 uv = 2.0 * iZoom * (gl_FragCoord.xy/iResolution.xy- 0.5);
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
-//	gl_FragColor = vec4(uv,0.5+0.5*sin(iGlobalTime),1.0);
+//	gl_FragColor = vec4(uv,0.5+0.5*sin(iTime),1.0);
 
     vec4 finalCol;
     
-    float xa=(sin(iGlobalTime)*0.4)+(sin((iGlobalTime*1.3)+0.5)*0.24);
-    float ya=(cos(iGlobalTime)*0.45)+(cos((iGlobalTime*0.6)-0.7)*0.3);
+    float xa=(sin(iTime)*0.4)+(sin((iTime*1.3)+0.5)*0.24);
+    float ya=(cos(iTime)*0.45)+(cos((iTime*0.6)-0.7)*0.3);
 
     finalCol=vec4(1.0,0.0,1.0,1.0);
 

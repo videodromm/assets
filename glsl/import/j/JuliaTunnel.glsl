@@ -22,7 +22,7 @@ vec3 rY(const vec3 v, const float t) {
 	return vec3(COS*v.x-SIN*v.z, v.y, SIN*v.x+COS*v.z);
 }
 void main(void) {
-	vec2 M = 0.05 * vec2(cos(iGlobalTime), sin(iGlobalTime)) + vec2(0.3, 0.0);
+	vec2 M = 0.05 * vec2(cos(iTime), sin(iTime)) + vec2(0.3, 0.0);
 	//vec2 ar = vec2(iResolution.x/iResolution.y, 1.0);
 	vec2 ar = vec2(iResolution.x/iResolution.y, 1.0);
 	//vec2 uv = 0.3 * ar * (gl_FragCoord.xy / iResolution.xy - 0.5);

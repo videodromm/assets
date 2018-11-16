@@ -14,8 +14,8 @@ vec2 Isolines( in vec2 p, in float off, float amp )
   	    float k = 1.0 + 0.4*g*g;
 
         vec2 q;
-        q.x = sin(iGlobalTime*0.015+0.67*g*(1.0+amp) + off + float(i)*121.45) * 0.5 + 0.5;
-        q.y = cos(iGlobalTime*0.016+0.63*g*(1.0+amp) + off + float(i)*134.76) * 0.5 + 0.5;
+        q.x = sin(iTime*0.015+0.67*g*(1.0+amp) + off + float(i)*121.45) * 0.5 + 0.5;
+        q.y = cos(iTime*0.016+0.63*g*(1.0+amp) + off + float(i)*134.76) * 0.5 + 0.5;
 	    vec2 d = p - q;
 		float at = 1.0/(0.01+dot(d,d));
         f += k*0.1*at;
@@ -29,8 +29,8 @@ void main(void)
 {
 	vec2 p = iZoom * gl_FragCoord.xy / iResolution.xy;
 
-	float isTripy = smoothstep( 86.5, 87.5, iGlobalTime ) - 
-		            smoothstep( 100.5, 108.0, iGlobalTime );
+	float isTripy = smoothstep( 86.5, 87.5, iTime ) - 
+		            smoothstep( 100.5, 108.0, iTime );
 
     vec2 ref = Isolines( p, 0.0, isTripy );
     float b = ref.x;	
@@ -47,7 +47,7 @@ void main(void)
     
 	col = mix( col, col2, isTripy );
 
-	float useLights = 0.5 + 1.5*smoothstep( 45.0, 45.2, iGlobalTime );
+	float useLights = 0.5 + 1.5*smoothstep( 45.0, 45.2, iTime );
 	col += useLights*0.5*pow( b*0.1, 4.0 ) * pow( texture2D( iChannel0, vec2(0.1,0.25) ).x, 2.0 );
 
 	gl_FragColor = vec4( col, 1.0 );

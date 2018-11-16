@@ -84,8 +84,8 @@ vec3 sceneColor(ivec3 p) {
 
 void cameraTransform( inout vec3 ro, inout vec3 rd )
 {
-	float c = cos(-iGlobalTime);
-	float s = sin(-iGlobalTime);
+	float c = cos(-iTime);
+	float s = sin(-iTime);
     mat3 rot = mat3(
 		  c,  0.0,   s,
 		0.0,  1.0,  0.0,

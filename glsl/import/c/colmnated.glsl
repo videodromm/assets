@@ -12,7 +12,7 @@ void main(void)
     float coord1 = sin(cl + uv.x) - cos(uv.y);
     float coord2 = cos(uv.x) - sin(uv.y + cl);
     
-    float mixed = mix(coord1, coord2, 0.5*sin(iGlobalTime));
+    float mixed = mix(coord1, coord2, 0.5*sin(iTime));
     
     float mw = texture2D(iChannel0, vec2(abs(mixed), 0.25)).x;
     
@@ -20,8 +20,8 @@ void main(void)
     
     float beat = texture2D(iChannel0, vec2(0.3, 0.25)).x;
     sun.x = -0.8 + beat * 0.3;
-    sun.y = 0.7 + cos(uv.y * 6.0 + uv.y * 0.3)*0.1 + sin(iGlobalTime * 0.5);
-    sun.z = 0.8 + 0.3*sin(iGlobalTime);
+    sun.y = 0.7 + cos(uv.y * 6.0 + uv.y * 0.3)*0.1 + sin(iTime * 0.5);
+    sun.z = 0.8 + 0.3*sin(iTime);
     
     float colorizer = mw;
     float fac1 = dot(vec3(uv.x, uv.y, colorizer), sun);

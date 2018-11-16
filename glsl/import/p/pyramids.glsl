@@ -131,7 +131,7 @@ vec3 getbg(vec3 rd) {
 		float a=atan(rd.x,rd.y);
 		float r = length(rd.xy) *4.0;
 		
-  	float b = 0.9 * sin(.0 * r - 3.0*iGlobalTime - 6.0*a);
+  	float b = 0.9 * sin(.0 * r - 3.0*iTime - 6.0*a);
   	b = 0.4 / r + cos(10.0 * a + b ) / (350.0 * r);
 	b = b * smoothstep(0.5, 1.2,b);
 
@@ -152,7 +152,7 @@ vec2 rot(vec2 k, float t) {
 
 
 void animate(inout vec3 ta, inout vec3 ro, inout vec3 lig) {
-	float t=iGlobalTime*0.25;
+	float t=iTime*0.25;
 
 	ta.x -= sin(t)*1.7;
 	ta.z += cos(t)*0.8;

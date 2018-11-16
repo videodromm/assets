@@ -1,5 +1,5 @@
 // https://www.shadertoy.com/view/4sSXWR
-float t = iGlobalTime;
+float t = iTime;
 float rnd(float x) { return fract(1000.*sin(345.2345*x)); }
 float id(float x, float y) { return floor(x)+100.*floor(y); }
 

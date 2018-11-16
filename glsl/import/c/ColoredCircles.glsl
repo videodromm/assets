@@ -40,16 +40,16 @@ vec2 CCnoise2(vec2 p)
 {
 	return 
 		vec2(
-			CCnoise(vec3(p, 1.9+sin(iGlobalTime*0.8)*1.3)), 
-			CCnoise(vec3(p, -1.2+sin(iGlobalTime*1.2)*1.0)));
+			CCnoise(vec3(p, 1.9+sin(iTime*0.8)*1.3)), 
+			CCnoise(vec3(p, -1.2+sin(iTime*1.2)*1.0)));
 }
 
 vec2 CCnoise2(vec2 p, float fudge)
 {
 	return 
 		vec2(
-			CCnoise(vec3(p, fudge+sin(iGlobalTime*0.8)*1.3)), 
-			CCnoise(vec3(p, -fudge+sin(iGlobalTime*1.2)*1.0)));
+			CCnoise(vec3(p, fudge+sin(iTime*0.8)*1.3)), 
+			CCnoise(vec3(p, -fudge+sin(iTime*1.2)*1.0)));
 }
 
 
@@ -237,7 +237,7 @@ vec2 CCzoomout(vec2 p)
 
 vec2 CCswirl(vec2 p)
 {
-	float swirlFactor = 3.0*(sin(iGlobalTime+0.22)-1.5);
+	float swirlFactor = 3.0*(sin(iTime+0.22)-1.5);
 	float radius = length(p);
 	float angle = atan(p.y, p.x);
 	float inner = angle-cos(radius*swirlFactor);
@@ -263,7 +263,7 @@ vec2 CCkaleidoscope(vec2 p)
 
 vec2 CCwrap(vec2 p)
 {
-	float zoomFactor = 1.5*(sin(iGlobalTime+0.36));
+	float zoomFactor = 1.5*(sin(iTime+0.36));
 	float repeatFactor = 3.0;
 	float radius = length(p)*zoomFactor;
 	float angle = atan(p.y, p.x)*repeatFactor;
@@ -285,7 +285,7 @@ vec2 CCarray(vec2 p)
 vec2 CCpan_rotate_zoom(vec2 pos, vec4 val)
 {
 	vec2 CCpan = vec2(val.w, val.x);
-	float angle= CCpi*val.y*(sin(iGlobalTime+1.2)-1.0);
+	float angle= CCpi*val.y*(sin(iTime+1.2)-1.0);
 	float CCzoom = val.z;
 	
 	float sinAngle = sin(angle);
@@ -361,13 +361,13 @@ vec4 CCimageFunction(vec2 pos)
 {		
 	vec2 origPos = pos;
 	
-	pos = pos * (1.0 + sin(iGlobalTime*0.05+length(origPos))*0.15);
+	pos = pos * (1.0 + sin(iTime*0.05+length(origPos))*0.15);
 
-	pos = CCrotate(pos, sin(iGlobalTime*0.05));
+	pos = CCrotate(pos, sin(iTime*0.05));
 	pos = pos * 0.8;
 	vec2 p = CCarray(CCzoomout(pos));
 	vec4 circles = -CCdist(p)+0.3;
-	vec4 pattern = abs(CCtriangleWave(CCsimplex_color(CCrotate(pos+iGlobalTime*0.005, iGlobalTime*0.1))));	
+	vec4 pattern = abs(CCtriangleWave(CCsimplex_color(CCrotate(pos+iTime*0.005, iTime*0.1))));	
 	return CCminf(circles, pattern);
 }
 

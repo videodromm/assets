@@ -6,8 +6,8 @@ void main(void)
 {
 
 	vec2 lightPos = vec2(
-		(1.2 + sin(iGlobalTime)) * 0.4 * iResolution.x,
-		(1.2 + cos(iGlobalTime)) * 0.4 * iResolution.y
+		(1.2 + sin(iTime)) * 0.4 * iResolution.x,
+		(1.2 + cos(iTime)) * 0.4 * iResolution.y
 	);
 	
 	// Uncomment this line to control with the mouse.

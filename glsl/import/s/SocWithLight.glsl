@@ -3,7 +3,7 @@
 // SoC with Light by eiffie (added a light to the Sphere of Confusion script)
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
-#define SocLightTime iGlobalTime*0.5
+#define SocLightTime iTime*0.5
 #define SocLightSize iResolution
 
 float SocLightFocalDist=1.0,SocLightAperture=0.025,SocLightFudgeFactor=1.0,SocLightShadowCone=0.2;

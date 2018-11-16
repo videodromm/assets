@@ -84,8 +84,8 @@ void main(void)
     //---------------------------------------------------	
     // render with analytical motion blur
     //---------------------------------------------------	
-	vec3  ce = AM3DGetPos( iGlobalTime );
-	vec3  ve = AM3DGetVelocity( iGlobalTime );
+	vec3  ce = AM3DGetPos( iTime );
+	vec3  ve = AM3DGetVelocity( iTime );
     	
 	col = vec3(0.25) + 0.3*rd.y;
 	vec3 nor = vec3(0.0);

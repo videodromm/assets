@@ -31,7 +31,7 @@ void main(void)
     vec2 p = 7.0*(fragCoord.xy-iResolution.xy*0.5)/iResolution.x;
     vec4 z = vec4(p,1.0,0.0);
     vec2 shift = 1.0 - 2.0 * iMouse.xy / iResolution.xy;
-    if (iMouse.xy == iMouse.zw) shift += sin(iGlobalTime + vec2(0.0,pi*0.5));
+    if (iMouse.xy == iMouse.zw) shift += sin(iTime + vec2(0.0,pi*0.5));
     for (int i = 0; i < 18; i++)
     {
         z = collatz(z, shift);
@@ -39,6 +39,6 @@ void main(void)
     float hue = atan(z.z,z.w);
     float val = 1.0/(1.0+0.0000000000001*dot(z.xy,z.xy));
     float sat = 1.0-1.0/(1.0+0.000000001*dot(z.zw,z.zw));
-	fragColor = vec4(hsv2rgb(vec3(hue+iGlobalTime,sat,val)),1.0);
+	fragColor = vec4(hsv2rgb(vec3(hue+iTime,sat,val)),1.0);
     //fragColor = vec4(pow(getcol(hue),vec3(val)),1.0);
 }

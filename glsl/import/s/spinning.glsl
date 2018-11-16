@@ -35,7 +35,7 @@ vec3 hash3( float n )
 vec3 shade( in vec4 res )
 {
     float ra = length(res.yz);
-    float an = atan(res.y,res.z) + 8.0*iGlobalTime;
+    float an = atan(res.y,res.z) + 8.0*iTime;
     float pa = sin(3.0*an);
 
     vec3 cola = 0.5 + 0.5*sin( (res.w/64.0)*3.5 + vec3(0.0,1.0,2.0) );
@@ -57,7 +57,7 @@ void main( void )
     p.x *= iResolution.x/iResolution.y;
 
     // camera
-	vec3 ro = 2.0*vec3(cos(0.5*iGlobalTime*1.1),0.0,sin(0.5*iGlobalTime*1.1));
+	vec3 ro = 2.0*vec3(cos(0.5*iTime*1.1),0.0,sin(0.5*iTime*1.1));
     vec3 ta = vec3(0.0,0.0,0.0);
     // camera matrix
     vec3 ww = normalize( ta - ro );

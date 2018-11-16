@@ -26,9 +26,9 @@ float wang(uint u)
 vec3 pointgen(uint i)
 {
     vec3 nice;
-    nice.x += cos(iGlobalTime+wang(i+3u)*3.14f*2.0f);
-    nice.y += sin(iGlobalTime+wang(i)*3.14f*2.0f);
-    nice.z += cos(iGlobalTime+wang(i+5u)*3.14f*2.0f);
+    nice.x += cos(iTime+wang(i+3u)*3.14f*2.0f);
+    nice.y += sin(iTime+wang(i)*3.14f*2.0f);
+    nice.z += cos(iTime+wang(i+5u)*3.14f*2.0f);
     return normalize(2.0f*nice);
 }
 
@@ -60,18 +60,18 @@ float distfunc(vec3 pos, float ampenv)
 }
 void main(void)
 { 
-	vec3 startPoint = vec3(cos(iGlobalTime*0.25)*15.0f, 0.0, sin(iGlobalTime*0.25)*15.0f);
+	vec3 startPoint = vec3(cos(iTime*0.25)*15.0f, 0.0, sin(iTime*0.25)*15.0f);
     vec3 cameraDir = normalize(cameraTarget - startPoint);
 	vec3 cameraRight = normalize(cross(upDirection, startPoint));
 	vec3 cameraUp = cross(cameraDir, cameraRight);
     
     //amplitude envelope
-    float audioEnvelope = (texture(iChannel0, vec2(iGlobalTime,0.0))).x;
+    float audioEnvelope = (texture(iChannel0, vec2(iTime,0.0))).x;
    	int c =0;
   	for(float k = 0.0; k<0.02; k+=0.001)
     {
     	c++;
-    	float val = abs((texture(iChannel2, vec2(iGlobalTime+k,0.0))).x);
+    	float val = abs((texture(iChannel2, vec2(iTime+k,0.0))).x);
     	audioEnvelope+=  val*val;
     }
     

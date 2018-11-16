@@ -15,7 +15,7 @@ vec2 getBokehTapSampleCoord(const in vec2 o, const in float f, const float n, co
 void main(void){
    
     // should for real usage: (fstop - fstopmin) / (fstopmax - fstopmin)
-    float f = (sin(iGlobalTime) * 0.5) + 0.5; 
+    float f = (sin(iTime) * 0.5) + 0.5; 
     
     // Diaphragm shape structure: 4.0 = box, 5.0 = pentagon, 6.0 = hexagon, 7.0 = heptagon, 8.0 = octagon etc.
     float ngon = iRatio*20.0; // 6.0 because I like hexagons :-) 

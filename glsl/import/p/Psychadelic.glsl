@@ -42,8 +42,8 @@ vec2 noise2(vec2 p)
 {
 	return 
 		vec2(
-			noise(vec3(p, 1.9+sin(iGlobalTime*0.8)*1.3)), 
-			noise(vec3(p, -1.2+sin(iGlobalTime*1.2)*1.0)));
+			noise(vec3(p, 1.9+sin(iTime*0.8)*1.3)), 
+			noise(vec3(p, -1.2+sin(iTime*1.2)*1.0)));
 }
 
 float triangleWave(float value)
@@ -72,8 +72,8 @@ vec4 bw_noise(vec2 p)
 {
 	p *= 1.5;
 	float val = 
-		(noise(vec3(p.x*2.2+sin(iGlobalTime*0.6+0.23)*0.22, p.y*2.2, 1.4+sin(iGlobalTime)*0.22))*0.66+
-		noise(vec3(p.x*3.2, p.y*3.2+sin(iGlobalTime*1.2-0.3)*0.36, 4.3+sin(iGlobalTime*1.1+1.5*0.12)))*0.33)*2.0;
+		(noise(vec3(p.x*2.2+sin(iTime*0.6+0.23)*0.22, p.y*2.2, 1.4+sin(iTime)*0.22))*0.66+
+		noise(vec3(p.x*3.2, p.y*3.2+sin(iTime*1.2-0.3)*0.36, 4.3+sin(iTime*1.1+1.5*0.12)))*0.33)*2.0;
 	
 	return vec4(val);
 }
@@ -199,7 +199,7 @@ vec2 zoomout(vec2 p)
 
 vec2 swirl(vec2 p)
 {
-	float swirlFactor = 3.0+timeEffect*(sin(iGlobalTime+0.22)-1.5);
+	float swirlFactor = 3.0+timeEffect*(sin(iTime+0.22)-1.5);
 	float radius = length(p);
 	float angle = atan(p.y, p.x);
 	float inner = angle-cos(radius*swirlFactor);
@@ -215,7 +215,7 @@ vec2 horseShoe(vec2 p)
 
 vec2 wrap(vec2 p)
 {
-	float zoomFactor = 1.5-timeEffect*(sin(iGlobalTime+0.36));
+	float zoomFactor = 1.5-timeEffect*(sin(iTime+0.36));
 	float repeatFactor = 3.0;
 	float radius = length(p)*zoomFactor;
 	float angle = atan(p.y, p.x)*repeatFactor;
@@ -231,7 +231,7 @@ vec2 array(vec2 p)
 vec2 pan_rotate_zoom(vec2 pos, vec4 val)
 {
 	vec2 pan = vec2(val.w, val.x);
-	float angle= pi*val.y+timeEffect*(sin(iGlobalTime+1.2)-1.0);
+	float angle= pi*val.y+timeEffect*(sin(iTime+1.2)-1.0);
 	float zoom = val.z;
 	
 	float sinAngle = sin(angle);
@@ -276,8 +276,8 @@ vec4 imageFunction(vec2 pos)
 {	
 	vec2 p=zoomout(pos);
 	return 
-		minf(dist(p+noise2(rotate(pos,iGlobalTime*0.1))), sinf(dist(p-noise2(pos+vec2(0.2)))))-
-		(vec4(-0.16,0.222,0.398,0.575)-y(zoom(p, bw_noise(rotate(p,iGlobalTime*-0.012)))));
+		minf(dist(p+noise2(rotate(pos,iTime*0.1))), sinf(dist(p-noise2(pos+vec2(0.2)))))-
+		(vec4(-0.16,0.222,0.398,0.575)-y(zoom(p, bw_noise(rotate(p,iTime*-0.012)))));
 }
 
 

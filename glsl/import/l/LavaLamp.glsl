@@ -19,7 +19,7 @@ void main( void )
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
 
-	float c = step(textureRND2D(uv*5.+vec2(0.,-iGlobalTime)),uv.y*(iRatio/200.)+.1);
+	float c = step(textureRND2D(uv*5.+vec2(0.,-iTime)),uv.y*(iRatio/200.)+.1);
 	// gl_FragColor = vec4(mix(vec3(1.2,.5,0.2)*uv.y, vec3(uv.y), c),1.0);
 	vec3 back = vec3(iBackgroundColor.r,iBackgroundColor.g,iBackgroundColor.b);
 	gl_FragColor = vec4(mix(vec3(iColor.r,iColor.g,iColor.b)*uv.y, 1.0-back*uv.y, c),1.0);

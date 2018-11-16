@@ -1,6 +1,6 @@
 // https://www.shadertoy.com/view/ldjSDh#
 // hexel resolution
-float res = 100.0 * ( sin( iGlobalTime * 0.5 ) * 0.5 + 0.5 ) + 10.0;
+float res = 100.0 * ( sin( iTime * 0.5 ) * 0.5 + 0.5 ) + 10.0;
 
 const vec2  D = vec2( 1.5, 1.7320508 );
 const float C = 1.7320508 * 0.5;
@@ -40,7 +40,7 @@ vec4 pixel( vec2 uv ) {
 
 vec2 screen_To_geo( vec2 uv ) {
     uv  = ( uv - iResolution.xy * 0.5 ) / min( iResolution.x, iResolution.y );
-    uv *= 1.0 + dot( uv, uv ) * ( cos( iGlobalTime * 0.5 ) * 0.5 + 0.5 ); // distortion
+    uv *= 1.0 + dot( uv, uv ) * ( cos( iTime * 0.5 ) * 0.5 + 0.5 ); // distortion
     return uv * res * D.y * 0.48;
 }
 

@@ -7,7 +7,7 @@ vec3 L = normalize(vec3(-.4,0.,1.));  // light source
 #define AMBIENT .4					  // ambient luminosity
 
 #define ANIM true
-float t = iGlobalTime;
+float t = iTime;
 #define PI 3.1415927
 
 bool keyToggle(int ascii) {
@@ -45,7 +45,7 @@ float noise( in vec3 x ) // in [0,1]
 
 float fbm( vec3 p )    // in [0,1]
 {
-	if (ANIM) p += iGlobalTime;
+	if (ANIM) p += iTime;
     float f;
     f  = 0.5000*noise( p ); p = m*p*2.02;
     f += 0.2500*noise( p ); p = m*p*2.03;
@@ -60,7 +60,7 @@ float snoise( in vec3 x ) // in [-1,1]
 
 float sfbm( vec3 p )      // in [-1,1]
 {
-	if (ANIM) p += iGlobalTime;
+	if (ANIM) p += iTime;
     float f;
     f  = 0.5000*snoise( p ); p = m*p*2.02;
     f += 0.2500*snoise( p ); p = m*p*2.03;

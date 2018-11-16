@@ -14,7 +14,7 @@ void main(void)
 	vec2 diff     = mouseNDC.zw - mouseNDC.xy;
 	
 	float dist  = length(diff);       // = sqrt(diff.x * diff.x + diff.y * diff.y);
-	float angle = PI * dist * WAVE_SIZE + iGlobalTime * SPEED;
+	float angle = PI * dist * WAVE_SIZE + iTime * SPEED;
 	 
 	vec3 sincos;
 	sincos.x = sin(angle);

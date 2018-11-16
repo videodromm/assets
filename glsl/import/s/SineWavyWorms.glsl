@@ -29,7 +29,7 @@ void main(void)
 	//vec2 uv = iZoom * (gl_FragCoord.xy / iResolution.xy);
 	//vec2 uv = (2.0*iZoom * gl_FragCoord.xy/iResolution.xy) - 1.0;
 	// global scroll movement speed
-    vec2 scroll = vec2(2.0, -0.1) * iGlobalTime; //*6.0;
+    vec2 scroll = vec2(2.0, -0.1) * iTime; //*6.0;
     float tilt = 0.0;
  
 	float c = clamp(worm(gl_FragCoord.xy, scroll, tilt), 0.0, 1.0);

@@ -19,7 +19,7 @@ precision highp float;
 //uniform vec2 mouse;
 //uniform vec2 resolution;
 
-#define time iGlobalTime
+#define time iTime
 #define resolution iResolution
 
 vec4 getAmbientSample( vec3 p )

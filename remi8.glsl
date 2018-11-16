@@ -82,10 +82,10 @@ void mainImage( out vec4 fragColor, vec2 fragCoord ) {
     
     // There are a few ways to hide artifacts and inconsistencies. Making things go fast is one of them. :)
     // Ray origin, scene color, and surface postion vector.
-    vec3 ro = vec3(0., 0., iGlobalTime*3.), col = vec3(0), sp;
+    vec3 ro = vec3(0., 0., iTime*3.), col = vec3(0), sp;
 	
     // Swivel the unit ray to look around the scene.
-	float cs = cos( iGlobalTime*0.375 ), si = sin( iGlobalTime*0.375 );    
+	float cs = cos( iTime*0.375 ), si = sin( iTime*0.375 );    
     rd.xz = mat2(cs, si,-si, cs)*rd.xz;
     rd.xy = mat2(cs, si,-si, cs)*rd.xy;
     
@@ -99,7 +99,7 @@ void mainImage( out vec4 fragColor, vec2 fragCoord ) {
     
     // Surface distance threshold. Smaller numbers give a sharper object. I deliberately
     // wanted some blur, so bumped it up slightly.
-    float thD = .035; // + smoothstep(-0.2, 0.2, sin(iGlobalTime*0.75 - 3.14159*0.4))*0.025;
+    float thD = .035; // + smoothstep(-0.2, 0.2, sin(iTime*0.75 - 3.14159*0.4))*0.025;
 	
     // Only a few iterations seemed to be enough. Obviously, more looks better, but is slower.
 	for(float i=0.; i<56.; i++)	{

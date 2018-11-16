@@ -135,7 +135,7 @@ vec4 triangleWave(vec4 col)
 // Warpers
 vec2 swirl(vec2 p)
 {
-	float swirlFactor = 3.0+timeEffect*(sin(iGlobalTime+0.22)-1.5);
+	float swirlFactor = 3.0+timeEffect*(sin(iTime+0.22)-1.5);
 	float radius = length(p);
 	float angle = atan(p.y, p.x);
 	float inner = angle-cos(radius*swirlFactor);
@@ -151,7 +151,7 @@ vec2 horseShoe(vec2 p)
 
 vec2 wrap(vec2 p)
 {
-	float zoomFactor = 1.5-timeEffect*(sin(iGlobalTime+0.36));
+	float zoomFactor = 1.5-timeEffect*(sin(iTime+0.36));
 	float repeatFactor = 3.0;
 	float radius = length(p)*zoomFactor;
 	float angle = atan(p.y, p.x)*repeatFactor;
@@ -167,7 +167,7 @@ vec2 array(vec2 p)
 vec2 pan_rotate_zoom(vec2 pos, vec4 val)
 {
 	vec2 pan = vec2(val.w, val.x);
-	float angle= pi*val.y+timeEffect*(sin(iGlobalTime+1.2+(gl_FragCoord.x+gl_FragCoord.y)/iResolution.x*2.0)-1.0);
+	float angle= pi*val.y+timeEffect*(sin(iTime+1.2+(gl_FragCoord.x+gl_FragCoord.y)/iResolution.x*2.0)-1.0);
 	float zoom = val.z;
 	
 	float sinAngle = sin(angle);
@@ -219,7 +219,7 @@ vec2 rotate(vec2 pos, float angle)
 
 vec4 inner(vec2 pos)
 {
-	vec2 p2=rotate(array(pos), sin(iGlobalTime*1.2+gl_FragCoord.x*0.03)*0.02);	
+	vec2 p2=rotate(array(pos), sin(iTime*1.2+gl_FragCoord.x*0.03)*0.02);	
 	vec4 p3=y(zoom2(p2, ang(p2)));
 	vec2 prz = pan_rotate_zoom(pos, p3);
 	return normalize(triangleWave(ridged_color(prz)+dist(prz)));
@@ -227,7 +227,7 @@ vec4 inner(vec2 pos)
 
 vec4 imageFunction(vec2 pos)
 {
-	float bumpOffset = 0.01;//+abs(sin(iGlobalTime*1.5)*0.01);
+	float bumpOffset = 0.01;//+abs(sin(iTime*1.5)*0.01);
 	vec4 originalColor = inner(pos);
 	
 	vec2 bumpPos = pos+bumpOffset;

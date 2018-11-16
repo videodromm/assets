@@ -61,7 +61,7 @@ float noise( in vec3 x ) {
 
 float DEclouds(vec3 p) {
 	float d = -p.y -1.5;
-	vec3 q = p - vec3(0.1, 0.1, 0.1)*iGlobalTime;
+	vec3 q = p - vec3(0.1, 0.1, 0.1)*iTime;
 	float f;
 	f = 0.5 * noise(q); q*=2.02;
 	f += 0.25 * noise(q); q *= 2.03;
@@ -145,12 +145,12 @@ void interact( inout vec3 ro, inout vec3 rd, inout vec3 lig) {
 	rot(ro,vec3(mp.x,mp.y,0.0));
 	rot(lig,vec3(mp.x,mp.y,0.0));
 #else	
-	ro.z=ro.z+cos(iGlobalTime*0.155)*0.47;
-	ro.x=ro.x+cos(iGlobalTime*0.215)*0.74;
-	ro.y=ro.y+cos(iGlobalTime*0.110)*0.92;
-	lig.z=lig.z+cos(iGlobalTime*0.155)*0.47;
-	lig.x=lig.x+cos(iGlobalTime*0.215)*0.74;
-	lig.y=lig.y+cos(iGlobalTime*0.110)*0.92;	
+	ro.z=ro.z+cos(iTime*0.155)*0.47;
+	ro.x=ro.x+cos(iTime*0.215)*0.74;
+	ro.y=ro.y+cos(iTime*0.110)*0.92;
+	lig.z=lig.z+cos(iTime*0.155)*0.47;
+	lig.x=lig.x+cos(iTime*0.215)*0.74;
+	lig.y=lig.y+cos(iTime*0.110)*0.92;	
 #endif
 }
 
@@ -169,7 +169,7 @@ void main( void ) {
 	vec3 rd = normalize( p.x*cr + p.y*cu + 2.5*cf );	
 	
 	from=ro;	
-	scale+= sin(iGlobalTime*0.2)*0.5-0.1;	
+	scale+= sin(iTime*0.2)*0.5-0.1;	
 	
 	//march
 #ifdef clouds

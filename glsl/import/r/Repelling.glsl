@@ -245,7 +245,7 @@ void main( void )
     //-----------------------------------------------------
     // animate
     //-----------------------------------------------------
-	float time = iGlobalTime*0.5;
+	float time = iTime*0.5;
 	
     // move
 	for( int i=0; i<NUMSPHEREES; i++ )

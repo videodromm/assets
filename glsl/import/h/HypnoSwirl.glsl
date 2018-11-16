@@ -8,7 +8,7 @@ void main(void) {
 	p.x -= iRenderXY.x;
 	p.y -= iRenderXY.y;
 
-	float activeTime = iGlobalTime * speed_modifier;
+	float activeTime = iTime * speed_modifier;
 	vec3 col; 
 	float timeMorph = 0.0;
 	

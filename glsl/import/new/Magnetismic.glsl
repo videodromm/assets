@@ -14,7 +14,7 @@
 #define BASE_STEP 0.1
 #endif
 
-#define time iGlobalTime
+#define time iTime
 vec2 mo;
 vec2 rot(in vec2 p, in float a){float c = cos(a), s = sin(a);return p*mat2(c,s,-s,c);}
 float hash21(in vec2 n){ return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); }

@@ -12,7 +12,7 @@ void main(void)
 	float d = sqrt(distance(uv, vec2(0, 0)));
 	float ang = atan(uv.y, uv.x) / 3.141592;
 	
-	float t = iGlobalTime;
+	float t = iTime;
 	float bpmK = bpm / 120.0;
 	float tk = bpmK * t;
 	float f = fract(tk);
@@ -32,8 +32,8 @@ void main(void)
     vec4 color2 = texture2D(iChannel1, vec2(d + t2 * 0.2, t2 * 0.01)) * d;
     color2 +=     texture2D(iChannel1, vec2(d + t2 * 0.18, t2 * 0.011));
 	
-	color = clamp(color * 10.0 - 7.0 + sin(iGlobalTime), 0.0, 1.0);
-	color2 = clamp(color2 * 10.0 - 7.0 + d * 3.0 + cos(iGlobalTime * 0.67), 0.0, 1.0);
+	color = clamp(color * 10.0 - 7.0 + sin(iTime), 0.0, 1.0);
+	color2 = clamp(color2 * 10.0 - 7.0 + d * 3.0 + cos(iTime * 0.67), 0.0, 1.0);
 		
 	color2 *= clamp((d - 0.4) * 100.0, 0.0, 1.0);
 	color2 *= 1.0 - clamp((d - 0.7) * 100.0, 0.0, 1.0);

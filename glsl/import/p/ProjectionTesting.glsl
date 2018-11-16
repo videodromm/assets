@@ -48,7 +48,7 @@ void main(void)
    vec2 uv = 2.0 * iZoom * (gl_FragCoord.xy/iResolution.xy- 0.5);
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
-float time = iGlobalTime;
+float time = iTime;
 	float stage = mod(time / 2., 5.);
 	
 	vec2 size = iResolution.xy;

@@ -1,8 +1,8 @@
 // https://www.shadertoy.com/view/Xdf3zH
 float addFlowerPlasma(float x, float y, float ax, float ay, float fx, float fy)
 {
-	float xx=(x+sin(iGlobalTime*fx)*ax)*8.0;
-   	float yy=(y+cos(iGlobalTime*fy)*ay)*8.0;
+	float xx=(x+sin(iTime*fx)*ax)*8.0;
+   	float yy=(y+cos(iTime*fy)*ay)*8.0;
 	float angle = atan(yy,xx);
 	float zz = 1.5*(cos(18.0*angle)*0.5+0.5) / (0.7 * 3.141592) + 1.2*(sin(15.0*angle)*0.5+0.5)/ (0.7 * 3.141592);
 	

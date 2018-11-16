@@ -30,7 +30,7 @@ void main() {
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;	
 	vec2 p = cart_polar(uv);
-	float t = (iGlobalTime) + 1.0;
+	float t = (iTime) + 1.0;
 	t = (t) - 25.0;
 	vec2 start = cart_polar(vec2(0.0, 0.5));
 	vec2 last = start;

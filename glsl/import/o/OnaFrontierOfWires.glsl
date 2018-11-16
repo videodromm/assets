@@ -150,7 +150,7 @@ void main(void)
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
 	glowAmt = 0.;
-	time = iGlobalTime + uv.y*(0.17 + .14*clamp(sin(iGlobalTime*1.2)*2.,-1.,1.));
+	time = iTime + uv.y*(0.17 + .14*clamp(sin(iTime*1.2)*2.,-1.,1.));
 	vec3 cameraPos = vec3(6.,3.,-6.);
 	vec3 lookAt = vec3(0.);
 	vec3 up = vec3(sin(0.6*sin(time*1.4)),cos(0.6*sin(time*1.4)),0.);

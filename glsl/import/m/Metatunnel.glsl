@@ -6,7 +6,7 @@
 
 // http://www.pouet.net/prod.php?which=52777
 
-float time = iGlobalTime*.5;
+float time = iTime*.5;
 
 const float s=0.4; //Density threshold
  

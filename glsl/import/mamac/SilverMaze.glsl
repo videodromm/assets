@@ -126,10 +126,10 @@ void main(void)
     float aspect=iResolution.y/iResolution.x;
     vec2 sc = (gl_FragCoord.xy/iResolution.xy)*2.-1.;
     // viewer position
-    float phi = iGlobalTime*.08;
+    float phi = iTime*.08;
     vec3 pos = 17.*vec3(cos(phi),sin(phi),.3);
     // pixel view direction--
-    vec3 fwd   = normalize(-pos.xyz*vec3(1,1,0)+pos.yxz*vec3(-1,1,0)*.15*sin(iGlobalTime*.3)+vec3(1,1,-17));
+    vec3 fwd   = normalize(-pos.xyz*vec3(1,1,0)+pos.yxz*vec3(-1,1,0)*.15*sin(iTime*.3)+vec3(1,1,-17));
     vec3 right = normalize(fwd.yxz*vec3(1,-1,0));
     vec3 up    = normalize(cross(right,fwd));
     vec3 dir = normalize(fwd*2.6+sc.x*right+sc.y*up*aspect);

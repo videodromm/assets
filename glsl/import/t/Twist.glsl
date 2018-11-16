@@ -29,7 +29,7 @@ void main(void)
 	uv *= 1.5;
 	
 	float period = iRatio / 10.0;
-	float time = iGlobalTime / period;
+	float time = iTime / period;
 	time = mod(time, 1.0);
 	time = smootheststep(0.0, 1.0, time);
 	

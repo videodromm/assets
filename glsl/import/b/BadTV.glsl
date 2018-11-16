@@ -13,25 +13,25 @@ void main(void)
 	vec3 oricol = texture2D(iChannel0, vec2(pos.x,pos.y)).xyz;
     vec3 col;
 
-    col.r = texture2D(iChannel0, vec2(pos.x+0.015*sin(0.02*iGlobalTime),pos.y)).x;
+    col.r = texture2D(iChannel0, vec2(pos.x+0.015*sin(0.02*iTime),pos.y)).x;
     col.g = texture2D(iChannel0, vec2(pos.x+0.000				,pos.y)).y;
-    col.b = texture2D(iChannel0, vec2(pos.x-0.015*sin(0.02*iGlobalTime),pos.y)).z;	
+    col.b = texture2D(iChannel0, vec2(pos.x-0.015*sin(0.02*iTime),pos.y)).z;	
 	
 	float c = 1.;
 	//c += sin(pos.x * 20.01);
 	
-	c += 2. * sin(iGlobalTime * 4. + pos.y * 1000.);
-	c += 1. * sin(iGlobalTime * 1. + pos.y * 800.);
-	c += 20. * sin(iGlobalTime * 10. + pos.y * 9000.);
+	c += 2. * sin(iTime * 4. + pos.y * 1000.);
+	c += 1. * sin(iTime * 1. + pos.y * 800.);
+	c += 20. * sin(iTime * 10. + pos.y * 9000.);
 	
-	c += 1. * cos(iGlobalTime * 1. + pos.x * 1.);
+	c += 1. * cos(iTime * 1. + pos.x * 1.);
 	
 	//vignetting
 	c *= sin(pos.x*3.15);
 	c *= sin(pos.y*3.);
 	c *= .9;
 	
-	pos += iGlobalTime;
+	pos += iTime;
 	
 	float r = BadTVResoRand(pos.x, 	pos.y);
 	float g = BadTVResoRand(pos.x * 9., 	pos.y * 9.);

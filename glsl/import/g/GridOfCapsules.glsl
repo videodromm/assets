@@ -243,14 +243,14 @@ void main( void )
 		vec4 rr = texture2D( iChannel1, (gl_FragCoord.xy + 0.5+113.3137*float(a))/gl_FragCoord.xy  ).xzyw;
         vec2 p = -1.0 + 2.0*(gl_FragCoord.xy) / iResolution.xy;
         p.x *= iResolution.x/ iResolution.y;
-        float time = 75.0 + 6.0*iGlobalTime + 50.0*mo.x;
+        float time = 75.0 + 6.0*iTime + 50.0*mo.x;
     #else
 	for( int a=0; a<VIS_SAMPLES; a++ )
 	{
 		vec4 rr = texture2D( iChannel1, (gl_FragCoord.xy + 0.5+113.3137*float(a))/gl_FragCoord.xy  ).xzyw;
         vec2 p = -1.0 + 2.0*(gl_FragCoord.xy+rr.wy) / iResolution.xy;
         p.x *= iResolution.x/ iResolution.y;
-        float time = 75.0 + 6.0*(iGlobalTime + 1.0*(0.5/24.0)*rr.x) + 50.0*mo.x;
+        float time = 75.0 + 6.0*(iTime + 1.0*(0.5/24.0)*rr.x) + 50.0*mo.x;
     #endif	
 
 		// camera

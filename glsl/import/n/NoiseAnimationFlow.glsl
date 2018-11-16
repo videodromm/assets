@@ -13,7 +13,7 @@
 
 //Sinus ridged fbm is used for better effect.
 
-#define time iGlobalTime*0.1
+#define time iTime*0.1
 #define tau 6.2831853
 
 mat2 makem2(in float theta){float c = cos(theta);float s = sin(theta);return mat2(c,-s,s,c);}

@@ -4,7 +4,7 @@ void main(void)
    vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
-	float time = iGlobalTime;
+	float time = iTime;
 	uv /= 2.0;
 	uv.y -= 0.25;
 	float eye_offset = sign(uv.x) * 0.6;

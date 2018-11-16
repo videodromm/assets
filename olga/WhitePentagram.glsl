@@ -21,10 +21,10 @@ void main() {
     st.x *= iResolution.x/iResolution.y;
 
     float d = polygon(st, 5);
-    float f = mod(fract(d * 7.0) + iGlobalTime / 4.0, 1.0);
+    float f = mod(fract(d * 7.0) + iTime / 4.0, 1.0);
     d = smoothstep(0.0, f, d);
 
-    vec3 c = hsv2rgb(vec3(mod(d + iGlobalTime / 8.0 + (1.0 - length(st) / 4.0), 1.0), 1.0, 0.9));
+    vec3 c = hsv2rgb(vec3(mod(d + iTime / 8.0 + (1.0 - length(st) / 4.0), 1.0), 1.0, 0.9));
     c = mix(c, vec3(0, 0, 0), length(st) * 0.3);
 
     fragColor = vec4(d,d,d,1.0);

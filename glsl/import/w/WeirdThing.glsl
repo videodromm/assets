@@ -142,7 +142,7 @@ void main(void)
    vec2 p = -1.0 + 2.0*uv;
     p.x *= iResolution.x/ iResolution.y;
     vec2 mo = iMouse.xy / iResolution.xy;
-    float an = 2.0 + 0.2*iGlobalTime - mo.x;
+    float an = 2.0 + 0.2*iTime - mo.x;
 
 	vec3 ro = 2.0*vec3(cos(an), 0.17, sin(an));
 	vec3 ta = vec3(0.0, 0.0, 0.0);

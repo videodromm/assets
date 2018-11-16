@@ -77,11 +77,11 @@ void main(void)
 	float greenness = 0.4;
 	vec4 coloring = vec4(1.0 - greenness, 1.0, 1.0 - greenness, 1.0);
 	
-	float noise = NVRand(uv * vec2(0.1, 1.0), iGlobalTime * 5.0);
+	float noise = NVRand(uv * vec2(0.1, 1.0), iTime * 5.0);
 	float noiseColor = 1.0 - (1.0 - noise) * 0.3;
 	vec4 noising = vec4(noiseColor, noiseColor, noiseColor, 1.0);
 	
-	float warpLine = fract(-iGlobalTime * 0.5);
+	float warpLine = fract(-iTime * 0.5);
 	
 	float warpLen = 0.1;
 	float warpArg01 = NVRemap(clamp((position.y - warpLine) - warpLen * 0.5, 0.0, warpLen), 0.0, warpLen, 0.0, 1.0);
@@ -89,7 +89,7 @@ void main(void)
 	
 	
 	vec4 lineNoise = vec4(1.0, 1.0, 1.0, 1.0);
-	if(abs(uv.y - fract(-iGlobalTime * 19.0)) < 0.0005)
+	if(abs(uv.y - fract(-iTime * 19.0)) < 0.0005)
 	{
 		lineNoise = vec4(0.5, 0.5, 0.5, 1.0);
 	}
@@ -99,7 +99,7 @@ void main(void)
 	vec4 col = base * mask * coloring * noising * lineNoise;
 	if (iFade == 1) 
 	{
-		float t = iGlobalTime;
+		float t = iTime;
 		float r = TIME_TOTAL - TIME_PADN - t;
 		col = mix(TRAN0, col, smoothstep(0.0, TIME_TRAN, r));		
 	}

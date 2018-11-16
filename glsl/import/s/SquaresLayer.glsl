@@ -26,7 +26,7 @@ void main(void)
 
 	float grad_off = 0.001 * edgeSize + 0.001*dist*10.;
     float freq = size * 2. * noise.y;
-    float freq_offset = (3.+36.*dist)*iGlobalTime * noise.x;
+    float freq_offset = (3.+36.*dist)*iTime * noise.x;
 	float amp = 0.006;
 	vec4 borderCol = vec4(0.0);
 	float gradient = 0.1;
@@ -59,7 +59,7 @@ void main(void)
     //////////////////////////////////////////////
     // second layer
 
-    vec4 noise2 = texture2D(iChannel1, coord + iGlobalTime*0.009);
+    vec4 noise2 = texture2D(iChannel1, coord + iTime*0.009);
 	c_in = vec4(coord.y, coord.x, noise.z, 0.); 
     
 	borderCol = col;

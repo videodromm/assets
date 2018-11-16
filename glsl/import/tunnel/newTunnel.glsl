@@ -1,9 +1,9 @@
 // https://www.shadertoy.com/view/ls2XDw
 
 mat3 worldRotation() {
-	float xang = iGlobalTime * 0.5;
-    float yang = iGlobalTime * 0.0;
-    float zang = iGlobalTime * 0.5;
+	float xang = iTime * 0.5;
+    float yang = iTime * 0.0;
+    float zang = iTime * 0.5;
     
 	mat3 zrot = mat3(
     	cos(zang), -sin(zang), 0.0,
@@ -25,13 +25,13 @@ mat3 worldRotation() {
 
 vec3 viewToWorld(vec3 pos) {
 	vec3 world = worldRotation() * pos;
-    world.z += iGlobalTime * 10.0;
+    world.z += iTime * 10.0;
     return world;
 }
 
 vec3 worldToView(vec3 pos) {
 	vec3 view = pos;
-    view.z -= iGlobalTime * 10.0;
+    view.z -= iTime * 10.0;
 	return view * worldRotation();
 }
 
@@ -97,7 +97,7 @@ void main() {
     vec3 glow = vec3(0.0,0.0,0.0);
     
     for (int i=-1; i<2; ++i) {
-        float lang = world.z * 0.5 + iGlobalTime * 3.0;
+        float lang = world.z * 0.5 + iTime * 3.0;
         vec3 lpos = vec3(cos(lang)*sin(lang*2.0), sin(lang), 0.0) * 3.0;
         float lightz = (floor(world.z/50.0)+float(i))* 50.0;
         vec3 light = vec3(lpos.x, lpos.y, lightz);
@@ -107,7 +107,7 @@ void main() {
         float shine = 1.0 / (1.0 + lightDist * 0.01);
         vec3 ref = surfaceToLight - 2.0 * norm * dot(surfaceToLight, norm);
 
-		vec3 lcol = vec3(cos(world.z+iGlobalTime), sin(world.z), cos(world.z)) * 0.5 + 0.5;
+		vec3 lcol = vec3(cos(world.z+iTime), sin(world.z), cos(world.z)) * 0.5 + 0.5;
         
         float spec = pow(0.3 + max(dot(eye, -ref),0.0), 8.0);
         vec3 diff = vec3(sin(world.x), cos(world.x), sin(world.x)) * 0.5 + 0.5;

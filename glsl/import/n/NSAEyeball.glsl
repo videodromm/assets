@@ -1,7 +1,7 @@
 // https://www.shadertoy.com/view/lsBGWm
 
 //NSA's Eyeball by eiffie
-#define time iGlobalTime*0.15
+#define time iTime*0.15
 #define size iResolution
 #define tex iChannel1
 vec3 atmColor=vec3(0.0);

@@ -34,8 +34,8 @@ void main(void)
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;	
 	// move the center around
-	uv += vec2(0.35,0.0)*sin(0.92*sin(2.1*iGlobalTime)+0.2);
-	uv += vec2(0.0,0.5)*cos(0.45*iGlobalTime+0.3);	
+	uv += vec2(0.35,0.0)*sin(0.92*sin(2.1*iTime)+0.2);
+	uv += vec2(0.0,0.5)*cos(0.45*iTime+0.3);	
 
 	// polar coordinates
 	float mag = length(uv);
@@ -45,22 +45,22 @@ void main(void)
 	float val = 0.0;
 	if(iSteps == 16) {
 		vec2 tunnel = vec2(0.3/mag, angle);
-		tunnel += vec2(2.5*iGlobalTime, 0.0);//forward speed and angular speed		
+		tunnel += vec2(2.5*iTime, 0.0);//forward speed and angular speed		
 		val = YTEstripes(mod(tunnel, side));
 	} else if(iSteps < 16) {
 		vec2 tunnel = vec2(0.8/mag, 5.*angle+2.*mag);
-		tunnel += vec2(2.5*iGlobalTime,0.2*iGlobalTime);		
+		tunnel += vec2(2.5*iTime,0.2*iTime);		
 		val = YTEcheckerBoardPattern(mod(tunnel, side));
 	} else if (iSteps > 16) {
 		vec2 tunnel = vec2(0.3/mag, 2.*angle);
-		tunnel += vec2(2.5*iGlobalTime,0.2*iGlobalTime);		
+		tunnel += vec2(2.5*iTime,0.2*iTime);		
 		val = texture2D(iChannel0, tunnel*1.0).x;
 	}
 	// yellow and black colors
 	vec3 color = mix(vec3(1.0,1.0,0.0), vec3(0.0,0.0,0.0), val);
 	
 	// the light ring that goes into the tunnel
-	float signalDepth = pow(mod(1.5 - 0.9*iGlobalTime, 4.0),2.0);
+	float signalDepth = pow(mod(1.5 - 0.9*iTime, 4.0),2.0);
 	float s1 = signalDepth*0.9;
 	float s2 = signalDepth*1.1;
 	float dd = 0.05;

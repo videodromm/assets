@@ -35,7 +35,7 @@ float dist_field(vec3 p) {
 }
 // phong shading
 vec3 shading( vec3 v, vec3 n, vec3 eye ) {
-	vec3 light_pos   = vec3( 100.0 * cos(iGlobalTime*0.2), 200.0 * sin(iGlobalTime*0.4), 20.0 );
+	vec3 light_pos   = vec3( 100.0 * cos(iTime*0.2), 200.0 * sin(iTime*0.4), 20.0 );
 	vec3 light_color = vec3( 0.2 );
 	vec3 vl = normalize( light_pos - v );
 	float diffuse  = abs(dot( vl, n ) );
@@ -105,10 +105,10 @@ void main(void)
 	vec3 eye = vec3( 0.0, 0.0, 10.0 );
 
 	// rotate camera
-	mat3 rot = rotationXY( vec2( iGlobalTime * 0.13, iGlobalTime * 0.19 ) );
+	mat3 rot = rotationXY( vec2( iTime * 0.13, iTime * 0.19 ) );
 	dir = rot * dir;
 	eye = rot * eye;
-    eye.z -=  mod(iGlobalTime * 4.0, 8.0);
+    eye.z -=  mod(iTime * 4.0, 8.0);
     eye.y = eye.x = 0.0;
 	
 	// ray marching

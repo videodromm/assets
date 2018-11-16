@@ -5,8 +5,8 @@ void main(void)
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
 
-    vec2 cc = 1.1*vec2( 0.5*cos(0.1*iGlobalTime) - 0.25*cos(0.2*iGlobalTime), 
-	                    0.5*sin(0.1*iGlobalTime) - 0.25*sin(0.2*iGlobalTime) );
+    vec2 cc = 1.1*vec2( 0.5*cos(0.1*iTime) - 0.25*cos(0.2*iTime), 
+	                    0.5*sin(0.1*iTime) - 0.25*sin(0.2*iTime) );
 
 	vec4 dmin = vec4(1000.0);
     vec2 z = (-1.0 + 1.0*uv)*vec2(0.6,0.3);

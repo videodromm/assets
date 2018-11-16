@@ -140,7 +140,7 @@ float Pplane( vec3 p, vec4 n )
 float Spiky( vec3 p )
 {
 	// transform input position*
-	vec4 q = QuatFromAxisAngle( normalize( vec3(cos(iGlobalTime*0.7),1,0) ), iGlobalTime*1.5 - 0.35*length(p) );
+	vec4 q = QuatFromAxisAngle( normalize( vec3(cos(iTime*0.7),1,0) ), iTime*1.5 - 0.35*length(p) );
 	p = TransformVecQuat( p, q );
 		
 	
@@ -372,7 +372,7 @@ void main(void)
 	camRot.x = max( camRot.x, 0. );
 	vec3 vpos, vdir;
 	vec3 targetPos = vec3(0.,0.,0.);
-	CamPolar( vpos, vdir, targetPos, camRot, 25.0 + 5.*cos(iGlobalTime*0.1), 1.5 );
+	CamPolar( vpos, vdir, targetPos, camRot, 25.0 + 5.*cos(iTime*0.1), 1.5 );
 	vec3 viewDir = normalize( targetPos - vpos );
 	
 	vec2 uv = gl_FragCoord.xy/iResolution.xy;

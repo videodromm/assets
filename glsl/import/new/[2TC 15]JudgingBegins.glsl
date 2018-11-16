@@ -40,7 +40,7 @@
 void main(void)
 {
     vec4 o = gl_FragCoord/iResolution.xyxx-.5, d=o, r, z=d-d;
-    float t = iGlobalTime, c;
+    float t = iTime, c;
     o.xz += t;
     for(int i=0;i<99;i++)
         c= dot( (r = cos(o + o.w*sin(t*.9)*.1)).xyz, r.xyz),

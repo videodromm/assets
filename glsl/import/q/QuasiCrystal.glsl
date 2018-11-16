@@ -47,7 +47,7 @@ void main(void)
 		float y = gl_FragCoord.y - (iResolution.y*0.5);
 		
 		float wp = x*cos(theta) + y*sin(theta);
-		float w = sin(wp*scale + iGlobalTime*speed);
+		float w = sin(wp*scale + iTime*speed);
 		
 		// fade out the final wave in proportion to n-floor(n)
 		if( i == int(n) )

@@ -11,7 +11,7 @@
 
 #define ITR 50
 #define FAR 25.
-#define time iGlobalTime*2.
+#define time iTime*2.
 
 #define MSPEED 5.
 #define ROTSPEED .3

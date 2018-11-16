@@ -6,7 +6,7 @@
 
 #define WARP_ORDER 1.
 
-#define time iGlobalTime
+#define time iTime
 
 float hash21(in vec2 n){ return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); }
 float noise( in vec2 x ){return texture2D(iChannel0, x*.01).x;}

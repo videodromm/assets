@@ -83,7 +83,7 @@ vec4 render(in vec2 xy)
 {
     
     camera myCam = camera( 
-    	vec3(0,0,2.*iGlobalTime),
+    	vec3(0,0,2.*iTime),
    		vec3(iMouse.x/iResolution.x*3.0-1.5,iMouse.y/iResolution.y*3.0-1.5,1.0)
 	);
     

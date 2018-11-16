@@ -7,8 +7,8 @@ float pix(vec2 p)
     q.y=float(int(p.y+0.5));
     vec2 r=p-q;
     if(max(abs(r.x),abs(r.y))>0.45) return iColor.b;
-	//float v = sin(length(q)*0.5-iGlobalTime*(iRotationSpeed+1.0)*5.0);//5.0);
-	float v = sin(length(q)*0.5-iGlobalTime*5.0);//5.0);
+	//float v = sin(length(q)*0.5-iTime*(iRotationSpeed+1.0)*5.0);//5.0);
+	float v = sin(length(q)*0.5-iTime*5.0);//5.0);
 	if(v>0.0) return iColor.r;
 	else return iColor.g;
 }

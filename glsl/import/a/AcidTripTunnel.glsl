@@ -14,12 +14,12 @@ vec4 gradient(float f)
 
 float offset(float th)
 {
-    return modulationDepth * sin(divisions * th)*sin(iGlobalTime);
+    return modulationDepth * sin(divisions * th)*sin(iTime);
 }
 
 vec4 tunnel(float th, float radius)
 {
-	return gradient(offset(th + .25*iGlobalTime) + 3.*log(3.*radius) - iGlobalTime);
+	return gradient(offset(th + .25*iTime) + 3.*log(3.*radius) - iTime);
 }
 
 void main( void )

@@ -53,7 +53,7 @@ vec3 map( in vec3 pos )
     vec2 fpos = fract( pos.xz ); 
     vec2 ipos = floor( pos.xz );
     
-    //ipos.x += floor(10.0*sin( iGlobalTime + 0.1*ipos.y));
+    //ipos.x += floor(10.0*sin( iTime + 0.1*ipos.y));
     
     float f = 0.0;  
     float id = hash( ipos.x + ipos.y*57.0 );
@@ -124,7 +124,7 @@ void main( void )
     uv.x *= float(iResolution.x )/ float(iResolution.y);
     uv.x -= iRenderXY.x;
     uv.y -= iRenderXY.y;    
-    float time = 5.0 + 0.2*iGlobalTime + 20.0*iMouse.x/iResolution.x;
+    float time = 5.0 + 0.2*iTime + 20.0*iMouse.x/iResolution.x;
 
     freqs[0] = texture2D( iChannel0, vec2( 0.01, 0.25 ) ).x;
     freqs[1] = texture2D( iChannel0, vec2( 0.07, 0.25 ) ).x;

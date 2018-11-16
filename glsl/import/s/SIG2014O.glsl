@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------
 void doCamera( out vec3 camPos, out vec3 camTar, in float time, in float mouseX )
 {
-    float an = 0.3*iGlobalTime + 10.0*mouseX;
+    float an = 0.3*iTime + 10.0*mouseX;
 	camPos = vec3(3.5*sin(an),1.0,3.5*cos(an));
-    camTar = vec3(sin(iGlobalTime),cos(iGlobalTime),0.0);
+    camTar = vec3(sin(iTime),cos(iTime),0.0);
 }
 
 
@@ -37,10 +37,10 @@ float doModel( vec3 p )
 
 float doModel2( vec3 p )
 {
-    p.x = sin(p.x + iGlobalTime) * sin(p.y);
-    p.y = cos(p.y + iGlobalTime) * sin(p.x);
-    p.z = sin(p.z + iGlobalTime);
-    return length(p * sin(iGlobalTime * 0.1) - 0.25) - 0.25;
+    p.x = sin(p.x + iTime) * sin(p.y);
+    p.y = cos(p.y + iTime) * sin(p.x);
+    p.z = sin(p.z + iTime);
+    return length(p * sin(iTime * 0.1) - 0.25) - 0.25;
 }
 
 //------------------------------------------------------------------------
@@ -52,7 +52,7 @@ float doModel2( vec3 p )
 //------------------------------------------------------------------------
 vec3 doMaterial( in vec3 pos, in vec3 nor )
 {
-    return vec3(sin(iGlobalTime + pos.x),cos(iGlobalTime + pos.y),0.05);
+    return vec3(sin(iTime + pos.x),cos(iTime + pos.y),0.05);
 }
 
 //------------------------------------------------------------------------
@@ -159,10 +159,10 @@ void main( void )
     
     // camera movement
     vec3 ro, ta;
-    doCamera( ro, ta, iGlobalTime, m.x );
+    doCamera( ro, ta, iTime, m.x );
 
     // camera matrix
-    mat3 camMat = calcLookAtMatrix( ro, ta, iGlobalTime * 0.2 );  // 0.0 is the camera roll
+    mat3 camMat = calcLookAtMatrix( ro, ta, iTime * 0.2 );  // 0.0 is the camera roll
     
 	// create view ray
 	vec3 rd = normalize( camMat * vec3(uv.xy,2.0) ); // 2.0 is the lens length

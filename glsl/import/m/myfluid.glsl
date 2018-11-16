@@ -46,7 +46,7 @@ void main( void )
 {
 	vec2 x = s*(gl_FragCoord.xy-1.0*iMouse.xy)/iResolution.x;
     
-    float t=iGlobalTime*0.1;
+    float t=iTime*0.1;
     
     vec4 c=vec4(vec3(0.0),0.1);
     int l;

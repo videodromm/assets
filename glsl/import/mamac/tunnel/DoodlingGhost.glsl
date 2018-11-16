@@ -20,9 +20,9 @@ float de(vec3 p) {
    
     vec3 q = p;
     q.x += q.z*.1;
-    q.z += iGlobalTime*.1;
+    q.z += iTime*.1;
     q = mod(q-1., 2.)-1.;
-    float s = length(q) - .001 + sin(iGlobalTime*30.)*.005;
+    float s = length(q) - .001 + sin(iTime*30.)*.005;
     
     p.xy -= path(p.z);
     
@@ -47,7 +47,7 @@ void main(void)
     vec2 uv = fragCoord.xy/iResolution.xy -.5;
     uv.x*=iResolution.x/iResolution.y;
     
-    float dt = iGlobalTime * 6.;
+    float dt = iTime * 6.;
     vec3 ro = vec3(0,0, -3. + dt);
     vec3 ta = vec3(0, 0, dt);
     

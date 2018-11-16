@@ -8,7 +8,7 @@
 //undefine for a more standard "tunnel"
 #define ACID
 
-#define time iGlobalTime
+#define time iTime
 
 mat2 mm2(in float theta){float c = cos(theta);float s = sin(theta);return mat2(c,-s,s,c);}
 

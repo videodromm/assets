@@ -15,7 +15,7 @@
 
 #define POST
 
-#define time iGlobalTime
+#define time iTime
 float hash2(in vec2 n){ return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); }
 
 mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,-s,s,c);}

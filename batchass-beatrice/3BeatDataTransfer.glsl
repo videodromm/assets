@@ -3,7 +3,7 @@
 // this pretty much was my first raymarching experience.
 // big thanks to iq for his awesome artices!
 
-float DataTransferSlices = cos(iGlobalTime * 0.8) * 0.3 + 0.4;
+float DataTransferSlices = cos(iTime * 0.8) * 0.3 + 0.4;
 
 vec2 DataTransferrotate(vec2 k,float t)
 {
@@ -24,7 +24,7 @@ float DataTransferscene(vec3 pi)
 	
 	// move individual wires
 	vec3 id = floor(pr);
-	pr.z += sin(id.x * 10.0 + id.y * 20.0) * iGlobalTime * 2.0;
+	pr.z += sin(id.x * 10.0 + id.y * 20.0) * iTime * 2.0;
 	
 	// calculate distance
 	vec3 p = fract(pr);
@@ -56,9 +56,9 @@ void main(void)
 	vec3 dir = normalize(vec3(p * vec2(1.77, 1.0), 1.0));
 	
 	// camera
-	dir.zx = DataTransferrotate(dir.zx, sin(iGlobalTime * 0.5) * 0.4);
-	dir.xy = DataTransferrotate(dir.xy, iGlobalTime * 0.2);
-	vec3 ray = vec3(0.0, 0.0, 0.0 - iGlobalTime * 0.9);
+	dir.zx = DataTransferrotate(dir.zx, sin(iTime * 0.5) * 0.4);
+	dir.xy = DataTransferrotate(dir.xy, iTime * 0.2);
+	vec3 ray = vec3(0.0, 0.0, 0.0 - iTime * 0.9);
 	
 	// raymarching
 	float t = 0.0;

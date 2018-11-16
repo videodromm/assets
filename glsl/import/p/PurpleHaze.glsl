@@ -50,7 +50,7 @@ vec3 quat_times_vec(vec4 q, vec3 v)
 	return v + q.w * t + cross(q.xyz, t);
 }
 
-float R =(1.+sin(iGlobalTime*0.7))*1.2;
+float R =(1.+sin(iTime*0.7))*1.2;
 float r=.75;
 
 
@@ -68,14 +68,14 @@ float DensityFalloff(vec3 p)
 
 vec3 animate(vec3 p)
 {
-	p=RotZ(p, iGlobalTime*0.5);	//spin on main axis
+	p=RotZ(p, iTime*0.5);	//spin on main axis
 
 #if 1	
 	vec3 q = vec3(normalize(p.xy),0.);	//vec to main ring
 	vec3 ax = vec3(-q.y,q.x,0.);		//perpendicular axis of rotation
 	q.xy *= R;							//point on main ring
 	vec3 loc = p-q;						//offset along little ring
-	vec4 quat_rot = quat_rotation( iGlobalTime, ax );
+	vec4 quat_rot = quat_rotation( iTime, ax );
 	loc = quat_times_vec(quat_rot, loc);
 	p = q + loc;	
 #endif
@@ -224,7 +224,7 @@ void MakeViewRay(out vec3 eye, out vec3 ray)
 	
     vec3 lookAt = vec3(0.);
 	eye = vec3(2.5,3.,-2.5) * 1.5; 	
-	eye = RotY(eye,iGlobalTime*.4);
+	eye = RotY(eye,iTime*.4);
 	
     // camera frame
     vec3 fo = normalize(lookAt-eye);

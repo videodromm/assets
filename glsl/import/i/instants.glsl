@@ -62,7 +62,7 @@ float colorAtCoord(vec2 coord, float t)
 void main ()
 {
 	// assume 60fps
-	float t = iGlobalTime;
+	float t = iTime;
 	float c=0.;
 	
 	// mmalex's AA/blur code.

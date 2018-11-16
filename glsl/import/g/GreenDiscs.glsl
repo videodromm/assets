@@ -117,7 +117,7 @@ void main(void)
 	GreenDiscsFragCoord.x *= iResolution.x / iResolution.y;
 
 	// defined the GreenDiscsTime interval for this frame
-	float time0=iGlobalTime,time1=time0+0.04;
+	float time0=iTime,time1=time0+0.04;
 	
 	float jitter=texture2D(iChannel0,uv*iResolution.xy/256.0).r;
 	

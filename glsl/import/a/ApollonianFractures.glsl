@@ -38,7 +38,7 @@ float Fractal(vec2 p)
     float iter = 1.0;
     for (int i = 0; i < 12; i++)
     {
-        vec2 n2 = noise2dTex2(p*0.15*iter+iGlobalTime*1.925);
+        vec2 n2 = noise2dTex2(p*0.15*iter+iTime*1.925);
         float nx = n2.x - 0.5;
         float ny = n2.y;
         pr += vec2(nx, ny)*0.0002*iter*iter*iter;
@@ -67,7 +67,7 @@ void main(void)
     finalColor = 1.0 - finalColor;
     float circle = 1.0-length(uv*2.2);
     float at = atan(uv.x, uv.y);
-    float aNoise = noise2d(vec2(at * 30.0, iGlobalTime));
+    float aNoise = noise2d(vec2(at * 30.0, iTime));
     aNoise = aNoise * 0.5 + 0.5;
     finalColor *= pow(max(0.0, circle), 0.1)*2.0;	// comment out this line to see the whole fractal.
     finalColor *= 1.0 + pow(1.0 - abs(circle), 30.0);	// colorful outer glow

@@ -31,10 +31,10 @@ vec2 CBGfield(in vec3 q) {
 	float c = .2*cos(.05*q.y);
     float s = .2*sin(.05*q.z);
 	mat2 m = mat2(c,-s,s,c);
-    vec3 p = mix(vec3(m*q.xy,q.z), q, .4 + .23*sin(.11*iGlobalTime));
+    vec3 p = mix(vec3(m*q.xy,q.z), q, .4 + .23*sin(.11*iTime));
 	vec3 w = .2*p;
 	
-	vec3 pp = 4.*vec3(sin(1.+.94*iGlobalTime), cos(1.12*iGlobalTime), 1.5+sin(2.+0.73*iGlobalTime)*cos(.81*iGlobalTime));
+	vec3 pp = 4.*vec3(sin(1.+.94*iTime), cos(1.12*iTime), 1.5+sin(2.+0.73*iTime)*cos(.81*iTime));
 	float sp = CBGsdSphere(p + pp, 1.3);
 	
 	vec3 g = mod(p, grid) - .5*grid;	
@@ -137,7 +137,7 @@ void main(void)
 	
 	vec2 xy = CBGHmdWarp(2.*uv - 1.);
 	
-	vec3 ct = vec3(.5*cos(iGlobalTime), .5*sin(iGlobalTime), 0.);// + 5.*mouse;
+	vec3 ct = vec3(.5*cos(iTime), .5*sin(iTime), 0.);// + 5.*mouse;
 	vec3 cp = vec3(0., 0., -13.);
 	vec3 cd = normalize(ct-cp);		
 	

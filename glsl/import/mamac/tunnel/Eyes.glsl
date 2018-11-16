@@ -30,7 +30,7 @@ void main(void)
     uint minknn = MAXPOINTS;
     float minval = 100000.0;
         
-    float parameter1 = 0.2 + (cos(iGlobalTime*0.15)*0.5f) + 0.5f;
+    float parameter1 = 0.2 + (cos(iTime*0.15)*0.5f) + 0.5f;
     
     uint escape = 16u;
     
@@ -51,7 +51,7 @@ void main(void)
             break;
     }
     
-	float nicecos = cos(minval*130.0 + iGlobalTime);
+	float nicecos = cos(minval*130.0 + iTime);
     vec3 col = texture(iChannel0,uv+nicecos*0.15*parameter1).xyz;
 
     fragColor = vec4(col,1.0);

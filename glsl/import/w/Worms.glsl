@@ -34,12 +34,12 @@ vec3 map( vec3 p )
     float ve = hash(id);
     ve *= 2.0;
     
-    p += 0.5*vec3(sin(ve*iGlobalTime+(p.y+ph)*0.53), 0.0, 
-                  cos(ve*iGlobalTime+(p.y+ph)*0.32) );
+    p += 0.5*vec3(sin(ve*iTime+(p.y+ph)*0.53), 0.0, 
+                  cos(ve*iTime+(p.y+ph)*0.32) );
 
-    vec3 p1 = p; p1.xz += 0.15*sincos(p.y-ve*iGlobalTime*ve+0.0);
-    vec3 p2 = p; p2.xz += 0.15*sincos(p.y-ve*iGlobalTime*ve+2.0);
-    vec3 p3 = p; p3.xz += 0.15*sincos(p.y-ve*iGlobalTime*ve+4.0);
+    vec3 p1 = p; p1.xz += 0.15*sincos(p.y-ve*iTime*ve+0.0);
+    vec3 p2 = p; p2.xz += 0.15*sincos(p.y-ve*iTime*ve+2.0);
+    vec3 p3 = p; p3.xz += 0.15*sincos(p.y-ve*iTime*ve+4.0);
     
     vec2 h1 = sdSegment(p1, vec3(0.0,-50.0, 0.0), vec3(0.0, 50.0, 0.0) );
     vec2 h2 = sdSegment(p2, vec3(0.0,-50.0, 0.0), vec3(0.0, 50.0, 0.0) );
@@ -137,11 +137,11 @@ void main( void )
         col = 0.5 + 0.5*cos( res.y*0.4 + fid*30.0 + vec3(0.0,4.4,4.0) );
         col *= 0.5 + 1.5*nor.y;
         col += 1.0*clamp(1.0+dot(rd,nor),0.0,1.0);
-        col *= 0.2 + 0.8*texture2D( iChannel0, vec2( 50.0*res.z - 1.0*ve*iGlobalTime,0.5) ).xyz;
+        col *= 0.2 + 0.8*texture2D( iChannel0, vec2( 50.0*res.z - 1.0*ve*iTime,0.5) ).xyz;
         col *= 2.0;
         col *= occ;
 
-        float fl = mod( ve*1.0*iGlobalTime + fid*7.0 + res.y*13.0, 4.0 )/4.0;
+        float fl = mod( ve*1.0*iTime + fid*7.0 + res.y*13.0, 4.0 )/4.0;
         float gl = 1.0-smoothstep(0.02,0.04,abs(res.z-fl));
         col *= 1.0 + 1.5*gl;
         

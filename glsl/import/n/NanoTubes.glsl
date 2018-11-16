@@ -35,7 +35,7 @@ void main(void)
     uv.x = uv.x *2.-1.;
     uv.y = uv.y *2.-1.;
 
-    vec3 camPos = vec3(cos(iGlobalTime*0.3), sin(iGlobalTime*0.3), 3.5);
+    vec3 camPos = vec3(cos(iTime*0.3), sin(iTime*0.3), 3.5);
     vec3 camTarget = vec3(0.0, 0.0, .0);
 
     vec3 camDir = normalize(camTarget-camPos);
@@ -52,7 +52,7 @@ void main(void)
     const int MAX_MARCH = 100;
     const float MAX_DISTANCE = 100.0;
     for(int i=0; i<MAX_MARCH; ++i) {
-        d = NanoMap(ray-vec3(0.,0.,iGlobalTime/2.));
+        d = NanoMap(ray-vec3(0.,0.,iTime/2.));
         total_d += d.x;
         ray += rayDir * d.x;
         m += 1.0;

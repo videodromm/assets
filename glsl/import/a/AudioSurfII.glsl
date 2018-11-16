@@ -8,7 +8,7 @@ void main(void)
 	uv = uv * 2. - 1.;
 	vec2 wv = uv + vec2(0., wav - .5);
 
-	float f = pow(abs(fft * tan(iGlobalTime - uv.y / wv.y)), .1);
+	float f = pow(abs(fft * tan(iTime - uv.y / wv.y)), .1);
 	float h = pow(abs(wv.x - pow(abs(uv.y), cos(fft * 3.14159 * .25))), f);
 	float g = abs(iRatio / 40.0 * .02 / (sin(wv.y) * h));
 

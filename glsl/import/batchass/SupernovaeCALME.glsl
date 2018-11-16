@@ -79,7 +79,7 @@ vec3 raycast( in vec3 ro, vec3 rd )
 
 void main(void)
 {
-  float time = iGlobalTime;
+  float time = iTime;
     vec2 q = gl_FragCoord.xy / iResolution.xy;
     vec2 p = -1.0 + 2.0 * q;
     p.x *= iResolution.x/iResolution.y;

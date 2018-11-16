@@ -9,7 +9,7 @@ vec3 formula(in vec2 p, in vec2 c)
 	const float n = 2.0;
 	const int iters = 12;
 
-	float time = iGlobalTime*0.1;
+	float time = iTime*0.1;
 	vec3 col = vec3(0);
 	float t = 1.0;
 	float dpp = dot(p, p);
@@ -56,7 +56,7 @@ void main() {
 	p.x *= iResolution.x / iResolution.y;
 	p *= 2.0;
 	const vec2 e = vec2(0.06545465634, -0.05346356485);
-	vec2 c = iGlobalTime*e;
+	vec2 c = iTime*e;
 	//c = 8.0*iMouse.xy/iResolution.xy;
 	float d = 1.0;
 	vec3 col = vec3(0.0);

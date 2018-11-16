@@ -19,7 +19,7 @@
 #define G .2
 #define B .15
 
-#define time iGlobalTime
+#define time iTime
 mat2 mm2(const in float a){float c=cos(a), s=sin(a);return mat2(c,-s,s,c);}
 
 //lerp between 3 colors

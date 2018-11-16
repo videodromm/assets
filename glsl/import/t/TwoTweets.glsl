@@ -4,7 +4,7 @@
 
 float TwoTweetsF(vec3 p) 
 { 
-	p.z+=iGlobalTime;return length(.05*cos(9.*p.y*p.x)+cos(p)-.1*cos(9.*(p.z+.3*p.x-p.y)))-1.; 
+	p.z+=iTime;return length(.05*cos(9.*p.y*p.x)+cos(p)-.1*cos(9.*(p.z+.3*p.x-p.y)))-1.; 
 }
 void main()
 {

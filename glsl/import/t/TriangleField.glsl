@@ -6,7 +6,7 @@ float triangle(vec2 p, float s)
 
 float dist(vec2 p)
 {
-	float s = pow(2.0, fract(iGlobalTime*2.0));
+	float s = pow(2.0, fract(iTime*2.0));
 	float d = 1.0;
 	for (int i = 0; i < 10; i++)
 	{

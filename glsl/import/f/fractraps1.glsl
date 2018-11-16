@@ -39,7 +39,7 @@ void main(void)
 	float aspect=iResolution.x/iResolution.y;
 	vec2 pos=uv;
 	pos.x*=aspect;
-	float t=iGlobalTime*.07;
+	float t=iTime*.07;
 	float zoo=.005+pow(abs(sin(t*.5+1.4)),5.)*zoom;
 	pos=rotate(pos,t*1.2365);
 	pos+=offset;

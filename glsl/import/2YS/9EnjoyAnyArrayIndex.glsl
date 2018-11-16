@@ -64,9 +64,9 @@ void main(void)
    
    vec3 color=vec3(0.);
    /*if (uv.x>.9) { 
-      color=AAIGetSMColor(uv.y*7.+iGlobalTime*.5,.25+.75*abs(sin(iGlobalTime))); //gradient function
+      color=AAIGetSMColor(uv.y*7.+iTime*.5,.25+.75*abs(sin(iTime))); //gradient function
    } else if (uv.x<.1) {
-      color=AAIGetColor(uv.y*7.-iGlobalTime*.5); // basic function
+      color=AAIGetColor(uv.y*7.-iTime*.5); // basic function
    } */
 
    vec2 p=(uv-.5);
@@ -74,7 +74,7 @@ void main(void)
    
 
    // fractal
-   float a=iGlobalTime*.05*iRotationSpeed;   
+   float a=iTime*.05*iRotationSpeed;   
    float ot,otl=ot=1000.;
    mat2 rot=mat2(cos(a),sin(a),-sin(a),cos(a));
    for(int i=0;i<14;i++) {

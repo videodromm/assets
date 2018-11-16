@@ -51,7 +51,7 @@ void main(void) {
   
   float s = 1.0 / ((1.0 + mouse.y) * 45.0);
   //float s = 1.0 / ((1.0 + iFreq0/200.0) * 45.0);
-  float fbmz = 1.0 + 0.1 * iGlobalTime;
+  float fbmz = 1.0 + 0.1 * iTime;
   vec2 p = (gl_FragCoord.xy * s);
 
   //float as = (4.0 * (1.0 - mouse.y) + (3.0 * (1.0 - mouse.x))) + 7.5;

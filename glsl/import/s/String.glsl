@@ -14,7 +14,7 @@ float torus(vec3 p) {
 	float  R    = 0.7;
 	float  rr   = 0.05;
 	vec3   d    = abs(mod(p, 4.0)) - 2.0;
-	d           = _rot(d.yxz, 2.2*iGlobalTime + p.z);
+	d           = _rot(d.yxz, 2.2*iTime + p.z);
 	float    g  = length(d.xy) - R * R;
 	g = (g * g) + (d.z * d.z);
 	return sqrt(g) - rr;
@@ -22,7 +22,7 @@ float torus(vec3 p) {
 
 //rm map
 float map(vec3 p) {
-	float ktt   = iGlobalTime;
+	float ktt   = iTime;
 	float time  = ktt * 3.3 + sin(0.3 * ktt + sin(ktt * 0.5) + p.z * 0.43);
 	int   ctime = int(iChannelTime[0]);
 	vec3  tp    = p;
@@ -101,7 +101,7 @@ void main(void) {
 	//diff
 	vec3  N      = rnorm(pos + dir * t);
 	float D      = max(dot(pow(N, vec3(8.0)),
-						   normalize(vec3(-0.5,  0.7, 1.0))), sin(iGlobalTime/16.0)*0.5);
+						   normalize(vec3(-0.5,  0.7, 1.0))), sin(iTime/16.0)*0.5);
 	
 	//fog-ppoino.
 	float fog    = length(I - pos) * 0.03;

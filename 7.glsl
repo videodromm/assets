@@ -394,12 +394,12 @@ float rand(vec2 uv)
 {    
     float r;
     r = hd(vec2(g_cw * .1, 0.), g_cw * .8, uv);
-if (fract(iGlobalTime*iSeed)>0.5 ) r = min(r, vd(vec2(g_cw, g_ch * .1), g_ch * .4, uv));
-if (sin(iGlobalTime*iSeed)>0.7 ) r = min(r, hd(vec2(g_cw * .2, g_ch * .6), g_cw * .7, uv));
+if (fract(iTime*iSeed)>0.5 ) r = min(r, vd(vec2(g_cw, g_ch * .1), g_ch * .4, uv));
+if (sin(iTime*iSeed)>0.7 ) r = min(r, hd(vec2(g_cw * .2, g_ch * .6), g_cw * .7, uv));
 if (iSeed>0.8 ) r = min(r, vd(vec2(0., g_ch * .1), g_ch * .4, uv));
 if (sin(iFps*iSeed)>0.3 ) r = min(r, hd(vec2(g_cw * .1, g_ch), .8 * g_cw, uv));
-if (sin(iGlobalTime*iSeed)>0.6 ) r = min(r, vd(vec2(0., g_ch * .7), g_ch * .2, uv));
-if (sin(iGlobalTime*iSeed)>0.3 ) r = min(r, vd(vec2(g_cw, g_ch * .7), g_ch * .2, uv));
+if (sin(iTime*iSeed)>0.6 ) r = min(r, vd(vec2(0., g_ch * .7), g_ch * .2, uv));
+if (sin(iTime*iSeed)>0.3 ) r = min(r, vd(vec2(g_cw, g_ch * .7), g_ch * .2, uv));
     return r;
 }
 
@@ -521,13 +521,13 @@ void main(void)
      
       break;
    }
-    float throb = .4 + .2 * (.5 * sin(4. * iGlobalTime - .05 * float(cs)) + .5);
+    float throb = .4 + .2 * (.5 * sin(4. * iTime - .05 * float(cs)) + .5);
     vec3 tcol = vec3(.7, 1., .8) * smoothstep(.2, .0, tx);
     vec3 tglow = vec3(.7, 1., .8) * (.3 * throb + .7 * mix(.6, 1., throb) * smoothstep(throb, .1, tx));
     
     vec3 terminal_color = ccol + tcol + tglow;
     vec3 simple_color = vec3(max(0., 1. - tx));
-    float trans = 0.0;//smoothstep(-.1, .1, sawtooth(.3 * iGlobalTime - 1.));
+    float trans = 0.0;//smoothstep(-.1, .1, sawtooth(.3 * iTime - 1.));
         
     gl_FragColor = vec4(mix(terminal_color, simple_color, trans), 1.0);   
 }

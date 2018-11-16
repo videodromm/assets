@@ -4,7 +4,7 @@ uniform vec3        iResolution;          // viewport resolution (in pixels)
 uniform sampler2D   iChannel0;        // input channel 0 
 uniform sampler2D   iChannel1;        // input channel 1 
 uniform vec4        iMouse;               // mouse pixel coords. xy: current (if MLB down), zw: click
-uniform float       iGlobalTime;          // shader playback time (in seconds)
+uniform float       iTime;          // shader playback time (in seconds)
 uniform vec3        iBackgroundColor;     // background color
 uniform vec3        iColor;               // color
 uniform int         iSteps;               // steps for iterations
@@ -487,12 +487,12 @@ void main( void )
     if (iXorY)
     {
       float z1 = floor((x/iParam1) + 0.5);     //((x/20.0) + 0.5)
-      x2 = x + (sin(z1 + (iGlobalTime * 2.0)) * iRatio * 20.0);
+      x2 = x + (sin(z1 + (iTime * 2.0)) * iRatio * 20.0);
     }
     else
     {
       float z2 = floor((y/iParam2) + 0.5);     //((x/20.0) + 0.5)
-      y2 = y + (sin(z2 + (iGlobalTime * 2.0)) * iRatio * 20.0);
+      y2 = y + (sin(z2 + (iTime * 2.0)) * iRatio * 20.0);
     }
 
     vec2 uv2 = vec2(x2 / iResolution.x, y2/ iResolution.y);
@@ -545,17 +545,17 @@ void main( void )
     float c = 1.;
     if (iXorY)
     {
-      c += iBadTv * sin(iGlobalTime * 2. + uv.y * 100. * iParam1);
-      c += iBadTv * sin(iGlobalTime * 1. + uv.y * 80.);
-      c += iBadTv * sin(iGlobalTime * 5. + uv.y * 900. * iParam2);
-      c += 1. * cos(iGlobalTime + uv.x);
+      c += iBadTv * sin(iTime * 2. + uv.y * 100. * iParam1);
+      c += iBadTv * sin(iTime * 1. + uv.y * 80.);
+      c += iBadTv * sin(iTime * 5. + uv.y * 900. * iParam2);
+      c += 1. * cos(iTime + uv.x);
     }
     else
     {
-      c += iBadTv * sin(iGlobalTime * 2. + uv.x * 100. * iParam1);
-      c += iBadTv * sin(iGlobalTime * 1. + uv.x * 80.);
-      c += iBadTv * sin(iGlobalTime * 5. + uv.x * 900. * iParam2);
-      c += 1. * cos(iGlobalTime + uv.y);
+      c += iBadTv * sin(iTime * 2. + uv.x * 100. * iParam1);
+      c += iBadTv * sin(iTime * 1. + uv.x * 80.);
+      c += iBadTv * sin(iTime * 5. + uv.x * 900. * iParam2);
+      c += 1. * cos(iTime + uv.y);
     } 
   
     //vignetting
@@ -563,7 +563,7 @@ void main( void )
     c *= sin(uv.y*3.);
     c *= .9;
   
-    uv += iGlobalTime;
+    uv += iTime;
   
     float r = BadTVResoRand(uv.x, uv.y);
     float g = BadTVResoRand(uv.x * 9., uv.y * 9.);

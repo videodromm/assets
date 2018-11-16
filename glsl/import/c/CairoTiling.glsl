@@ -10,7 +10,7 @@
 	Please let me know if you can think of a simple way to get all the edges.
 */
 
-#define time iGlobalTime*0.5
+#define time iTime*0.5
 float hash( float n ){ return fract(sin(n)*43758.5453);}
 
 

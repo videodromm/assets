@@ -21,7 +21,7 @@ float ComputeCircle(vec2 pos, vec2 center, float radius, float feather)
 void main(void)
 {
     // Prepare the circle parameters, cycling the circle size over time.
-    float cycle = clamp(cos(iGlobalTime / 2.0) * 0.6 + 0.7, 0.0, 1.0);
+    float cycle = clamp(cos(iTime / 2.0) * 0.6 + 0.7, 0.0, 1.0);
     float diameter = mix(MAX_SIZE, MIN_SIZE, cycle);
     float radius = diameter / 2.0;
     vec2  center = vec2(0.0);

@@ -158,11 +158,11 @@ void main(void)
     vec3 ro = vec3(0.5, 0.5, 0.5);
     vec3 rd = normalize(vec3(uv, 1.0));
     
-    float pn = iGlobalTime * 0.3 + sin(iGlobalTime * 0.3) * 0.5;
+    float pn = iTime * 0.3 + sin(iTime * 0.3) * 0.5;
     rd.xz = rotate(rd.xz, pn);
-    float tl = iGlobalTime * 0.1 + sin(iGlobalTime * 0.1) * 0.12;
+    float tl = iTime * 0.1 + sin(iTime * 0.1) * 0.12;
     rd.xy = rotate(rd.xy, tl);
-    ro.x += iGlobalTime * 0.2;
+    ro.x += iTime * 0.2;
 
     
     float d = 0.0;
@@ -185,7 +185,7 @@ void main(void)
         col += exp(max((-maze3(rr * sc) + 0.4) / sc, 0.0) * -100.0) * 0.5;
         sc = 14.0;
         float di = circuit(r).y;
-        col += smoothstep(0.001, 0.0, di - 0.001) * 0.3 + exp(di * -30.0) * 0.3 * (sin(r.z * 10.0 + iGlobalTime * -4.0) + 1.0);
+        col += smoothstep(0.001, 0.0, di - 0.001) * 0.3 + exp(di * -30.0) * 0.3 * (sin(r.z * 10.0 + iTime * -4.0) + 1.0);
         //col += textureCube(iChannel0, ref).x * 0.3;
         col = col * exp(d * -1.5);
     }

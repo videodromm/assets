@@ -65,7 +65,7 @@ float prim1 (vec3 p, float per)
 float prim2 (vec3 p, float per)
 {
     float c = cyl(p.xz,0.1);
-    p.y -= tan(iGlobalTime);
+    p.y -= tan(iTime);
     p.y = mod(p.y-per/2.,per)-per/2.;
 
     float s = sphe(p, 0.2);
@@ -76,14 +76,14 @@ float elevators (vec3 p, float per)
 {
     p.z = mod(p.z-per/2.,per)-per/2.;
     p.xz = moda(p.xz, (2.*PI)/4.);
-    p.x -= sin(iGlobalTime)+3.;
+    p.x -= sin(iTime)+3.;
     return min(prim1(p,0.7),prim2(p,0.8));
 }
 
 float hex (vec3 p, float per)
  {
      p.z = mod(p.z-per/2.,per)-per/2.;
-     p.xy *= rot(iGlobalTime);
+     p.xy *= rot(iTime);
     p.xy = moda(p.xy, (2.*PI)/6.);
     p.x -= 2.;
     return min(prim1(p,0.7),prim2(p,0.8));
@@ -101,7 +101,7 @@ void main(void)
     vec2 uv = 2.*(fragCoord.xy/iResolution.xy)-1.;
 	uv.x *= iResolution.x/iResolution.y;
     
-    vec3 p = vec3(0.001,.001,iGlobalTime*0.5);
+    vec3 p = vec3(0.001,.001,iTime*0.5);
     vec3 dir = normalize(vec3(uv,1.));
     
     float shad = 0.;
@@ -115,7 +115,7 @@ void main(void)
                                     vec3(0.,0.3,0.7),
                                     vec3(0.2,0.3,0.3),
                                     vec3(.2),
-                                    vec3 (0.,0.2,iGlobalTime*0.5));
+                                    vec3 (0.,0.2,iTime*0.5));
          break;
         }
         else col = palette(length(uv),

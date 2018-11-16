@@ -14,7 +14,7 @@ float InversionMachineRand(vec2 co){
 }
 
 float InversionMachineDE(vec3 p) {
-	float t=iGlobalTime;
+	float t=iTime;
 	float dotp=dot(p,p);
 	p.x+=sin(t*40.)*.007;
 	p=p/dotp*InversionMachineScale;
@@ -53,11 +53,11 @@ float InversionMachineRaymarch(in vec3 from, in vec3 dir)
 	uv.y*=iResolution.y/iResolution.x;
 	float st,d,col,totdist=st=0.;
 	vec3 p;
-	float ra=InversionMachineRand(uv.xy*iGlobalTime)-.5;
-	float ras=max(0.,sign(-.5+InversionMachineRand(vec2(1.3456,.3573)*floor(30.+iGlobalTime*20.))));
-	float rab=InversionMachineRand(vec2(1.2439,2.3453)*floor(10.+iGlobalTime*40.))*ras;
-	float rac=InversionMachineRand(vec2(1.1347,1.0331)*floor(40.+iGlobalTime));
-	float ral=InversionMachineRand(1.+floor(uv.yy*300.)*iGlobalTime)-.5;
+	float ra=InversionMachineRand(uv.xy*iTime)-.5;
+	float ras=max(0.,sign(-.5+InversionMachineRand(vec2(1.3456,.3573)*floor(30.+iTime*20.))));
+	float rab=InversionMachineRand(vec2(1.2439,2.3453)*floor(10.+iTime*40.))*ras;
+	float rac=InversionMachineRand(vec2(1.1347,1.0331)*floor(40.+iTime));
+	float ral=InversionMachineRand(1.+floor(uv.yy*300.)*iTime)-.5;
 	for (int i=0; i<60; i++) {
 		p=from+totdist*dir;
 		d=InversionMachineDE(p);
@@ -76,8 +76,8 @@ float InversionMachineRaymarch(in vec3 from, in vec3 dir)
 	col+=pow(max(0.,1.-length(p)),8.)*(.5+10.*rab);
 	col+=pow(max(0.,1.-length(p)),30.)*50.;
 	col = mix(col, backg, 1.0-exp(-.25*pow(totdist,3.)));
-	if (rac>.7) col=col*.7+(.3+ra+ral*.5)*mod(uv.y+iGlobalTime*2.,.25);
-	col = mix(col, .5+ra+ral*.5, max(0.,3.-iGlobalTime)/3.);
+	if (rac>.7) col=col*.7+(.3+ra+ral*.5)*mod(uv.y+iTime*2.,.25);
+	col = mix(col, .5+ra+ral*.5, max(0.,3.-iTime)/3.);
 	return col+ra*.03+(ral*.1+ra*.1)*rab;
 }
 void main(void)
@@ -85,7 +85,7 @@ void main(void)
    vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
-	float t=iGlobalTime*.2;
+	float t=iTime*.2;
 	//vec2 uv = gl_FragCoord.xy / iResolution.xy*2.-1.;
 	//uv.y*=iResolution.y/iResolution.x;
 	uv.x = uv.x *2.-1.;

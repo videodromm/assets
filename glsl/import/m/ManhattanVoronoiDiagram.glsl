@@ -21,7 +21,7 @@ vec3 sampleVoronoi(vec2 uv, float size)
 		{
 			vec2 coords = vec2(m+float(i),n+float(j));																
 			float phase = _2PI*(size*coords.x+coords.y)/nbPoints;
-			vec2 delta = 0.25*vec2(sin(iGlobalTime+phase), cos(iGlobalTime+phase));
+			vec2 delta = 0.25*vec2(sin(iTime+phase), cos(iTime+phase));
 			vec2 point = (coords +vec2(0.5) + delta)/size;
 			vec2 dir = uv-point;
 			float dist2 = Manhatan(dir);										

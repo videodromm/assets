@@ -3,7 +3,7 @@
 void main( void )
 {
     vec2  u = iZoom * gl_FragCoord.xy / iResolution.xy , p = -1. + 2. * u;
-  float t = iGlobalTime, 
+  float t = iTime, 
           a = atan(p.y, p.x) , 
           r = length(p) , 
           c = .7 * cos(t + 7. * a);

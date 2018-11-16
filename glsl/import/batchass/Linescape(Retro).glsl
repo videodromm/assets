@@ -93,7 +93,7 @@ void main(void)
     vec2 p = 2.*uv-1.;
 	p.x *= iResolution.x/iResolution.y;
 		 
-	vec3 eye = vec3(0., 0.25+0.25*cos(0.5*iGlobalTime), -1.);
+	vec3 eye = vec3(0., 0.25+0.25*cos(0.5*iTime), -1.);
     mat4 projmat = CreatePerspectiveMatrix(50., iResolution.x/iResolution.y, 0.1, 10.);
     mat4 viewmat = CamControl(eye, -5.*PI/180.);
     mat4 vpmat = viewmat*projmat;
@@ -104,7 +104,7 @@ void main(void)
 	
     vec4 pos = vec4(0.);
 	float lh = -iResolution.y;
-	float off = 0.1*iGlobalTime;
+	float off = 0.1*iTime;
 	float h = 0.;
 	float z = 0.1;
 	float zi = 0.05;

@@ -52,7 +52,7 @@ void main(void)
     vec3 col = vec3(0.05);
     
     //Twisting angle
-    float angle = uvr.y + iGlobalTime + sin(uvr.y) * sin(iGlobalTime) * pi;
+    float angle = uvr.y + iTime + sin(uvr.y) * sin(iTime) * pi;
     
     for(int i = 0;i < NUM_FACES;i++)
     {

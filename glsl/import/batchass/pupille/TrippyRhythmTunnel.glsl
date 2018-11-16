@@ -23,14 +23,14 @@ void main(void)
     float r = sqrt( dot(p,p) ) * (1.0 + f0 - f2);
 	
     float a = atan(p.y,p.x) 
-        + 0.75*sin(0.5 / r + iGlobalTime) * (0.7 + 0.6 * f2)
-        - 1.75*cos(0.25 / r + iGlobalTime / 1.7) * (0.9 + 0.2 * f3);
+        + 0.75*sin(0.5 / r + iTime) * (0.7 + 0.6 * f2)
+        - 1.75*cos(0.25 / r + iTime / 1.7) * (0.9 + 0.2 * f3);
 	
 	float h = (0.5 + 0.5*cos(9.0*a));
 
 	float s = smoothstep(0.8,0.2,h);
 
-    uv.x = iGlobalTime * 2.0 - ints * 0.25 + 1.0/( r + .1*s);
+    uv.x = iTime * 2.0 - ints * 0.25 + 1.0/( r + .1*s);
     uv.y = 3.0*a/3.1416;
 
     float colorShift = ((ints-r) * 55.0 + iChannelTime[1] + 200.0) * (0.02 + 0.02 * ints);

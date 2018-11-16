@@ -31,16 +31,16 @@ void main(void)
 {
 	
 	vec3 Decal;
-	Decal.x = texture2D(iChannel0, vec2(0.3, 0.0)).x * 5.0 - iGlobalTime * 0.6;
-	Decal.y = texture2D(iChannel0, vec2(0.5, 0.0)).x * 5.0 - iGlobalTime * 0.4;
-	Decal.z = texture2D(iChannel0, vec2(0.7, 0.0)).x * 5.0 - iGlobalTime * 0.3;
+	Decal.x = texture2D(iChannel0, vec2(0.3, 0.0)).x * 5.0 - iTime * 0.6;
+	Decal.y = texture2D(iChannel0, vec2(0.5, 0.0)).x * 5.0 - iTime * 0.4;
+	Decal.z = texture2D(iChannel0, vec2(0.7, 0.0)).x * 5.0 - iTime * 0.3;
 	
 	float BaseX = 0.0;
 	float BaseY = -0.05;
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
 		
 	float DirDecal = texture2D(iChannel0, vec2(0.7, 0.5)).x * 1.0;
-	vec2 Dir = normalize(uv-vec2(sin(iGlobalTime / 2.0)+ 0.5 + DirDecal,1.2));
+	vec2 Dir = normalize(uv-vec2(sin(iTime / 2.0)+ 0.5 + DirDecal,1.2));
 	
 	//vec2 Prev = GetNearest(vec2(-1.0, -0.7), uv - 1.0/iResolution.x);
 	vec3 Cur = GetNearest(Dir, uv);

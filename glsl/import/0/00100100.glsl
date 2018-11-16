@@ -2,7 +2,7 @@
 // https://www.shadertoy.com/view/lsS3DK
 
 float Wave00100100(float x, float s) {
-	return sin(x + mod(iGlobalTime * s, 3.1415 * 2.))/2. + .5;
+	return sin(x + mod(iTime * s, 3.1415 * 2.))/2. + .5;
 }
 // https://www.shadertoy.com/view/lsS3DK
 void main(void)
@@ -15,7 +15,7 @@ void main(void)
 	uv.x *= 2.;
 	uv.y *= 2.;
 	
-	float t = mod(iGlobalTime* 2., 3.1415 * 2.);
+	float t = mod(iTime* 2., 3.1415 * 2.);
 	float a = 0.;
 	for(float i = 1.; i <= 3.; ++i) {	
 		a += sin(t * (i * 2. - 1.)) / (i * 2. - 1.);

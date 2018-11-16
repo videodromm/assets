@@ -187,8 +187,8 @@ void main(void)
     //stochastic aa
     vec2 cs = (gl_FragCoord.xy-iResolution.xy*0.5)/iResolution.x; //lower-left=-1,-y/x
     
-    float //time=iGlobalTime*0.1;
-    time=0.4*cos(iGlobalTime*0.3);
+    float //time=iTime*0.1;
+    time=0.4*cos(iTime*0.3);
     
     
     
@@ -203,9 +203,9 @@ void main(void)
         ci=rotY(normalize(vec3(zoom*cs.x,zoom*cs.y,-1)),rotation);
     }else{
         //time=0.0; //STOP TIME!
-        float camz=3.0+8.0*(exp(smoothstep(5.0,30.0,iGlobalTime))-1.0);
-        float rotation=mix(time,-0.95,smoothstep(20.0,32.0,iGlobalTime));
-        co=rotY(vec3(0.0,0.0,camz),rotation)+vec3(1.2*mix(0.0,iGlobalTime-26.0,smoothstep(26.0,35.0,iGlobalTime)),0.0,0.0);
+        float camz=3.0+8.0*(exp(smoothstep(5.0,30.0,iTime))-1.0);
+        float rotation=mix(time,-0.95,smoothstep(20.0,32.0,iTime));
+        co=rotY(vec3(0.0,0.0,camz),rotation)+vec3(1.2*mix(0.0,iTime-26.0,smoothstep(26.0,35.0,iTime)),0.0,0.0);
         float zoom=0.5/0.6;
         ci=rotY(normalize(vec3(zoom*cs.x,zoom*cs.y,-1)),rotation);
     }

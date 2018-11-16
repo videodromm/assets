@@ -192,7 +192,7 @@ void main(void)
     vec2 p = -1. + 2. * uv;
     p.x *= iResolution.x / iResolution.y;
     
-    time = 42. + iGlobalTime;
+    time = 42. + iTime;
     //Camera
 	float radius = 50.;
 	vec3 ro = orbit(PI/2.-.5,PI/2.,radius);

@@ -30,8 +30,8 @@ void main(void)
     {
 		z = float(i) / 255.0;
 		dist = (xy - vec2(160.0,100.0)) * z;		
-		z = mod(z + iGlobalTime/4.0, 1.0);
-		dist.x += sin(iGlobalTime*3.14)*15.0;		
+		z = mod(z + iTime/4.0, 1.0);
+		dist.x += sin(iTime*3.14)*15.0;		
 		int zz = int(z * 2.0);
 		if (zz == 0) dist.x -= 10.0;
 		else dist.x += 10.0;		

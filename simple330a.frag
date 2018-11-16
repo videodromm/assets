@@ -1,5 +1,5 @@
 
-uniform float iGlobalTime;
+uniform float iTime;
 uniform sampler2D iChannel0;
 
 in vec2 vertTexCoord0;

@@ -14,7 +14,7 @@ float terrain(vec3 p){
 }
 
 void main(void){
-    time        = iGlobalTime*1.0;
+    time        = iTime*1.0;
     vec2 uv     = gl_FragCoord.xy/(iResolution.xx*0.5)-vec2(1.0,0.6);
     vec3 ray    = normalize(vec3(uv.x,uv.y,0.76));
     vec3 campos = vec3(sin(time*0.12)*1000.0, sin(time*0.5)*100.0-300.0, 50.0+sin(time*0.2)*100.0-time*100.0);

@@ -34,7 +34,7 @@ void main(void) {
     float arclength    = abs(atan(centered.y, centered.x) / radians(360.0))+0.01;
     
     // Color variation functions
-    float t = iGlobalTime / 100.0;
+    float t = iTime / 100.0;
     float polychrome = (0.0 + sin(t*10.0))/2.0; // 0 -> unifrm color, 1 -> full spectrum
     vec3 spline_args = fract(vec3(polychrome*uv.x-t) + vec3(0.0, -1.0/3.0, -2.0/3.0));
     vec3 spline = B2_spline(spline_args);

@@ -9,7 +9,7 @@
 #define LAG_A 0.325
 #define LAG_B 0.825
 #define LAG_C 0.825
-#define time iGlobalTime
+#define time iTime
 
 // hash based 3d value noise
 float hash( float n )
@@ -194,7 +194,7 @@ vec4 map( in vec3 p )
 {
 	float d = 0.2 - p.y;
  
-	vec3 q = p - vec3(1.0,0.1,0.0)*iGlobalTime;
+	vec3 q = p - vec3(1.0,0.1,0.0)*iTime;
 	float f;
     f  = 0.5000*noise( q ); q = q*2.02;
     f += 0.2500*noise( q ); q = q*2.03;
@@ -258,7 +258,7 @@ vec4 raymarch( in vec3 ro, in vec3 rd )
  
 vec4 water( void ) 
 {
-	float time = iGlobalTime * .5+23.0;
+	float time = iTime * .5+23.0;
 	vec2 sp = gl_FragCoord.xy * iResolution.xy;
  
 	vec2 p = mod(sp*TAU*2.0, TAU)-250.0;

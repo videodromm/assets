@@ -51,19 +51,19 @@ void main(void)
 	// rays and sun
 	sfunc = 0.05 + 0.01*exp(sin(atan(q.y, q.x)*10.)*0.5);
 	rayShape *= 1. - smoothstep(sfunc, sfunc + 0.2, qLen);
-	float spec = 40. + 3.*sin(iGlobalTime) + sin(iGlobalTime*0.8);
+	float spec = 40. + 3.*sin(iTime) + sin(iTime*0.8);
 	col7 += pow(1.-qLen, spec);
 	col = mix(col, col7, rayShape);
 
 	// wave 1
-	float waveFunc = 0.3 + (0.01*sin(uv.x * 35. + iGlobalTime*2.)) 
-		+ (0.005*sin(uv.x * 20. + iGlobalTime*0.5));
+	float waveFunc = 0.3 + (0.01*sin(uv.x * 35. + iTime*2.)) 
+		+ (0.005*sin(uv.x * 20. + iTime*0.5));
 	waveShape1 *= 1. - smoothstep(waveFunc, waveFunc + smoothness, uv.y);
 	col = mix(col, col3, waveShape1);
 	
 	// wave 2
-	waveFunc = 0.3 + (0.02*sin(uv.x * 20. + iGlobalTime*2.)) 
-		+ (0.005*sin(uv.x * 30. + iGlobalTime*0.7));
+	waveFunc = 0.3 + (0.02*sin(uv.x * 20. + iTime*2.)) 
+		+ (0.005*sin(uv.x * 30. + iTime*0.7));
 	waveShape2 *= 1. - smoothstep(waveFunc, waveFunc + smoothness, uv.y);
 	float waveTop = 1. - smoothstep(waveFunc-0.005, waveFunc, uv.y);
 	col5 = mix(col6, col5, 0.5+uv.y*1.7);

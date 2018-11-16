@@ -220,7 +220,7 @@ void main(void)
     if(iMouse.xy == vec2(0,0))
     {
         angles.y = tau * (1.2 / 8.0);
-        angles.x = iGlobalTime * 0.2;
+        angles.x = iTime * 0.2;
     }
     else
     {    
@@ -235,7 +235,7 @@ void main(void)
     vec3 orig = vec3(0, 0,-2) * rotate;
     
     #ifdef FLY_MODE
-    orig -= vec3(0, iGlobalTime, 0);
+    orig -= vec3(0, iTime, 0);
     #else
     orig -= vec3(0, 0, 0);
     #endif

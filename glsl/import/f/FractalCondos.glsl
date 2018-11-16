@@ -7,7 +7,7 @@
 // v3 added fast anti-alias where the first ray finds the starting depth
 #define NUMRAYS 2
 
-#define time iGlobalTime
+#define time iTime
 #define size iResolution
 
 vec2 rep(vec2 p, vec2 a){return abs(mod(p+a,a*2.0)-a);}

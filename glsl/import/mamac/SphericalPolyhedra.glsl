@@ -17,7 +17,7 @@
     Perhaps there is a way to make that process cheaper? Let me know.
 */
 
-#define time iGlobalTime
+#define time iTime
 
 mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,-s,s,c);}
 vec3 rotx(vec3 p, float a){ float s = sin(a), c = cos(a);

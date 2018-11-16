@@ -20,7 +20,7 @@ void main(void) {
 	
 	vec2 center = vec2(0.0);
 	vec3 color = vec3(0.0);
-	float t = iGlobalTime;
+	float t = iTime;
 	float zoom = v2 * 0.5 + 0.9;
 	float width1 = 0.18;
 	float width2 = width1 / 2.0;
@@ -34,7 +34,7 @@ void main(void) {
 	uv.x += 0.35 * width1 * v1;
 
 	// glitch the point around
-	float glitch = sin(18.245*iGlobalTime)*cos(11.323*iGlobalTime)*sin(4.313*iGlobalTime);
+	float glitch = sin(18.245*iTime)*cos(11.323*iTime)*sin(4.313*iTime);
 	glitch *= glitch;
 	uv.x += sin(uv.y*19.1)*glitch*.01;
 	uv.x += sin(uv.y*459.1)*glitch*glitch*.02;

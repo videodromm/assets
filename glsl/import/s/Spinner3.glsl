@@ -66,7 +66,7 @@ float Spinner3DistField( vec3 pos )
 {
 	// rotational symmettry
 	const float slice = Spinner3Tau/12.0;
-	float a = abs(fract(atan(pos.x,pos.z)/slice+iGlobalTime*2.5)-.5)*slice;
+	float a = abs(fract(atan(pos.x,pos.z)/slice+iTime*2.5)-.5)*slice;
 	pos.xz = length(pos.xz)*vec2(sin(a),cos(a));
 	
 	// symettry in y
@@ -93,7 +93,7 @@ vec3 Spinner3Sky( vec3 ray )
 	vec3 col = vec3(0);
 	
 	col += vec3(.8,.1,.13)*smoothstep(.2,1.0,dot(ray,normalize(vec3(1,1,3))));
-	col += vec3(.1,.1,.05)*Spinner3Noise(ray*2.0+vec3(0,1,5)*iGlobalTime).x;
+	col += vec3(.1,.1,.05)*Spinner3Noise(ray*2.0+vec3(0,1,5)*iTime).x;
 	col += 3.0*vec3(1,1.7,3)*smoothstep(.8,1.0,dot(ray,normalize(vec3(3,3,-2))));
 	col += 2.0*vec3(2,1,3)*smoothstep(.9,1.0,dot(ray,normalize(vec3(3,8,-2))));
 	
@@ -105,7 +105,7 @@ void main(void)
 {
 	float zoom = 1.5;
 	vec3 pos, ray;
-	Spinner3CamPolar( pos, ray, .04*vec3(Spinner3Noise(vec3(3.0*iGlobalTime,0,0)).xy,0), vec2(.22,0)+vec2(.7,Spinner3Tau)*iMouse.yx/iResolution.yx, 6.0, zoom );
+	Spinner3CamPolar( pos, ray, .04*vec3(Spinner3Noise(vec3(3.0*iTime,0,0)).xy,0), vec2(.22,0)+vec2(.7,Spinner3Tau)*iMouse.yx/iResolution.yx, 6.0, zoom );
 
 	// radius of cone to trace, at 1m distance;
 	float coneRad = .7071/(iResolution.y*zoom);
@@ -177,7 +177,7 @@ void main(void)
 	col += (1.0-coverage)*.5*Spinner3Sky(ray);
 
 	// grain
-	vec3 grainPos = vec3(gl_FragCoord.xy*.8,iGlobalTime*30.0);
+	vec3 grainPos = vec3(gl_FragCoord.xy*.8,iTime*30.0);
 	grainPos.xy = grainPos.xy*cos(.75)+grainPos.yx*vec2(-1,1)*sin(.75);
 	grainPos.yz = grainPos.yz*cos(.5)+grainPos.zy*vec2(-1,1)*sin(.5);
 	vec2 filmNoise = Spinner3Noise(grainPos*.5);
@@ -185,7 +185,7 @@ void main(void)
 
 	// dust
 	vec2 uv = gl_FragCoord.xy/iResolution.y;
-	float T = floor( iGlobalTime * 60.0 );
+	float T = floor( iTime * 60.0 );
 	vec2 scratchSpace = mix( Spinner3Noise(vec3(uv*8.0,T)).xy, uv.yx+T, .8 )*1.0;
 	float scratches = texture2D( iChannel1, scratchSpace ).r;
 	

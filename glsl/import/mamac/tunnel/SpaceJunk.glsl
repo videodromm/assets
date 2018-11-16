@@ -30,10 +30,10 @@ void main(void)
     float m = 1.0;
     
     for (int n = 0; n < 5; ++n) {
-        vec3 po = vec3(0.0, 0.0, iGlobalTime * 0.5);
+        vec3 po = vec3(0.0, 0.0, iTime * 0.5);
         vec3 pr = normalize(vec3(uv, 1.0));
         
-        pr.xz *= rot(sin(iGlobalTime * 0.25) * 0.25);
+        pr.xz *= rot(sin(iTime * 0.25) * 0.25);
 
         float td = 0.75 + float(n);
         
@@ -49,7 +49,7 @@ void main(void)
 
         float tc = 5.0;
         
-        pw.xy *= rot(iGlobalTime * 0.125 * (mod(floor(pw.z / tc) + float(n), 2.0) * 2.0 - 1.0));
+        pw.xy *= rot(iTime * 0.125 * (mod(floor(pw.z / tc) + float(n), 2.0) * 2.0 - 1.0));
         
         pw.z = (fract(pw.z / tc) - 0.5) * tc;
 

@@ -32,7 +32,7 @@ void main(void) {
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
     vec2 cc = (-iResolution.xy + 2.0*gl_FragCoord.xy) / iResolution.y;
         
-    float col = shape(abs(cc), cos(0.01*(iGlobalTime+22.0))*TAU);
+    float col = shape(abs(cc), cos(0.01*(iTime+22.0))*TAU);
     col *= 0.5 + 1.5*pow(uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y), 0.3);
     
     

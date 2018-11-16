@@ -19,7 +19,7 @@
 
 
 
-float time = iGlobalTime;
+float time = iTime;
 
 vec2 rotate(vec2 p, float a)
 {

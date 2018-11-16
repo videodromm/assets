@@ -60,7 +60,7 @@ float heightMap(vec2 p){
         // Far more interesting, mutated subdivision, courtesy of Aiekick.
         //p = fract(p+sin(p.yx*9.)*0.025 + cos(p.yx*9.)*0.025)*3.; 
         // Another one with a time component.
-        //p = fract(p + sin(p*9. + cos(p.yx*13. + iGlobalTime*2.))*0.02)*3.;
+        //p = fract(p + sin(p*9. + cos(p.yx*13. + iTime*2.))*0.02)*3.;
         
         vec2 w = .5 - abs(p - 1.5); // Prepare to make a square. Other shapes are also possible.
         float l = sqrt( max(16.0*w.x*w.y*(1.0-w.x)*(1.0-w.y), 0.))*.5+.5; // Edge shaping.
@@ -81,7 +81,7 @@ float heightMap(vec2 p){
 float map(vec3 p){
 
     // Cheap, lame distortion, if you wanted it.
-    //p.xy += sin(p.xy*7. + cos(p.yx*13. + iGlobalTime))*.01;
+    //p.xy += sin(p.xy*7. + cos(p.yx*13. + iTime))*.01;
     
     // Back plane, placed at vec3(0, 0, 1), with plane normal vec3(0., 0., -1).
     // Adding some height to the plane from the heightmap. Not much else to it.
@@ -180,7 +180,7 @@ vec3 envMap(vec3 rd, vec3 sn){
     vec3 sRd = rd; // Save rd, just for some mixing at the end.
     
     // Add a time component, scale, then pass into the noise function.
-    rd.xy -= iGlobalTime*.25;
+    rd.xy -= iTime*.25;
     rd *= 3.;
     
     float c = n3D(rd)*.57 + n3D(rd*2.)*.28 + n3D(rd*4.)*.15; // Noise value.
@@ -201,16 +201,16 @@ void main(void) {
     
     // Rotating the XY-plane back and forth, for a bit of variance.
     // 2D rotation with fewer instructions, courtesy of Fabrice Neyret.
-    vec2 a = sin(vec2(1.570796, 0) - sin(iGlobalTime/4.)*.3);
+    vec2 a = sin(vec2(1.570796, 0) - sin(iTime/4.)*.3);
     rd.xy = rd.xy*mat2(a, -a.y, a.x);
     
     
     // Ray origin. Moving in the X-direction to the right.
-    vec3 ro = vec3(iGlobalTime, cos(iGlobalTime/4.), 0.);
+    vec3 ro = vec3(iTime, cos(iTime/4.), 0.);
     
     
     // Light position, hovering around camera.
-    vec3 lp = ro + vec3(cos(iGlobalTime/2.)*.5, sin(iGlobalTime/2.)*.5, -.5);
+    vec3 lp = ro + vec3(cos(iTime/2.)*.5, sin(iTime/2.)*.5, -.5);
     
     // Standard raymarching segment. Because of the straight forward setup, not many 
     // iterations are needed.

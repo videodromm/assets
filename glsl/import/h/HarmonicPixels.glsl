@@ -6,16 +6,16 @@ float usin(float t) {
 
 float orb(float x0, float freqMul, float amp, float aspect, vec3 pos, float glow, float ampFreq) {
 	float c = 0.0;
-	float s = sin(iGlobalTime*ampFreq);
+	float s = sin(iTime*ampFreq);
 	for (float i = 0.0; i < N_ITERATIONS; i++) {
 		float freq = freqMul*(i+1.0)/N_ITERATIONS;
 		float x = x0+i/N_ITERATIONS;
-		float y = 0.5 + s*sin(freq*iGlobalTime)*amp;
+		float y = 0.5 + s*sin(freq*iTime)*amp;
 		
 		vec3 circPos = vec3(x*aspect, y, 1.0);
 		float f = 0.17;
 	
-		float sinTime = 1.0-usin(iGlobalTime)*0.3;
+		float sinTime = 1.0-usin(iTime)*0.3;
 		float dx = pos.x - circPos.x;
 		float dy = pos.y - circPos.y;
 		float d = glow*(dx*dx + dy*dy);		
@@ -49,12 +49,12 @@ void main(void)
 	float g = orb(x0, 0.6, amp, aspect, pos, 4.5, 0.75);
 	float b = orb(x0, 0.9, amp, aspect, pos, 6.5, 0.5);	
 	
-	float p = usin(iGlobalTime*1.2)*0.5+0.5;
+	float p = usin(iTime*1.2)*0.5+0.5;
 	float q = 1.5 - p;
 	vec3 col = vec3(r, q*g, p*b);
 	vec3 bg = bgColor(pos);
 	col *= bg;
-	col *= 1.0 - usin(2.0*iGlobalTime)*0.1;
+	col *= 1.0 - usin(2.0*iTime)*0.1;
 
   gl_FragColor = vec4(col,1.0);
 }

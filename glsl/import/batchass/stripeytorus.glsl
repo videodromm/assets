@@ -51,9 +51,9 @@ void main(void)
 	float majorAngle = atan(rayPos.z, rayPos.x);
 	float minorAngle = atan(rayPos.y, length(rayPos.xz) - 4.0);
 		
-	float edge = mod(8.0 * (minorAngle + majorAngle + iGlobalTime) / 3.14159, 1.0);
+	float edge = mod(8.0 * (minorAngle + majorAngle + iTime) / 3.14159, 1.0);
 	//float color = edge < 0.7 ? smoothstep(edge, edge+0.03, 0.5) : 1.0-smoothstep(edge, edge+0.03, 0.96);
-	//float color = step(mod(8.0 * (minorAngle + majorAngle + iGlobalTime) / PI, 1.0), 0.5);
+	//float color = step(mod(8.0 * (minorAngle + majorAngle + iTime) / PI, 1.0), 0.5);
 	//color -= 0.20 * step(mod(1.0 * (minorAngle + 1.0 * majorAngle + PI / 2.0) / PI, 1.0), 0.2);
 	vec3 color = edge < 0.7 ? iBackgroundColor : iColor;
 	//gl_FragColor = vec4(color);

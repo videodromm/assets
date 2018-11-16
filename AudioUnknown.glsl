@@ -13,7 +13,7 @@ void main(void)
 	
 	float a = length(vec2(.5,.5)-uv);
 	float angle = atan(uv.y,uv.x)*(6.0+e);
-	a = a*(cos(angle+b+c+d+iGlobalTime)*0.5+1.0);
+	a = a*(cos(angle+b+c+d+iTime)*0.5+1.0);
 		
 	vec4 col = texture2D(iChannel0, vec2(a, 0.0));
 	col.x += b;

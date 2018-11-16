@@ -15,10 +15,10 @@ float noise( in vec3 x )
 }
 // height map
 float voxel( vec4 pos ) {
-	return clamp(noise(pos.xyz*2.0)-.2+(.2*cos(iGlobalTime)),.2,.63);
+	return clamp(noise(pos.xyz*2.0)-.2+(.2*cos(iTime)),.2,.63);
 }
 float voxel( vec3 pos ) {
-	return clamp(noise(pos*2.0)-.2+(.2*cos(iGlobalTime)),.2,.63);
+	return clamp(noise(pos*2.0)-.2+(.2*cos(iTime)),.2,.63);
 }
 // improvement based on fb39ca4's implementation to remove most of branches :
 // https://www.shadertoy.com/view/4dX3zl
@@ -110,7 +110,7 @@ void main(void)
 	vec3 eye = vec3( 0.0, 0.0, 17.0 );
 
 	// rotate camera
-	mat3 rot = rot3xy( vec2( -DEG_TO_RAD * 10.0, sin(iGlobalTime/6.0)-DEG_TO_RAD * 24.0 ) );
+	mat3 rot = rot3xy( vec2( -DEG_TO_RAD * 10.0, sin(iTime/6.0)-DEG_TO_RAD * 24.0 ) );
 	dir = rot * dir;
 	dir = normalize( dir );
 	//vec3 mask;

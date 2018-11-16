@@ -27,8 +27,8 @@ vec4 rayColor(vec2 fragToCenterPos) {
 	float freq = 0.25;		
 	for (float i = 1.0; i < loop; i++) {
 		float attn = c;
-		attn *= 1.85*(sin(i*0.3*iGlobalTime)*0.5+0.5);
-		float t = iGlobalTime*timeScale - fstep*i;
+		attn *= 1.85*(sin(i*0.3*iTime)*0.5+0.5);
+		float t = iTime*timeScale - fstep*i;
 		vec2 dir = vec2(cos(freq*t), sin(freq*t));
 		float m = dot(dir, fragToCenterPos);
 		m = pow(abs(m), 4.0);
@@ -168,7 +168,7 @@ void main( void ) {
 	normal = normalize(normal);
 	
 	// generate a position for the view: on a circle around the center of the screen
-	float freq = 1.5*iGlobalTime;
+	float freq = 1.5*iTime;
 	vec3 view = vec3(0.5, 0.5, 0.0) + vec3(sin(freq), cos(freq), 2.0);
 	view = normalize(view);
 	
@@ -176,7 +176,7 @@ void main( void ) {
 	float light = dot( view, normal );
 	
 	// when the barycentric coordinate falls into the [minW, maxW] interval, shade with a lighter tone
-	float minW = mod(1.15*iGlobalTime, 4.0);
+	float minW = mod(1.15*iTime, 4.0);
 	float maxW = minW + 0.3;
 	float s = 1.0;
 	if (w > minW && w < maxW)

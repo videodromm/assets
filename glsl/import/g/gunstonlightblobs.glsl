@@ -4,7 +4,7 @@
 // https://www.shadertoy.com/view/lsfGzr
 // Blobs by @paulofalcao
 
-float time=iGlobalTime;
+float time=iTime;
 
 float makePoint(float x,float y,float fx,float fy,float sx,float sy,float t){
    float xx=x+sin(t*fx)*sx;

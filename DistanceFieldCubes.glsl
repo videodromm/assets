@@ -8,7 +8,7 @@ float distanceFrom(in vec3 p) {
     float s = 0.8;
     
     p *= rot; // rotate
-    vec3 mountains = sin(p*10.) * sin(iGlobalTime*0.3) * 0.8;
+    vec3 mountains = sin(p*10.) * sin(iTime*0.3) * 0.8;
     
     return length(max(abs(p)+length(mountains)-s,0.0));
 }
@@ -28,7 +28,7 @@ void main(void)
     vec2 p = -1. + 2.0*uv;
     p.x *= iResolution.x/iResolution.y;
     
-    float r = iGlobalTime;
+    float r = iTime;
     rot = mat3(
     	1,      0,       0,
     	0, cos(r), -sin(r),
@@ -39,7 +39,7 @@ void main(void)
     
     float nearestDistance = 1.0;
     float traveled = 0.0;
-    float maxTravel = min(iGlobalTime,60.);
+    float maxTravel = min(iTime,60.);
     for(int i=0;i<10000;i++) {
         if(nearestDistance < 0.0001 || traveled > maxTravel) break;
         nearestDistance = distanceFrom(rayOrigin + traveled*rayDirection);

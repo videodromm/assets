@@ -6,8 +6,8 @@
 vec3 subImg(in vec2 fCoord, float xs,float ys, float zs){
     vec2 xy=fCoord.xy/iResolution.xy;
     xy-=0.5;
-    xy+=vec2(sin(iGlobalTime*xs)*0.1,cos(iGlobalTime*ys)*0.1);//move
-    xy*=(1.1+sin(iGlobalTime*zs)*0.1);//scale
+    xy+=vec2(sin(iTime*xs)*0.1,cos(iTime*ys)*0.1);//move
+    xy*=(1.1+sin(iTime*zs)*0.1);//scale
     xy+=0.5;
     return texture2D(iChannel0,xy).xyz;
 }
@@ -20,9 +20,9 @@ vec3 drawCircle(in vec2 xy){
 void main(void) {
     //circle zoom and deformation
     vec2 xy=iResolution.xy;xy=-.5*(xy-2.0*gl_FragCoord.xy)/xy.x;
-    xy*=1.0+sin(iGlobalTime*4.0)*0.2;
-    xy.x+=sin(xy.x*32.0+iGlobalTime*16.0)*0.01;
-    xy.y+=sin(xy.y*16.0+iGlobalTime*8.0)*0.01;
+    xy*=1.0+sin(iTime*4.0)*0.2;
+    xy.x+=sin(xy.x*32.0+iTime*16.0)*0.01;
+    xy.y+=sin(xy.y*16.0+iTime*8.0)*0.01;
     
     vec3 c=drawCircle(xy);
  

@@ -28,7 +28,7 @@
 #define LightDir2 vec3(1.0,-0.62886,1.0)
 #define LightColor2 vec3(0.596078,0.635294,1.0)
 
-float time = iGlobalTime + 38.0;
+float time = iTime + 38.0;
 
 vec2 rotate(vec2 v, float a) {
 	return vec2(cos(a)*v.x + sin(a)*v.y, -sin(a)*v.x + cos(a)*v.y);

@@ -5,11 +5,11 @@ void main(void)
 	float i, j;
 	vec2 circ1, circ2;
 	
-	circ1.x = gl_FragCoord.x-((sin(iGlobalTime)*iResolution.x)/4.0 + iResolution.x/2.0);
-	circ1.y = gl_FragCoord.y-((cos(iGlobalTime)*iResolution.x)/4.0 + iResolution.y/2.0);
+	circ1.x = gl_FragCoord.x-((sin(iTime)*iResolution.x)/4.0 + iResolution.x/2.0);
+	circ1.y = gl_FragCoord.y-((cos(iTime)*iResolution.x)/4.0 + iResolution.y/2.0);
 
-	circ2.x = gl_FragCoord.x-((sin(iGlobalTime*0.92+1.2)*iResolution.x)/4.0 + iResolution.x/2.0);
-	circ2.y = gl_FragCoord.y-((cos(iGlobalTime*0.43+0.3)*iResolution.x)/4.0 + iResolution.y/2.0);
+	circ2.x = gl_FragCoord.x-((sin(iTime*0.92+1.2)*iResolution.x)/4.0 + iResolution.x/2.0);
+	circ2.y = gl_FragCoord.y-((cos(iTime*0.43+0.3)*iResolution.x)/4.0 + iResolution.y/2.0);
 	
 	circ1.xy /= 4.0;
 	circ2.xy /= 4.0;

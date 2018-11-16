@@ -117,7 +117,7 @@ float flr(vec3 p)
 
 float dist(vec3 p)//distance function
 {
-	float t = iGlobalTime+4.0;
+	float t = iTime+4.0;
 	float d = 1000.0;//p.y+2.0;
 	
 	d = min(spheres(p),flr(p));
@@ -299,7 +299,7 @@ vec3 object_material(vec3 p, vec3 d) //computes the material for the object
 	
 	vec3 diffuse_acc = vec3(.0);
 	
-	float t = iGlobalTime*.1;
+	float t = iTime*.1;
 	
 	for (int i=0; i<3; i++)
 	{
@@ -355,7 +355,7 @@ void main(void)
 	uv.y -= iRenderXY.y;
 	vec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);
 	
-	float t = iGlobalTime*.5*object_speed_modifier + 30.0;
+	float t = iTime*.5*object_speed_modifier + 30.0;
 	mouse += vec3(sin(t)*.05,sin(t)*.01,.0);
 	
 	float offs0=5.0;

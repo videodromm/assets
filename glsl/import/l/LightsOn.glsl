@@ -51,7 +51,7 @@ const int materialCount = 2;
 Material material[2];
 
 Sphere makeSphere(float offset) {
-	float t = iGlobalTime + PI * 2.0 * offset;
+	float t = iTime + PI * 2.0 * offset;
 	float x = cos(t) * 3.0;
 	float z = sin(t * 2.0) * 1.5;
 	return Sphere(vec3(x, 0.8, z), 0.8);
@@ -91,27 +91,27 @@ void makeScene() {
 		float r = 4.0;
 		float y = 4.0;
 		
-		float t0 = -iGlobalTime + PI * 0.0;
+		float t0 = -iTime + PI * 0.0;
 		light[0].origin = vec3(cos(t0) * r, y, sin(t0) * r);
 		light[0].color = vec3(0.5, 0.0, 0.0);
 
-		float t1 = -iGlobalTime + PI * 0.333333;
+		float t1 = -iTime + PI * 0.333333;
 		light[1].origin = vec3(cos(t1) * r, y, sin(t1) * r);
 		light[1].color = vec3(0.4, 0.4, 0.0);
 
-		float t2 = -iGlobalTime + PI * 0.666666;
+		float t2 = -iTime + PI * 0.666666;
 		light[2].origin = vec3(cos(t2) * r, y, sin(t2) * r);
 		light[2].color = vec3(0.0, 0.5, 0.0);
 
-		float t3 = -iGlobalTime + PI * 1.0;
+		float t3 = -iTime + PI * 1.0;
 		light[3].origin = vec3(cos(t3) * r, y, sin(t3) * r);
 		light[3].color = vec3(0.0, 0.4, 0.4);
 
-		float t4 = -iGlobalTime + PI * 1.333333;
+		float t4 = -iTime + PI * 1.333333;
 		light[4].origin = vec3(cos(t4) * r, y, sin(t4) * r);
 		light[4].color = vec3(0.0, 0.0, 0.5);
 
-		float t5 = -iGlobalTime + PI * 1.666666;
+		float t5 = -iTime + PI * 1.666666;
 		light[5].origin = vec3(cos(t5) * r, y, sin(t5) * r);
 		light[5].color = vec3(0.4, 0.0, 0.4);
 	}
@@ -265,7 +265,7 @@ void main() {
 	float xo = (iMouse.x * 2.0 / iResolution.x - 1.0) * PI;
 	float yo = (0.5 - (iMouse.y / iResolution.y)) * 4.0 + 2.01;
 	
-	eye = vec3(cos(iGlobalTime * 0.1 + xo) * 5.0, yo, sin(iGlobalTime * 0.1 + xo) * 5.0);
+	eye = vec3(cos(iTime * 0.1 + xo) * 5.0, yo, sin(iTime * 0.1 + xo) * 5.0);
 	
 	vec3 lookat = vec3(0.0, 0.0, 0.0);
 	

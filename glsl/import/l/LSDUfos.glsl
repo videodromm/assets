@@ -5,7 +5,7 @@ const vec3 light_2     = vec3(-4.0, 8.0, -7.0);
 const vec2 eps         = vec2(0.001, 0.0);
 const int maxSteps     = 64;
 
-float time = iGlobalTime;
+float time = iTime;
 
 vec3 shade(vec3 color, vec3 point, vec3 normal, vec3 rd)
 {

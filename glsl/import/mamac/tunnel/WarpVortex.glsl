@@ -4,7 +4,7 @@
 
 void main(void)
 {
-    float time = iGlobalTime * 1.;									// adjust time
+    float time = iTime * 1.;									// adjust time
     vec2 uv = (2. * fragCoord.xy - iResolution.xy) / iResolution.y;	// center coordinates
     float rads = atan(uv.x, uv.y);                   				// get radians to center
 	float dist = length(uv);										// store distance to center

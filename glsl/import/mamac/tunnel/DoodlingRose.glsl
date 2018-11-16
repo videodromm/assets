@@ -25,12 +25,12 @@ float g=0.;
 float de(vec3 p) {
     vec3 q = p;
     q.x += sin(q.z)*.4;
-    float s = length(mod(q+iGlobalTime+vec2(0,sin(iGlobalTime*.2)*4.).yxx-1., 2.)-1.) - .04 - sin(iGlobalTime*30.)*.003;
+    float s = length(mod(q+iTime+vec2(0,sin(iTime*.2)*4.).yxx-1., 2.)-1.) - .04 - sin(iTime*30.)*.003;
     
     p.xy*=r2d(-3.14*.25);
     p.zy*=r2d(3.14*.03);
     
-    p.xz*=r2d(iGlobalTime);
+    p.xz*=r2d(iTime);
     p.y-=length(p.xz)*.3;
     
 	amod(p.xz, .785);

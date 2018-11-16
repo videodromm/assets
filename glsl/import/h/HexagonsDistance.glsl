@@ -50,8 +50,8 @@ void main(void)
 	uv *= 1.0 + 0.3*length(uv);
 	
     // gray
-	vec4 h = HDhexagon(8.0*uv + 0.5*iGlobalTime);
-	float n = HDnoise( vec3(0.3*h.xy+iGlobalTime*0.1,iGlobalTime) );
+	vec4 h = HDhexagon(8.0*uv + 0.5*iTime);
+	float n = HDnoise( vec3(0.3*h.xy+iTime*0.1,iTime) );
 	vec3 col = 0.15 + 0.15*HDhash1(h.xy+1.2)*vec3(1.0);
 	col *= smoothstep( 0.10, 0.11, h.z );
 	col *= smoothstep( 0.10, 0.11, h.w );
@@ -60,15 +60,15 @@ void main(void)
 	
 
 	// red
-	h = HDhexagon(6.0*uv + 0.6*iGlobalTime);
-	n = HDnoise( vec3(0.3*h.xy+iGlobalTime*0.1,iGlobalTime) );
+	h = HDhexagon(6.0*uv + 0.6*iTime);
+	n = HDnoise( vec3(0.3*h.xy+iTime*0.1,iTime) );
 	vec3 colb = 0.9 + 0.8*sin( HDhash1(h.xy)*1.5 + 2.0 + vec3(0.0,1.0,1.0) );
 	colb *= smoothstep( 0.10, 0.11, h.z );
 	colb *= 1.0 + 0.15*sin(40.0*h.z);
 	colb *= 0.75 + 0.5*h.z*n;
 
-	h = HDhexagon(6.0*(uv+0.1*vec2(-1.3,1.0)) + 0.6*iGlobalTime);
-    col *= 1.0-0.8*smoothstep(0.45,0.451,HDnoise( vec3(0.3*h.xy+iGlobalTime*0.1,iGlobalTime) ));
+	h = HDhexagon(6.0*(uv+0.1*vec2(-1.3,1.0)) + 0.6*iTime);
+    col *= 1.0-0.8*smoothstep(0.45,0.451,HDnoise( vec3(0.3*h.xy+iTime*0.1,iTime) ));
 
 	col = mix( col, colb, smoothstep(0.45,0.451,n) );
 

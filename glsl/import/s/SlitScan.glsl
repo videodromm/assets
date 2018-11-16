@@ -6,7 +6,7 @@ void main(void)
     
     float z = floor((x/20.0) + 0.5);
     
-    float y2 = y + (sin(z + (iGlobalTime * 10.0)) * 10.5);
+    float y2 = y + (sin(z + (iTime * 10.0)) * 10.5);
     
     vec2 uv2 = vec2(x / iResolution.x, y2/ iResolution.y);
     

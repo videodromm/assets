@@ -14,7 +14,7 @@ vec2 kaleido(vec2 uv)
 vec2 transform(vec2 at)
 {
   vec2 v;
-  float th = .02 * iGlobalTime;
+  float th = .02 * iTime;
   v.x = at.x * cos(th) - at.y * sin(th) - .2 * sin(th);
   v.y = at.x * sin(th) + at.y * cos(th) + .2 * cos(th);
   return v;

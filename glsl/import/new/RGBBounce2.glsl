@@ -47,7 +47,7 @@ void initColours() {
 void initPoints() {
     
     for (int i = 0; i < NPOINTS; i++) {
-        vec2 point = vec2(.456 * 3.0 * float(i), 0.) + iGlobalTime * vec2(1., .2 * float(i) + 0.1);
+        vec2 point = vec2(.456 * 3.0 * float(i), 0.) + iTime * vec2(1., .2 * float(i) + 0.1);
         point = abs(mod(point, 2.) -1.0);
         points[i].x = point.x;
         points[i].y = point.y;

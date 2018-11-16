@@ -64,7 +64,7 @@ vec2 TunnelPath(float x)
     float repAngle = TAU / float(RING_POINTS);
     float pointSize = POINT_SIZE/2.0/iResolution.y;
     
-    float camZ = iGlobalTime * SPEED;
+    float camZ = iTime * SPEED;
     vec2 camOffs = TunnelPath(camZ);
     
     for(int i = 1;i <= TUNNEL_LAYERS;i++)

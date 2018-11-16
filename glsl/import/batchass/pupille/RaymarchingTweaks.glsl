@@ -8,7 +8,7 @@ vec3 hsv(float h,float s,float v) {
 
 vec3 repeater(vec3 p) {
 	vec3 repeat = vec3(1.1);
-	return mod(p+ + vec3(.0,.0,-iGlobalTime),repeat) - 0.5 * repeat;
+	return mod(p+ + vec3(.0,.0,-iTime),repeat) - 0.5 * repeat;
 }
 
 float scenedist(vec3 p){ 

@@ -27,7 +27,7 @@ float de(vec3 p) {
     
     vec3 q = p;
     
-    p.xy *= r2d(iGlobalTime*.1);
+    p.xy *= r2d(iTime*.1);
     
     
     q.xy += vec2(sin(q.z*2.+1.)*.2+sin(q.z)*.05, sin(q.z)*.4);
@@ -58,7 +58,7 @@ void main(void)
     vec2 uv = fragCoord.xy/iResolution.xy -.5;
     uv.x*=iResolution.x/iResolution.y;
     
-    vec3 ro=vec3(0,0,iGlobalTime*2.);
+    vec3 ro=vec3(0,0,iTime*2.);
     vec3 rd=normalize(vec3(uv,1));
        
     vec3 p;

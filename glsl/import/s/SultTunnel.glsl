@@ -1,6 +1,6 @@
 // https://www.shadertoy.com/view/4ds3Rr
 //	vec2 uv = gl_FragCoord.xy / iResolution.xy;
-//	gl_FragColor = vec4(uv,0.5+0.5*sin(iGlobalTime),1.0);
+//	gl_FragColor = vec4(uv,0.5+0.5*sin(iTime),1.0);
 
 // Inputs changed into more readable constants:
 float shaderparm=5., fov=.9, pitch=0., heading=90., dheading=0.;
@@ -21,7 +21,7 @@ float mat=0., tmax=10.;
 float eval(vec3 p) 
 { 
 ////// this is the (only) part that changes for the scenes in Sult
-  float t = iGlobalTime,r,c=0.,g,r2,r3;
+  float t = iTime,r,c=0.,g,r2,r3;
   vec3 pp;
   p += ( sin(p.zxy*1.7+t)+sin(p.yzx+t*3.) )*.2;
   if (shaderparm<6.)
@@ -45,8 +45,8 @@ void main(void)
   vec2 p = gl_FragCoord.xy / iResolution.xy-.5;
   vec3 vdir= normalize(
                rotatey(rotatey(vec3(p.y*fov,p.x*fov*1.33,1),
-               -pitch*.035).yxz,(heading+dheading*iGlobalTime)*.035)),
-       vpos= position + speed*iGlobalTime;
+               -pitch*.035).yxz,(heading+dheading*iTime)*.035)),
+       vpos= position + speed*iTime;
   
   float cf=1.,rf=0.,t,stp,tmin=0.,c,r,m,d;
   vec3 e=vec3(.01,0,0),cx=e.yyy,n;

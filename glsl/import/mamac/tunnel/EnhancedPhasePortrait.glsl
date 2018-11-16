@@ -54,7 +54,7 @@ void main(void)
         vec2 position = ( (fragCoord.xy + (rand2n(fragCoord.xy, i))) / iResolution.yy ) - vec2(ratio, 0.5);
         position = position * 4.;
         
-        position = compQuot(position - vec2(1. + sin(iGlobalTime), 0.4 + cos(iGlobalTime)), compProd(position, position) + position + vec2(1, 0)); 
+        position = compQuot(position - vec2(1. + sin(iTime), 0.4 + cos(iTime)), compProd(position, position) + position + vec2(1, 0)); 
         //position = compQuot(position - vec2(1., 0.), compProd(position, position) + position + vec2(1, 0)); 
         
         float absD = (log(length(position))) * 2.;

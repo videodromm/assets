@@ -22,9 +22,9 @@ float cube(vec4 cube, vec3 pos){
 
 float df(vec3 p){
 	p += vec3(
-		sin(p.z * 1.55 + iGlobalTime) + sin(p.z * 1.34 + iGlobalTime),
+		sin(p.z * 1.55 + iTime) + sin(p.z * 1.34 + iTime),
 		0.,
-		sin(p.x * 1.34 + iGlobalTime) + sin(p.x * 1.55 + iGlobalTime)
+		sin(p.x * 1.34 + iTime) + sin(p.x * 1.55 + iTime)
 	) * .5;
 	vec3 mp = mod(p, 1.);
 	mp.y = p.y;
@@ -75,12 +75,12 @@ float softShadow(vec3 pos, vec3 l, float r, float f, float td) {
 
 void main()
 {
-	vec3 camPos = vec3(0., sin(iGlobalTime*.3)+3., iGlobalTime);
+	vec3 camPos = vec3(0., sin(iTime*.3)+3., iTime);
 	vec3 uv = vec3(gl_FragCoord.xy / iResolution.xy, 1.);
 	vec3 rayDir = uv;
 	rayDir = normalize(rayDir);
-	rayDir.yz = R(rayDir.yz, sin(iGlobalTime*.25)*.25+1.25);
-	rayDir.xz = R(rayDir.xz, sin(iGlobalTime*.2));
+	rayDir.yz = R(rayDir.yz, sin(iTime*.25)*.25+1.25);
+	rayDir.xz = R(rayDir.xz, sin(iTime*.2));
 	
 	float camDist = length(camPos);
 	

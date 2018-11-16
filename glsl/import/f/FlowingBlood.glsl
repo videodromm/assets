@@ -7,7 +7,7 @@ vec4 fBm(vec2 p) {
 void main(void)
 {
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
-	gl_FragColor = fBm((uv.xy*vec2(0.5)*uv.x) + vec2(iGlobalTime*0.01, 0.0)) + vec4(0.53, 0.02, 0.02, 0.0);
+	gl_FragColor = fBm((uv.xy*vec2(0.5)*uv.x) + vec2(iTime*0.01, 0.0)) + vec4(0.53, 0.02, 0.02, 0.0);
 
 }
 

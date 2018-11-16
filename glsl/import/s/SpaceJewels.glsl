@@ -118,7 +118,7 @@ float SphereRadius(float t)
 float Scene(in vec3 rO, in vec3 rD)
 {
     //float t = 0.0;
-  float t = .1 * Hash(gl_FragCoord.xy*fract(iGlobalTime));
+  float t = .1 * Hash(gl_FragCoord.xy*fract(iTime));
   float  alphaAcc = 0.0;
   vec3 p = vec3(0.0);
     int hits = 0;
@@ -199,7 +199,7 @@ vec3 CameraPath( float t )
 void main(void)
 {
   float m = (iMouse.x/iResolution.x)*20.0;
-  float gTime = ((iGlobalTime+26.)*.2+m);
+  float gTime = ((iTime+26.)*.2+m);
     vec2 xy = gl_FragCoord.xy / iResolution.xy;
   vec2 uv = (-1.0 + 2.0 * xy) * vec2(iResolution.x/iResolution.y,1.0);
 
@@ -243,7 +243,7 @@ void main(void)
    col += fogColour *  (1.0-alpha);
    
    
-  col = PostEffects(col, xy) * smoothstep(.0, 2.0, iGlobalTime);  
+  col = PostEffects(col, xy) * smoothstep(.0, 2.0, iTime);  
   
   gl_FragColor=vec4(col,1.0);
 }

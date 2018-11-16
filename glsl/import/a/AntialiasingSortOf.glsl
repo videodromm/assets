@@ -28,19 +28,19 @@ vec3 map( vec3 p )
     
     float ph = sin(0.5 + 3.1*id.x + sin(7.1*id.y));
     
-    p.xz += 0.5*sincos(1.0+0.5*iGlobalTime+(p.y+11.0*ph)*0.8);
+    p.xz += 0.5*sincos(1.0+0.5*iTime+(p.y+11.0*ph)*0.8);
 
-    vec3 p1 = p; p1.xz += 0.15*sincos(1.0*p.y-1.0*iGlobalTime+0.0);
-    vec3 p2 = p; p2.xz += 0.15*sincos(1.0*p.y-1.0*iGlobalTime+2.0);
-    vec3 p3 = p; p3.xz += 0.15*sincos(1.0*p.y-1.0*iGlobalTime+4.0);
+    vec3 p1 = p; p1.xz += 0.15*sincos(1.0*p.y-1.0*iTime+0.0);
+    vec3 p2 = p; p2.xz += 0.15*sincos(1.0*p.y-1.0*iTime+2.0);
+    vec3 p3 = p; p3.xz += 0.15*sincos(1.0*p.y-1.0*iTime+4.0);
     
     vec2 h1 = sdSegment(p1, vec3(0.0,-50.0, 0.0), vec3(0.0, 50.0, 0.0) );
     vec2 h2 = sdSegment(p2, vec3(0.0,-50.0, 0.0), vec3(0.0, 50.0, 0.0) );
     vec2 h3 = sdSegment(p3, vec3(0.0,-50.0, 0.0), vec3(0.0, 50.0, 0.0) );
     
     return opU( opU( vec3(h1.x-0.12,                                         ph + 0.0/3.0, h1.y), 
-                     vec3(h2.x-0.12-0.05*cos( 500.0*h2.y - iGlobalTime*4.0), ph + 1.0/3.0, h2.y) ), 
-                     vec3(h3.x-0.12-0.02*cos(2000.0*h3.y - iGlobalTime*4.0), ph + 2.0/3.0, h3.y) );
+                     vec3(h2.x-0.12-0.05*cos( 500.0*h2.y - iTime*4.0), ph + 1.0/3.0, h2.y) ), 
+                     vec3(h3.x-0.12-0.02*cos(2000.0*h3.y - iTime*4.0), ph + 2.0/3.0, h3.y) );
 }
 
 //-------------------------------------------------------
@@ -112,7 +112,7 @@ void main( void )
     //---------------------------------------------
     // raymach loop
     //---------------------------------------------
-    float maxdist = iGlobalTime / 12.0;
+    float maxdist = iTime / 12.0;
 
     vec3 res = vec3(-1.0);
     float t = 0.0;

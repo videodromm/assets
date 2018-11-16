@@ -31,7 +31,7 @@ void main(void)
     float i = floor(a.x*k);
     float b = texture2D(iChannel0, 
                         vec2(0.0, 
-                             mod(float(iGlobalTime)-i*4.0, 1.0)) /
+                             mod(float(iTime)-i*4.0, 1.0)) /
                                                       1.0).r;
     a = vec2((i + 0.3 + b*0.35)*(1.0/k), 
              (floor(a.y*(1.0/pi)*(i*w+t)) + 0.5 ) * pi/(i*w+t));

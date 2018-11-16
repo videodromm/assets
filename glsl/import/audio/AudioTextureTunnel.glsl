@@ -10,11 +10,11 @@ void main(void)
 	float r = length(p);
 	float a = atan(p.x, p.y);
 	
-	//vec4 tex = texture2D( iChannel0, -p + iGlobalTime/30.0);//+0.7 );
+	//vec4 tex = texture2D( iChannel0, -p + iTime/30.0);//+0.7 );
 	//vec4 tex = texture2D( iChannel0, -p.xy+0.1 );
 	//vec4 tex = texture2D( iChannel0, vec2( r, a ) );
-	//vec4 tex = texture2D( iChannel0, vec2( 1.0/ r + iGlobalTime, a + iGlobalTime/3.0 ) );
-	//vec4 tex = texture2D( iChannel0, vec2( 1.0/ r + iGlobalTime + sound.x, a ) );
+	//vec4 tex = texture2D( iChannel0, vec2( 1.0/ r + iTime, a + iTime/3.0 ) );
+	//vec4 tex = texture2D( iChannel0, vec2( 1.0/ r + iTime + sound.x, a ) );
 	//sound
 	vec4 sound = texture2D( iChannel0, vec2( 0.01, 0.25 ));
 	//vec4 tex = texture2D( iChannel0, vec2( 1.0/ r  + sound.x, a ) );

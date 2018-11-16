@@ -6,7 +6,7 @@ const float
 	_detail = .01,
 	_rayon = 1.;
 float 
-	time = iGlobalTime*0.2,
+	time = iTime*0.2,
 	_lowFreq = texture2D(iChannel0, vec2(0.1,0.4)).x/10.0,
 	_split, //(cos(time*50.)+1.)*.2,
 	_c3 = cos(time*3.0),
@@ -107,9 +107,9 @@ void main(void)
 {	
 	vec2 uv = (-1. + iZoom * 2.*gl_FragCoord.xy / iResolution.xy); 
 	// BPM by iq ---------------------------------------------
-	float h = fract( 0.25 + 0.5*iGlobalTime*BPM/60.0 );
+	float h = fract( 0.25 + 0.5*iTime*BPM/60.0 );
 	float f = 1.0-smoothstep( 0.0, 1.0, h );
-	f *= smoothstep( 4.5, 4.51, iGlobalTime );
+	f *= smoothstep( 4.5, 4.51, iTime );
 	// -------------------------------------------------------
 	
 	_split = f/4.+1.2*_lowFreq;

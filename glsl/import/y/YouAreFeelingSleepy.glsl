@@ -36,11 +36,11 @@ void main (void) {
 			vec2 c =  vec2 (
 				(x-MSAA/2.0)*fact/MSAA,
 				(y-MSAA/2.0)*fact/MSAA);
-			ac += compute_spiral (uv + c, iGlobalTime) / (MSAA*MSAA);
+			ac += compute_spiral (uv + c, iTime) / (MSAA*MSAA);
 		}
 	}	
 	gl_FragColor = ac;
 	#else 
-	gl_FragColor = compute_spiral (uv*1.0, iGlobalTime);		
+	gl_FragColor = compute_spiral (uv*1.0, iTime);		
 	#endif	
 }

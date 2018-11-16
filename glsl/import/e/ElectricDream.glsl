@@ -49,7 +49,7 @@ void main(void)
 	color += colorize*.2*((1.0-power)*.9+.1);
 	
 	vec2 buv = uv*(1.0+power*power*power*.25);
-	buv += vec2(pow(power,12.0)*.1,iGlobalTime*.05);
+	buv += vec2(pow(power,12.0)*.1,iTime*.05);
 	
 	vec2 blocks = mod(buv,vec2(.1))-vec2(.05);
 	vec2 blocksid = sin((buv - mod(buv,vec2(.1)))*412.07);

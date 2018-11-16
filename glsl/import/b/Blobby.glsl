@@ -12,7 +12,7 @@
 
 // Função de distância.
 float map(vec3 p) {
-    float v = 2.5*iGlobalTime;
+    float v = 2.5*iTime;
     float r = iColor.r*1.35 + 0.15*cos(10.0*p.y + v) + 0.15*cos(10.0*p.x + v);
     return length(p) - r;
 }

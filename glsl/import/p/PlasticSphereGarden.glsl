@@ -153,7 +153,7 @@ float is_lit(in vec3 P, in vec3 L, const float maxt)
 vec3 shade(in hit_t hit, in vec3 cam)
 {
 	light_t light0 = light_t(
-		vec3(cam.x + 20.0*sin(T(iGlobalTime)), 20, cam.z+20.0+5.0*cos(T(iGlobalTime))),
+		vec3(cam.x + 20.0*sin(T(iTime)), 20, cam.z+20.0+5.0*cos(T(iTime))),
 		 vec3(1,1,1), 450.0);
 	
 	vec3  color = L_AMBIENT;
@@ -197,8 +197,8 @@ void main(void)
 	vec3 color = L_FOG_COL;
 
 	ray_t ray;
-	ray.p = vec3(cos(T(iGlobalTime*0.1))*20.0, 6.0, 10.0 * iGlobalTime);
-	ray.d = lookat(vec3(0.0, -0.32, 0.68), vec3(0.2*cos(T(0.25*iGlobalTime)), 0.8, 0.0));
+	ray.p = vec3(cos(T(iTime*0.1))*20.0, 6.0, 10.0 * iTime);
+	ray.d = lookat(vec3(0.0, -0.32, 0.68), vec3(0.2*cos(T(0.25*iTime)), 0.8, 0.0));
 	
 	hit_t hit;
 	if(raymarch(ray, INFINITY, hit))

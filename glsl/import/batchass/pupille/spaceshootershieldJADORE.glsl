@@ -3,7 +3,7 @@
 void main(void)
 {
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
-	float t = iGlobalTime * 5.0;	
+	float t = iTime * 5.0;	
 	vec2 p = 2.0 * uv - 1.0;
 	vec2 op = p;
 	p.x *= iResolution.x/iResolution.y;

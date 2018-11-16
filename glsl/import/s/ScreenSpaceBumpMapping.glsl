@@ -69,10 +69,10 @@ void main( void )
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
 
-	float bump = smoothstep( -0.9, -0.6, cos( 0.5*iGlobalTime ) );
+	float bump = smoothstep( -0.9, -0.6, cos( 0.5*iTime ) );
 	
      // camera movement	
-	float an = 3.1 + 0.25*iGlobalTime + iMouse.x/200.0;
+	float an = 3.1 + 0.25*iTime + iMouse.x/200.0;
 	vec3 ro = vec3( 2.5*cos(an), 1.0, 2.5*sin(an) );
     vec3 ta = vec3( 0.0, 1.0, 0.0 );
     // camera matrix

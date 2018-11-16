@@ -9,7 +9,7 @@ const vec3 RED = vec3(1.8, 0.4, 0.3);
 
 void main() {
     float x, y, xpos, ypos;
-    float t = iGlobalTime * 10.0;
+    float t = iTime * 10.0;
     vec3 c = vec3(0.0);
 
     xpos = iZoom * gl_FragCoord.x / iResolution.x;

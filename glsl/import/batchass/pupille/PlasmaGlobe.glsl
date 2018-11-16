@@ -9,7 +9,7 @@
 #define MAX_ITER 35
 #define FAR 6.
 
-#define time iGlobalTime*1.1
+#define time iTime*1.1
 
 
 mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,-s,s,c);}

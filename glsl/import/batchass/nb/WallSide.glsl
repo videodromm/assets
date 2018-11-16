@@ -5,7 +5,7 @@ void main(void)
 
 	 d =  d * 0.5;
 	
-	float x = sin(6.0+0.1*d + iGlobalTime*-6.0) * 10.0;
+	float x = sin(6.0+0.1*d + iTime*-6.0) * 10.0;
 	
 	gl_FragColor = vec4( x, x, x, 1 );
 }

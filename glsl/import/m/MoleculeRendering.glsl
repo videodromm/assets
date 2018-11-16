@@ -199,15 +199,15 @@ vec3 hexgrid(vec2 p) {
 	// add a pulse depending on axis
 	float cdist = length(c-p)*1.5;
 	float pulse1 = smoothstep(-1.0, +1.0,
-		sin(cdist+iGlobalTime*0.412-p.y*PI*0.11-p.x*PI*0.2));
+		sin(cdist+iTime*0.412-p.y*PI*0.11-p.x*PI*0.2));
 	float pulse2 = smoothstep(-1.0, +1.0,
-		sin(cdist+iGlobalTime*0.842-p.y*PI*0.42-p.x*PI*0.1));
+		sin(cdist+iTime*0.842-p.y*PI*0.42-p.x*PI*0.1));
 	vec3 result = vec3(0.3, 0.8, 0.2);
 	result += vec3(0.062, 0.41, 0.03)*pulse1;
 	result += vec3(0.008, 0.23, 0.04)*pulse2;
 	
 	// add another pulse
-	float pulse3 = (sin(iGlobalTime*3.0-p.y*0.2-p.x*PI*0.1)*.5+.5);
+	float pulse3 = (sin(iTime*3.0-p.y*0.2-p.x*PI*0.1)*.5+.5);
 	result += 1.0-smoothstep(0.0, pulse3, hdist);
 	
 	// and an antialiased black border
@@ -219,8 +219,8 @@ vec3 hexgrid(vec2 p) {
 // see http://www.math.utah.edu/~bresslof/publications/01-1.pdf
 void distort(inout vec2 p) {
 	p+=p*length(p)*0.9;
-	p = vec2(atan(p.x, p.y)/PI*3.0, log(length(p))+iGlobalTime*0.15);
-	p.x += p.y/PHI + iGlobalTime*0.1;
+	p = vec2(atan(p.x, p.y)/PI*3.0, log(length(p))+iTime*0.15);
+	p.x += p.y/PHI + iTime*0.1;
 }
 
 vec3 getBackground(vec2 uv) {
@@ -243,8 +243,8 @@ void main(void) {
 	vec2 mouse=(iMouse.xy / iResolution.xy - 0.5) * 3.0;
 	if (iMouse.z < 1.0) mouse = vec2(0.0);
 	
-	mat2 rotxz = rot(iGlobalTime*0.652+mouse.x);
-	mat2 rotxy = rot(sin(iGlobalTime*0.814)*.3+mouse.y);
+	mat2 rotxz = rot(iTime*0.652+mouse.x);
+	mat2 rotxy = rot(sin(iTime*0.814)*.3+mouse.y);
 	
 	from.xz *= rotxz;
 	from.yz *= rotxy;

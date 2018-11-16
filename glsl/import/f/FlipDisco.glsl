@@ -5,7 +5,7 @@ void main(void)
 	vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
-	float time = iGlobalTime;
+	float time = iTime;
 	float depth = sin(uv.y*2.0+sin(time)*1.5+1.0)*cos(uv.y*2.0+time);
 	float texey = (uv.x-0.5);
 	float xband = sin(sqrt(uv.y/uv.y)*16.0/(depth)+time*3.0);

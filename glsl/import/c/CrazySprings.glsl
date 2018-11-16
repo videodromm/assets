@@ -3,7 +3,7 @@
 // Don't know why there is a seam on the springs.
 // Well looking at my code I know why. I just don't know exactly why. :)
 
-#define time iGlobalTime
+#define time iTime
 #define size iResolution
 
 //#define SHADOWS

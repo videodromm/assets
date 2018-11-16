@@ -23,7 +23,7 @@ void main( void ) {
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
 
-	float globalTime = iGlobalTime * RAIN_SPEED;
+	float globalTime = iTime * RAIN_SPEED;
 	
 	float scaledown = DROP_SIZE;
 	float rx = gl_FragCoord.x / (40.0 * scaledown);

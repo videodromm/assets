@@ -12,7 +12,7 @@ vec3 Transform( vec3 p )
 	const float tau = 6.2831853;
 	const float phi = 1.61803398875;
 	
-	float T = 1.0*iGlobalTime; //+12.0;
+	float T = 1.0*iTime; //+12.0;
 	float a0 = .2*phi*(T+sin(T));//.5*tau/phi;
 	float a1 = .05*phi*(T-sin(T))*phi;//tau/phi;
 	float c0 = cos(a0);
@@ -298,7 +298,7 @@ void main()
 	col = mix(col,1.0-c,.48); // .5 = never saturate, .0 = linear
 	
 	// grain
-	vec2 grainuv = gl_FragCoord.xy + floor(iGlobalTime*60.0)*vec2(37,41);
+	vec2 grainuv = gl_FragCoord.xy + floor(iTime*60.0)*vec2(37,41);
 	vec2 filmNoise = texture2D( iChannel0, .5*grainuv/iResolution.xy ).rb;
 	col *= mix( vec3(1), mix(vec3(1,.5,0),vec3(0,.5,1),filmNoise.x), .1*filmNoise.y );
 

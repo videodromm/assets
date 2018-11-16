@@ -14,8 +14,8 @@ vec3 col = vec3( 0.0 );
   vec3 m1_3 = vec3(3.0,11.0,-12.0);
 
   // controls zoom effect for each layer
-  vec3 n4_6 = 10.0*iGlobalTime*vec3(.1,.11,.111);
-  vec3 m4_6 = 10.0*iGlobalTime*vec3(.2,.22,.222);
+  vec3 n4_6 = 10.0*iTime*vec3(.1,.11,.111);
+  vec3 m4_6 = 10.0*iTime*vec3(.2,.22,.222);
 
   // color width for each channel
   vec3 n7_9 = vec3(0.5);
@@ -26,7 +26,7 @@ vec3 col = vec3( 0.0 );
   vec3 m10_12 = vec3(0.5);
 
   // Layer mix
-  float mixv = cos(iGlobalTime*.1)*0.5+0.5;
+  float mixv = cos(iTime*.1)*0.5+0.5;
 
   float a = atan(uv.x, uv.y);
   float d = log(length(uv));

@@ -131,7 +131,7 @@ vec3 rotate_x(vec3 v, float angle)
 float dist(vec3 p)//distance function
 {
 	float d=1024.0;
-	float t = iGlobalTime*object_speed_modifier+5.0;
+	float t = iTime*object_speed_modifier+5.0;
 	
 	#ifdef optimisation_0
 		float s = length(p);
@@ -259,7 +259,7 @@ void main( void )
 	uv.x *= iResolution.x/iResolution.y; //fix aspect ratio
 	vec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);
 	
-	float t = iGlobalTime*.5*object_speed_modifier + 2.0;
+	float t = iTime*.5*object_speed_modifier + 2.0;
 	
 	//setup the camera
 	vec3 p = vec3(.0,0.0,-4.9);

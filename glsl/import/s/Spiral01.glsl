@@ -64,7 +64,7 @@ void main(void)
 		vec2 UV = (gl_FragCoord.xy  + Off - iResolution.xy/2.0) / Ratio;	
 		
 		// Motion blur:
-		float t = iGlobalTime + F*ShutterSpeed / AaCount;
+		float t = iTime + F*ShutterSpeed / AaCount;
 		
 		// Render:
 		ColSum += Scene(UV, t);

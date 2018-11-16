@@ -7,8 +7,8 @@ float PI = 3.14159265358979586;
 
 float focal = 0.5;
 float aspect = iResolution.x / iResolution.y;
-//float heartRadius = pow(0.7 + sin( iGlobalTime * 6.0) * 0.05, 10.0);
-float heartRadius = 0.7 + sin( iGlobalTime * 6.0) * 0.05;
+//float heartRadius = pow(0.7 + sin( iTime * 6.0) * 0.05, 10.0);
+float heartRadius = 0.7 + sin( iTime * 6.0) * 0.05;
 float heartX = 0.5 * aspect;
 float heartY = 0.4;
 

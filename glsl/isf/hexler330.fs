@@ -1,5 +1,5 @@
 /*{
-	"CREDIT" : "hexler330 by hexler",
+	"CREDIT" : "hexler330 by Unknown",
 	"CATEGORIES" : [
 		"ci"
 	],
@@ -43,16 +43,4 @@
 	],
 }
 */
-
-void main(void) {
-	vec2 uv = 2 * (gl_FragCoord.xy / RENDERSIZE.xy - vec2(0.5));
-
-	float radius = length(uv);
-	float angle = atan(uv.y,uv.x);
-	
-    float col = .0;
-    col += 1.5*sin(TIME + 13.0 * angle + uv.y * 20);
-    col += cos(.9 * uv.x * angle * 60.0 + radius * 5.0 -TIME * 2.);
-	//col = 1.0 -col;
-   	gl_FragColor = (1.2 - radius) * vec4(vec3( col ),1.0);
-}
+void mainImage(void) {vec2 uv = 2 * (fragCoord.xy / RENDERSIZE.xy - vec2(0.5));float radius = length(uv);float angle = atan(uv.y, uv.x);float col = .0;col += 1.5*sin(TIME + 13.0 * angle + uv.y * 20);col += cos(.9 * uv.x * angle * 60.0 + radius * 5.0 - TIME * 2.);fragColor = (1.2 - radius) * vec4(vec3(col), 1.0);}void main(void) { mainImage(gl_FragColor, gl_FragCoord.xy); }

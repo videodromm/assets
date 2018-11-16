@@ -45,11 +45,11 @@ float hash(vec2 pos) {
 
 void main(void) {
 	
-	float scl = (0.03 + 0.02*(1.0+sin(0.31*iGlobalTime))) * 200.0 / min(iResolution.x, iResolution.y);
+	float scl = (0.03 + 0.02*(1.0+sin(0.31*iTime))) * 200.0 / min(iResolution.x, iResolution.y);
 	
-	float cx = 2.0 * cos(iGlobalTime*0.3) + 1.0 * cos(iGlobalTime*0.7+2.0);
-	float cy = 4.0 * sin(iGlobalTime*0.4) + 0.3 * sin(iGlobalTime*1.2+4.0);
-	float theta = 0.05*iGlobalTime;
+	float cx = 2.0 * cos(iTime*0.3) + 1.0 * cos(iTime*0.7+2.0);
+	float cy = 4.0 * sin(iTime*0.4) + 0.3 * sin(iTime*1.2+4.0);
+	float theta = 0.05*iTime;
 		
 	vec2 pos = (gl_FragCoord.xy - 0.5*iResolution.xy)*scl + vec2(cx, cy);
 	
@@ -101,7 +101,7 @@ void main(void) {
 	
 	vec4 crgb = mix(black, lrgb, smoothstep(0.01, 0.01+scl, d));
 	
-	float t = fract(0.04*iGlobalTime);
+	float t = fract(0.04*iTime);
 	float invb = 4.0;
 	
 	float k = smoothstep(0.0, 1.0, min(t*invb-0.5*invb+1.0, -t*invb+invb));

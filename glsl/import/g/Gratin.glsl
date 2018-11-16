@@ -4,7 +4,7 @@ void main(void) {
   const float eps = 0.1;
   const float r = 0.8;
   const float l = 0.5;
-    float roundness = 0.6*mod(iGlobalTime,50.0)/8.0;
+    float roundness = 0.6*mod(iTime,50.0)/8.0;
 
   vec3 color = iBackgroundColor;
   vec3 linecol = iColor;

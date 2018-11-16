@@ -14,7 +14,7 @@ void main(void)
 	
 	float brightness = .5 + .5 * 
 		sin(96.0*angle + 
-			sin(iGlobalTime*PI*1.0)*PI*196.0*dist / .707);
+			sin(iTime*PI*1.0)*PI*196.0*dist / .707);
 	vec4 color = vec4( brightness, brightness, brightness, 1.0);
 	gl_FragColor = color;
 }

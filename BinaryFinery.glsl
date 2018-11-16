@@ -112,7 +112,7 @@ vec3 pixel(vec2 uv)
 	uv.x *= iResolution.x / iResolution.y;
 	vec3 ro = vec3(0.0, 0.0, -0.0);
 	vec3 rd = normalize(vec3(uv, 1.6));
-	float t = iGlobalTime * 0.5;
+	float t = iTime * 0.5;
 	rd.yz = rotate(rd.yz, sin(t) * 0.9 + PI * 0.5);
 	rd.xz = rotate(rd.xz, t);
 	rd.xy = rotate(rd.xy, cos(t) * 0.2);
@@ -126,7 +126,7 @@ void main(void)
 	
 	vec3 col;
 	vec2 h = vec2(0.5, 0.0);
-	//uv += rand2(iGlobalTime) * 6.0;
+	//uv += rand2(iTime) * 6.0;
 	col = pixel(uv);
 	col += pixel(uv + h.xy);
 	col += pixel(uv + h.yx);

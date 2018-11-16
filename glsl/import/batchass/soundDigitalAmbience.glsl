@@ -44,7 +44,7 @@ vec2 circuit(vec3 p)
 float scene(vec3 p)
 {
 	vec2 cir = circuit(p);
-	return exp(-100.0 * cir.y) + pow(cir.x * 1.8 * (sin(p.z * 10.0 + iGlobalTime * -5.0 + cir.x * 10.0) * 0.5 + 0.5), 8.0);
+	return exp(-100.0 * cir.y) + pow(cir.x * 1.8 * (sin(p.z * 10.0 + iTime * -5.0 + cir.x * 10.0) * 0.5 + 0.5), 8.0);
 }
 
 float nse(float x)
@@ -69,11 +69,11 @@ void main(void)
 	vec2 suv = uv;
 	uv = 2.0 * uv - 1.0;
 	uv.x *= iResolution.x / iResolution.y;
-	vec3 ro = vec3(0.0, iGlobalTime * 0.2, 0.1);
+	vec3 ro = vec3(0.0, iTime * 0.2, 0.1);
 	vec3 rd = normalize(vec3(uv, 0.9));
-	ro.xz = rotate(ro.xz, iGlobalTime * 0.1);
+	ro.xz = rotate(ro.xz, iTime * 0.1);
 	ro.xy = rotate(ro.xy, 0.2);
-	rd.xz = rotate(rd.xz, iGlobalTime * 0.2);
+	rd.xz = rotate(rd.xz, iTime * 0.2);
 	rd.xy = rotate(rd.xy, 0.2);
 	float acc = 0.0;
 	vec3 r = ro + rd * 0.5;
@@ -85,7 +85,7 @@ void main(void)
 	vec3 col = vec3(pow(vec3(acc * 0.04), vec3(0.2, 0.6, 2.0) * 5.0));
 	col -= exp(length(suv - 0.5) * -2.5 - 0.2);
     col = clamp(col, vec3(0.0), vec3(1.0));
-    col *= fbm(iGlobalTime * 6.0) * 2.0;
+    col *= fbm(iTime * 6.0) * 2.0;
 	col = pow(col, vec3(1.0 / 2.2));
 	col = clamp(col, vec3(0.0), vec3(1.0));
 	gl_FragColor = vec4(col, 1.0);

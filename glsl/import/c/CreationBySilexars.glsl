@@ -2,7 +2,7 @@
 
 // From https://www.shadertoy.com/view/XsXXDn
 
-#define t iGlobalTime
+#define t iTime
 #define r iResolution.xy
 #define m iMouse.xy
 

@@ -14,13 +14,13 @@ float Voxelsmap( vec3 p )
 	//{
 		//heightmap (can handle many layers, 200 works fine here)
 		p *= VoxelsrotXY(vec2(0.5,10.6));
-		p.y += sin(p.z*0.1+iGlobalTime)*(3.+sin(iGlobalTime)*1.);
-		p.y += sin(p.x*0.5+iGlobalTime)*(3.+sin(iGlobalTime)*1.);
+		p.y += sin(p.z*0.1+iTime)*(3.+sin(iTime)*1.);
+		p.y += sin(p.x*0.5+iTime)*(3.+sin(iTime)*1.);
 		rtn = length(p.y)-2.;
 	/*}
 	if (iBlendmode==1)
 	{
-		p *= VoxelsrotXY(vec2(iGlobalTime*.9,iGlobalTime*0.6));
+		p *= VoxelsrotXY(vec2(iTime*.9,iTime*0.6));
 		const float w = 1.5;
 		vec3 q = abs(p);
 		float d = max(max(q.z,q.y),q.x*0.15)-w;
@@ -33,7 +33,7 @@ float Voxelsmap( vec3 p )
 	if (iBlendmode>1)
 	{
 		//sphere/cube subtract
-		p *= VoxelsrotXY(vec2(iGlobalTime*0.6,iGlobalTime*.9));
+		p *= VoxelsrotXY(vec2(iTime*0.6,iTime*.9));
 			
 		float d1 = length(p)-20.;
 		float d2 = length(max(abs(p)-16., 0.));
@@ -43,7 +43,7 @@ float Voxelsmap( vec3 p )
 	return rtn;
 }
 
-vec3 Voxelslgt = vec3(4.+sin(iGlobalTime*0.4)*20.,4.+sin(iGlobalTime*.1)*10.,5.);
+vec3 Voxelslgt = vec3(4.+sin(iTime*0.4)*20.,4.+sin(iTime*.1)*10.,5.);
 
 //modified from iq's "Hexagons - distance" (https://www.shadertoy.com/view/Xd2GR3)
 //return values: x = trigger, y = voxel shading, z = distance to voxel edge, w = lighting
@@ -86,17 +86,17 @@ void main( void )
 	vec2 uv = iZoom * (gl_FragCoord.xy / iResolution.xy - 0.5);
 	uv.x *= float(iResolution.x )/ float(iResolution.y);
 
-	uv *= 100.+sin(iGlobalTime*0.5)*80.;
-	uv.x += sin(iGlobalTime)*10.;
-	uv.y += cos(iGlobalTime*0.9+0.5)*4.;
+	uv *= 100.+sin(iTime*0.5)*80.;
+	uv.x += sin(iTime)*10.;
+	uv.y += cos(iTime*0.9+0.5)*4.;
 	
-	float st = sin(iGlobalTime*0.2)*0.3+1.;
+	float st = sin(iTime*0.2)*0.3+1.;
 	vec3 col = vec3(0.);
 	for (float i=-iSteps/2.;i<iSteps/2.;i++) 
 	{
 		vec4 rz = voxelize(uv,i);
 		//vec3 colx = (.95 + 0.8*sin( hash11(rz.x+i)*1.5 + 2.0 + vec3(1.5+i*0.2, st*1.5+i*0.1, 1.0+i*0.01) ))*rz.x*4.;
-		vec3 colx = vec3(0.15+cos(iGlobalTime+0.1)*0.1,0.2,0.3+sin(iGlobalTime)*0.1)*rz.x*3.;
+		vec3 colx = vec3(0.15+cos(iTime+0.1)*0.1,0.2,0.3+sin(iTime)*0.1)*rz.x*3.;
 		//borders
 		//colx *= smoothstep(0., 0.1, rz.z);
 		//simple shading

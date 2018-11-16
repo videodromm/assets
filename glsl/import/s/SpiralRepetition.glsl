@@ -51,10 +51,10 @@ float d_sphere(vec3 pt, vec4 sph)
 
 float d_spiral(vec3 pt)
 {
-    pt.x += sin(pt.y) * cos(iGlobalTime);
-    pt.z += cos(pt.y) * sin(iGlobalTime);
+    pt.x += sin(pt.y) * cos(iTime);
+    pt.z += cos(pt.y) * sin(iTime);
     pt = rotateY(pt,pt.y);
-    return length(pt.xz) - 1.5*(2.0 + cos(iGlobalTime));
+    return length(pt.xz) - 1.5*(2.0 + cos(iTime));
 }
 
 float dist(vec3 pt)
@@ -63,9 +63,9 @@ float dist(vec3 pt)
     
     vec3 pt2 = vec3(mod(pt.x,14.0)-7.0,pt.y,mod(pt.z,14.0)-7.0);
     float d1 = d_sphere(pt2, vec4(0.0,0.0,0.0,4.0));
-    pt2 = rotateY(pt2,iGlobalTime);
+    pt2 = rotateY(pt2,iTime);
     float d2 = d_spiral(pt2);
-    d2 += sin(2.0*pt2.x)*cos(2.0*pt2.y)*sin(cos(iGlobalTime*4.0)*pt2.z)*0.5;
+    d2 += sin(2.0*pt2.x)*cos(2.0*pt2.y)*sin(cos(iTime*4.0)*pt2.z)*0.5;
     float t = 1.0 - exp(-pt.y/4.0);
     return min(d0,mix(d1,d2,t));
 }
@@ -138,7 +138,7 @@ vec3 diffuse(vec3 p, vec3 n)
     {
         for (float j=0.0; j<8.0; j++)
         {
-            vec2 s = vec2(i,j)*vec2(sin(iGlobalTime))*gl_FragCoord.xy;
+            vec2 s = vec2(i,j)*vec2(sin(iTime))*gl_FragCoord.xy;
             float u = (noise(n.xy+s)+i)*0.125;
             float v = (noise(n.yz+s)+j)*0.125;
             vec3 n0 = sampleHemi(u*0.5,v,n);
@@ -155,7 +155,7 @@ vec3 shade(vec3 pos, vec3 v)
     const float spec_power = 128.0;
     float normalization = (spec_power + 2.0) / (2.0 * PI);
     
-    vec3 ldir = normalize(vec3(cos(iGlobalTime),1.0,sin(iGlobalTime)));
+    vec3 ldir = normalize(vec3(cos(iTime),1.0,sin(iTime)));
     vec3 n = calc_normal(pos);
     vec3 h = normalize(n+ldir);
     float ndl = max(dot(n,ldir),0.0);
@@ -177,11 +177,11 @@ void main(void)
     vec3 ro = vec3(0.0, 4.0, -10.0);
     vec3 forward = vec3(0.0, 0.0, 1.0);
     
-    float theta_y = sin(iGlobalTime) * 0.5;
+    float theta_y = sin(iTime) * 0.5;
     rd = rotateY(rd, theta_y);
-    ro += forward * iGlobalTime * 8.0;
-    ro.x = cos(iGlobalTime) * 2.0;
-    ro.y = sin(iGlobalTime) * 4.0 + 6.0;
+    ro += forward * iTime * 8.0;
+    ro.x = cos(iTime) * 2.0;
+    ro.y = sin(iTime) * 4.0 + 6.0;
     
     vec4 res = march(ro,rd);
     //if (res.w == 1.0)

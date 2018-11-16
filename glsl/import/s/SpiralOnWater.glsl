@@ -35,11 +35,11 @@ void main(void)
     p*=2.;
     p.y*=3.;
 	p += vec2(1.0,.6);
-	float t = iGlobalTime*2.;
+	float t = iTime*2.;
     vec3 c = vec3(0.0);
     c+= min(0.05,0.08*SpiralOnWaterCol((SpiralOnWaterRotate(p+vec2(-3.,-1.2), t*1.2))*1.5));
-	p = SpiralOnWaterRotate(p, -iGlobalTime*0.3);
-    vec3 cc = SpiralOnWaterHSV(fract(0.1*iGlobalTime),1.,1.);
+	p = SpiralOnWaterRotate(p, -iTime*0.3);
+    vec3 cc = SpiralOnWaterHSV(fract(0.1*iTime),1.,1.);
     c+= SpiralOnWaterCol((SpiralOnWaterRotate(p+vec2(-0.7,0.5), t))*4.0)*cc;
     c+= SpiralOnWaterCol((SpiralOnWaterRotate(p+vec2(0.5,-0.5), t))*3.0)*cc;
     c+= SpiralOnWaterCol((SpiralOnWaterRotate(p+vec2(0.5,1.8), t))*5.0)*cc;

@@ -107,10 +107,10 @@ void main(void)
 	vec3 camLook = CamLook;
 	
 	vec2 camRot = .5*pi2*(iMouse.xy-iResolution.xy*.5)/iResolution.x;
-	camRot += iGlobalTime*0.5;
+	camRot += iTime*0.5;
 	camRot.y = 0.0;
 
-	camPos.yz = cos(camRot.y)*camPos.yz* (0.5+sin (iGlobalTime)*0.2) + sin(camRot.y)*camPos.zy*vec2(1,-1);
+	camPos.yz = cos(camRot.y)*camPos.yz* (0.5+sin (iTime)*0.2) + sin(camRot.y)*camPos.zy*vec2(1,-1);
 	camPos.xz = cos(camRot.x)*camPos.xz + sin(camRot.x)*camPos.zx*vec2(1,-1);
 
 	vec3 rd, ro = camPos;
@@ -133,7 +133,7 @@ void main(void)
 		result = Shading( pos, norm, shadow, rd )*6.0;
 		
 		// fog
-		result = mix ( vec3(.6+sin(1.0+iGlobalTime)*0.6,.9+cos(iGlobalTime)*0.2,1.1+sin(iGlobalTime)*0.1), result, exp(-t*t*.0005) )*2.0-0.5;
+		result = mix ( vec3(.6+sin(1.0+iTime)*0.6,.9+cos(iTime)*0.2,1.1+sin(iTime)*0.1), result, exp(-t*t*.0005) )*2.0-0.5;
 		result -= distance(vec2(0),pos.xy)*0.03;
 	}	
 

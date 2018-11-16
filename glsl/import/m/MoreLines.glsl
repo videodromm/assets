@@ -3,7 +3,7 @@
 
 // from: http://iquilezles.org/www/articles/distfunctions/distfunctions.htm
 // just a bit compacted
-#define it float(x)/float(mod(iGlobalTime,15.)+1.)*pi
+#define it float(x)/float(mod(iTime,15.)+1.)*pi
 
 float sdCap( vec3 p, vec3 a, vec3 b)
 {

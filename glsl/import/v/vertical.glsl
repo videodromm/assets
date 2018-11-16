@@ -34,9 +34,9 @@ void main(void)
 
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
 	
-	float c = dot( vec3( fbm( uv.x * 5.134 + iGlobalTime * 2.013 ),
-			             fbm( uv.x * 15.002 + iGlobalTime * 3.591 ),
-						 fbm( uv.x * 25.922 + iGlobalTime * 4.277 ) ),
+	float c = dot( vec3( fbm( uv.x * 5.134 + iTime * 2.013 ),
+			             fbm( uv.x * 15.002 + iTime * 3.591 ),
+						 fbm( uv.x * 25.922 + iTime * 4.277 ) ),
 				   vec3( .85, .35, .17 ) );
 
 	gl_FragColor = vec4( c*iColor.r, c*iColor.g, c*iColor.b, 1.);

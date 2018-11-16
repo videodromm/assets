@@ -26,10 +26,10 @@ void main(void)
     float thickness = 0.2;
     
     // In the range (0, 1].
-    float len = 0.6 + 0.4 * cos( iGlobalTime );
+    float len = 0.6 + 0.4 * cos( iTime );
     
     // Optional offset.
-    float offset = 0.1 * iGlobalTime;
+    float offset = 0.1 * iTime;
     
     // Calculate texture coordinates. Normally you would
     // simply pass them from the vertex shader.

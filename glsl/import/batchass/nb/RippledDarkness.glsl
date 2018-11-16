@@ -28,7 +28,7 @@ void main(void)
 			
 			if (distance(p, uv) < mdist)
 			{
-				mdist = distance(p, uv) * cos(uv.x + iGlobalTime* ( iRotationSpeed + 1.01 ) * 3.0 ) * sin(uv.x + iGlobalTime);
+				mdist = distance(p, uv) * cos(uv.x + iTime* ( iRotationSpeed + 1.01 ) * 3.0 ) * sin(uv.x + iTime);
 				gl_FragColor = vec4(RippledDarknessHash(float(x) + float(y))) * cos(400.0 * mdist);
 			}
 		}

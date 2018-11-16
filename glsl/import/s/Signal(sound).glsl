@@ -24,7 +24,7 @@ vec2 rotate(vec2 p, float a)
 }
 float scene(vec3 p)
 {
-	p *= iGlobalTime;
+	p *= iTime;
 	vec3 pz = p;
 	for(int i = 0; i < 10; i ++)
 	{
@@ -44,10 +44,10 @@ void main(void)
 	uv = uv * 2.0 - 1.0;
 	uv.x *= iResolution.x / iResolution.y;
     
-	vec3 ro = vec3(0.0, 0.0, cos(iGlobalTime * 0.1) * -2.0 - 1.0);
+	vec3 ro = vec3(0.0, 0.0, cos(iTime * 0.1) * -2.0 - 1.0);
 	vec3 rd = normalize(vec3(uv, 1.66));
 	
-	float t = iGlobalTime * 0.05;
+	float t = iTime * 0.05;
 	ro.xz = rotate(ro.xz, cos(t * 2.0));
 	rd.xz = rotate(rd.xz, cos(t));
 	
@@ -64,7 +64,7 @@ void main(void)
     col = pow(col, vec3(1.0, 0.6, 0.4) * 6.0) * 5.0;
 	col = pow(col, vec3(1.0 / 2.2));
   	col *= 0.1 + 0.9 * pow(16.0 * pos.x * pos.y * (1.0 - pos.x) * (1.0 - pos.y), 0.1);
-    col *= fbm(iGlobalTime * 20.0) * 0.4 + 0.7;
+    col *= fbm(iTime * 20.0) * 0.4 + 0.7;
 	gl_FragColor = vec4(col, 1.0);
 }
 

@@ -48,7 +48,7 @@ void main(void)
 	vec2 uv = ( gl_FragCoord.xy * 2.0 - iResolution.xy ) / min( iResolution.x, iResolution.y );
 	
 	// --- Kaleidoscope ---
-	uv = mix( uv, Kaleidoscope( uv, NUM_SIDES, iGlobalTime*10. ), USE_KALEIDOSCOPE ); 
+	uv = mix( uv, Kaleidoscope( uv, NUM_SIDES, iTime*10. ), USE_KALEIDOSCOPE ); 
 	
 	uv *= ZOOM_FACTOR+(BASS_INTENSITY)* (texture2D(iChannel0, vec2(.01,0)).r);
 	
@@ -68,7 +68,7 @@ void main(void)
 		
 		// center
 		vec2 pos = noise.xy;
-		pos += iGlobalTime * vel * 0.2;
+		pos += iTime * vel * 0.2;
 		pos = mix( fract( pos ),fract( pos ), mod( floor( pos ), 2.0 ) );
 		
 		//sound loudness to intensity

@@ -12,7 +12,7 @@ const vec3 lightPosition  = vec3(3.5,3.5,-1.0);
 const vec3 lightDirection = vec3(-0.5,0.5,-1.0);
 
 float displace(vec3 p) {
-	return ((sin(6.*p.x + iGlobalTime/4.1)*sin(6.*p.y)*sin(6.*p.z))*cos(iGlobalTime/4.1))*.5;
+	return ((sin(6.*p.x + iTime/4.1)*sin(6.*p.y)*sin(6.*p.z))*cos(iTime/4.1))*.5;
 }
 
 
@@ -70,7 +70,7 @@ float sball(vec3 p) {
 
 	
 float f(vec3 position) {
-	float tick = iGlobalTime * 0.5;
+	float tick = iTime * 0.5;
 	float dst  = displace(position);
 	float size = 0.245;
 	vec3 ball0;
@@ -127,7 +127,7 @@ void main(void)
 	float aspect = iResolution.x/iResolution.y;
 	vec3 near    = vec3((gl_FragCoord.x - 0.5 * iResolution.x) / iResolution.x * 2.0  * aspect,(gl_FragCoord.y - 0.5 * iResolution.y) / iResolution.y * 2.0,0.0);
 
-	tick = iGlobalTime;
+	tick = iTime;
 
 	vec3 vd = normalize(near - cam);
 	vd.x -= .03;

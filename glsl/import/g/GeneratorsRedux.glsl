@@ -33,7 +33,7 @@
 
 
 #define detail .0005//.00005
-#define t iGlobalTime*.25
+#define t iTime*.25
 
 
 
@@ -42,7 +42,7 @@ vec3 ambdir=normalize(vec3(0.,0.,1.));
 const vec3 origin=vec3(0.,3.11,0.);
 vec3 energy=vec3(0.01);
 #ifdef ENABLE_VIBRATION
-float vibration=sin(iGlobalTime*60.)*.0013;
+float vibration=sin(iTime*60.)*.0013;
 #else
 float vibration=0.;
 #endif
@@ -194,7 +194,7 @@ vec3 raymarch(in vec3 from, in vec3 dir)
 	vec3 origdir=dir,origfrom=from,sphNorm;
 	
 	//FAKING THE SQUISHY BALL BY MOVING A RAY TRACED BALL
-	vec3 wob=cos(dir*500.0*length(from-pth1)+(from-pth1)*250.+iGlobalTime*10.)*0.0005;
+	vec3 wob=cos(dir*500.0*length(from-pth1)+(from-pth1)*250.+iTime*10.)*0.0005;
 	float t1=Sphere(from-pth1+wob,dir,0.015);
 	float tg=Sphere(from-pth1+wob,dir,0.02);
 	if(t1>0.){
@@ -213,7 +213,7 @@ vec3 raymarch(in vec3 from, in vec3 dir)
 			d=de(p);
 			det=detail*(1.+totdist*60.)*(1.+ref*5.);
 			totdist+=d.x; 
-			energy=ENERGY_COLOR*(1.5+sin(iGlobalTime*20.+p.z*10.))*.25;
+			energy=ENERGY_COLOR*(1.5+sin(iTime*20.+p.z*10.))*.25;
 			if(d.x<0.015)glow+=max(0.,.015-d.x)*exp(-totdist);
 			if (d.y<.5 && d.x<0.03){//ONLY DOING THE GLOW WHEN IT IS CLOSE ENOUGH
 				float glw=min(abs(3.35-p.y-ey),abs(3.35-p.y+ey));//2 glows at once
@@ -280,8 +280,8 @@ void main(void)
 	color=pow(color,vec3(GAMMA))*BRIGHTNESS;
 	color=mix(vec3(length(color)),color,SATURATION);
 #ifdef ENABLE_POSTPROCESS
-	vec3 rain=pow(texture2D(iChannel0,uv2+iGlobalTime*7.25468).rgb,vec3(1.5));
-	color=mix(rain,color,clamp(iGlobalTime*.5-.5,0.,1.));
+	vec3 rain=pow(texture2D(iChannel0,uv2+iTime*7.25468).rgb,vec3(1.5));
+	color=mix(rain,color,clamp(iTime*.5-.5,0.,1.));
 	color*=1.-pow(length(uv2*uv2*uv2*uv2)*1.1,6.);
 	uv2.y *= iResolution.y / 360.0;
 	color.r*=(.5+abs(.5-mod(uv2.y     ,.021)/.021)*.5)*1.5;

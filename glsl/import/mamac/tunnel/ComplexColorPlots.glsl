@@ -95,9 +95,9 @@ vec2 cCon(in float a)  { return comp(a); }
 vec2 cCon(in int a)    { return comp(a); }
 
 vec2 f(in vec2 z) {
-    vec2 u = cMul(vec2(3, 0), cExpi(iGlobalTime/4.));
-    vec2 v = cMul(vec2(1, 0), cExpi(iGlobalTime/2.));
-    vec2 w = cMul(vec2(8, 0), cExpi(-iGlobalTime));
+    vec2 u = cMul(vec2(3, 0), cExpi(iTime/4.));
+    vec2 v = cMul(vec2(1, 0), cExpi(iTime/2.));
+    vec2 w = cMul(vec2(8, 0), cExpi(-iTime));
     
 	vec2 a = cPow(z, 1) + u;
     vec2 b = cInv(cPow(z, 2) + v);

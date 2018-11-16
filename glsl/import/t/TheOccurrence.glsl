@@ -245,7 +245,7 @@ void main(void)
     pp.x *= iResolution.x / iResolution.y;
     
 	// loop time
-	float sequenceTime = mod(iGlobalTime, SEQUENCE_LENGTH);
+	float sequenceTime = mod(iTime, SEQUENCE_LENGTH);
 	// force low fps to unsettle viewer
 	float fps = 15.;
 	float frameTime = 1./fps;

@@ -32,14 +32,14 @@ vec3 stepspace(
 float obj(in vec3 p)
 { 
   vec3 fp=stepspace(p,2.0);;
-  float d=sin(fp.x*0.3+iGlobalTime*4.0)+cos(fp.z*0.3+iGlobalTime*2.0);
+  float d=sin(fp.x*0.3+iTime*4.0)+cos(fp.z*0.3+iTime*2.0);
   p.y=p.y+d;
   p.xz=sim2d(p.xz,2.0);
   //c1 is IQ RoundBox from http://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm
   float c1=length(max(abs(p)-vec3(0.6,0.6,0.6),0.0))-0.35;
   //c2 is a Sphere
   float c2=length(p)-1.0;
-  float cf=sin(iGlobalTime)*0.5+0.5;
+  float cf=sin(iTime)*0.5+0.5;
   return mix(c1,c2,cf);
 }
 
@@ -157,7 +157,7 @@ void main(void){
  
   //Camera animation
   vec3 vuv=vec3(0,1,0);
-  vec3 vrp=vec3(iGlobalTime*4.0,0.0,0.0);
+  vec3 vrp=vec3(iTime*4.0,0.0,0.0);
   float mx=iMouse.x/iResolution.x*PI*2.0;
   float my=iMouse.y/iResolution.y*PI/2.01;
   if ((iMouse.x<=0.0)||(iMouse.y<=0.0)){mx=1.0,my=0.5;};//quick hack to detect no mouse input for thumbnail

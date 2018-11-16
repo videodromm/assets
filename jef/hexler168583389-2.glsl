@@ -1,13 +1,13 @@
 uniform vec3  iResolution;  // viewport resolution (in pixels)
 uniform vec3  iColor;
-uniform float iGlobalTime;
+uniform float iTime;
 uniform sampler2D	iChannel0;
 uniform sampler2D	iChannel1;
 uniform vec3 spectrum;
 
 void main(void) {
 	vec2 uv = abs(-1. + 2. * gl_FragCoord.xy / iResolution.xy);
-	uv += sin(spectrum.x*10.0+iGlobalTime);
+	uv += sin(spectrum.x*10.0+iTime);
 	uv.x = abs(uv.x - spectrum.x * 2.0);
 	float radius = length(uv);
 	float angle = atan(uv.y,uv.x);

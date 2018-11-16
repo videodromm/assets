@@ -16,7 +16,7 @@
   #define AOSteps 4
 #endif
 
-#define time iGlobalTime
+#define time iTime
 #define size iResolution
 #define tex iChannel0
 const vec3 LightDir=vec3(0.0,1.0,0.0),LightColor=vec3(1.0,0.99,0.9),SkyColor=vec3(0.1,0.16,0.27);

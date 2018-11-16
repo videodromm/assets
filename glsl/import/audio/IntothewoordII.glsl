@@ -12,13 +12,13 @@
 #define D 10.0 // distance from object
 
 #if 1
-#define FX abs(cos(mod(iGlobalTime, 1.0) * t * 32.0)) * 0.1
+#define FX abs(cos(mod(iTime, 1.0) * t * 32.0)) * 0.1
 #else
 #define FX 0.0
 #endif
 // Following is a dirty code
 
-#define T iGlobalTime
+#define T iTime
 //float BASS = texture2D(iChannel1, vec2(0.002, 0.0)).y;
 
 float BASS = texture2D(iChannel0, vec2(0.002, 0.0)).y;
@@ -52,7 +52,7 @@ float fn(vec3 A, vec3 B, vec3 U, float t, float f) {
 }
 bool is_dCM = false;
 float scene(vec3 p) {
-	p = rX(p, iGlobalTime);
+	p = rX(p, iTime);
 	float dCM = -sdTruncatedOctahedron(p, 16.0);
 	float t = dot(vec3(1.0, 0.0, 0.0), p - vec3(-0.5,0.0,0.0));
 	float dO = fn(vec3(-0.5,0.0,0.0),vec3(0.5,0.0,0.0),p,t,4.0 * BASS * sin(T + t * 0.5) * 2.0 * sin(T + t * 2.));

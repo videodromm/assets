@@ -2,7 +2,7 @@
 
 /* created by okanovic dragan (abstract algorithm) */
 
-#define time iGlobalTime
+#define time iTime
 //#define SHADING	// turn shading on/off
 //#define SHADOWS	// turn shadows on/off, works only if shading is enabled
 
@@ -159,7 +159,7 @@ void main( void )
     vec2 p = -1.0+2.0*q;
     p.x *= iResolution.x/iResolution.y;
     
-    float time = 5.0 + 4.*iGlobalTime + 20.0*iMouse.x/iResolution.x;
+    float time = 5.0 + 4.*iTime + 20.0*iMouse.x/iResolution.x;
 
     // camera   
     vec3 ro = vec3( 7.*cos(0.2*time),

@@ -6,7 +6,7 @@
 
 #define ITR 80
 #define FAR 40.
-#define time iGlobalTime
+#define time iTime
 float hash( float n ) { return fract(sin(n)*43758.5453); }
 
 vec3 rotx(vec3 p, float a)

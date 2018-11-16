@@ -5,7 +5,7 @@
 
 #define POINTS 20  		 // number of stars
 
-#define t iGlobalTime
+#define t iTime
 
 float hash (float i) { return 2.*fract(sin(i*7467.25)*1e5) - 1.; }
 //vec2  hash2(float i) { return vec2(hash(i),hash(i-.1)); }

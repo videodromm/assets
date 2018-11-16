@@ -21,8 +21,8 @@ float hash(in vec3 p)
 }
 
 float noise(in vec3 p){
-	p.y -= iGlobalTime * 2. + 2. * fft.x * fft.y;
-	p.z += iGlobalTime * .4 - fft.z;
+	p.y -= iTime * 2. + 2. * fft.x * fft.y;
+	p.z += iTime * .4 - fft.z;
 	p.x += 2. * cos(wav.y);
 	
     vec3 i = floor(p);
@@ -57,7 +57,7 @@ void main(void)
 
 	vec3 rd = normalize(vec3(.5, vc.x, vc.y));
 	vec3 c = 2. * vec3(fbm(rd)) * fft.xyz;
-	c += hash(uv.yxy * cos(iGlobalTime)) * .5 * fft.y;
+	c += hash(uv.yxy * cos(iTime)) * .5 * fft.y;
 	c *= .9 * smoothstep(length(uv * .5 - .25), .7, .4);
 	
 	gl_FragColor = vec4(c,1.);

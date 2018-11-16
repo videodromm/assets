@@ -14,10 +14,10 @@ void mainLeft(void)
     vec2 p = (2.0*gl_FragCoord.xy-iResolution.xy)/iResolution.y;
 
     float a = atan(p.x,p.y);
-    float r = length(p)*(0.8+0.2*sin(0.3*iGlobalTime));
+    float r = length(p)*(0.8+0.2*sin(0.3*iTime));
 
-    float w = cos(2.0*iGlobalTime+-r*2.0);
-    float h = 0.5+0.5*cos(12.0*a-w*7.0+r*8.0+ 0.7*iGlobalTime);
+    float w = cos(2.0*iTime+-r*2.0);
+    float h = 0.5+0.5*cos(12.0*a-w*7.0+r*8.0+ 0.7*iTime);
     float d = 0.25+0.75*pow(h,1.0*r)*(0.7+0.3*w);
 
     float f = sqrt(1.0-r/d)*r*2.5;
@@ -67,7 +67,7 @@ void main(void)
 
 	if (iFade == 1) 
 	{
-		float t = iGlobalTime;
+		float t = iTime;
 		float r = TIME_TOTAL - TIME_PADN - t;
 		outputcolor = mix(TRAN0, outputcolor, smoothstep(0.0, TIME_TRAN, r));		
 	}

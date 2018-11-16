@@ -8,7 +8,7 @@ const float TIME_TOTAL = (2.0 * TIME_TRAN) + TIME_INTR + TIME_PADN;
 
 void main(void)
 {
-	float ct = iGlobalTime/iRatio;
+	float ct = iTime/iRatio;
 	if ((ct > 8.0 && ct < 33.5)
 	|| (ct > 38.0 && ct < 88.5)
 	|| (ct > 93.0 && ct < 194.5))
@@ -20,8 +20,8 @@ void main(void)
 	for(int i=1;i<40;i++)
 	{
 		vec2 newp=p;
-		newp.x+=0.5/float(i)*cos(float(i)*p.y+beat+iGlobalTime*cos(ct)*0.3/40.0+0.03*float(i))+10.0;		
-		newp.y+=0.5/float(i)*cos(float(i)*p.x+beat+iGlobalTime*ct*0.3/50.0+0.03*float(i+10))+15.0;
+		newp.x+=0.5/float(i)*cos(float(i)*p.y+beat+iTime*cos(ct)*0.3/40.0+0.03*float(i))+10.0;		
+		newp.y+=0.5/float(i)*cos(float(i)*p.x+beat+iTime*ct*0.3/50.0+0.03*float(i+10))+15.0;
 		p=newp;
 	}
 	

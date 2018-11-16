@@ -40,7 +40,7 @@ void main(void) {
     
     bool reset = (iFrame < 5) || !keyPressed(0x20);
     
-    float t = iGlobalTime * TIME_SCALE;
+    float t = iTime * TIME_SCALE;
     float dt = iTimeDelta * TIME_SCALE;
     
     vec4 last = texture2D(iChannel0, uv / res);

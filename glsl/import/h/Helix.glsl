@@ -69,7 +69,7 @@ void main(void)
 	vec2 p = (gl_FragCoord.xy*2.0-iResolution.xy)/iResolution.y;
 	vec3 rd = normalize(vec3(p, -1.8));
 	vec3 ro = vec3(0.0, 0.0, 5.0);
-	vec4 q = quaternion(normalize(vec3(1.0)), iGlobalTime);
+	vec4 q = quaternion(normalize(vec3(1.0)), iTime);
 	rd = qtransform(q, rd);
 	ro = qtransform(q, ro);
     gl_FragColor=vec4(render(ro, rd), 1.0);

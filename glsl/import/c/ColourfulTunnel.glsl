@@ -2,7 +2,7 @@
 float tau = atan(1.)*8.;
 
 void main(void) {
-    float time = iGlobalTime;
+    float time = iTime;
     vec2 p = 2.0 * iZoom * (gl_FragCoord.xy/iResolution.xy- 0.5);
     p.x = p.x * 1.6;       
 	p.x -= iRenderXY.x;

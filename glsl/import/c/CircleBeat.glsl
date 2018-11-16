@@ -21,7 +21,7 @@ void main(void)
     float fff = (fft-0.4)*1.6;
     float fff2 = (fft2)*2.6;
     
-    float tim = iGlobalTime;
+    float tim = iTime;
     
     q = p - vec2(0.5, 0.5);
     

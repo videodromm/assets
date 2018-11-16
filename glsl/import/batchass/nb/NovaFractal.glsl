@@ -8,7 +8,7 @@ void main( void ) {
 	for (int i = 0; i < 40; i++) {
 		vec4 g = texture2D(iChannel0, c);
 		color += g;
-		float phi = atan(c.y, c.x) + iGlobalTime*0.01*iter;
+		float phi = atan(c.y, c.x) + iTime*0.01*iter;
 		float r = dot(c,c);
 		if (r < 16.0) {
     		c.x = ((cos(2.0*phi))/r) + p.x;

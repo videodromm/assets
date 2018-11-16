@@ -40,7 +40,7 @@ void main(void)
     float id = floor((st.x)/2.0);  
    
         float h = 0.0;
-        float time = iGlobalTime + h*(1.0/30.0);
+        float time = iTime + h*(1.0/30.0);
         
         vec3 col = vec3(0.2)*(1.0-0.08*st.x);
 

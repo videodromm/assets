@@ -3,7 +3,7 @@
 float map( in vec3 p )
 {
   p.y -= 0.5*abs(p.x);
-  float an = 0.5 - 0.5*sin(0.1*p.y + 5.0*iGlobalTime);
+  float an = 0.5 - 0.5*sin(0.1*p.y + 5.0*iTime);
   an = pow(an, 10.0);
   float r = 1.0 - 0.1 * an;
   return length(p) - r;

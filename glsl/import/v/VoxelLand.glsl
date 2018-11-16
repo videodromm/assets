@@ -40,18 +40,18 @@ void main () {
   float soundBass = texture2D (iChannel0, vec2 (0.0)).x;
   float soundTreble = texture2D (iChannel0, vec2 (0.9, 0.0)).x;
   #else
-  float soundBass = 0.6 + 0.4 * cos (iGlobalTime * 0.2);
-  float soundTreble = 0.5 + 0.5 * cos (iGlobalTime * 1.2);
+  float soundBass = 0.6 + 0.4 * cos (iTime * 0.2);
+  float soundTreble = 0.5 + 0.5 * cos (iTime * 1.2);
   #endif
 
   // Set the camera
-  vec3 origin = vec3 (0.0, 10.0 - 8.0 * cos (iGlobalTime * 0.3), iGlobalTime * 10.0);
-  float cameraAngle = iGlobalTime * 0.1;
+  vec3 origin = vec3 (0.0, 10.0 - 8.0 * cos (iTime * 0.3), iTime * 10.0);
+  float cameraAngle = iTime * 0.1;
   #ifdef SHADERTOY
   cameraAngle += 2.0 * M_PI * iMouse.x / iResolution.x;
   #endif
-  vec3 cameraForward = vec3 (cos (cameraAngle), cos (iGlobalTime * 0.3) - 1.5, sin (cameraAngle));
-  vec3 cameraUp = vec3 (0.2 * cos (iGlobalTime * 0.7), 1.0, 0.0);
+  vec3 cameraForward = vec3 (cos (cameraAngle), cos (iTime * 0.3) - 1.5, sin (cameraAngle));
+  vec3 cameraUp = vec3 (0.2 * cos (iTime * 0.7), 1.0, 0.0);
   mat3 cameraRotation;
   cameraRotation [2] = normalize (cameraForward);
   cameraRotation [0] = normalize (cross (cameraUp, cameraForward));
@@ -116,11 +116,11 @@ void main () {
     mapping *= 1.0 - voxelNormal;
     mapping += 0.5;
     float id = rand (voxelPosition);
-    vec3 color = rgb (vec3 (id + (iGlobalTime + floor (mapping.y)) * 0.05, 1.0, 1.0));
+    vec3 color = rgb (vec3 (id + (iTime + floor (mapping.y)) * 0.05, 1.0, 1.0));
     color += 0.5 * cos (id * vec3 (1.0, 2.0, 3.0));
     color *= smoothstep (0.9 - 0.6 * cos (soundBass * M_PI), 0.1, length (fract (mapping) - 0.5));
-    color *= 0.5 + 1.5 * smoothstep (0.85, 0.95, cos (id * iGlobalTime * 5.0));
-    color *= 0.5 + 0.5 * cos (id * iGlobalTime + M_PI * soundTreble);
+    color *= 0.5 + 1.5 * smoothstep (0.85, 0.95, cos (id * iTime * 5.0));
+    color *= 0.5 + 0.5 * cos (id * iTime + M_PI * soundTreble);
 
     // Mix the colors
     #if REFLECT_COUNT == 0

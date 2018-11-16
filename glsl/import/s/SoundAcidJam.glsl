@@ -208,9 +208,9 @@ void main( void )
 	uv.x *= iResolution.x / iResolution.y;
 	vec3 col = vec3(0.0);
 	float j = 0.008;
-	col  = pixel(uv, iGlobalTime, iGlobalTime);
-	/*col += pixel(uv, iGlobalTime + j * 1.0, iGlobalTime);
-	col += pixel(uv, iGlobalTime - j * 1.0, iGlobalTime);
+	col  = pixel(uv, iTime, iTime);
+	/*col += pixel(uv, iTime + j * 1.0, iTime);
+	col += pixel(uv, iTime - j * 1.0, iTime);
 	col /= 3.0;//*/
 	fragColor = vec4(col, 1.0);
 }

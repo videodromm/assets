@@ -11,7 +11,7 @@
 #define LAG_C 8.825
 
 vec2 getPoint(float n) {
-	float t = iGlobalTime * 0.1;
+	float t = iTime * 0.1;
 	//vec2 center = iResolution.xy / 2.0;
 	vec2 center = gl_FragCoord.xy / 2.0;
 	vec2 p = (

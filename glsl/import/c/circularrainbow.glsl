@@ -2,12 +2,12 @@
 
 float circle(vec2 uv, float diameter, float speed)
 {
-	float angle = iGlobalTime*speed;
+	float angle = iTime*speed;
 	uv*= mat2(  sin(angle), cos(angle),
 				cos(angle),-sin(angle));
 	
-	//float pixelate = 0.3;// 0.03-cos(iGlobalTime*0.1)*0.025;
-	float pixelate =  0.03-cos(iGlobalTime*0.1)*0.025;
+	//float pixelate = 0.3;// 0.03-cos(iTime*0.1)*0.025;
+	float pixelate =  0.03-cos(iTime*0.1)*0.025;
 	pixelate -= mod(pixelate,0.001);
 	uv -= mod(uv,pixelate)-pixelate*0.5;
 	return 1.0-smoothstep(0.005,0.01+pixelate,abs(length(uv)-diameter));

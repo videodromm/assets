@@ -44,7 +44,7 @@
 // - - - - - - - - - - - - -
 // Audio based signals
 float g_beatRate = 125./60.;
-float g_time = iGlobalTime;// iChannelTime[1];
+float g_time = iTime;// iChannelTime[1];
 float g_audioResponse = 1.;
 
 // audio signals

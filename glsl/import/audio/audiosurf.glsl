@@ -20,7 +20,7 @@ void main(void)
 	//vec4 s = texture2D(iChannel0, c);
 
 	//vec4 s = vec4(iFreq0, iFreq1, iFreq2, iFreq3);
-	c = vec2(0., A*s.y*sin((c.x*W+iGlobalTime*V)* 2.5)) + (c*2.-1.);
+	c = vec2(0., A*s.y*sin((c.x*W+iTime*V)* 2.5)) + (c*2.-1.);
 	float g = max(abs(s.y/(pow(c.y, 2.1*sin(s.x*PI))))*T,
 				  abs(.1/(c.y+EPS)));
 	gl_FragColor = vec4(g*g*s.y*.6, g*s.w*.44, g*g*.7, 1.);

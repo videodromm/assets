@@ -105,7 +105,7 @@ float fbm( in vec2 p )
 
 void main(void)
 {
-	float t = -iGlobalTime*0.03;
+	float t = -iTime*0.03;
 	vec2 uv = gl_FragCoord.xy / iResolution.xy-0.5;
 	uv.x *= iResolution.x/iResolution.y;
 	uv*= curvature*.05+0.0001;

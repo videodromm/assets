@@ -8,7 +8,7 @@ void main(void)
   	vec2 uv = gl_FragCoord.xy / iResolution.y;
     uv = uv*2.-1.;
     uv.x*=iResolution.x/iResolution.y;
-    uv+=iGlobalTime*.03;
+    uv+=iTime*.03;
 
     //float t = 8.*iMouse.x/iResolution.x;
     float t = 8./iResolution.x;
@@ -28,7 +28,7 @@ void main(void)
     c1 -= .01/abs(dot(f1,f1)-.25)+
           .01/abs(dot(f2,f2)-.25);
     
-    vec4 cch = sin(iGlobalTime*vec4(.1,.2,.3,0.));
+    vec4 cch = sin(iTime*vec4(.1,.2,.3,0.));
     
 	fragColor = abs(.5-c1*cch);
 }

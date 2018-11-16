@@ -1,5 +1,5 @@
 // https://www.shadertoy.com/view/MsjSW3
-#define t iGlobalTime
+#define t iTime
 mat2 m(float a){float c=cos(a), s=sin(a);return mat2(c,-s,s,c);}
 float map(vec3 p){
     p.xz*= m(t*0.4);p.xy*= m(t*0.3);

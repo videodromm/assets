@@ -48,7 +48,7 @@ float intersect(in vec3 rayOrigin, in vec3 rayDirection, out vec2 resT, out vec4
    resT = vec2(1000.0);
    float hitId = -1.0;
    float sphId = hitId;
-   mat4 rotationAngle = rotateY(-0.1 * iGlobalTime);
+   mat4 rotationAngle = rotateY(-0.1 * iTime);
    
    //check against spheres in the scene
    for (float x = -20.0; x <= 20.0; x += 10.0) {
@@ -58,9 +58,9 @@ float intersect(in vec3 rayOrigin, in vec3 rayDirection, out vec2 resT, out vec4
             sphId += 1.0;
             vec4 posSph = vec4(pos, 1.0);
             posSph = rotationAngle * posSph;
-            vec4 sphTry = vec4(posSph.x + 0.5*posSph.x*sin(0.3*iGlobalTime), 
-                           posSph.y + 0.25*posSph.y*sin(0.4*iGlobalTime),
-                           posSph.z + 0.25*posSph.z*sin(0.5*iGlobalTime),
+            vec4 sphTry = vec4(posSph.x + 0.5*posSph.x*sin(0.3*iTime), 
+                           posSph.y + 0.25*posSph.y*sin(0.4*iTime),
+                           posSph.z + 0.25*posSph.z*sin(0.5*iTime),
                            SPHERE_SIZE);
             vec2 tsph = iSphere(rayOrigin, rayDirection, sphTry);
             if(tsph.x > 0.0 && resT.y > tsph.x) {
@@ -94,8 +94,8 @@ void main(void)
    vec3 rayOrigin = vec3(0.0, 0.0, 40.0);
    vec3 rayDirection = normalize(vec3( (-1.0+2.0*uv) * vec2(aspectRatio, 1.0), -1.0));
    
-   mat4 rotY = rotateY(iGlobalTime);
-   light.y += 10.0*sin(iGlobalTime);
+   mat4 rotY = rotateY(iTime);
+   light.y += 10.0*sin(iTime);
    light = (vec4(light, 1.0) * rotY).xyz;
 
    //intersect the ray with scene

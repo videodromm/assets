@@ -8,7 +8,7 @@ vec2 rot(vec2 p, float r)
 
 float siso(vec3 p)
 {
-	float h = iGlobalTime * 1.5 + sin(iGlobalTime * 1.3) * 0.3;
+	float h = iTime * 1.5 + sin(iTime * 1.3) * 0.3;
 	float k = 0.05;
 	vec2  m = vec2(6, 5);
 	vec2  b = vec2(1, 0.5);
@@ -31,7 +31,7 @@ float iso(vec3 p)
 }
 
 void main( void ) {
-	float h = iGlobalTime;
+	float h = iTime;
 
 	vec2 uv  = -1.0 + 2.0 * ( gl_FragCoord.xy / iResolution.xy );
 	vec3 pos = vec3(0, 0, h*30.0);

@@ -2,9 +2,9 @@
 float myNoise(vec2 p)
 {
 	float f = texture2D(iChannel0,p * .1).x*.7;
-	f += texture2D(iChannel0,(p + vec2(.2635 * iGlobalTime *.25 ,.4579 * iGlobalTime * .25)) * .2).y * .5;
-	f += texture2D(iChannel0,(p - vec2(.2364 * iGlobalTime *.225,.7891 * iGlobalTime *.225)) * .4).x * .25;
-	f += texture2D(iChannel0,(p + vec2(.9484 * iGlobalTime *.111,.3591 * iGlobalTime *.014)) * .6).z * .225;
+	f += texture2D(iChannel0,(p + vec2(.2635 * iTime *.25 ,.4579 * iTime * .25)) * .2).y * .5;
+	f += texture2D(iChannel0,(p - vec2(.2364 * iTime *.225,.7891 * iTime *.225)) * .4).x * .25;
+	f += texture2D(iChannel0,(p + vec2(.9484 * iTime *.111,.3591 * iTime *.014)) * .6).z * .225;
 	return f;
 }
 //------------------------------------------------------------------------
@@ -16,7 +16,7 @@ float myNoise(vec2 p)
 //------------------------------------------------------------------------
 void doCamera( out vec3 camPos, out vec3 camTar, in float time, in float mouseX )
 {
-    float an = 0.*iGlobalTime + 10.0*mouseX;
+    float an = 0.*iTime + 10.0*mouseX;
 	camPos = vec3(3.5*sin(an),1.0,3.5*cos(an));
     camTar = vec3(0.0,0.0,0.0);
 }
@@ -53,7 +53,7 @@ float doModel( vec3 p )
 	vec2 uv = gl_FragCoord.xy / iResolution.xy ;
     
     float sp2 = texture2D( iChannel1, vec2( 0.025, 0.0 ) ).r;
-    float time = iGlobalTime + p.z;
+    float time = iTime + p.z;
     vec3 a = vec3((sin(time + (uv.y+sp2) * 5.)-.5)*.25,(cos(time + (uv.x+sp2) *3.)-.5)*.25,myNoise(uv)-.5) ;
     vec3 b = vec3(0.);
     float r = .5 ;
@@ -178,7 +178,7 @@ void main( void )
     
     // camera movement
     vec3 ro, ta;
-    doCamera( ro, ta, iGlobalTime, m.x );
+    doCamera( ro, ta, iTime, m.x );
 
     // camera matrix
     mat3 camMat = calcLookAtMatrix( ro, ta, 0.0 );  // 0.0 is the camera roll

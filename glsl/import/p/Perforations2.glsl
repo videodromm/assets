@@ -59,8 +59,8 @@ void main(void) {
 	// mess with this for all sorts of fun patterns
 	float theta = TAU / 6.0;
 	
-	float rot1 = 0.004 * TAU * iGlobalTime;
-	float rot2 = rot1 + TAU / 12.0 + TAU / 13.0 * sin(0.2 * iGlobalTime);
+	float rot1 = 0.004 * TAU * iTime;
+	float rot2 = rot1 + TAU / 12.0 + TAU / 13.0 * sin(0.2 * iTime);
 	
 	float scale1 = 16.0;
 	float scale2 = 16.0;

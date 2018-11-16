@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------
 void doCamera( out vec3 camPos, out vec3 camTar, in float time, in float mouseX )
 {
-    float an = 0.3*iGlobalTime;
+    float an = 0.3*iTime;
 	camPos = vec3(3.5*an,cos(5.*an),0.);
     
    // camPos = vec3(an/50., cos(an), 0.);
    // camPos = vec3(10., 0., 0.);
-    camTar = camPos + vec3(0., 0.,-iGlobalTime);
+    camTar = camPos + vec3(0., 0.,-iTime);
 }
 
 
@@ -42,8 +42,8 @@ float doSpheres(vec3 p, float r)
                 
 float doCrazyCube(vec3 pp)
 {
-    vec3 p = vec3( pp.x * cos(-iGlobalTime) + pp.y * sin(-iGlobalTime),
-                    -pp.x * sin(-iGlobalTime) + pp.y * cos(-iGlobalTime),
+    vec3 p = vec3( pp.x * cos(-iTime) + pp.y * sin(-iTime),
+                    -pp.x * sin(-iTime) + pp.y * cos(-iTime),
                      pp.z);
                   
    // p = mod (p, vec3(0., 0., 4.)) - vec3(0., 0., 2.);
@@ -58,7 +58,7 @@ float doCrazyCube(vec3 pp)
         
 float doModel( vec3 p )
 {
-	return min(doSpheres(p, sin(p.x*1.2 + iGlobalTime + p.y)/2.0 + 0.5), doCrazyCube(p));
+	return min(doSpheres(p, sin(p.x*1.2 + iTime + p.y)/2.0 + 0.5), doCrazyCube(p));
 }
 
 
@@ -185,10 +185,10 @@ void main( void )
     
     // camera movement
     vec3 ro, ta;
-    doCamera(ro, ta, iGlobalTime, m.x );
+    doCamera(ro, ta, iTime, m.x );
 
     // camera matrix
-    mat3 camMat = calcLookAtMatrix( ro, ta, iGlobalTime/5.);  // 0.0 is the camera roll
+    mat3 camMat = calcLookAtMatrix( ro, ta, iTime/5.);  // 0.0 is the camera roll
     
 	// create view ray
 	vec3 rd = normalize( camMat * vec3(uv.xy,2.0) ); // 2.0 is the lens length

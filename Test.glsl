@@ -281,7 +281,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     
     // Print Shader Time
     vec2 vPixelCoord1 = vec2(96.0, 5.0);
-    float fValue1 = iGlobalTime;
+    float fValue1 = iTime;
     fDigits = 6.0;
     float fIsDigit1 = PrintValue(fragCoord, vPixelCoord1, vFontSize, fValue1, fDigits, fDecimalPlaces);
     vColour = mix( vColour, vec3(0.0, 1.0, 1.0), fIsDigit1);

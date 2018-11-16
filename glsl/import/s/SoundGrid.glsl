@@ -124,13 +124,13 @@ void main(void)
 	uv.y*=iResolution.y/iResolution.x;
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
-	mat3 camrot=rotmat(normalize(vec3(0.,0.,1.)),iGlobalTime*25.)*rotmat(normalize(vec3(1.,0.*sin(iGlobalTime*.5),0.)),60.+30.*sin(iGlobalTime*.5));
+	mat3 camrot=rotmat(normalize(vec3(0.,0.,1.)),iTime*25.)*rotmat(normalize(vec3(1.,0.*sin(iTime*.5),0.)),60.+30.*sin(iTime*.5));
 	float s=.1,maxc=0.;
 	vec3 p1,p2,p3;
 	vec3 rotv=vec3(0.,0.,1.);
 	float h;
 	vec3 col=vec3(0.);
-	float dist=1.2+pow(abs(sin(iGlobalTime*.3)),5.)*.5;
+	float dist=1.2+pow(abs(sin(iTime*.3)),5.)*.5;
 	vec3 c=vec3(0.);
 	for (float y=0.; y<cells.y; y++) {
 		for (float x=0.; x<cells.x; x++) {

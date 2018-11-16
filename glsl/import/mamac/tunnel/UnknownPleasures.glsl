@@ -53,7 +53,7 @@ void main(void)
             float f = st.y - n;
             float y = f - 0.5;
             y -= WAVEHEIGHT 
-                * pow(fbm(st.x*10.504 +n*432.1 + 0.5*iGlobalTime), 3.)
+                * pow(fbm(st.x*10.504 +n*432.1 + 0.5*iTime), 3.)
                 * env
                 + (fbm(st.x*25.+n*1292.21)-0.32)*2. * 0.15;
             float grid = abs(y);

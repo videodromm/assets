@@ -17,7 +17,7 @@ float sphere(vec3 p, vec4 spr)
 float flame(vec3 p)
 {
 	float d = sphere(p*vec3(1.,.5,1.), vec4(.0,-1.,.0,1.));
-	return d + (noise(p+vec3(.0,iGlobalTime*2.,.0)) + noise(p*3.)*.5)*.25*(p.y) ;
+	return d + (noise(p+vec3(.0,iTime*2.,.0)) + noise(p*3.)*.5)*.25*(p.y) ;
 }
 
 float scene(vec3 p)

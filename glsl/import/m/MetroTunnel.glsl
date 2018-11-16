@@ -247,7 +247,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	vec4 mousePos = (iMouse / iResolution.xyxy) * 2.0 - 1.0;
 	vec2 screenPos = (fragCoord.xy / iResolution.xy) * 2.0 - 1.0;
-	vec3 cameraPos = vec3(0.0, 0.0, iGlobalTime * 2.0);
+	vec3 cameraPos = vec3(0.0, 0.0, iTime * 2.0);
 	//vec3 cameraPos = vec3(0.0);
 	
 	float cameraRotAngle = -0.7 * mousePos.x;
@@ -273,12 +273,12 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec3 color = materialDiffuse * 0.4;
 	
 	vec3 light1Pos = vec3(0.0, 1.1, 7.5 * mousePos.y + 12.0 + cameraPos.z);
-	//lightPos = vec3(0.0, 0.0, sin(iGlobalTime) * 4.0 + 6.0);
+	//lightPos = vec3(0.0, 0.0, sin(iTime) * 4.0 + 6.0);
 		
 	//float isLit = castShadowRay(rayPos, lightPos, 0.02, 0.001);
 	color += materialDiffuse * 18.0 * lightPointDiffuseShadow(rayPos, light1Pos, surfaceNormal);
 	
-	vec3 light2Pos = vec3(0.0, 1.1, 0.0);//vec3(0.0, 1.1, 15.0 * mousePos.w + 16.0 /*+ iGlobalTime * 2.0*/);
+	vec3 light2Pos = vec3(0.0, 1.1, 0.0);//vec3(0.0, 1.1, 15.0 * mousePos.w + 16.0 /*+ iTime * 2.0*/);
 	light2Pos.z = round(rayPos.z / 16.0) * 16.0;
 	
 	color += materialDiffuse * 18.0 * lightPointDiffuseShadow(rayPos, light2Pos, surfaceNormal);

@@ -18,8 +18,8 @@ float map( in vec3 p )
 	}
 	
 	// deform the sphere
-	d1 += 0.1 * sin( 10.0 * p.x + iGlobalTime );
-	//d1 += 0.1 * sin( 10.0 * p.x ) * sin( 10.0 * p.y + iGlobalTime ) * sin( 10.0 * p.z );
+	d1 += 0.1 * sin( 10.0 * p.x + iTime );
+	//d1 += 0.1 * sin( 10.0 * p.x ) * sin( 10.0 * p.y + iTime ) * sin( 10.0 * p.z );
 
 	// add a floor (plane)
 	float d2 = p.y + 1.0;

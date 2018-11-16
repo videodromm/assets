@@ -159,14 +159,14 @@ void main(void)
 	uv.y -= iRenderXY.y;
 	// warp the UV - warping a lot makes it more thin-streaky
 	// sin curve to modulate with time
-	uv += 0.05*(sin(6.3/4.*iGlobalTime)*2.-1.)
+	uv += 0.05*(sin(6.3/4.*iTime)*2.-1.)
 		* vec2(snoise2d(uv*4.),snoise2d(uv*2.));
 	
 	float sharpness = 1.5;
 	gl_FragColor.rgb =
 		// purple/yellow wave
-		vec3(iColor.r,0.5,sin(uv.x*6.3/1.+iGlobalTime*4.)*1.)
-		* smoothstep(0.4, 0.5, pow(snoise3d( vec3(uv*10., iGlobalTime )),sharpness));
+		vec3(iColor.r,0.5,sin(uv.x*6.3/1.+iTime*4.)*1.)
+		* smoothstep(0.4, 0.5, pow(snoise3d( vec3(uv*10., iTime )),sharpness));
 	
 	gl_FragColor.a = 1.;
 }

@@ -7,7 +7,7 @@ const float i3 = 0.5773502691896258;     // 1/sqrt(3)
 const mat2 tri2cart = mat2(1., 0.,   -.5,    s3);
 const mat2 cart2tri = mat2(1., 0.,    i3, 2.*i3);
 
-float t = iGlobalTime;
+float t = iTime;
 
 vec4 pick3(vec4 a, vec4 b, vec4 c, float u) {
 	float v = fract(u/3.);

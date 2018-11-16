@@ -15,7 +15,7 @@
 
 void main( void ) 
 {
-  float time = iGlobalTime * .5+23.0;
+  float time = iTime * .5+23.0;
     // uv should be the 0-1 uv of texture...
   vec2 uv = gl_FragCoord.xy / iResolution.xy;
     

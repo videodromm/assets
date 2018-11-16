@@ -6,7 +6,7 @@ float tunnel(vec3 p)
 
 float ribbon(vec3 p)
 {
-	return length(max(abs(p-vec3(cos(p.z*1.5)*.3,-.5+cos(p.z)*.2,.0))-vec3(.125,.02,iGlobalTime+3.),vec3(.0)));
+	return length(max(abs(p-vec3(cos(p.z*1.5)*.3,-.5+cos(p.z)*.2,.0))-vec3(.125,.02,iTime+3.),vec3(.0)));
 }
 
 float scene(vec3 p)
@@ -28,7 +28,7 @@ void main(void)
 	uv.y -= iRenderXY.y;
  
 	vec4 color = vec4(0.0);
-	vec3 org   = vec3(sin(iGlobalTime)*.5,cos(iGlobalTime*.5)*.25+.25,iGlobalTime);
+	vec3 org   = vec3(sin(iTime)*.5,cos(iTime*.5)*.25+.25,iTime);
 	vec3 dir   = normalize(vec3(uv.x*1.6,uv.y,1.0));
 	vec3 p     = org,pp;
 	float d    = .0;
@@ -50,13 +50,13 @@ void main(void)
 		d = scene(p);
 	 	p += d*dir;
 	}
-	color = max(dot(getNormal(p),vec3(.1,.1,.0)), .0) + vec4(.3,cos(iGlobalTime*.5)*.5+.5,sin(iGlobalTime*.5)*.5+.5,1.)*min(length(p-org)*.04, 1.);
+	color = max(dot(getNormal(p),vec3(.1,.1,.0)), .0) + vec4(.3,cos(iTime*.5)*.5+.5,sin(iTime*.5)*.5+.5,1.)*min(length(p-org)*.04, 1.);
 
 	//Ribbon Color
 	if(tunnel(pp)>ribbon(pp))
-		color = mix(color, vec4(cos(iGlobalTime*.3)*.5+.5,cos(iGlobalTime*.2)*.5+.5,sin(iGlobalTime*.3)*.5+.5,1.),.3);
+		color = mix(color, vec4(cos(iTime*.3)*.5+.5,cos(iTime*.2)*.5+.5,sin(iTime*.3)*.5+.5,1.),.3);
 
 	//Final Color
-	vec4 fcolor = ((color+vec4(f))+(1.-min(pp.y+1.9,1.))*vec4(1.,.8,.7,1.))*min(iGlobalTime*.5,1.);
+	vec4 fcolor = ((color+vec4(f))+(1.-min(pp.y+1.9,1.))*vec4(1.,.8,.7,1.))*min(iTime*.5,1.);
 	gl_FragColor = vec4(fcolor.xyz,1.0);
 }

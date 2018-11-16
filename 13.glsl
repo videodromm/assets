@@ -248,7 +248,7 @@ void main(void)
 {
    vec2 uv = iZoom * (gl_FragCoord.xy / iResolution.xy);
 
-	PopularTime=iGlobalTime+1.0;
+	PopularTime=iTime+1.0;
 	PopularBob=cos(PopularTime*12.0)*0.05;
 	PopularScroll=-15.0+mod(PopularTime*PopularWc_Scale,PopularWLen)*2.0;
 

@@ -58,7 +58,7 @@ void main(void)
     vec2 si = iResolution.xy;
 	vec2 uv = (fragCoord.xy*2.-si.xy) / min(si.x, si.y);
 
-	float t = iGlobalTime * 12.;
+	float t = iTime * 12.;
 	vec3 ro = vec3(0,-.5,t);
 	ro.xy -= path(ro);
 	

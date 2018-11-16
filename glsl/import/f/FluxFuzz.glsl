@@ -17,7 +17,7 @@ float func(vec3 p, float t){
 void main(void)
 {
     vec2 m = iMouse.xy/iResolution.xy;
-    float t = iGlobalTime;
+    float t = iTime;
     
  	vec2 uv = (-iResolution.xy+2.0*gl_FragCoord.xy) /iResolution.xx*10.;
     

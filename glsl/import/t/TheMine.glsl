@@ -165,7 +165,7 @@ void main(void) {
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
 	
-	vec3 ro = vec3(0.0, 0.0, -5.0*iGlobalTime-10.0);
+	vec3 ro = vec3(0.0, 0.0, -5.0*iTime-10.0);
 	ro.xy -= track(ro.z);
 	vec3 rd = normalize(vec3(uv, -1.0));
 	

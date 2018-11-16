@@ -11,7 +11,7 @@ const float TAU = 6.2832;
 
 void main(void) {   
     
-    float time = iGlobalTime;
+    float time = iTime;
 
     vec2 position = ( gl_FragCoord.xy / iResolution.xy );
     vec2 p = -1.0 + 2.0 * position;

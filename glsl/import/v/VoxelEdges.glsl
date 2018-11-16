@@ -50,7 +50,7 @@ float mapTerrain( vec3 p )
 	p.xz *= 0.6;
 
 	
-	float time = 0.5 + 0.15*iGlobalTime;
+	float time = 0.5 + 0.15*iTime;
 	float ft = fract( time );
 	float it = floor( time );
 	ft = smoothstep( 0.7, 1.0, ft );
@@ -153,11 +153,11 @@ void main( void )
     vec2 mo = iMouse.xy / iResolution.xy;
     if( iMouse.w<=0.00001 ) mo=vec2(0.0);
 	
-	float time = 2.0*iGlobalTime + 50.0*mo.x;
+	float time = 2.0*iTime + 50.0*mo.x;
     // camera
     vec3 ro = 20.5*normalize(vec3(cos(time), 0.5, sin(time)));
 	vec3 ta = vec3(0.0, 0.0, 0.0);
-	float cr = 0.2*cos(0.1*iGlobalTime);
+	float cr = 0.2*cos(0.1*iTime);
 	
 	ro = path( time );
 	ta = path( time+5.0 ) - vec3(0.0,6.0,0.0);
@@ -279,7 +279,7 @@ void main( void )
 	
         // blend to black & white		
         vec3 col2 = vec3(1.3)*(0.5+0.5*nor.y)*occ*www*(0.9+0.1*vvv)*exp( -0.04*t );;
-        float mi = sin(-1.57+0.5*iGlobalTime);
+        float mi = sin(-1.57+0.5*iTime);
         mi = smoothstep( 0.90, 0.95, mi );
         col = mix( col, col2, mi );
 	}
