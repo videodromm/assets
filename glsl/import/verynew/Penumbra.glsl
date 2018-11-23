@@ -1,6 +1,4 @@
-// https://www.shadertoy.com/view/XlKBDR
-// @lsdlive
-// CC-BY-NC-SA
+
 
 mat2 r2d(float a) {
 	float c = cos(a), s = sin(a);
@@ -72,9 +70,9 @@ float de(vec3 p) {
 	return d;
 }
 
-void mainImage(out vec4 fragColor, in vec2 fragCoord)
+void main(void)
 {
-vec2 uv = (fragCoord - .5*iResolution.xy) / iResolution.y;
+vec2 uv = (gl_FragCoord.xy - .5*iResolution.xy) / iResolution.y;
 
 float ri;
 float dt = iTime * 3.;
@@ -98,9 +96,9 @@ float dt = iTime * 3.;
 		d = max(abs(d), .002);// phantom mode trick from aiekick https://www.shadertoy.com/view/MtScWW
 		t += d * .8;
 	}
-
 	vec3 c = mix(vec3(.5, .4, .3), vec3(.2, .1, .2), uv.x + ri);
+
 	//c += g * .034;// glow trick from balkhan https://www.shadertoy.com/view/4t2yW1
 
-	fragColor = vec4(c, 1);
+	gl_FragColor = vec4(c, 1);
 }
