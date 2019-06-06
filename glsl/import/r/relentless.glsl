@@ -17,10 +17,6 @@
 // ** cleaned up code
 // ** added stuff to the gates
 
-
-
-float time = iTime;
-
 vec2 rotate(vec2 p, float a)
 {
 	return vec2(p.x * cos(a) - p.y * sin(a), p.x * sin(a) + p.y * cos(a));
@@ -76,7 +72,7 @@ vec3 noise31(float p)
 float sky(vec3 p)
 {
 	float a = atan(p.x, p.z);
-	float t = time * 0.1;
+	float t = iTime * 0.1;
 	float v = rand11(floor(a * 4.0 + t)) * 0.5 + rand11(floor(a * 8.0 - t)) * 0.25 + rand11(floor(a * 16.0 + t)) * 0.125;
 	return v;
 }
@@ -116,7 +112,7 @@ float circles(vec2 p)
 	l = length(p);
 	
 	
-	pp = rotate(p, time * 3.0);
+	pp = rotate(p, iTime * 3.0);
 	c = max(dot(pp, normalize(vec2(-0.2, 0.5))), -dot(pp, normalize(vec2(0.2, 0.5))));
 	c = min(c, max(dot(pp, normalize(vec2(0.5, -0.5))), -dot(pp, normalize(vec2(0.2, -0.5)))));
 	c = min(c, max(dot(pp, normalize(vec2(0.3, 0.5))), -dot(pp, normalize(vec2(0.2, 0.5)))));
@@ -127,7 +123,7 @@ float circles(vec2 p)
 	v = min(v, abs(l - 0.54) - 0.02);
 	v = min(v, abs(l - 0.64) - 0.05);
 	
-	pp = rotate(p, time * -1.333);
+	pp = rotate(p, iTime * -1.333);
 	c = max(dot(pp, A2V(-5.0)), -dot(pp, A2V(5.0)));
 	c = min(c, max(dot(pp, A2V(25.0 - 5.0)), -dot(pp, A2V(25.0 + 5.0))));
 	c = min(c, max(dot(pp, A2V(50.0 - 5.0)), -dot(pp, A2V(50.0 + 5.0))));
@@ -153,27 +149,27 @@ void main(void)
     uv.x -= iRenderXY.x;
     uv.y -= iRenderXY.y;    
 	
-	// using an iq styled camera this time :)
+	// using an iq styled camera this iTime :)
 	// ray origin
-	vec3 ro = 0.7 * vec3(cos(0.2 * time), 0.0, sin(0.2 * time));
-	ro.y = cos(0.6 * time) * 0.3 + 0.65;
+	vec3 ro = 0.7 * vec3(cos(0.2 * iTime), 0.0, sin(0.2 * iTime));
+	ro.y = cos(0.6 * iTime) * 0.3 + 0.65;
 	// camera look at
 	vec3 ta = vec3(0.0, 0.2, 0.0);
 	
 	// camera shake intensity
 	float shake = clamp(3.0 * (1.0 - length(ro.yz)), 0.3, 1.0);
-	float st = mod(time, 10.0) * 143.0;
+	float st = mod(iTime, 10.0) * 143.0;
 	
 	// build camera matrix
 	vec3 ww = normalize(ta - ro + noise31(st) * shake * 0.01);
-	vec3 uu = normalize(cross(ww, normalize(vec3(0.0, 1.0, 0.2 * sin(time)))));
+	vec3 uu = normalize(cross(ww, normalize(vec3(0.0, 1.0, 0.2 * sin(iTime)))));
 	vec3 vv = normalize(cross(uu, ww));
 	// obtain ray direction
 	vec3 rd = normalize(uv.x * uu + uv.y * vv + 1.0 * ww);
 	
 	// shaking and movement
 	ro += noise31(-st) * shake * 0.015;
-	ro.x += time * 2.0;
+	ro.x += iTime * 2.0;
 	
 	float inten = 0.0;
 	
@@ -199,8 +195,8 @@ void main(void)
 			// add some special fx to lowest layer
 			if(i == 3)
 			{
-				float crd = 0.0;//fract(time * 0.2) * 50.0 - 25.0;
-				float fxi = cos(vo.x * 0.2 + time * 1.5);//abs(crd - vo.x);
+				float crd = 0.0;//fract(iTime * 0.2) * 50.0 - 25.0;
+				float fxi = cos(vo.x * 0.2 + iTime * 1.5);//abs(crd - vo.x);
 				fx = clamp(smoothstep(0.9, 1.0, fxi), 0.0, 0.9) * 1.0 * rand12(vo.xy);
 				fx *= exp(-3.0 * vo.z) * 2.0;
 			}
@@ -235,7 +231,7 @@ void main(void)
 		{
 			vec2 pp = its.yz;
 			float spd = (1.0 + rand11(id) * 3.0) * 2.5;
-			pp.y += time * spd;
+			pp.y += iTime * spd;
 			pp += (rand21(id) * 2.0 - 1.0) * vec2(0.3, 1.0);
 			float rep = rand11(id) + 1.5;
 			pp.y = mod(pp.y, rep * 2.0) - rep;
@@ -249,7 +245,7 @@ void main(void)
 		}
 	}
 	
-	inten *= 0.4 + (sin(time) * 0.5 + 0.5) * 0.6;
+	inten *= 0.4 + (sin(iTime) * 0.5 + 0.5) * 0.6;
 	vec3 col = pow(vec3(inten), vec3(2.0, 0.15, 9.0));
 	// find a color for the computed intensity
 	col = pow(vec3(inten), iColor ); // 1.5 * vec3(0.15, 2.0, 9.0));	
