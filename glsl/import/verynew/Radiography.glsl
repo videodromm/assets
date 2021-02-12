@@ -62,9 +62,9 @@ float de(vec3 p) {
 	return d;
 }
 
-void mainImage(out vec4 fragColor, in vec2 fragCoord)
+void main(void)
 {
-	vec2 uv = ( fragCoord - .5*iResolution.xy ) / iResolution.y;
+	vec2 uv = ( fragCoord.xy - .5*iResolution.xy ) / iResolution.y;
 
 	vec3 ro = vec3(0, -iTime * 6., -0);
 	vec3 rd = normalize(vec3(uv, .4 - length(uv))); // fisheye learnt from xt95 & lamogui

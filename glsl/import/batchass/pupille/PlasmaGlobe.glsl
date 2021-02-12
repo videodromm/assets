@@ -1,7 +1,9 @@
+// Plasma Globe by nimitz (twitter: @stormoid)
 // https://www.shadertoy.com/view/XsjXRm
-//Plasma Globe by nimitz (twitter: @stormoid)
+// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+// Contact the author for other licensing options
 
-//looks best with around 20 rays
+//looks best with around 25 rays
 #define NUM_RAYS 13.
 
 #define VOLUMETRIC_STEPS 19
@@ -13,20 +15,19 @@
 
 
 mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,-s,s,c);}
-float noise( in float x ){return texture2D(iChannel0, vec2(x*.01,1.)).x;}
+float noise( in float x ){return textureLod(iChannel0, vec2(x*.01,1.),0.0).x;}
 
 float hash( float n ){return fract(sin(n)*43758.5453);}
 
-//iq's ubiquitous 3d noise
 float noise(in vec3 p)
 {
 	vec3 ip = floor(p);
-    vec3 f = fract(p);
-	f = f*f*(3.0-2.0*f);
+    vec3 fp = fract(p);
+	fp = fp*fp*(3.0-2.0*fp);
 	
-	vec2 uv = (ip.xy+vec2(37.0,17.0)*ip.z) + f.xy;
-	vec2 rg = texture2D( iChannel0, (uv+ 0.5)/256.0, -100.0 ).yx;
-	return mix(rg.x, rg.y, f.z);
+	vec2 tap = (ip.xy+vec2(37.0,17.0)*ip.z) + fp.xy;
+	vec2 rg = textureLod( iChannel0, (tap + 0.5)/256.0, 0.0 ).yx;
+	return mix(rg.x, rg.y, fp.z);
 }
 
 mat3 m3 = mat3( 0.00,  0.80,  0.60,
@@ -105,7 +106,7 @@ float march(in vec3 ro, in vec3 rd, in float startf, in float maxd, in float j)
 	float precis = 0.001;
     float h=0.5;
     float d = startf;
-    for( int i=0; i<iSteps; i++ )
+    for( int i=0; i<MAX_ITER; i++ )
     {
         if( abs(h)<precis||d>maxd ) break;
         d += h*1.2;
@@ -145,22 +146,18 @@ vec2 iSphere2(in vec3 ro, in vec3 rd)
     float c = dot(oc,oc) - 1.;
     float h = b*b - c;
     if(h <0.0) return vec2(-1.);
-    return vec2((-b - sqrt(h)), (-b + sqrt(h)));
+    else return vec2((-b - sqrt(h)), (-b + sqrt(h)));
 }
 
-void main(void)
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {	
-	vec2 uv = iZoom * (gl_FragCoord.xy/iResolution.xy-0.5);
-	uv.x *= float(iResolution.x )/ float(iResolution.y);
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;
-
-	uv.x*=iResolution.x/iResolution.y;
+	vec2 p = fragCoord.xy/iResolution.xy-0.5;
+	p.x*=iResolution.x/iResolution.y;
 	vec2 um = iMouse.xy / iResolution.xy-.5;
     
 	//camera
 	vec3 ro = vec3(0.,0.,5.);
-    vec3 rd = normalize(vec3(uv*.7,-1.5));
+    vec3 rd = normalize(vec3(p*.7,-1.5));
     mat2 mx = mm2(time*.4+um.x*6.);
     mat2 my = mm2(time*0.3+um.y*6.); 
     ro.xz *= mx;rd.xz *= mx;
@@ -200,6 +197,5 @@ void main(void)
         col += (0.1*nz*nz* vec3(0.12,0.12,.5) + 0.05*nz2*nz2*vec3(0.55,0.2,.55))*0.8;
     }
     
-	gl_FragColor = vec4(col*1.3, 1.0);
+	fragColor = vec4(col*1.3, 1.0);
 }
-

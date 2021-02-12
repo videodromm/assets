@@ -33,7 +33,7 @@ void main(void)
     uv.x = iTime * 2.0 - ints * 0.25 + 1.0/( r + .1*s);
     uv.y = 3.0*a/3.1416;
 
-    float colorShift = ((ints-r) * 55.0 + iChannelTime[1] + 200.0) * (0.02 + 0.02 * ints);
+    float colorShift = ((ints-r) * 55.0 + 200.0) * (0.02 + 0.02 * ints);//iChannelTime[1] + 
     vec3 col = texture2D(iChannel0,uv).xyz;
 	col *= 1.0 + 0.4 * ints;
     col.zx = mix(col.yz, col.xy, sin(colorShift));

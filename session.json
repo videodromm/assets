@@ -1,26 +1,7 @@
 {
-   "assets" : {
-      "moviefile" : "none.mov",
-      "movieplaybackdelay" : 14,
-      "wavefile" : "none.wav",
-      "waveplaybackdelay" : 17
-   },
    "settings" : {
-      "beatsperbar" : 1,
+      "beatsperbar" : 4,
       "bpm" : 166,
-      "endframe" : 1555222,
-      "fadeindelay" : 30,
-      "fadeoutdelay" : 15
-   },
-   "warp0" : {
-      "afboindex" : 1,
-      "ashaderindex" : 0,
-      "bfboindex" : 6,
-      "bshaderindex" : 0,
-      "name" : "",
-      "xfade" : 1
-   },
-   "warps" : {
-      "size" : 1
+      "endframe" : 20000000
    }
 }

@@ -389,8 +389,7 @@ float pe(vec2 uv) // period
     
     return r;
 }
-
-float rand(vec2 uv)
+/*float rand(vec2 uv)
 {    
     float r;
     r = hd(vec2(g_cw * .1, 0.), g_cw * .8, uv);
@@ -400,6 +399,18 @@ if (iSeed>0.8 ) r = min(r, vd(vec2(0., g_ch * .1), g_ch * .4, uv));
 if (sin(iFps*iSeed)>0.3 ) r = min(r, hd(vec2(g_cw * .1, g_ch), .8 * g_cw, uv));
 if (sin(iTime*iSeed)>0.6 ) r = min(r, vd(vec2(0., g_ch * .7), g_ch * .2, uv));
 if (sin(iTime*iSeed)>0.3 ) r = min(r, vd(vec2(g_cw, g_ch * .7), g_ch * .2, uv));
+    return r;
+}*/
+float rand(vec2 uv)
+{    
+    float r;
+    r = hd(vec2(g_cw * .1, 0.), g_cw * .8, uv);
+if (fract(iTime)>0.5 ) r = min(r, vd(vec2(g_cw, g_ch * .1), g_ch * .4, uv));
+if (sin(iTime)>0.7 ) r = min(r, hd(vec2(g_cw * .2, g_ch * .6), g_cw * .7, uv));
+if (iTime>0.8 ) r = min(r, vd(vec2(0., g_ch * .1), g_ch * .4, uv));
+if (sin(iFps)>0.3 ) r = min(r, hd(vec2(g_cw * .1, g_ch), .8 * g_cw, uv));
+if (sin(iTime)>0.6 ) r = min(r, vd(vec2(0., g_ch * .7), g_ch * .2, uv));
+if (sin(iTime)>0.3 ) r = min(r, vd(vec2(g_cw, g_ch * .7), g_ch * .2, uv));
     return r;
 }
 

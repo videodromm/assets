@@ -24,7 +24,7 @@ float torus(vec3 p) {
 float map(vec3 p) {
 	float ktt   = iTime;
 	float time  = ktt * 3.3 + sin(0.3 * ktt + sin(ktt * 0.5) + p.z * 0.43);
-	int   ctime = int(iChannelTime[0]);
+	int   ctime = int(iTime);
 	vec3  tp    = p;
 	vec3  up    = p;
 	
@@ -68,15 +68,12 @@ vec3 rnorm(vec3 ip) {
     iit - map(ip + h.yyx)));
 }
 
-void main(void) {
-	//float time   = float(int(iChannelTime[0]));
-	float time   = iChannelTime[0];
+void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
+	//float time   = float(int(iTime));
+	float time   = iTime;
 	
 	//direction
-	vec2 uv = 2.0 * iZoom * (gl_FragCoord.xy/iResolution.xy- 0.5);
-	uv.x *= float(iResolution.x )/ float(iResolution.y);
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;//	vec2  uv     = -1.0 + 2.0 * gl_FragCoord.xy / iResolution.xy;
+	vec2  uv     = -1.0 + 2.0 * fragCoord.xy / iResolution.xy;
 	vec3  dir    = normalize(vec3(uv * vec2(1.0, 0.75), 1.0)).yzx;
 	
 	//rotate
@@ -108,9 +105,8 @@ void main(void) {
 	
 	//screen-ppoino.
 	float Scr    = 1.0 - dot(uv, uv) * 0.5;
-	gl_FragColor = vec4(
+	fragColor = vec4(
 		0.2 * dir +
 		0.7 * D   * mix(vec3(1, 2, 3), vec3(4, 2, 1), D) +
 		fog, 1.0) * Scr;
 }
-

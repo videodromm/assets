@@ -3,7 +3,7 @@
 //		the live coding session has rised my motivation to start something with shader toy
 //		Used a lot of template/code from other shaders.
 //		Old school spiky ball effect.
-
+#define PI 3.1415926535897932384626433832795
 
 // Set up a camera looking at the scene.
 // origin - camera is positioned relative to, and looking at, this point

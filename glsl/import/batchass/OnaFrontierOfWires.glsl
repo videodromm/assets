@@ -1,6 +1,6 @@
 // https://www.shadertoy.com/view/4sSGDG
 
-#define LOOP_BODY p = pos;tof = time + i*0.5;p = vec3(p.x*sin(tof) + p.z*cos(tof),p.y, p.x*cos(tof) - p.z*sin(tof));tof*=1.3*i;p += vec3(4.,0.,0.);	p = vec3(p.x*sin(tof) + p.z*cos(tof),p.y,p.x*cos(tof) - p.z*sin(tof));	h = Hit(box(p, vec3(.4,20.,.2)),i); 	totalHit = hitUnion(h,totalHit);	i+=1.;
+#define LOOP_BODY p = pos;tof = sTime + i*0.5;p = vec3(p.x*sin(tof) + p.z*cos(tof),p.y, p.x*cos(tof) - p.z*sin(tof));tof*=1.3*i;p += vec3(4.,0.,0.);	p = vec3(p.x*sin(tof) + p.z*cos(tof),p.y,p.x*cos(tof) - p.z*sin(tof));	h = Hit(box(p, vec3(.4,20.,.2)),i); 	totalHit = hitUnion(h,totalHit);	i+=1.;
 
 struct Ray
 {
@@ -14,12 +14,12 @@ struct Hit
 	float index;
 };
 	
-float time;
+float sTime;
 float glowAmt;
 
 float onOff(float a, float b, float c)
 {
-	return clamp(c*sin(time + a*cos(time*b)),0.,1.);
+	return clamp(c*sin(sTime + a*cos(sTime*b)),0.,1.);
 }
 
 float glows(float index)
@@ -36,12 +36,11 @@ float box(vec3 pos, vec3 dims)
 
 Hit hitUnion(Hit h1, Hit h2)
 {
-	return h1.dist < h2.dist ? h1 : h2;
-}
-
-Hit hitSub(Hit h1, Hit h2)
-{
-	return h1.dist > -h2.dist ? Hit(h1.dist, h1.index) : Hit(-h2.dist, h2.index);
+	//return h1.dist < h2.dist ? h1 : h2; // this stopped working at some point?
+    if (h1.dist < h2.dist){
+        return h1;
+    }
+    return h2;
 }
 	
 Hit scene(vec3 pos)
@@ -51,7 +50,7 @@ Hit scene(vec3 pos)
 	/*for (float i = 0.; i < 5.; i+=1.)
 	{
 		vec3 p = pos;
-		float tof = time + i*0.5;
+		float tof = sTime + i*0.5;
 		p = vec3(p.x*sin(tof) + p.z*cos(tof), 
 					   p.y,
 					   p.x*cos(tof) - p.z*sin(tof));
@@ -84,7 +83,7 @@ Hit raymarch(Ray ray)
 	Hit hit;
 	hit.dist = 0.;
 	Hit curHit;
-	for (int i = 0; i < iSteps; i++)
+	for (int i = 0; i < 40; i++)
 	{
 		pos = ray.org + hit.dist * ray.dir;
 		curHit = scene(pos);
@@ -144,19 +143,16 @@ Ray createRay(vec3 center, vec3 lookAt, vec3 up, vec2 uv, float fov, float aspec
 	return ray;
 }
 
-void main(void)
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {	
-	vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;
+	vec2 uv = fragCoord.xy / iResolution.xy;
 	glowAmt = 0.;
-	time = iTime + uv.y*(0.17 + .14*clamp(sin(iTime*1.2)*2.,-1.,1.));
+	sTime = iTime + uv.y*(0.17 + .14*clamp(sin(iTime*1.2)*2.,-1.,1.));
 	vec3 cameraPos = vec3(6.,3.,-6.);
 	vec3 lookAt = vec3(0.);
-	vec3 up = vec3(sin(0.6*sin(time*1.4)),cos(0.6*sin(time*1.4)),0.);
+	vec3 up = vec3(sin(0.6*sin(sTime*1.4)),cos(0.6*sin(sTime*1.4)),0.);
 	float aspect = iResolution.x/iResolution.y;
 	Ray ray = createRay(cameraPos, lookAt, up, uv, 90., aspect);
 	vec3 col = render(ray);
-	gl_FragColor = vec4(col,1.0);
+	fragColor = vec4(col,1.0);
 }
-	//vec2 uv = gl_FragCoord.xy/iResolution.xy;//* vec2(1.0,1.0);

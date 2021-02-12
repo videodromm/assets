@@ -6,13 +6,15 @@
          "linear" : false,
          "resolution" : 16,
          "warp" : {
-            "afboindex" : 1,
-            "ashaderfilename" : "0.glsl",
-            "ashaderindex" : 0,
-            "bfboindex" : 6,
+            "afboindex" : 3,
+            "ashaderfilename" : "0",
+            "ashaderindex" : 1,
+            "atexturefilename" : "0.jpg",
+            "bfboindex" : 10,
             "brightness" : 1,
-            "bshaderfilename" : "1.glsl",
-            "bshaderindex" : 0,
+            "bshaderfilename" : "1",
+            "bshaderindex" : 2,
+            "btexturefilename" : "0.jpg",
             "controlpoints" : [
                {
                   "controlpoint" : 0,
@@ -35,7 +37,7 @@
                   "y" : 1
                }
             ],
-            "crossfade" : 1,
+            "crossfade" : 0,
             "height" : 2,
             "method" : "bilinear",
             "mixfboindex" : 0,

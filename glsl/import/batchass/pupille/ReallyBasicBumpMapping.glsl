@@ -1,10 +1,8 @@
 // https://www.shadertoy.com/view/Mdl3WH
 
 
-
-void main(void)
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-
 	vec2 lightPos = vec2(
 		(1.2 + sin(iTime)) * 0.4 * iResolution.x,
 		(1.2 + cos(iTime)) * 0.4 * iResolution.y
@@ -21,15 +19,14 @@ void main(void)
 	float refDist = 1.2 * iResolution.x / 500.0;
 		
 	
-	vec2 vecToLight = gl_FragCoord.xy - lightPos;
+	vec2 vecToLight = fragCoord.xy - lightPos;
 	float distToLight = length(vecToLight.xy / iResolution.xy);
 	vec2 dirToLight = normalize(vecToLight);
-	//vec2 curPos = gl_FragCoord.xy / iResolution.xy;
-	vec2 curPos = iZoom * gl_FragCoord.xy/iResolution.xy;//* vec2(1.0,1.0);
+	vec2 curPos = fragCoord.xy / iResolution.xy;
 	vec2 refPos = curPos.xy - (refDist * dirToLight.xy / iResolution.xy);
 	
-	vec4 curSample = texture2D(iChannel0, curPos);
-	vec4 refSample = texture2D(iChannel0, refPos);
+	vec4 curSample = texture(iChannel0, curPos);
+	vec4 refSample = texture(iChannel0, refPos);
 	
 	float curLumin = (curSample.x + curSample.y + curSample.z) * 0.33;
 	float refLumin = (refSample.x + refSample.y + refSample.z) * 0.33;
@@ -47,8 +44,6 @@ void main(void)
 	// Attenuate brightness based on distance from the light
 	float distanceBrightness = 1.0 - (distToLight / lightRadius);
 	
-	gl_FragColor.xyz = directionBrightness * distanceBrightness * curSample.xyz;
-	gl_FragColor.w = curSample.w;
+	fragColor.xyz = directionBrightness * distanceBrightness * curSample.xyz;
+	fragColor.w = curSample.w;
 }
-
-	

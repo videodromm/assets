@@ -28,7 +28,7 @@
 #define LightDir2 vec3(1.0,-0.62886,1.0)
 #define LightColor2 vec3(0.596078,0.635294,1.0)
 
-float time = iTime + 38.0;
+float sTime = iTime + 38.0;
 
 vec2 rotate(vec2 v, float a) {
 	return vec2(cos(a)*v.x + sin(a)*v.y, -sin(a)*v.x + cos(a)*v.y);
@@ -52,18 +52,18 @@ vec3 getLight(in vec3 color, in vec3 normal, in vec3 dir) {
 
 // Geometric orbit trap. Creates the 'cube' look.
 float trap(vec3 p){
-	return  length(p.x-0.5-0.5*sin(time/10.0)); // <- cube forms 
+	return  length(p.x-0.5-0.5*sin(sTime/10.0)); // <- cube forms 
 	//return  length(p.x-1.0); 
 	//return length(p.xz-vec2(1.0,1.0))-0.05; // <- tube forms
 	//return length(p); // <- no trap
 }
 
-vec3 offset = vec3(1.0+0.2*(cos(time/5.7)),0.3+0.1*(cos(time/1.7)),1.).xzy;
+vec3 offset = vec3(1.0+0.2*(cos(sTime/5.7)),0.3+0.1*(cos(sTime/1.7)),1.).xzy;
 
 // DE: Infinitely tiled Kaleidoscopic IFS. 
 //
 // For more info on KIFS, see: 
-// http://www.fractalforums.com/3d-fractal-generation/kaleidoscopic-%28escape-time-ifs%29/
+// http://www.fractalforums.com/3d-fractal-generation/kaleidoscopic-%28escape-sTime-ifs%29/
 float DE(in vec3 z)
 {	
 	// Folding 'tiling' of 3D space;
@@ -72,7 +72,7 @@ float DE(in vec3 z)
 	float d = 1000.0;
 	float r;
 	for (int n = 0; n < Iterations; n++) {
-		z.xz = rotate(z.xz, time/18.0);
+		z.xz = rotate(z.xz, sTime/18.0);
 		
 		// This is octahedral symmetry,
 		// with some 'abs' functions thrown in for good measure.
@@ -84,7 +84,7 @@ float DE(in vec3 z)
 		z = abs(z);
 		if (z.x-z.z<0.0) z.xz = z.zx;
 		z = z*Scale - offset*(Scale-1.0);
-		z.yz = rotate(z.yz, -time/18.0);
+		z.yz = rotate(z.yz, -sTime/18.0);
 		
 		d = min(d, trap(z) * pow(Scale, -float(n+1)));
 	}
@@ -123,7 +123,7 @@ float rand(vec2 co){
 
 vec4 rayMarch(in vec3 from, in vec3 dir, in vec2 pix) {
 	// Add some noise to prevent banding
-	float totalDistance = Jitter*rand(pix+vec2(time));
+	float totalDistance = Jitter*rand(pix+vec2(sTime));
 	
 	float distance;
 	int steps = 0;
@@ -152,11 +152,11 @@ vec4 rayMarch(in vec3 from, in vec3 dir, in vec2 pix) {
 
 void main(  )
 {
-	float angle = time/5.0;
+	float angle = sTime/5.0;
 	
 	// Camera position (eye), and camera target
-	vec3 camPos = 0.5*time*vec3(1.0,0.0,0.0);
-	vec3 target = camPos + vec3(1.0,0.5*cos(time),0.5*sin(0.4*time));
+	vec3 camPos = 0.5*sTime*vec3(1.0,0.0,0.0);
+	vec3 target = camPos + vec3(1.0,0.5*cos(sTime),0.5*sin(0.4*sTime));
 	vec3 camUp  = vec3(0.0,cos(angle),sin(angle));
 	
 	// Calculate orthonormal camera reference system

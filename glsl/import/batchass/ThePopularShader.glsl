@@ -214,9 +214,9 @@ vec3 PopularRoom(vec3 ro,vec3 rd,out vec3 rp,out vec3 n)
 
 vec3 PopularScene(vec2 p)
 {
-	//mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * 0.5);
+	mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * 0.05);
 	//mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * iRotationSpeed/15.0);
-	mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * iRotationSpeed/15.0);
+	//mat3 cam = PopularRotateXMat(cos(PopularTime * 0.2) * 0.1) * PopularRotateYMat(PopularTime * iRotationSpeed/15.0);
 	// white float lt=mod(PopularTime*PopularWc_Scale,PopularWLen)/PopularWLen;
 	float lt=mod(2.0*PopularWc_Scale,PopularWLen)/PopularWLen;
 	

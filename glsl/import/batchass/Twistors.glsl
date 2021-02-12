@@ -3,7 +3,7 @@
 // comment out these lines if you need more speed:
 #define SHADOWS
 #define REFLECTIONS
-
+#define PI 3.1415926535897932384626433832795
 #define R(p,a) p=cos(a)*p+sin(a)*vec2(-p.y,p.x);
 const float threshold = 0.001;
 const float maxIters = 50.;

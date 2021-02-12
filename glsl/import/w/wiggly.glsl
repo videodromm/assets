@@ -54,8 +54,8 @@ void main(void) {
   float fbmz = 1.0 + 0.1 * iTime;
   vec2 p = (gl_FragCoord.xy * s);
 
-  //float as = (4.0 * (1.0 - mouse.y) + (3.0 * (1.0 - mouse.x))) + 7.5;
-  float as = (4.0 * (1.0 - iFreq0/300.0) + (3.0 * (1.0 - mouse.x))) + 7.5;
+  float as = (4.0 * (1.0 - mouse.y) + (3.0 * (1.0 - mouse.x))) + 7.5;
+  //float as = (4.0 * (1.0 - iFreq0/300.0) + (3.0 * (1.0 - mouse.x))) + 7.5;
   float pdir = WigglyNat(p, fbmz, mouse.x) * 2.0 * WigglyPi * as;
   float d = as * 1.0 / length(iResolution);
   vec2 dp = vec2(d*sin(pdir), d * cos(pdir));

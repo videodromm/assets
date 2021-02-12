@@ -60,7 +60,7 @@ vec2 getGrad(vec2 pos, float eps)
 
 void main(void)
 {
-	vec2 pos = fragCoord+4.0*sin(iTime*1.*vec2(1,1.7))*iResolution.y/400.;
+	vec2 pos = fragCoord.xy+4.0*sin(iTime*1.*vec2(1,1.7))*iResolution.y/400.;
     vec3 col = vec3(0);
     vec3 col2 = vec3(0);
     float sum=0.;

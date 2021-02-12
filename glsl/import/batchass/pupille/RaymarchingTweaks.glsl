@@ -1,5 +1,6 @@
 // https://www.shadertoy.com/view/XdfSR2
-const float EPS = 0.03; // large epsilon to smooth edges and lower artifacts 
+const float EPS = 0.03; // large epsilon to smooth edges and lower artifacts
+const int MAXI = 150;	 
 const float MAXD = 30.; 
 
 vec3 hsv(float h,float s,float v) { 
@@ -56,7 +57,7 @@ vec3 renderworld(vec2 uv){
 
 	
 	// now we march along the ray a lot
-	for(int i = 0;i<iSteps;i++){
+	for(int i = 0;i<MAXI;i++){
 		dist = scenedist(camPos+rayDir*total); // distance to closest thing (safe jump distance)
 		total += dist;						   // add it to our progress
 		if(dist<EPS || dist>MAXD){continue;}   // quit if we hit something or are lost
@@ -78,13 +79,11 @@ vec3 renderworld(vec2 uv){
 	return mix(c, c2, clamp(0.8-(dest.z+1.0)/2.0, 0.0, 1.0)); 
 }
 
-void main(void)
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = iZoom * (gl_FragCoord.xy / iResolution.xy - 0.5) * vec2(2.0,2.0/(iResolution.x/iResolution.y)); 
-	uv.x -= iRenderXY.x;
-	uv.y -= iRenderXY.y;
+	vec2 uv = (fragCoord.xy / iResolution.xy - 0.5) * vec2(2.0,2.0/(iResolution.x/iResolution.y)); 
 	
 	vec3 c = renderworld(uv);
 	
-	gl_FragColor = vec4(c, 1.0);
+	fragColor = vec4(c, 1.0);
 }

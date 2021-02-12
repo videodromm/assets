@@ -3,7 +3,7 @@
 #ifdef GL_ES
 precision mediump float;
 #endif
-
+#define PI 3.1415926535897932384626433832795
 const float side = 0.3;
 const float angle = PI*1.0/3.0;
 const float sinA = 0.86602540378;

@@ -24,8 +24,8 @@
 #define LightDir2 vec3(1.0,-0.62886,1.0)
 #define LightColor2 vec3(0.9,0.8,1.0)
 
-float time = iTime + 38.0;
-float scale = 0.8+(0.1*cos(time/3.0));
+float sTime = iTime + 38.0;
+float scale = 0.8+(0.1*cos(sTime/3.0));
 
 vec2 rotate(vec2 v, float a) {
 	return vec2(cos(a)*v.x + sin(a)*v.y, -sin(a)*v.x + cos(a)*v.y);
@@ -60,14 +60,14 @@ vec3 getLight(in vec3 color, in vec3 normal, in vec3 dir, int mat) {
 
 
 
-vec3 offset = vec3(1.0+0.2*(cos(time/5.7)),0.3+0.1*(cos(time/1.7)),1.).xzy;
+vec3 offset = vec3(1.0+0.2*(cos(sTime/5.7)),0.3+0.1*(cos(sTime/1.7)),1.).xzy;
 
 
 float DE2(vec3 z, out int mat) { 
  float sphere = abs(length(z))-15.0;
  z*= scale;
  float base = (cos(z.x) * sin(z.y) + cos(z.y) * sin(z.z) + cos(z.z) * sin(z.x));
- float inverse = -base + (1.0+cos(time/4.0))*4.0;
+ float inverse = -base + (1.0+cos(sTime/4.0))*4.0;
  if (base>inverse) {
 	  mat = (sphere>-0.1) ? 0 : 2;
  } else {
@@ -123,7 +123,7 @@ float rand(vec2 co){
 
 vec4 rayMarch(in vec3 from, in vec3 dir) {
 	// Add some noise to prevent banding
-	float totalDistance = rand(gl_FragCoord.xy+vec2(time));
+	float totalDistance = rand(gl_FragCoord.xy+vec2(sTime));
 	
 	float distance;
 	int steps = 0;
@@ -162,10 +162,10 @@ float curve(float x) {
 
 void main(void)
 { 
-	float angle = time/5.0; 
+	float angle = sTime/5.0; 
 	
 	// Camera position (eye), and camera target
-	vec3 camPos =  19.0*vec3(1.0,0.5*curve(time*0.2),0.5*curve(7.0+0.3*time));
+	vec3 camPos =  19.0*vec3(1.0,0.5*curve(sTime*0.2),0.5*curve(7.0+0.3*sTime));
 	vec3 target = vec3(0.0);
 	vec3 camUp  = vec3(0.0,0.0,1.0);
 

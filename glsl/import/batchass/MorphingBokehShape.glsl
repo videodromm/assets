@@ -1,5 +1,5 @@
 // https://www.shadertoy.com/view/MtlGRn
-
+#define PI 3.1415926535897932384626433832795
 // Reference: http://www.crytek.com/download/Sousa_Graphics_Gems_CryENGINE3.pdf on slide 36
 // Implemented as GLSL example by Benjamin 'BeRo' Rosseaux - CC0
 

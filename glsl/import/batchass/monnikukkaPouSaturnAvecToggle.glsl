@@ -38,11 +38,11 @@ void main(void)
 	color /= 0.2 + pow(radius, 2.0);
 	
 	vec4 col = vec4(color, 1.0);
-	if (iFade == 1) 
+	/* if (iFade == 1) 
 	{
 		float t = iTime;
 		float r = TIME_TOTAL - TIME_PADN - t;
 		col = mix(TRAN0, col, smoothstep(0.0, TIME_TRAN, r));		
-	}
+	} */
 	gl_FragColor = col;
 }

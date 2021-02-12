@@ -1,6 +1,6 @@
 // https://www.shadertoy.com/view/lsSXzw
 // raymarcher from https://www.shadertoy.com/view/XsB3Rm
-
+#define PI 3.1415926535897932384626433832795
 // ray marching
 const int max_iterations = 80;
 const float stop_threshold = 0.001;

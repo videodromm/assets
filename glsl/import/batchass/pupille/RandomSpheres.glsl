@@ -1,18 +1,17 @@
 // https://www.shadertoy.com/view/4s23zR
+vec3 Q1=vec3(0,0,0);
+vec3 Q2=vec3(1,0,0);
+vec3 Q3=vec3(0,1,0);
+vec3 Q4=vec3(1,1,0);
 
-vec3 RandomSpheresQ1=vec3(0,0,0);
-vec3 RandomSpheresQ2=vec3(1,0,0);
-vec3 RandomSpheresQ3=vec3(0,1,0);
-vec3 RandomSpheresQ4=vec3(1,1,0);
+float tan_fov = 1.1917;
+float fov = 0.8726646;
 
-float RandomSpheresTan_fov = 1.1917;
-float RandomSpheresFov = 0.8726646;
-
-float RandomSpheresRand(vec2 co){
+float rand(vec2 co){
     return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
 }
 
-bool RandomSpheresCalc_light(vec3 ray_origin, vec3 ray_dir, vec3 light_pos, out float q)
+bool calc_light(vec3 ray_origin, vec3 ray_dir, vec3 light_pos, out float q)
 {
 	bool found = false;
 	
@@ -32,12 +31,12 @@ bool RandomSpheresCalc_light(vec3 ray_origin, vec3 ray_dir, vec3 light_pos, out 
 	return found;
 }
 
-bool RandomSpheresCalc_sphere(vec3 point, vec3 ray_origin, vec3 ray_dir, vec3 offset, out vec3 norm, out float q)
+bool calc_sphere(vec3 point, vec3 ray_origin, vec3 ray_dir, vec3 offset, out vec3 norm, out float q)
 {
 	vec3 ixyz = floor(point)-offset; 
 	vec3 centre = ixyz + 0.5; //sphere centres
-	centre.x += RandomSpheresRand(ixyz.xy);
-	centre.y += RandomSpheresRand(ixyz.xz);
+	centre.x += rand(ixyz.xy);
+	centre.y += rand(ixyz.xz);
 	//centre.z += random3(ixyz.yz);
 	
 	vec3 d = point - centre; //from centres of spheres to point
@@ -45,7 +44,7 @@ bool RandomSpheresCalc_sphere(vec3 point, vec3 ray_origin, vec3 ray_dir, vec3 of
 	
 	float t;
 
-	float r = 0.05 + 0.35*RandomSpheresRand(ixyz.xy+150.0*ixyz.z);
+	float r = 0.05 + 0.35*rand(ixyz.xy+150.0*ixyz.z);
 	
 	float A = dot(ray_dir, ray_dir);
 	float B = 2.0*dot(ray_dir, d);
@@ -69,17 +68,13 @@ bool RandomSpheresCalc_sphere(vec3 point, vec3 ray_origin, vec3 ray_dir, vec3 of
 	
 	return found;
 }
-void main(void)
+
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-   //vec2 uv = iZoom * gl_FragCoord.xy/iResolution.xy;
 	vec3 ray;
-	//ray.x = (2.0*gl_FragCoord.x/iResolution.y - iResolution.x/iResolution.y);
-	//ray.y = (2.0*gl_FragCoord.y/iResolution.y - 1.0);
-	ray.x = 2.0*iZoom * (gl_TexCoord[0].s- 0.5);
-	ray.y = 2.0*iZoom * (gl_TexCoord[0].t- 0.5);
-	ray.z = (0.5/RandomSpheresTan_fov) + 0.5*length(ray.xy)/(0.001+tan(RandomSpheresFov*length(ray.xy)));
-   ray.x -= iRenderXY.x;
-   ray.y -= iRenderXY.y;
+	ray.x = (2.0*fragCoord.x/iResolution.y - iResolution.x/iResolution.y);
+	ray.y = (2.0*fragCoord.y/iResolution.y - 1.0);
+	ray.z = (0.5/tan_fov) + 0.5*length(ray.xy)/(0.001+tan(fov*length(ray.xy)));
 	
 	ray = normalize(ray);//20.0;
 	
@@ -110,7 +105,7 @@ void main(void)
 	float to_camera = 100000.0;
 	float q;
 	
-	if(RandomSpheresCalc_light(origin, ray, light, q))
+	if(calc_light(origin, ray, light, q))
 	{
 		direct = 1.0;
 		to_camera = q;
@@ -120,15 +115,16 @@ void main(void)
 		exact_point = vec3(0,0,0);
 	}
 	
-	for(int n = 0; n < iSteps/2 ; n++)
+	for(int n = 0; n < 20 ; n++)
 	{
 		point = origin + t*ray;
 		if(pixel.w > 0.01)
 		{
 			if(found_count < 3)
+			//if(true)
 			{
 				found = false;
-				if(RandomSpheresCalc_sphere(point, origin, ray, RandomSpheresQ1, norm, q) )
+				if(calc_sphere(point, origin, ray, Q1, norm, q) )
 				{
 					if(q < to_camera)
 					{
@@ -136,9 +132,9 @@ void main(void)
 						light_ray = light-exact_point;
 						direct = dot(norm, light_ray)/dot(light_ray, light_ray);
 						to_camera = q;
-						ixyz = floor(point)-RandomSpheresQ1;
-						sphere_colour.g = 0.2 + 0.5*RandomSpheresRand(ixyz.xy+200.0);
-						sphere_colour.b = 0.2 + 0.5*RandomSpheresRand(ixyz.xz+200.0);
+						ixyz = floor(point)-Q1;
+						sphere_colour.g = 0.2 + 0.5*rand(ixyz.xy+200.0);
+						sphere_colour.b = 0.2 + 0.5*rand(ixyz.xz+200.0);
 						final_normal = norm;
 						refl = 0.05;
 					}
@@ -146,7 +142,7 @@ void main(void)
 				}
 				
 				
-				if(RandomSpheresCalc_sphere(point, origin, ray, RandomSpheresQ2, norm, q) )
+				if(calc_sphere(point, origin, ray, Q2, norm, q) )
 				{
 					if(q < to_camera)
 					{
@@ -154,16 +150,16 @@ void main(void)
 						light_ray = light-exact_point;
 						direct = dot(norm, light_ray)/dot(light_ray, light_ray);
 						to_camera = q;
-						ixyz = floor(point)-RandomSpheresQ2;
-						sphere_colour.g = 0.2 + 0.5*RandomSpheresRand(ixyz.xy+200.0);
-						sphere_colour.b = 0.2 + 0.5*RandomSpheresRand(ixyz.xz+200.0);
+						ixyz = floor(point)-Q2;
+						sphere_colour.g = 0.2 + 0.5*rand(ixyz.xy+200.0);
+						sphere_colour.b = 0.2 + 0.5*rand(ixyz.xz+200.0);
 						final_normal = norm;
 						refl = 0.05;
 					}
 					found=true;
 				}
 				
-				if(RandomSpheresCalc_sphere(point, origin, ray, RandomSpheresQ3, norm, q) )
+				if(calc_sphere(point, origin, ray, Q3, norm, q) )
 				{
 					if(q < to_camera)
 					{
@@ -171,9 +167,9 @@ void main(void)
 						light_ray = light-exact_point;
 						direct = dot(norm, light_ray)/dot(light_ray, light_ray);
 						to_camera = q;
-						ixyz = floor(point)-RandomSpheresQ3;
-						sphere_colour.g = 0.2 + 0.5*RandomSpheresRand(ixyz.xy+200.0);
-						sphere_colour.b = 0.2 + 0.5*RandomSpheresRand(ixyz.xz+200.0);
+						ixyz = floor(point)-Q3;
+						sphere_colour.g = 0.2 + 0.5*rand(ixyz.xy+200.0);
+						sphere_colour.b = 0.2 + 0.5*rand(ixyz.xz+200.0);
 						final_normal = norm;
 						refl = 0.05;
 					}
@@ -181,7 +177,7 @@ void main(void)
 				}
 				
 				
-				if(RandomSpheresCalc_sphere(point, origin, ray, RandomSpheresQ4, norm, q) )
+				if(calc_sphere(point, origin, ray, Q4, norm, q) )
 				{
 					if(q < to_camera)
 					{
@@ -189,9 +185,9 @@ void main(void)
 						light_ray = light-exact_point;
 						direct = dot(norm, light_ray)/dot(light_ray, light_ray);
 						to_camera = q;
-						ixyz = floor(point)-RandomSpheresQ4;
-						sphere_colour.g = 0.2 + 0.5*RandomSpheresRand(ixyz.xy+200.0);
-						sphere_colour.b = 0.2 + 0.5*RandomSpheresRand(ixyz.xz+200.0);
+						ixyz = floor(point)-Q4;
+						sphere_colour.g = 0.2 + 0.5*rand(ixyz.xy+200.0);
+						sphere_colour.b = 0.2 + 0.5*rand(ixyz.xz+200.0);
 						final_normal = norm;
 						refl = 0.05;
 					}
@@ -200,6 +196,46 @@ void main(void)
 				
 				
 				if((found)||(found_count != 0))found_count++;
+				//if(found)found_count++;
+				
+				/*
+				if(calc_sphere(point, origin, ray, vec3(0,0,1), norm, q) )
+				{
+					if(q < to_camera)
+					{
+						direct = dot(norm, vec3(0.0,0.0,-1.0));
+						to_camera = q;	
+					}
+					//found = true;
+				}
+				if(calc_sphere(point, origin, ray, vec3(1,0,1), norm, q) )
+				{
+					if(q < to_camera)
+					{
+						direct = dot(norm, vec3(0.0,0.0,-1.0));
+						to_camera = q;	
+					}
+					//found = true;
+				}
+				if(calc_sphere(point, origin, ray, vec3(0,1,1), norm, q) )
+				{
+					if(q < to_camera)
+					{
+						direct = dot(norm, vec3(0.0,0.0,-1.0));
+						to_camera = q;	
+					}
+					//found = true;
+				}
+				if(calc_sphere(point, origin, ray, vec3(1,1,1), norm, q) )
+				{
+					if(q < to_camera)
+					{
+						direct = dot(norm, vec3(0.0,0.0,-1.0));
+						to_camera = q;	
+					}
+					//found = true;
+				}
+				*/
 			}
 			else
 			{	
@@ -217,7 +253,7 @@ void main(void)
 				ray = reflect(ray, final_normal);
 				origin = exact_point;// + 1.01*ray;
 				
-				if(RandomSpheresCalc_light(origin, ray, light, q))
+				if(calc_light(origin, ray, light, q))
 				{
 					direct = 5.0;
 					to_camera = q;
@@ -241,16 +277,17 @@ void main(void)
 	
 	
 	
-	//gl_FragColor = vec4(to_camera/20.0, to_camera/20.0, to_camera/20.0, 1.0);
+	//fragColor = vec4(to_camera/20.0, to_camera/20.0, to_camera/20.0, 1.0);
 	
 	//sphere_colour = direct*sphere_colour;
 	
-	//gl_FragColor = vec4(direct,direct,direct,1.0);
-	//gl_FragColor = vec4(sphere_colour,1.0);
+	//fragColor = vec4(direct,direct,direct,1.0);
+	//fragColor = vec4(sphere_colour,1.0);
 	
 	pixel.r = pow(pixel.r,0.6);
 	pixel.g = pow(pixel.g,0.6);
 	pixel.b = pow(pixel.b,0.6);
-	pixel.w = 1.0;	
- gl_FragColor = vec4(vec3(pixel.r, pixel.g, pixel.b),1.0);
+	pixel.w = 1.0;
+	fragColor = pixel;
+	//fragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }

@@ -243,7 +243,7 @@ float lightPointDiffuseSpecularShadow(vec3 pos, vec3 lightPos, vec3 cameraPos, v
 	return max(0.0, color);
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
+void main( void )
 {
 	vec4 mousePos = (iMouse / iResolution.xyxy) * 2.0 - 1.0;
 	vec2 screenPos = (fragCoord.xy / iResolution.xy) * 2.0 - 1.0;

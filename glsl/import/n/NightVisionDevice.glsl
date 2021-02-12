@@ -97,12 +97,12 @@ void main(void)
 	vec4 base = texture2D(iChannel0, uv + vec2(offset * 0.02, 0.0));
 
 	vec4 col = base * mask * coloring * noising * lineNoise;
-	if (iFade == 1) 
+	/*if (iFade == 1) 
 	{
 		float t = iTime;
 		float r = TIME_TOTAL - TIME_PADN - t;
 		col = mix(TRAN0, col, smoothstep(0.0, TIME_TRAN, r));		
-	}
+	}*/
 	gl_FragColor=col;
 
 }

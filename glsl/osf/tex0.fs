@@ -1,5 +1,5 @@
 /*{
-	"CREDIT" : "tex0 by Unknown",
+	"CREDIT" : "tex0 by ",
 	"CATEGORIES" : [
 		"ci"
 	],
@@ -8,13 +8,6 @@
 		{
 			"NAME": "inputImage",
 			"TYPE" : "image"
-		},
-		{
-			"NAME": "iZoom",
-			"TYPE" : "float",
-			"MIN" : 0.0,
-			"MAX" : 1.0,
-			"DEFAULT" : 1.0
 		},
 		{
 			"NAME": "iSteps",
@@ -29,18 +22,5 @@
 			"DEFAULT" : [0.0, 0.0],
 			"MAX" : [640.0, 480.0],
 			"MIN" : [0.0, 0.0]
-		},
-		{
-			"NAME": "iColor", 
-			"TYPE" : "color", 
-			"DEFAULT" : [
-				0.9, 
-				0.6, 
-				0.0, 
-				1.0
-			]
 		}
-	],
-}
-*/
 void main(void){vec2 uv = gl_FragCoord.xy / RENDERSIZE.xy;fragColor = IMG_THIS_PIXEL(inputImage, uv);}

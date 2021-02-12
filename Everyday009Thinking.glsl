@@ -12,7 +12,7 @@
 //#define RENDER_AO
 
 const float PI = 3.14159265359;
-float time = 50.;
+float sTime = 50.;
 
 //------------------------------------------------------------------  OPERATIONS / PRIMITIVES
 //http://mercury.sexy/hg_sdf/
@@ -32,7 +32,7 @@ float pMod1(inout float p, float size) {
 //------------------------------------------------------------------ MAP
 float map( in vec3 pos ) {
     pos.y -= 23.;
-    pR(pos.xy,pos.z/20.-time);
+    pR(pos.xy,pos.z/20.-sTime);
     vec3 bp = pos;
     pMod1(bp.z,40.);
     float b = fBoxCheap(bp,vec3(10.,10.,2.));
@@ -109,7 +109,7 @@ float thickness( in vec3 p, in vec3 n, float maxDist, float falloff )
 //------------------------------------------------------------------ POSTEFFECTS
 
 #ifdef POSTPROCESS
-vec3 postEffects( in vec3 col, in vec2 uv, in float time )
+vec3 postEffects( in vec3 col, in vec2 uv, in float sTime )
 {
 	// vigneting
 	col *= 0.5+0.5*pow( 16.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y), 0.5 );
@@ -146,7 +146,7 @@ vec3 render( in vec3 ro, in vec3 rd, in vec2 uv )
 
     float thi = thickness(pos, nor, 4., 2.5);
 
-    vec3 lpos1 = vec3(0.,27.5,-time*50.);
+    vec3 lpos1 = vec3(0.,27.5,-sTime*50.);
 	vec3 ldir1 = normalize(lpos1-pos);
 	float latt1 = pow( length(lpos1-pos)*.1, 1. );
     float trans1 =  pow( clamp( max(0.,dot(-rd, -ldir1+nor)), 0., 1.), 1.) + 1.;
@@ -154,7 +154,7 @@ vec3 render( in vec3 ro, in vec3 rd, in vec2 uv )
 	col =  diff1;
 	col += vec3(.2,.2,.3) * (trans1/latt1)*thi;
     
-    vec3 lpos = vec3(80.,0.,-time*50.);
+    vec3 lpos = vec3(80.,0.,-sTime*50.);
     vec3 ldir = normalize(lpos-pos);
 	float latt = pow( length(lpos-pos)*.03, .1 );
     float trans =  pow( clamp( max(0.,dot(-rd, -ldir+nor)), 0., 1.), 1.) + 1.;
@@ -192,19 +192,19 @@ void main(void)
     vec2 p = -1. + 2. * uv;
     p.x *= iResolution.x / iResolution.y;
     
-    time = 42. + iTime;
+    sTime = 42. + iTime;
     //Camera
 	float radius = 50.;
 	vec3 ro = orbit(PI/2.-.5,PI/2.,radius);
-    ro.z -= time*50.;
-	vec3 ta  = vec3(ro.x, ro.y, ro.z-time*50.);
+    ro.z -= sTime*50.;
+	vec3 ta  = vec3(ro.x, ro.y, ro.z-sTime*50.);
 	mat3 ca = setCamera( ro, ta, 0. );
 	vec3 rd = ca * normalize( vec3(p.xy,1.5) );
 
 	// Raymarching
 	vec3 color = render( ro, rd, uv );
 	#ifdef POSTPROCESS
-	color = postEffects( color, uv, time );
+	color = postEffects( color, uv, sTime );
 	#endif
 	fragColor = vec4(color,1.0);
 }
