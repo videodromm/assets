@@ -4,8 +4,5 @@
   },
   "camera": {
     "name": "Camera"
-  },
-  "shared": {
-    "name": "Shared"
   }
 }
